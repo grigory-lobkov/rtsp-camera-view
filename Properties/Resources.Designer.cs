@@ -73,6 +73,36 @@ namespace RTSP_mosaic_VLC_player.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap btn_eject {
+            get {
+                object obj = ResourceManager.GetObject("btn_eject", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap btn_maximize {
+            get {
+                object obj = ResourceManager.GetObject("btn_maximize", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap btn_minimize {
+            get {
+                object obj = ResourceManager.GetObject("btn_minimize", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap btn_options {
             get {
                 object obj = ResourceManager.GetObject("btn_options", resourceCulture);
@@ -117,6 +147,34 @@ namespace RTSP_mosaic_VLC_player.Properties {
             get {
                 object obj = ResourceManager.GetObject("btn_vol_plus", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap btn_wait {
+            get {
+                object obj = ResourceManager.GetObject("btn_wait", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 16:9.
+        /// </summary>
+        internal static string defaultAspectRatio {
+            get {
+                return ResourceManager.GetString("defaultAspectRatio", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to https://get.videolan.org/vlc/2.1.5/win32/vlc-2.1.5-win32.exe.
+        /// </summary>
+        internal static string downloadVlcUrl {
+            get {
+                return ResourceManager.GetString("downloadVlcUrl", resourceCulture);
             }
         }
         
@@ -175,6 +233,15 @@ namespace RTSP_mosaic_VLC_player.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 3000.
+        /// </summary>
+        internal static string showHintTimer {
+            get {
+                return ResourceManager.GetString("showHintTimer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 30000.
         /// </summary>
         internal static string stopBadRtspTimer {
@@ -195,9 +262,9 @@ namespace RTSP_mosaic_VLC_player.Properties {
         /// <summary>
         ///   Looks up a localized string similar to 120000.
         /// </summary>
-        internal static string stopOtherRtspTimer {
+        internal static string stopOnInvisibleTimer {
             get {
-                return ResourceManager.GetString("stopOtherRtspTimer", resourceCulture);
+                return ResourceManager.GetString("stopOnInvisibleTimer", resourceCulture);
             }
         }
         
@@ -220,7 +287,7 @@ namespace RTSP_mosaic_VLC_player.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 1000.
+        ///   Looks up a localized string similar to 4000.
         /// </summary>
         internal static string switchToGoodRtspTimer {
             get {
