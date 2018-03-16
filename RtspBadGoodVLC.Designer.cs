@@ -1,6 +1,17 @@
 ﻿using System;
 using System.Windows.Forms;
 
+/********************
+ * Copyright 2018 Grigory Lobkov
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ *
+ * You may obtain a copy of the License at
+ * https://github.com/grigory-lobkov/rtsp-camera-view/blob/master/LICENSE
+ *
+ ********************/
+
 namespace RTSP_mosaic_VLC_player
 {
     partial class RtspBadGoodVLC
@@ -85,9 +96,9 @@ namespace RTSP_mosaic_VLC_player
             topPanel.BringToFront();
             topPanel.MouseEnter += new EventHandler(this.topPanel_MouseEnter);
             topPanel.MouseDoubleClick += new MouseEventHandler(this.topPanel_MouseDoubleClick);
-            //topPanel.MouseDown += new MouseEventHandler(this.topPanel_MouseDown);
-            //topPanel.MouseMove += new MouseEventHandler(this.topPanel_MouseMove);
-            //topPanel.MouseUp += new MouseEventHandler(this.topPanel_MouseUp);
+            topPanel.MouseDown += new MouseEventHandler(this.topPanel_MouseDown);
+            topPanel.MouseMove += new MouseEventHandler(this.topPanel_MouseMove);
+            topPanel.MouseUp += new MouseEventHandler(this.topPanel_MouseUp);
             topPanel.DragEnter += new DragEventHandler(this.topPanel_DragEnter);
             topPanel.DragDrop += new DragEventHandler(this.topPanel_DragDrop);
             // Timers

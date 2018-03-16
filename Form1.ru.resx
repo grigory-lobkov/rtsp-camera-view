@@ -119,83 +119,83 @@
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="largeIconsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>174, 22</value>
+    <value>186, 22</value>
   </data>
   <data name="largeIconsToolStripMenuItem.Text" xml:space="preserve">
     <value>Большие иконки</value>
   </data>
   <data name="smallIconsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>174, 22</value>
+    <value>186, 22</value>
   </data>
   <data name="smallIconsToolStripMenuItem.Text" xml:space="preserve">
     <value>Маленькие иконки</value>
   </data>
   <data name="largeListToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>174, 22</value>
+    <value>186, 22</value>
   </data>
   <data name="largeListToolStripMenuItem.Text" xml:space="preserve">
     <value>Большой список</value>
   </data>
   <data name="smallListToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>174, 22</value>
+    <value>186, 22</value>
   </data>
   <data name="smallListToolStripMenuItem.Text" xml:space="preserve">
     <value>Компактный список</value>
   </data>
   <data name="toolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>163, 22</value>
+    <value>171, 22</value>
   </data>
   <data name="toolStripMenuItem1.Text" xml:space="preserve">
     <value>Вид</value>
   </data>
   <data name="ascendingToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>133, 22</value>
+    <value>137, 22</value>
   </data>
   <data name="ascendingToolStripMenuItem.Text" xml:space="preserve">
     <value>Прямая</value>
   </data>
   <data name="descendingToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>133, 22</value>
+    <value>137, 22</value>
   </data>
   <data name="descendingToolStripMenuItem.Text" xml:space="preserve">
     <value>Обратная</value>
   </data>
   <data name="disabledToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>133, 22</value>
+    <value>137, 22</value>
   </data>
   <data name="disabledToolStripMenuItem.Text" xml:space="preserve">
     <value>Отключена</value>
   </data>
   <data name="toolStripMenuItem2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>163, 22</value>
+    <value>171, 22</value>
   </data>
   <data name="toolStripMenuItem2.Text" xml:space="preserve">
     <value>Сортировка</value>
   </data>
   <data name="toolStripSeparator1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 6</value>
+    <value>168, 6</value>
   </data>
   <data name="newCameraToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>163, 22</value>
+    <value>171, 22</value>
   </data>
   <data name="newCameraToolStripMenuItem.Text" xml:space="preserve">
     <value>Добавить камеру</value>
   </data>
   <data name="modifyCameraToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>163, 22</value>
+    <value>171, 22</value>
   </data>
   <data name="modifyCameraToolStripMenuItem.Text" xml:space="preserve">
     <value>Изменить камеру</value>
   </data>
   <data name="cameraContextMenuStrip.Size" type="System.Drawing.Size, System.Drawing">
-    <value>164, 98</value>
+    <value>172, 98</value>
   </data>
   <data name="cameraIconsImageList.ImageStream" mimetype="application/x-microsoft.net.object.binary.base64">
     <value>
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAACc
-        EQAAAk1TRnQBSQFMAgEBAgEAASgBAQEoAQEBZAEAAWQBAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
+        EQAAAk1TRnQBSQFMAgEBAgEAATgBAQE4AQEBZAEAAWQBAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
         AwABkAEBAgABZAMAAQEBAAEIBQABQAGcGAABgAIAAYADAAKAAQABgAMAAYABAAGAAQACgAIAA8ABAAHA
         AdwBwAEAAfABygGmAQABMwUAATMBAAEzAQABMwEAAjMCAAMWAQADHAEAAyIBAAMpAQADVQEAA00BAANC
         AQADOQEAAYABfAH/AQACUAH/AQABkwEAAdYBAAH/AewBzAEAAcYB1gHvAQAB1gLnAQABkAGpAa0CAAH/
@@ -273,6 +273,18 @@
         /wD/AP8A/wD/AGUACw==
 </value>
   </data>
+  <data name="camNameShowInheritCheck.Size" type="System.Drawing.Size, System.Drawing">
+    <value>97, 17</value>
+  </data>
+  <data name="camNameShowInheritCheck.Text" xml:space="preserve">
+    <value>по умолчанию</value>
+  </data>
+  <data name="camNameShowCheck.Size" type="System.Drawing.Size, System.Drawing">
+    <value>86, 17</value>
+  </data>
+  <data name="camNameShowCheck.Text" xml:space="preserve">
+    <value>отображать</value>
+  </data>
   <data name="camNameLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>100, 13</value>
   </data>
@@ -328,6 +340,9 @@ rtsp://192.168.1.4:554/av0_1&amp;user=admin&amp;password=1111</value>
   <data name="camEditRtsp1Label.Text" xml:space="preserve">
     <value>Подключение RTSP плохого качества</value>
   </data>
+  <data name="camNameShowModifyLabel.Text" xml:space="preserve">
+    <value>изменить...</value>
+  </data>
   <data name="camerasListView.Items" mimetype="application/x-microsoft.net.object.binary.base64">
     <value>
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
@@ -364,8 +379,20 @@ rtsp://192.168.1.4:554/av0_1&amp;user=admin&amp;password=1111</value>
         AAAACw==
 </value>
   </data>
-  <data name="tabPage1.Text" xml:space="preserve">
-    <value>Камеры</value>
+  <data name="camerasPage.Text" xml:space="preserve">
+    <value>Источники</value>
+  </data>
+  <data name="matrixSaveLabel.Text" xml:space="preserve">
+    <value>ок</value>
+  </data>
+  <data name="matrixDimensionsLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>107, 13</value>
+  </data>
+  <data name="matrixDimensionsLabel.Text" xml:space="preserve">
+    <value>Размерность сетки</value>
+  </data>
+  <data name="camNameViewGlbButton.Text" xml:space="preserve">
+    <value>Отображение имени по умолчанию</value>
   </data>
   <data name="developerLinkLabel.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 45</value>
@@ -379,7 +406,7 @@ rtsp://192.168.1.4:554/av0_1&amp;user=admin&amp;password=1111</value>
   <data name="commandLineHelpButton.Text" xml:space="preserve">
     <value>Параметры коммандной строки</value>
   </data>
-  <data name="tabPage2.Text" xml:space="preserve">
+  <data name="optionsPage.Text" xml:space="preserve">
     <value>Настройки</value>
   </data>
   <data name="cameraDeleteConfirm2.Text" xml:space="preserve">
@@ -461,9 +488,12 @@ rtsp://192.168.1.4:554/av0_1&amp;user=admin&amp;password=1111</value>
 чтобы Добавить/Просмотреть список
 доступных камер</value>
   </data>
+  <data name="errorSetCamera.Text" xml:space="preserve">
+    <value>Установлена неподдерживаемая версия VLC</value>
+  </data>
   <data name="errorInitVLCbadLib.Text" xml:space="preserve">
-    <value>Полностью удалите VLC и установитеего последнюю версию
-Попробуйте скачать последнюю версию "RTSP mosaic VLC player"</value>
+    <value>Полностью удалите VLC и установите его рекомендуемую версию
+Или попробуйте скачать последнюю версию "RTSP mosaic VLC player"</value>
   </data>
   <data name="errorInitVLCbadLibVer.Text" xml:space="preserve">
     <value>Похоже, что установленная версия libvlc.dll / axvlc.dll слишком старая</value>

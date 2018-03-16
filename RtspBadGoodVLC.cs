@@ -4,10 +4,22 @@ using System.Windows.Forms;
 using AxAXVLC;
 
 public enum VlcStatus { Stopped = 0, Playing = 1, Buffering = 2, Preparing = 3, Invisible = 4 };
-/***** TODO:
- * Не рисовать PaintWait, когда поверх уже нарисовалось видео
+
+/********************
+ * Copyright 2018 Grigory Lobkov
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ *
+ * You may obtain a copy of the License at
+ * https://github.com/grigory-lobkov/rtsp-camera-view/blob/master/LICENSE
+ *
+ *
+ * TODO:
+ * Не рисовать PaintWait, когда поверх уже нарисовалось видео =
+ * = Do not draw PaintWait, when video is drown upside
  * 
- *****/
+ ********************/
 
 namespace RTSP_mosaic_VLC_player
 {

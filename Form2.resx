@@ -117,4 +117,532 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="backgroundCheckBox.Text" xml:space="preserve">
+    <value>Background</value>
+  </data>
+  <data name="&gt;&gt;cancelButton.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;textColorLabel.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="positioningLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 13</value>
+  </data>
+  <data name="&gt;&gt;camNameLabel.Name" xml:space="preserve">
+    <value>camNameLabel</value>
+  </data>
+  <data name="&gt;&gt;textColorPanel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="camNameLabel.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;textColorButton.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="&gt;&gt;cancelButton.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;topCenterButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;backgroundPanel.Name" xml:space="preserve">
+    <value>backgroundPanel</value>
+  </data>
+  <data name="&gt;&gt;textSizeLabel.Name" xml:space="preserve">
+    <value>textSizeLabel</value>
+  </data>
+  <data name="&gt;&gt;backgroundCheckBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="textColorLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;autoHideTrackBar.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;positioningLabel.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="topLeftButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>50, 20</value>
+  </data>
+  <data name="autoHideTrackBar.Size" type="System.Drawing.Size, System.Drawing">
+    <value>247, 45</value>
+  </data>
+  <data name="positioningLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>58, 13</value>
+  </data>
+  <data name="camNameLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="bottomCenterButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>95, 104</value>
+  </data>
+  <data name="topRightButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>192, 3</value>
+  </data>
+  <data name="bottomLeftButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 104</value>
+  </data>
+  <data name="&gt;&gt;bottomCenterButton.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;textSizeTrackBar.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;bottomRightButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;bottomLeftButton.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="backgroundButton.Text" xml:space="preserve">
+    <value>...</value>
+  </data>
+  <data name="&gt;&gt;bottomLeftButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;topLeftButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;textColorButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;positioningLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="textColorLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 189</value>
+  </data>
+  <data name="okButton.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Camera name view options</value>
+  </data>
+  <data name="&gt;&gt;positioningLabel.Name" xml:space="preserve">
+    <value>positioningLabel</value>
+  </data>
+  <data name="&gt;&gt;autoHideTrackBar.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TrackBar, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="bottomRightButton.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="&gt;&gt;okButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="positioningLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;backgroundCheckBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="backgroundButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>31, 23</value>
+  </data>
+  <data name="bottomRightButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>50, 20</value>
+  </data>
+  <data name="&gt;&gt;camNameLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
+  </data>
+  <data name="topCenterButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>50, 20</value>
+  </data>
+  <data name="&gt;&gt;topLeftButton.Name" xml:space="preserve">
+    <value>topLeftButton</value>
+  </data>
+  <data name="positioningLabel.Text" xml:space="preserve">
+    <value>Positioning</value>
+  </data>
+  <data name="textColorLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>54, 13</value>
+  </data>
+  <data name="&gt;&gt;textSizeLabel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="okButton.Text" xml:space="preserve">
+    <value>Ok</value>
+  </data>
+  <data name="&gt;&gt;backgroundPanel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;textColorButton.Name" xml:space="preserve">
+    <value>textColorButton</value>
+  </data>
+  <data name="&gt;&gt;autoHideTrackBar.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="textColorButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>31, 23</value>
+  </data>
+  <data name="&gt;&gt;textColorPanel.ZOrder" xml:space="preserve">
+    <value>13</value>
+  </data>
+  <data name="&gt;&gt;bottomRightButton.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;positioningPanel.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="&gt;&gt;textColorLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;okButton.Name" xml:space="preserve">
+    <value>okButton</value>
+  </data>
+  <data name="textSizeLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="&gt;&gt;topRightButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;textSizeTrackBar.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TrackBar, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;okButton.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="backgroundCheckBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>15, 221</value>
+  </data>
+  <data name="textSizeLabel.Text" xml:space="preserve">
+    <value>Text size</value>
+  </data>
+  <data name="&gt;&gt;topLeftButton.Parent" xml:space="preserve">
+    <value>positioningPanel</value>
+  </data>
+  <data name="backgroundPanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>82, 23</value>
+  </data>
+  <data name="autoHideTrackBar.Location" type="System.Drawing.Point, System.Drawing">
+    <value>34, 353</value>
+  </data>
+  <data name="&gt;&gt;topRightButton.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="backgroundCheckBox.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;textColorPanel.Name" xml:space="preserve">
+    <value>textColorPanel</value>
+  </data>
+  <data name="camNameLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>101, 55</value>
+  </data>
+  <data name="textSizeLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>CamNameConfigForm</value>
+  </data>
+  <data name="backgroundCheckBox.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;colorDialog.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ColorDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="camNameLabel.Text" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="autoHideTrackBar.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="autoHideCheckBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>112, 17</value>
+  </data>
+  <data name="&gt;&gt;textSizeTrackBar.Name" xml:space="preserve">
+    <value>textSizeTrackBar</value>
+  </data>
+  <data name="cancelButton.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="&gt;&gt;backgroundButton.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="positioningPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>34, 36</value>
+  </data>
+  <data name="&gt;&gt;textColorButton.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="bottomLeftButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>50, 20</value>
+  </data>
+  <data name="&gt;&gt;backgroundButton.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="positioningLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;bottomLeftButton.Parent" xml:space="preserve">
+    <value>positioningPanel</value>
+  </data>
+  <data name="&gt;&gt;autoHideCheckBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;backgroundPanel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterScreen</value>
+  </data>
+  <data name="&gt;&gt;bottomRightButton.Name" xml:space="preserve">
+    <value>bottomRightButton</value>
+  </data>
+  <data name="&gt;&gt;topCenterButton.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;autoHideCheckBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;okButton.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;textSizeLabel.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="topCenterButton.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="textColorLabel.Text" xml:space="preserve">
+    <value>Text color</value>
+  </data>
+  <data name="okButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="&gt;&gt;backgroundCheckBox.Name" xml:space="preserve">
+    <value>backgroundCheckBox</value>
+  </data>
+  <data name="camNameLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="textSizeTrackBar.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="backgroundButton.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="topRightButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>50, 20</value>
+  </data>
+  <data name="&gt;&gt;camNameLabel.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="autoHideCheckBox.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;textColorLabel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;positioningPanel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="textSizeTrackBar.Location" type="System.Drawing.Point, System.Drawing">
+    <value>34, 271</value>
+  </data>
+  <data name="textColorPanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>82, 23</value>
+  </data>
+  <data name="&gt;&gt;bottomLeftButton.Name" xml:space="preserve">
+    <value>bottomLeftButton</value>
+  </data>
+  <data name="&gt;&gt;positioningLabel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;backgroundCheckBox.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;bottomCenterButton.Name" xml:space="preserve">
+    <value>bottomCenterButton</value>
+  </data>
+  <data name="topCenterButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>95, 3</value>
+  </data>
+  <data name="&gt;&gt;autoHideCheckBox.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;autoHideCheckBox.Name" xml:space="preserve">
+    <value>autoHideCheckBox</value>
+  </data>
+  <data name="autoHideCheckBox.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="camNameLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>35, 13</value>
+  </data>
+  <data name="&gt;&gt;topCenterButton.Name" xml:space="preserve">
+    <value>topCenterButton</value>
+  </data>
+  <data name="&gt;&gt;textColorPanel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="textColorButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>250, 184</value>
+  </data>
+  <data name="cancelButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>170, 411</value>
+  </data>
+  <data name="bottomLeftButton.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="&gt;&gt;backgroundPanel.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="topLeftButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="cancelButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="okButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>67, 411</value>
+  </data>
+  <data name="&gt;&gt;backgroundButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="topRightButton.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="bottomRightButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>192, 104</value>
+  </data>
+  <data name="&gt;&gt;textSizeTrackBar.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="textColorPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>151, 184</value>
+  </data>
+  <data name="backgroundPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>151, 217</value>
+  </data>
+  <data name="&gt;&gt;colorDialog.Name" xml:space="preserve">
+    <value>colorDialog</value>
+  </data>
+  <data name="&gt;&gt;topRightButton.Name" xml:space="preserve">
+    <value>topRightButton</value>
+  </data>
+  <data name="bottomCenterButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>50, 20</value>
+  </data>
+  <data name="textColorLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="backgroundPanel.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;topLeftButton.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;cancelButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="backgroundCheckBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>84, 17</value>
+  </data>
+  <data name="textColorButton.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="textColorPanel.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="textSizeTrackBar.Size" type="System.Drawing.Size, System.Drawing">
+    <value>247, 45</value>
+  </data>
+  <data name="&gt;&gt;positioningPanel.Name" xml:space="preserve">
+    <value>positioningPanel</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>311, 446</value>
+  </data>
+  <data name="textSizeLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>49, 13</value>
+  </data>
+  <data name="&gt;&gt;textSizeLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="positioningPanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>247, 129</value>
+  </data>
+  <data name="&gt;&gt;bottomCenterButton.Parent" xml:space="preserve">
+    <value>positioningPanel</value>
+  </data>
+  <data name="positioningPanel.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;cancelButton.Name" xml:space="preserve">
+    <value>cancelButton</value>
+  </data>
+  <data name="topLeftButton.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="bottomCenterButton.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="&gt;&gt;textColorLabel.Name" xml:space="preserve">
+    <value>textColorLabel</value>
+  </data>
+  <data name="&gt;&gt;bottomRightButton.Parent" xml:space="preserve">
+    <value>positioningPanel</value>
+  </data>
+  <data name="&gt;&gt;autoHideTrackBar.Name" xml:space="preserve">
+    <value>autoHideTrackBar</value>
+  </data>
+  <data name="autoHideCheckBox.Text" xml:space="preserve">
+    <value>Hide automatically</value>
+  </data>
+  <data name="cancelButton.Text" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="backgroundButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>250, 217</value>
+  </data>
+  <data name="&gt;&gt;backgroundButton.Name" xml:space="preserve">
+    <value>backgroundButton</value>
+  </data>
+  <data name="&gt;&gt;bottomCenterButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="autoHideCheckBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>19, 330</value>
+  </data>
+  <data name="&gt;&gt;camNameLabel.Parent" xml:space="preserve">
+    <value>positioningPanel</value>
+  </data>
+  <data name="textColorButton.Text" xml:space="preserve">
+    <value>...</value>
+  </data>
+  <data name="textSizeLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 255</value>
+  </data>
+  <data name="&gt;&gt;topRightButton.Parent" xml:space="preserve">
+    <value>positioningPanel</value>
+  </data>
+  <data name="&gt;&gt;positioningPanel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;topCenterButton.Parent" xml:space="preserve">
+    <value>positioningPanel</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="colorDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>38</value>
+  </metadata>
 </root>

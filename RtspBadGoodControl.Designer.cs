@@ -1,6 +1,17 @@
 ﻿using System;
 using System.Windows.Forms;
 
+/********************
+ * Copyright 2018 Grigory Lobkov
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ *
+ * You may obtain a copy of the License at
+ * https://github.com/grigory-lobkov/rtsp-camera-view/blob/master/LICENSE
+ *
+ ********************/
+
 namespace RTSP_mosaic_VLC_player
 {
     partial class RtspBadGoodControl
@@ -68,9 +79,10 @@ namespace RTSP_mosaic_VLC_player
             // nameLabel
             //
             this.Controls.Add(nameLabel);
+            nameLabel.Enabled = false;
             nameLabel.AutoSize = true;
             nameLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            nameLabel.Text = "Camera Name";
+            nameLabel.Text = "";
             controlPanel.Anchor = ((AnchorStyles)(AnchorStyles.Top));
             nameLabel.BringToFront();
             //
@@ -96,6 +108,9 @@ namespace RTSP_mosaic_VLC_player
             bgvlc.MouseDoubleClick += new MouseEventHandler(this.bgvlc_MouseDoubleClick);
             bgvlc.DragEnter += new DragEventHandler(this.bgvlc_DragEnter);
             bgvlc.DragDrop += new DragEventHandler(this.bgvlc_DragDrop);
+            bgvlc.MouseDown += new MouseEventHandler(this.bgvlc_MouseDown);
+            bgvlc.MouseMove += new MouseEventHandler(this.bgvlc_MouseMove);
+            bgvlc.MouseUp += new MouseEventHandler(this.bgvlc_MouseUp);
             bgvlc.SendToBack();
             //
             // hideControlTimer

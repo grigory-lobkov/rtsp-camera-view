@@ -4,16 +4,34 @@ using System.Windows.Forms;
 using System.Xml.Serialization;
 
 /********************
- * TODO:
- * Fill "Options" Tab (matrix dimensions, start with windows?, parameters on start with windows, parameters on start)
+ * Copyright 2018 Grigory Lobkov
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ *
+ * You may obtain a copy of the License at
+ * https://github.com/grigory-lobkov/rtsp-camera-view/blob/master/LICENSE
+ *
+ *
+ * TODO
+ * Fill "Options" Tab (start with windows?, parameters on start with windows, parameters on start)
+ * Drag&Drop inside camera list?
  * 
+ * BUGS
+ * When one VLC is preparing(many cameras), can't close window, or stop source
+ * 
+ * MEMO
+ * Localization: go to designer of form, choose object "Form", check parameter "Localizable=true",
+ * modify parameter "Language" to desired language to translate to
+ *
  ********************/
 
-public enum HintType { None = 0, OpenCtrl = 1, AddCamera = 2, DropCamera = 3, NewRTSP1 = 5, NewRTSP2 = 6};
+public enum HintType { None = 0, OpenCtrl = 1, AddCamera = 2, DropCamera = 3, NewRTSP1 = 5, NewRTSP2 = 6 };
+public enum TextPosition { TopLeft = 1, TopCenter = 2, TopRight = 3, BottomLeft = 4, BottomCenter = 5, BottomRight = 6 };
 
 namespace RTSP_mosaic_VLC_player
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
         FormWindowState lastWindowState = FormWindowState.Minimized;
         appSettings appSet;
@@ -24,29 +42,21 @@ namespace RTSP_mosaic_VLC_player
         ImageList cameraIconsImageList2 = new System.Windows.Forms.ImageList();
         ImageList cameraIconsImageList3 = new System.Windows.Forms.ImageList();
         bool hideCtrlPanelAfterEdit;
+        private CamNameConfigForm camNameConfigForm = null;
+        private Camera editCamera;
+        private Point MouseDownPoint;
+        private bool MouseDownFlag;
 
-        public class appSettings
-        {
-            public int screen = -1; // screen number to open window on start
-            public int fullscreen = 0; // expand window: 0-no, 1-yes
-            public int autoplay = 0; // auto start all sources: 0-no, 1-auto play
-            public int priority = -1; // application base priority: 0-Idle, 1-BelowNormal, 2-Normal, 3-AboveNormal, 4-High
-            public int unmute = 0; // do not mute audio: 0-silent, 1-enable sounds
-            public int controlPanelWidth = 0; // width of control panel
 
-            public matrix matrix = new matrix(); // matrix parameters (rows and columns count)
 
-            [System.Xml.Serialization.XmlArrayItem(ElementName = "cam", Type = typeof(Camera))]
-            public Camera[] cams;
-        }
+        /*************************************************************************************************
+         *
+         *                                      Main form methods
+         *
+         *************************************************************************************************/
 
-        public class matrix
-        {
-            public int cntX = 2;
-            public int cntY = 2;
-        }
 
-        public bool appSettingsLoad()
+        private bool appSettingsLoad()
         {
             if (appSet == null) appSet = new appSettings();
             if (!System.IO.File.Exists(Properties.Resources.settingsFileName)) return true;
@@ -67,7 +77,7 @@ namespace RTSP_mosaic_VLC_player
             return true;
         }
 
-        public bool appSettingsSave()
+        private bool appSettingsSave()
         {
             if (appSet == null) return false;
             try
@@ -86,7 +96,7 @@ namespace RTSP_mosaic_VLC_player
             return true;
         }
 
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
             this.Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath);
@@ -96,24 +106,59 @@ namespace RTSP_mosaic_VLC_player
             appSettingsLoad();
             #endif
             if (appSet == null) appSet = new appSettings();
-            if (appSet.cams == null) appSet.cams = new Camera[0];
             #if DEBUG
             if (appSet.cams == null || appSet.cams.Length == 0)
             {
-                Camera c1 = new Camera(), c2 = new Camera(), c3 = new Camera(), c4 = new Camera();
-                //c1.rtspGood = "rtsp://admin:1111@192.168.40.4:554/live/main"; c2.rtspGood = c1.rtspGood; c3.rtspGood = c1.rtspGood; c4.rtspGood = c1.rtspGood;
-                //c1.rtspBad = "rtsp://admin:1111@192.168.40.4:554/live/sub"; c2.rtspBad = c1.rtspBad; c3.rtspBad = c1.rtspBad; c4.rtspBad = c1.rtspBad;
-                c1.position = 0; c2.position = 1; c3.position = 2; c4.position = 3;
-                c1.rtspBad = "rtsp://op:rock@46.254.25.8:10554/live/sub"; //c1.rtspGood = "rtsp://op:rock@46.254.25.8:10554/live/main";
-                c2.rtspBad = "rtsp://op:rand@46.254.25.8:10555/live/sub"; //c2.rtspGood = "rtsp://op:rand@46.254.25.8:10555/live/main";
-                c3.rtspBad = "rtsp://46.254.25.8:10556/av0_1&user=op&password=musc"; //c3.rtspGood = "rtsp://46.254.25.8:10556/av0_0&user=op&password=musc";
-                c4.rtspBad = "rtsp://46.254.25.8:10557/av0_1&user=op&password=metl"; //c4.rtspGood = "rtsp://46.254.25.8:10557/av0_0&user=op&password=metl";
-                c1.name = "Холл1"; c2.name = "Холл2"; c3.name = "Улица1"; c4.name = "Улица2";
-                Camera[] c= { c1, c2, c3, c4 };
+                Camera c1 = new Camera(), c2 = new Camera(), c3 = new Camera(), c4 = new Camera(), c5 = new Camera(),
+                    c6 = new Camera(), c7 = new Camera(), c8 = new Camera(), c9 = new Camera(), c10 = new Camera(),
+                    c11 = new Camera(), c12 = new Camera();
+                c1.rtspGood = "rtsp://admin:a256@192.168.40.18:554/live/main";
+                c1.rtspBad = "rtsp://admin:a256@192.168.40.18:554/live/sub";
+                c2.rtspGood = "rtsp://admin:a256@192.168.40.19:554/live/main";
+                c2.rtspBad = "rtsp://admin:a256@192.168.40.19:554/live/sub";
+                c3.rtspGood = "rtsp://admin:a256@192.168.40.20:554/live/main";
+                c3.rtspBad = "rtsp://admin:a256@192.168.40.20:554/live/sub";
+                c4.rtspGood = "rtsp://admin:a256@192.168.40.5:554/live/main";
+                c4.rtspBad = "rtsp://admin:a256@192.168.40.5:554/live/sub";
+                c5.rtspGood = "rtsp://admin:a256@192.168.40.9:554/live/main";
+                c5.rtspBad = "rtsp://admin:a256@192.168.40.9:554/live/sub";
+                c6.rtspGood = "rtsp://admin:a256@192.168.40.12:554/live/main";
+                c6.rtspBad = "rtsp://admin:a256@192.168.40.12:554/live/sub";
+                c7.rtspGood = "rtsp://admin:a256@192.168.40.14:554/live/main";
+                c7.rtspBad = "rtsp://admin:a256@192.168.40.14:554/live/sub";
+                c8.rtspGood = "rtsp://admin:1admin@192.168.40.103:554/cam/realmonitor?channel=1&subtype=1";
+                c8.rtspBad = "rtsp://admin:1admin@192.168.40.103:554/cam/realmonitor?channel=1&subtype=0"; c8.camIcon = 0;
+                c8.aspectRatio = "4:3";
+                c9.rtspGood = "rtsp://admin:1admin@192.168.40.103:554/cam/realmonitor?channel=2&subtype=1";
+                c9.rtspBad = "rtsp://admin:1admin@192.168.40.103:554/cam/realmonitor?channel=2&subtype=0"; c9.camIcon = 0;
+                c9.aspectRatio = "4:3";
+                c10.rtspGood = "rtsp://admin:1admin@192.168.40.103:554/cam/realmonitor?channel=3&subtype=1";
+                c10.rtspBad = "rtsp://admin:1admin@192.168.40.103:554/cam/realmonitor?channel=3&subtype=0"; c10.camIcon = 0;
+                c10.aspectRatio = "4:3";
+                c11.rtspGood = "rtsp://admin:1admin@192.168.40.103:554/cam/realmonitor?channel=4&subtype=1";
+                c11.rtspBad = "rtsp://admin:1admin@192.168.40.103:554/cam/realmonitor?channel=4&subtype=0"; c11.camIcon = 0;
+                c11.aspectRatio = "4:3";
+                c12.rtspGood = "rtsp://admin:1admin@192.168.40.103:554/cam/realmonitor?channel=5&subtype=1";
+                c12.rtspBad = "rtsp://admin:1admin@192.168.40.103:554/cam/realmonitor?channel=5&subtype=0"; c12.camIcon = 0;
+                c12.aspectRatio = "4:3";
+                c1.position = 0; c2.position = 1; c3.position = 2; c4.position = 3; c5.position = 4;
+                c6.position = 5; c7.position = 6; c8.position = 7; c9.position = 8; c10.position = 9;
+                c11.position = 10; c12.position = 11; 
+                c1.name = "TSC-1"; c2.name = "TSC-2"; c3.name = "TSC-3"; c4.name = "TSC-4"; c5.name = "TSC-5";
+                c6.name = "TSC-6"; c7.name = "TSC-7"; c8.name = "Police-1"; c9.name = "Police-2"; c10.name = "Police-3";
+                c11.name = "Police-4"; c12.name = "Police-5";
+                Camera[] c = { c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, c11, c12 };
                 appSet.cams = c;
             }
+            appSet.camListView = 4;
+            appSet.matrix.cntX = 4;
+            appSet.matrix.cntY = 3;
             #endif
-            if (appSet.controlPanelWidth > splitter1.MinSize) ctrlPanel.Width = appSet.controlPanelWidth;
+            
+            if (appSet.cams == null) appSet.cams = new Camera[0];
+            if (appSet.controlPanelWidth > tabControlSplitter.MinSize) ctrlPanel.Width = appSet.controlPanelWidth;
+            matrixXinput.Text = appSet.matrix.cntX.ToString();
+            matrixYinput.Text = appSet.matrix.cntY.ToString();
             i = 0;
             camerasListView.Clear();
             foreach (Camera m in appSet.cams)
@@ -123,10 +168,11 @@ namespace RTSP_mosaic_VLC_player
                 i++;
             }
 
-            if (createMatrix())
+            //MessageBox.Show(this, "MainForm creating ...");
+            if (createMatrix(appSet.matrix.cntX, appSet.matrix.cntY))
             {
                 fillMatrix();
-
+                
                 cameraIconsImageList2.Images.Clear();
                 cameraIconsImageList2.ImageSize = new Size(50, 50);
                 cameraIconsImageList3.Images.Clear();
@@ -134,6 +180,7 @@ namespace RTSP_mosaic_VLC_player
                 camerasIconListView.LargeImageList = cameraIconsImageList2;
                 camerasIconListView.SmallImageList = cameraIconsImageList2;
                 camerasIconListView.TileSize = new Size(camerasIconListView.LargeImageList.ImageSize.Width + 10, camerasIconListView.LargeImageList.ImageSize.Height + 2);
+                
                 foreach (string ikey in cameraIconsImageList.Images.Keys)
                 {
                     i = cameraIconsImageList.Images.IndexOfKey(ikey);
@@ -143,9 +190,7 @@ namespace RTSP_mosaic_VLC_player
                 }
 
                 splitLabel_MouseLeave(null, null);
-                //typeViewStripMenuItem_Click(1);
-                sortToolStripMenuItem_Click(3);
-                splitter1_SplitterMoved(null, null);
+                tabControlSplitter_SplitterMoved(null, null);
 
                 string[] args = Environment.GetCommandLineArgs();
                 //fullscreen screen=1 autoplay unmute priority=0
@@ -159,7 +204,6 @@ namespace RTSP_mosaic_VLC_player
                     if (args[i].Length >= 6) if (args[i].Substring(0, 6).Equals("unmute")) if (args[i].Length > 6) f = int.TryParse(args[i].Substring(7), out arg_unmute); else arg_unmute = 1;
                     if (args[i].Length >= 6) if (args[i].Substring(0, 6).Equals("screen")) if (args[i].Length > 6) f = int.TryParse(args[i].Substring(7), out screen);
                 }
-
                 Screen[] sc = Screen.AllScreens;
                 if (screen > -1 && sc.Length > screen)
                 {
@@ -171,7 +215,9 @@ namespace RTSP_mosaic_VLC_player
                     this.WindowState = FormWindowState.Maximized;
                 }
                 if (autoplay > 0)
+                {
                     foreach (RtspBadGoodControl c in gridline) if (c.isCameraSet) c.play(this);
+                }
                 if (priority >= 0)
                     switch (priority)
                     {
@@ -184,7 +230,8 @@ namespace RTSP_mosaic_VLC_player
                 this.Text = Application.ProductName + " " + Application.ProductVersion
                     + "  /  gg81@ya.ru  /  "
                     + (Application.CurrentCulture.TwoLetterISOLanguageName == "ru" ? "решениеготово.рф  /  Григорий Лобков" : "Gregory Lobkov");
-                Form1_ResizeEnd(null, null);
+                typeViewStripMenuItem_Click(appSet.camListView);
+                sortToolStripMenuItem_Click(appSet.camListSort);
                 showHintTimer.Tag = 0;
                 f = true;
                 foreach (RtspBadGoodControl c in gridline) if (c.isCameraSet) f = false;
@@ -236,44 +283,63 @@ namespace RTSP_mosaic_VLC_player
             }
         }
 
-        private void commandLineHelpButton_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show(commandLineHelp.Text, commandLineHelpButton.Text, MessageBoxButtons.OK, MessageBoxIcon.None);
-        }
-
         private void Form1_Shown(object sender, EventArgs e)
         {
             Form1_Resize(this, null);
+            Form1_ResizeEnd(this, null);
         }
 
-        private bool createMatrix()
+
+
+        /*************************************************************************************************
+         *
+         *                                      Matrix actions
+         *
+         *************************************************************************************************/
+
+        private bool createMatrix(int newX, int newY)
         {
-            if (grid != null) // dispose of old data
-                for (int x = grid.GetLowerBound(0); x <= grid.GetUpperBound(0); x++)
-                    for (int y = grid.GetLowerBound(1); y <= grid.GetUpperBound(1); y++)
-                        if (grid[x, y] != null) grid[x, y].Dispose();
-            //TODO: не пересоздавать область, вновь видимую пользователем
+            int idx = 0, oldX = -1, oldY = -1;
+            if (grid != null)
+            {
+                oldX = grid.GetUpperBound(0) + 1;
+                oldY = grid.GetUpperBound(1) + 1;
+            }
             RtspBadGoodControl item;
-            int idx = 0;
-            grid = new RtspBadGoodControl[appSet.matrix.cntX, appSet.matrix.cntY];
-            gridline = new RtspBadGoodControl[appSet.matrix.cntX * appSet.matrix.cntY];
+            RtspBadGoodControl[,] grid1 = new RtspBadGoodControl[newX, newY];
+            RtspBadGoodControl[] gridline1 = new RtspBadGoodControl[newX * newY];
             try
             {
-                for (int y = 0; y < appSet.matrix.cntY; y++)
-                    for (int x = 0; x < appSet.matrix.cntX; x++)
+                for (int y = 0; y < newY; y++)
+                    for (int x = 0; x < newX; x++)
                     {
-                        item = new RtspBadGoodControl();
-                        item.Volume = arg_unmute == 0 ? 0 : 50;
-                        item.MouseDoubleClick += new MouseEventHandler(this.RtspBadGoodControl_DoubleClick);
-                        item.Tag = idx;
-                        item.Visible = true;
-                        item.AllowDrop = true;
-                        item.DragDrop += new DragEventHandler(this.RtspBadGoodControl_DragDrop);
-                        item.DragEnter += new DragEventHandler(this.RtspBadGoodControl_DragEnter);
-                        item.onOptionsClick += new EventHandler(this.RtspBadGoodControl_OptionsClick);
-                        this.camPanel.Controls.Add(item);
-                        grid[x, y] = item;
-                        gridline[idx] = item;
+                        if (x < oldX && y < oldY)
+                        {
+                            item = grid[x, y];
+                            grid[x, y] = null;
+                            item.Tag = idx;
+                            if (item.Camera != null)
+                                item.Camera.position = idx;
+                        }
+                        else
+                        {
+                            item = new RtspBadGoodControl();
+                            item.Volume = arg_unmute == 0 ? 0 : 50;
+                            item.MouseDoubleClick += new MouseEventHandler(this.RtspBadGoodControl_DoubleClick);
+                            item.Tag = idx;
+                            item.Visible = true;
+                            item.AllowDrop = true;
+                            item.DragDrop += new DragEventHandler(this.RtspBadGoodControl_DragDrop);
+                            item.DragEnter += new DragEventHandler(this.RtspBadGoodControl_DragEnter);
+                            item.onOptionsClick += new EventHandler(this.RtspBadGoodControl_OptionsClick);
+                            item.MouseDown += new MouseEventHandler(this.RtspBadGoodControl_MouseDown);
+                            item.MouseMove += new MouseEventHandler(this.RtspBadGoodControl_MouseMove);
+                            item.GlobalNameView = appSet.nameView;
+                            if (grid != null) item.Camera = null;
+                            this.camPanel.Controls.Add(item);
+                        }
+                        grid1[x, y] = item;
+                        gridline1[idx] = item;
                         idx++;
                     }
             }
@@ -305,8 +371,20 @@ namespace RTSP_mosaic_VLC_player
                 catch { Application.Exit(); this.Close(); }
                 return false;
             }
-            //Form1_ResizeEnd(this, null);
+            if (grid != null) // dispose of old data
+                for (int x = 0; x <= oldX-1; x++)
+                    for (int y = 0; y <= oldY-1; y++)
+                        if (grid[x, y] != null)
+                        {
+                            item = grid[x, y];
+                            if (item.Camera != null)
+                                item.Camera.position = -1;
+                            this.camPanel.Controls.Remove(item);
+                            item.Dispose();
+                        }
             fullScrIdx = -1;
+            grid = grid1;
+            gridline = gridline1;
             return true;
         }
 
@@ -318,12 +396,23 @@ namespace RTSP_mosaic_VLC_player
             {
                 f = true;
                 foreach (Camera m in appSet.cams) if (m.position == i) { f = false; break; }
-                if (f) gridline[i].resetCamera();
+                if (f) gridline[i].Camera = null;
             }
-            // show the cams, which is set
-            foreach (Camera m in appSet.cams)
-                if ((gridline.Length > m.position) && (m.position >= 0))
-                    gridline[m.position].setCamera(m);
+            try
+            {
+                // show the cams, which is set
+                foreach (Camera m in appSet.cams)
+                    if ((gridline.Length > m.position) && (m.position >= 0))
+                        gridline[m.position].Camera = m;
+            }
+            catch (Exception ex)
+            {
+                DialogResult a = MessageBox.Show(ex.Message + "\n" + ex.GetType() + "\n\n" + errorSetCamera.Text + "\n\n" + errorInitVLC.Text,
+                    Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Error);
+                if (a == DialogResult.Yes) System.Diagnostics.Process.Start(Properties.Resources.downloadVlcUrl);
+                try { Environment.Exit(101); }
+                catch { Application.Exit(); this.Close(); }
+            }
         }
 
         private void RtspBadGoodControl_DoubleClick(object sender, MouseEventArgs e)
@@ -350,63 +439,197 @@ namespace RTSP_mosaic_VLC_player
             Form1_ResizeEnd(this, null);
         }
 
-        private void splitLabel_MouseEnter(object sender, EventArgs e) { splitLabel.Left = splitter1.Visible ? splitter1.Width : 0; }
-
-        private void splitLabel_MouseLeave(object sender, EventArgs e) { splitLabel.Left = (splitter1.Visible ? splitter1.Width : 0) - 3; }
-
-        private void splitLabel_Click(object sender, EventArgs e)
+        private void RtspBadGoodControl_DragDrop(object sender, DragEventArgs e)
         {
-            ctrlPanel.Visible = !ctrlPanel.Visible;
-            splitter1.Visible = ctrlPanel.Visible;
-            splitLabel.Text = ctrlPanel.Visible ? "<<" : ">>";
-            Form1_Resize(this, null);
-            Form1_ResizeEnd(this, null);
-            splitLabel.Left = (splitter1.Visible ? splitter1.Width : 0) - 6;
-            if (ctrlPanel.Visible) showHintWithWait(HintType.AddCamera);
-            else hideHintNow();
+            if (e.Data.GetDataPresent(typeof(Camera)))
+            {
+                Camera m = (Camera)(e.Data.GetData(typeof(Camera)));
+                if (m != null)
+                {
+                    int t = Convert.ToInt32((sender as Control).Tag);
+                    RtspBadGoodControl c = gridline[t];
+                    if (m.position >= 0) gridline[m.position].Camera = null;
+                    foreach (Camera v in appSet.cams) if (v.position == t) v.position = -1;
+                    m.position = t;
+                    gridline[t].Camera = m;
+                    gridline[t].play(this);
+                    if (hintDropCamera.Visible) hideHintNow();
+                }
+            }
+            else if (e.Data.GetDataPresent(typeof(RtspBadGoodControl)))
+            {
+                RtspBadGoodControl c = (RtspBadGoodControl)(e.Data.GetData(typeof(RtspBadGoodControl)));
+                RtspBadGoodControl s = sender as RtspBadGoodControl;
+                int f = Convert.ToInt32(c.Tag); //from position
+                int t = Convert.ToInt32((sender as Control).Tag); //to position
+                gridline[t] = c;
+                gridline[f] = s;
+                grid[t % appSet.matrix.cntX, t / appSet.matrix.cntX] = c;
+                grid[f % appSet.matrix.cntX, f / appSet.matrix.cntX] = s;
+                if (c.Camera != null) c.Camera.position = t;
+                if (s.Camera != null) s.Camera.position = f;
+                c.Tag = t.ToString();
+                s.Tag = f.ToString();
+                Point l = c.Location;
+                c.Location = s.Location;
+                s.Location = l;
+                //Form1_Resize(this, null);
+                //Form1_ResizeEnd(this, null); 
+            }
         }
 
-        private void contextMenuStrip1_Opening(object sender, System.ComponentModel.CancelEventArgs e)
+        private void RtspBadGoodControl_DragEnter(object sender, DragEventArgs e)
         {
-            modifyCameraToolStripMenuItem.Enabled = camerasListView.SelectedItems.Count > 0;
-            hideHintNow();
+            if (e.Data.GetDataPresent(typeof(Camera))) e.Effect = DragDropEffects.Copy;
+            if (e.Data.GetDataPresent(typeof(RtspBadGoodControl))) e.Effect = DragDropEffects.Move;
+        }
+        private void RtspBadGoodControl_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button != MouseButtons.Left) return;
+            MouseDownFlag = true;
+            MouseDownPoint = new Point(e.X, e.Y);
+        }
+        private void RtspBadGoodControl_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (MouseDownFlag)
+            {
+                Point NewMouseMovePoint = new Point(e.X, e.Y);
+                NewMouseMovePoint.Offset(MouseDownPoint);
+                if ((NewMouseMovePoint.X > 5) || ((NewMouseMovePoint.X > -5)) || (NewMouseMovePoint.Y > 5) || (NewMouseMovePoint.Y > -5))
+                {
+                    if (e.Button == MouseButtons.Left) 
+                        camerasListView.DoDragDrop((RtspBadGoodControl)sender, DragDropEffects.Move | DragDropEffects.Copy);
+                }
+            }
+        }
+        private void RtspBadGoodControl_OptionsClick(object sender, EventArgs e)
+        {
+            Camera n = (sender as RtspBadGoodControl).Camera;
+            int i = camerasListView.Items.Count - 1;
+            for (; i >= 0; i--)
+                if (camerasListView.Items[i].Tag == n)
+                {
+                    bool autoHide = !ctrlPanel.Visible;
+                    ctrlPanel.Visible = true;
+                    tabControl1.SelectedTab = camerasPage;
+                    camerasListView.Items[i].Focused = true;
+                    camerasListView.Items[i].Selected = true;
+                    modifyCameraToolStripMenuItem_Click(null, null);
+                    hideCtrlPanelAfterEdit = autoHide;
+                    Form1_Resize(this, null);
+                    Form1_ResizeEnd(this, null);
+                    break;
+                }
         }
 
-        private void typeViewStripMenuItem_Click(int i)
-        {
-            camerasListView.LargeImageList = i < 2 ? cameraIconsImageList : i > 3 ? cameraIconsImageList3 : cameraIconsImageList2;
-            camerasListView.SmallImageList = camerasListView.LargeImageList;
-            camerasListView.View = i < 3 ? View.LargeIcon : View.List;
-            largeIconsToolStripMenuItem.Checked = i == 1;
-            smallIconsToolStripMenuItem.Checked = i == 2;
-            largeListToolStripMenuItem.Checked = i == 3;
-            smallListToolStripMenuItem.Checked = i == 4;
-        }
-        private void largeIconsToolStripMenuItem_Click(object sender, EventArgs e) { typeViewStripMenuItem_Click(1); }
-        private void smallIconsToolStripMenuItem_Click(object sender, EventArgs e) { typeViewStripMenuItem_Click(2); }
-        private void largeListToolStripMenuItem_Click(object sender, EventArgs e) { typeViewStripMenuItem_Click(3); }
-        private void smallListToolStripMenuItem_Click(object sender, EventArgs e) { typeViewStripMenuItem_Click(4); }
 
-        private void sortToolStripMenuItem_Click(int i)
-        {
-            camerasListView.Sorting = i == 1 ? SortOrder.Ascending : i == 2 ? SortOrder.Descending : SortOrder.None;
-            ascendingToolStripMenuItem.Checked = i == 1;
-            descendingToolStripMenuItem.Checked = i == 2;
-            disabledToolStripMenuItem.Checked = i == 3;
-        }
-        private void ascendingToolStripMenuItem_Click(object sender, EventArgs e) { sortToolStripMenuItem_Click(1); }
-        private void descendingToolStripMenuItem_Click(object sender, EventArgs e) { sortToolStripMenuItem_Click(2); }
-        private void disabledToolStripMenuItem_Click(object sender, EventArgs e) { sortToolStripMenuItem_Click(3); }
 
-        private void splitter1_SplitterMoved(object sender, SplitterEventArgs e)
+
+        /*************************************************************************************************
+         *
+         *                                      Options dialog
+         *
+         *************************************************************************************************/
+
+        private void commandLineHelpButton_Click(object sender, EventArgs e)
         {
-            Form1_Resize(this, null);
-            Form1_ResizeEnd(this, null);
-            appSet.controlPanelWidth = ctrlPanel.Width;
-            //tabControl1.Invalidate(); camerasListView.Invalidate(); splitLabel.Invalidate(); // if splitter1_SplitterMoving()
+            MessageBox.Show(commandLineHelp.Text, commandLineHelpButton.Text, MessageBoxButtons.OK, MessageBoxIcon.None);
         }
 
-        private void splitter1_SplitterMoving(object sender, SplitterEventArgs e) { /*Form1_Resize(this,null);ctrlPanel.Width=e.SplitX;*/ }
+        private void developerLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("http://xn--b1abfaar8alabm5a5e.xn--p1ai/"); //решениеготово.рф
+            (sender as LinkLabel).LinkVisited = true;
+        }
+
+        private void camNameViewGlbButton_Click(object sender, EventArgs e)
+        {
+            if (camNameConfigForm == null)
+            {
+                camNameConfigForm = new CamNameConfigForm();
+                camNameConfigForm.onSaveClick += new EventHandler(this.CamNameConfigForm_SaveClick);
+                camNameConfigForm.onCancelClick += new EventHandler(this.CamNameConfigForm_CancelClick);
+            }
+            camNameConfigForm.NameView = appSet.nameView;
+            camNameConfigForm.Show();
+            this.Enabled = false;
+        }
+
+        private void matrixXinput_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar)) { e.Handled = true; }
+        }
+
+        private void matrixSaveLabel_Click(object sender, EventArgs e)
+        {
+            matrixSaveLabel.Visible = false;
+            try
+            {
+                int x = Convert.ToInt32(matrixXinput.Text);
+                int y = Convert.ToInt32(matrixYinput.Text);
+                if (x > 0 && x <= Convert.ToInt32(Properties.Resources.matrixMaxX)
+                    && y > 0 && y <= Convert.ToInt32(Properties.Resources.matrixMaxY))
+                {
+                    createMatrix(x, y);
+                    appSet.matrix.cntX = x;
+                    appSet.matrix.cntY = y;
+                    Form1_Resize(null, null);
+                    Form1_ResizeEnd(null, null);
+                }
+            }
+            finally
+            {
+                matrixXinput.Text = appSet.matrix.cntX.ToString();
+                matrixYinput.Text = appSet.matrix.cntY.ToString();
+            }
+        }
+
+        private void matrixXinput_TextChanged(object sender, EventArgs e)
+        {
+            if (grid != null)
+                matrixSaveLabel.Visible = (Convert.ToInt32(matrixXinput.Text) > 0 &&
+                    Convert.ToInt32(matrixYinput.Text) > 0 &&
+                    (Convert.ToInt32(matrixXinput.Text) != appSet.matrix.cntX ||
+                    Convert.ToInt32(matrixYinput.Text) != appSet.matrix.cntY));
+        }
+
+        private void matrixXinput_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.Up:
+                    try
+                    {
+                        int v = Convert.ToInt32(((TextBox)sender).Text);
+                        if (sender == matrixXinput && v < Convert.ToInt32(Properties.Resources.matrixMaxX)
+                            || sender == matrixYinput && v < Convert.ToInt32(Properties.Resources.matrixMaxY))
+                        {
+                            ((TextBox)sender).Text = (v + 1).ToString();
+                        }
+                    }
+                    catch (Exception) { }
+                    break;
+                case Keys.Down:
+                    try
+                    {
+                        int v = Convert.ToInt32(((TextBox)sender).Text);
+                        if (v > 1) ((TextBox)sender).Text = (v - 1).ToString();
+                    }
+                    catch (Exception) { }
+                    break;
+                default:
+                    base.OnKeyDown(e);
+                    break;
+            }
+        }
+
+
+
+        /*************************************************************************************************
+         *
+         *                                      Edit Camera dialog
+         *
+         *************************************************************************************************/
 
         private void newCameraToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -422,7 +645,16 @@ namespace RTSP_mosaic_VLC_player
             camerasIconListView.Items[0].Focused = true;
             camerasIconListView.Items[0].Selected = true;
             aspectRatioTextBox.Text = Properties.Resources.defaultAspectRatio;
-            rtsp1TextBox.Tag = null;
+            editCamera = new Camera();
+            camNameShowCheck.Checked = editCamera.nameView.enabled;
+            camNameShowInheritCheck.Checked = editCamera.nameView.inheritGlobal;
+            camNameShowCheck_CheckedChanged(this, null);
+            camNameShowInheritCheck_CheckedChanged(this, null);
+            if (camNameConfigForm != null)
+            {
+                camNameConfigForm.NameView = this.editCamera.nameView;
+            }
+
             if (hintAddCamera.Visible) hideHintNow();
             hideCtrlPanelAfterEdit = false;
         }
@@ -445,8 +677,16 @@ namespace RTSP_mosaic_VLC_player
             camerasIconListView.Items[m.camIcon].Focused = true;
             camerasIconListView.Items[m.camIcon].Selected = true;
             aspectRatioTextBox.Text = m.aspectRatio;
-            rtsp1TextBox.Tag = m;
+            this.editCamera = m;
+            camNameShowCheck.Checked = m.nameView.enabled;
+            camNameShowInheritCheck.Checked = m.nameView.inheritGlobal;
+            camNameShowCheck_CheckedChanged(this, null);
+            camNameShowInheritCheck_CheckedChanged(this, null);
             hideCtrlPanelAfterEdit = false;
+            if (camNameConfigForm != null)
+            {
+                camNameConfigForm.NameView = this.editCamera.nameView;
+            }
         }
 
         private void delCamLabel_Click(object sender, EventArgs e)
@@ -454,26 +694,37 @@ namespace RTSP_mosaic_VLC_player
             if (rtsp1TextBox.Text == "" && rtsp2TextBox.Text == "")
                 if (MessageBox.Show(cameraDeleteConfirm1.Text + " ''" + camNameTextBox.Text + "''?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
                     != DialogResult.Yes) return;
-            if (rtsp1TextBox.Tag == null) cancelCamButton_Click(null, null);
+            if (this.editCamera == null) cancelCamButton_Click(null, null);
             else
             {
-                Camera m = (Camera)(rtsp1TextBox.Tag);
-                if (m.position >= 0) {
+                if (this.editCamera.position >= 0)
+                {
                     if (MessageBox.Show(cameraDeleteConfirm2.Text, "", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
                         != DialogResult.Yes) return;
-                    gridline[m.position].resetCamera();
-                    m.position = -1;
+                    gridline[this.editCamera.position].Camera = null;
+                    this.editCamera.position = -1;
                 }
                 camerasListView.FocusedItem.Remove();
-                appSet.cams = Array.FindAll(appSet.cams, x => x != m);
+                appSet.cams = Array.FindAll(appSet.cams, x => x != this.editCamera);
                 cancelCamButton_Click(null, null);
             }
         }
 
+        private void camNameShowCheck_CheckedChanged(object sender, EventArgs e)
+        {
+            camNameShowInheritCheck.Enabled = camNameShowCheck.Checked;
+        }
+
+        private void camNameShowInheritCheck_CheckedChanged(object sender, EventArgs e)
+        {
+            camNameShowModifyLabel.Enabled = !camNameShowInheritCheck.Checked;
+        }
+
         private void saveCamButton_Click(object sender, EventArgs e)
         {
-            Camera m = (Camera)(rtsp1TextBox.Tag);
-            if (m == null) {
+            Camera m = this.editCamera;
+            if (m == null)
+            {
                 int l = appSet.cams.Length;
                 Array.Resize(ref appSet.cams, l+1);
                 m = new Camera();
@@ -485,12 +736,14 @@ namespace RTSP_mosaic_VLC_player
                 vi.Tag = m;
             }
             RtspBadGoodControl c = m.position >= 0 ? gridline[m.position] : null;
-            if(m.name != camNameTextBox.Text) { 
+            if (m.name != camNameTextBox.Text)
+            {
                 m.name = camNameTextBox.Text;
                 camerasListView.FocusedItem.Text = m.name;
-                if(c != null) c.Title=m.name;
+                if (c != null) c.Title = m.name;
             }
-            if(m.camIcon != camerasIconListView.FocusedItem.Index) {
+            if (m.camIcon != camerasIconListView.FocusedItem.Index)
+            {
                 m.camIcon = camerasIconListView.FocusedItem.Index;
                 camerasListView.FocusedItem.ImageIndex = m.camIcon;
             }
@@ -499,17 +752,26 @@ namespace RTSP_mosaic_VLC_player
                 m.rtspBad = rtsp1TextBox.Text;
                 m.rtspGood = rtsp2TextBox.Text;
                 m.aspectRatio = aspectRatioTextBox.Text;
-                if (c != null) {
-                    VlcStatus s=c.Status;
-                    c.setCamera(m);
+                if (c != null)
+                {
+                    VlcStatus s = c.Status;
+                    c.Camera = m;
                     if (s != VlcStatus.Stopped) c.play(this);
                 }
             }
-            cancelCamButton_Click(null, null);
+            if (camNameConfigForm != null)
+            {
+                m.nameView = camNameConfigForm.NameView;
+            }
+            m.nameView.enabled = camNameShowCheck.Checked;
+            m.nameView.inheritGlobal = camNameShowInheritCheck.Checked;
+            c.NameView = m.nameView;
+            cancelCamButton_Click(sender, null);
         }
 
         private void cancelCamButton_Click(object sender, EventArgs e)
         {
+            this.editCamera = null;
             hideHintNow();
             editCamPanel.SendToBack();
             editCamPanel.Visible = false;
@@ -528,6 +790,53 @@ namespace RTSP_mosaic_VLC_player
             }
         }
 
+        private void camNameShowModifyLabel_Click(object sender, EventArgs e)
+        {
+            if (camNameConfigForm == null)
+            {
+                camNameConfigForm = new CamNameConfigForm();
+                camNameConfigForm.onSaveClick += new EventHandler(this.CamNameConfigForm_SaveClick);
+                camNameConfigForm.onCancelClick += new EventHandler(this.CamNameConfigForm_CancelClick);
+                camNameConfigForm.NameView = this.editCamera.nameView;
+            }
+            camNameConfigForm.Show();
+            this.Enabled = false;
+        }
+        private void CamNameConfigForm_SaveClick(object sender, EventArgs e)
+        {
+            if (tabControl1.SelectedTab.Name == "optionsPage")
+            {
+                appSet.nameView = camNameConfigForm.NameView;
+                foreach (RtspBadGoodControl m in gridline)
+                    m.GlobalNameView = appSet.nameView;
+            }
+            CamNameConfigForm_CancelClick(sender, e);
+        }
+        private void CamNameConfigForm_CancelClick(object sender, EventArgs e)
+        {
+            this.Enabled = true;
+        }
+
+        private void ButtonLabel_MouseEnter(object sender, EventArgs e)
+        {
+            ((Label)sender).ForeColor = Color.Blue;
+        }
+
+        private void ButtonLabel_MouseLeave(object sender, EventArgs e)
+        {
+            if (sender == delCamLabel) ((Label)sender).ForeColor = Color.Red;
+            else ((Label)sender).ForeColor = SystemColors.ControlText;
+        }
+
+
+
+
+        /*************************************************************************************************
+         *
+         *                                 List of Cameras dialog
+         *
+         *************************************************************************************************/
+
         private void camerasListView_AfterLabelEdit(object sender, LabelEditEventArgs e)
         {
             if (e.Label == "" || e.Label == null) { e.CancelEdit = true; return; }
@@ -538,8 +847,7 @@ namespace RTSP_mosaic_VLC_player
 
         private void camerasListView_DragEnter(object sender, DragEventArgs e)
         {
-            //if (e.Data.GetDataPresent(typeof(Camera))) e.Effect = DragDropEffects.Move; else e.Effect = DragDropEffects.None;
-            e.Effect = e.Data.GetDataPresent(typeof(Camera)) ? DragDropEffects.Move : DragDropEffects.None;
+            if (e.Data.GetDataPresent(typeof(Camera))) e.Effect = DragDropEffects.Move;
         }
 
         private void camerasListView_MouseDown(object sender, MouseEventArgs e)
@@ -552,55 +860,77 @@ namespace RTSP_mosaic_VLC_player
             camerasListView.DoDragDrop((Camera)(camerasListView.FocusedItem.Tag), DragDropEffects.Copy | DragDropEffects.Move);
         }
 
-        private void RtspBadGoodControl_DragDrop(object sender, DragEventArgs e)
+        private void contextMenuStrip1_Opening(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            if (e.Data.GetData(typeof(Camera)) != null)
+            modifyCameraToolStripMenuItem.Enabled = camerasListView.SelectedItems.Count > 0;
+            hideHintNow();
+        }
+
+        private void typeViewStripMenuItem_Click(int i)
+        {
+            camerasListView.LargeImageList = i < 2 ? cameraIconsImageList : i > 3 ? cameraIconsImageList3 : cameraIconsImageList2;
+            camerasListView.SmallImageList = camerasListView.LargeImageList;
+            camerasListView.View = i < 3 ? View.LargeIcon : View.List;
+            largeIconsToolStripMenuItem.Checked = i == 1;
+            smallIconsToolStripMenuItem.Checked = i == 2;
+            largeListToolStripMenuItem.Checked = i == 3;
+            smallListToolStripMenuItem.Checked = i == 4;
+            appSet.camListView = i;
+        }
+        private void largeIconsToolStripMenuItem_Click(object sender, EventArgs e) { typeViewStripMenuItem_Click(1); }
+        private void smallIconsToolStripMenuItem_Click(object sender, EventArgs e) { typeViewStripMenuItem_Click(2); }
+        private void largeListToolStripMenuItem_Click(object sender, EventArgs e) { typeViewStripMenuItem_Click(3); }
+        private void smallListToolStripMenuItem_Click(object sender, EventArgs e) { typeViewStripMenuItem_Click(4); }
+
+        private void sortToolStripMenuItem_Click(int i)
+        {
+            camerasListView.Sorting = i == 1 ? SortOrder.Ascending : i == 2 ? SortOrder.Descending : SortOrder.None;
+            ascendingToolStripMenuItem.Checked = i == 1;
+            descendingToolStripMenuItem.Checked = i == 2;
+            disabledToolStripMenuItem.Checked = i == 3;
+            appSet.camListSort = i;
+        }
+        private void ascendingToolStripMenuItem_Click(object sender, EventArgs e) { sortToolStripMenuItem_Click(1); }
+        private void descendingToolStripMenuItem_Click(object sender, EventArgs e) { sortToolStripMenuItem_Click(2); }
+        private void disabledToolStripMenuItem_Click(object sender, EventArgs e) { sortToolStripMenuItem_Click(3); }
+
+        private void splitLabel_MouseEnter(object sender, EventArgs e) { splitLabel.Left = tabControlSplitter.Visible ? tabControlSplitter.Width : 0; }
+        private void splitLabel_MouseLeave(object sender, EventArgs e) { splitLabel.Left = (tabControlSplitter.Visible ? tabControlSplitter.Width : 0) - 3; }
+        private void splitLabel_Click(object sender, EventArgs e)
+        {
+            ctrlPanel.Visible = !ctrlPanel.Visible;
+            tabControlSplitter.Visible = ctrlPanel.Visible;
+            splitLabel.Text = ctrlPanel.Visible ? "<<" : ">>";
+            Form1_Resize(this, null);
+            Form1_ResizeEnd(this, null);
+            splitLabel.Left = (tabControlSplitter.Visible ? tabControlSplitter.Width : 0) - 6;
+            if (ctrlPanel.Visible)
             {
-                Camera m = (Camera)(e.Data.GetData(typeof(Camera)));
-                if (m != null)
-                {
-                    int t = Convert.ToInt32((sender as Control).Tag);
-                    RtspBadGoodControl c = gridline[t];
-                    if (m.position >= 0) gridline[m.position].resetCamera();
-                    foreach (Camera v in appSet.cams) if (v.position == t) v.position = -1;
-                    m.position = t;
-                    gridline[t].setCamera(m);
-                    gridline[t].play(this);
-                    if (hintDropCamera.Visible) hideHintNow();
-                }
+                if (camerasIconListView.Items.Count == 0) showHintWithWait(HintType.AddCamera);
             }
+            else hideHintNow();
+        }
+        private void tabControlSplitter_SplitterMoved(object sender, SplitterEventArgs e)
+        {
+            Form1_Resize(this, null);
+            Form1_ResizeEnd(this, null);
+            appSet.controlPanelWidth = ctrlPanel.Width;
+            //tabControl1.Invalidate(); camerasListView.Invalidate(); splitLabel.Invalidate(); // if splitter1_SplitterMoving()
+        }
+        private void tabControlSplitter_SplitterMoving(object sender, SplitterEventArgs e)
+        {
+            /*Form1_Resize(this,null);ctrlPanel.Width=e.SplitX;*/
         }
 
-        private void RtspBadGoodControl_DragEnter(object sender, DragEventArgs e)
-        {
-            if (e.Data.GetDataPresent(typeof(Camera))) e.Effect = DragDropEffects.Copy;
-        }
 
-        private void RtspBadGoodControl_OptionsClick(object sender, EventArgs e)
-        {
-            Camera n = (sender as RtspBadGoodControl).camera;
-            int i = camerasListView.Items.Count - 1;
-            for (; i >= 0; i--) 
-                if (camerasListView.Items[i].Tag == n)
-                {
-                    bool autoHide = !ctrlPanel.Visible;
-                    ctrlPanel.Visible = true;
-                    tabControl1.SelectedTab = tabPage1;
-                    camerasListView.Items[i].Focused = true;
-                    camerasListView.Items[i].Selected = true;
-                    modifyCameraToolStripMenuItem_Click(null, null);
-                    hideCtrlPanelAfterEdit = autoHide;
-                    Form1_Resize(this, null);
-                    Form1_ResizeEnd(this, null);
-                    break;
-                }
-        }
 
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            System.Diagnostics.Process.Start("http://решениеготово.рф");
-            (sender as LinkLabel).LinkVisited = true;
-        }
+
+
+        /*************************************************************************************************
+         *
+         *                                      Hints engine
+         *
+         *************************************************************************************************/
 
         private void showHintTimer_Tick(object sender, EventArgs e)
         {
@@ -694,7 +1024,42 @@ namespace RTSP_mosaic_VLC_player
             if ((int)showHintTimer.Tag < 0) showHintTimer_Tick(null, null);
             else showHintTimer.Enabled = false;
         }
+
     }
+    
+
+
+
+    /*************************************************************************************************
+     *
+     *                         Settings classes and their default values
+     *
+     *************************************************************************************************/
+
+    public class appSettings
+    {
+        public int screen = -1; // screen number to open window on start
+        public int fullscreen = 0; // expand window: 0-no, 1-yes
+        public int autoplay = 1; // auto start all sources: 0-no, 1-auto play
+        public int priority = -1; // application base priority: 0-Idle, 1-BelowNormal, 2-Normal, 3-AboveNormal, 4-High
+        public int unmute = 0; // do not mute audio: 0-silent, 1-enable sounds
+        public int controlPanelWidth = 0; // width of control panel
+        public int camListView = 1; // cameras list type of view (1-4:largeIcon/smallIcon/largeList/smallList)
+        public int camListSort = 3; // cameras list sort type (1-3:asc/desc/none)
+
+        public Matrix matrix = new Matrix(); // matrix parameters (rows and columns count)
+        public NameView nameView = new NameView(); // camera name show global option
+
+        [System.Xml.Serialization.XmlArrayItem(ElementName = "cam", Type = typeof(Camera))]
+        public Camera[] cams;
+    }
+
+    public class Matrix
+    {
+        public int cntX = 2;
+        public int cntY = 2;
+    }
+    
     public class Camera
     {
         public string name = "";
@@ -703,6 +1068,48 @@ namespace RTSP_mosaic_VLC_player
         public string aspectRatio = Properties.Resources.defaultAspectRatio;//"auto"
         public int camIcon = 1;
         public int position = -1;
-        //[System.Xml.Serialization.XmlIgnoreAttribute]
+
+        public NameView nameView = new NameView(); // name show parameters
+        //[XmlIgnoreAttribute]
+    }
+
+    public class NameView
+    {
+        public bool enabled = true;
+        public bool inheritGlobal = true;
+        public TextPosition position = TextPosition.BottomCenter;
+        [XmlIgnore]
+        public Color color = Color.White;
+        [XmlElement("color")]
+        public int colorAsArgb
+        {
+            get { return color.ToArgb(); }
+            set { color = Color.FromArgb(value); }
+        }
+        public int size = 5;
+        public bool autoHide = false;
+        public int autoHideSec = 4;
+        public bool paintBg = true;
+        [XmlIgnore]
+        public Color bgColor = Color.ForestGreen;
+        [XmlElement("bgColor")]
+        public int bgColorAsArgb
+        {
+            get { return bgColor.ToArgb(); }
+            set { bgColor = Color.FromArgb(value); }
+        }
+
+        public void SaveTo(NameView nv)
+        {
+            nv.autoHide = autoHide;
+            nv.autoHideSec = autoHideSec;
+            nv.bgColor = bgColor;
+            nv.color = color;
+            nv.enabled = enabled;
+            nv.inheritGlobal = inheritGlobal;
+            nv.paintBg = paintBg;
+            nv.position = position;
+            nv.size = size;
+        }
     }
 }

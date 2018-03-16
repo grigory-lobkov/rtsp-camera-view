@@ -2,9 +2,20 @@
 using System.Drawing;
 using System.Windows.Forms;
 
+/********************
+ * Copyright 2018 Grigory Lobkov
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ *
+ * You may obtain a copy of the License at
+ * https://github.com/grigory-lobkov/rtsp-camera-view/blob/master/LICENSE
+ *
+ ********************/
+
 namespace RTSP_mosaic_VLC_player
 {
-    partial class Form1
+    partial class MainForm
     {
         /// <summary>
         /// Required designer variable.
@@ -33,7 +44,7 @@ namespace RTSP_mosaic_VLC_player
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.cameraContextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.largeIconsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -49,8 +60,10 @@ namespace RTSP_mosaic_VLC_player
             this.modifyCameraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cameraIconsImageList = new System.Windows.Forms.ImageList(this.components);
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.camerasPage = new System.Windows.Forms.TabPage();
             this.editCamPanel = new System.Windows.Forms.Panel();
+            this.camNameShowInheritCheck = new System.Windows.Forms.CheckBox();
+            this.camNameShowCheck = new System.Windows.Forms.CheckBox();
             this.camNameLabel = new System.Windows.Forms.Label();
             this.camNameTextBox = new System.Windows.Forms.TextBox();
             this.camEditBtnsPanel = new System.Windows.Forms.Panel();
@@ -65,10 +78,18 @@ namespace RTSP_mosaic_VLC_player
             this.rtsp1TextBox = new System.Windows.Forms.TextBox();
             this.camEditRtsp2Label = new System.Windows.Forms.Label();
             this.camEditRtsp1Label = new System.Windows.Forms.Label();
+            this.camNameShowModifyLabel = new System.Windows.Forms.Label();
             this.viewPanel = new System.Windows.Forms.Panel();
             this.camerasListView = new System.Windows.Forms.ListView();
             this.infoPanel = new System.Windows.Forms.Panel();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.optionsPage = new System.Windows.Forms.TabPage();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.matrixSaveLabel = new System.Windows.Forms.Label();
+            this.matrixYinput = new System.Windows.Forms.TextBox();
+            this.matrixXinput = new System.Windows.Forms.TextBox();
+            this.xLabel = new System.Windows.Forms.Label();
+            this.matrixDimensionsLabel = new System.Windows.Forms.Label();
+            this.camNameViewGlbButton = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.developerLinkLabel = new System.Windows.Forms.LinkLabel();
             this.commandLineHelpButton = new System.Windows.Forms.Button();
@@ -85,24 +106,26 @@ namespace RTSP_mosaic_VLC_player
             this.hintRTSP1 = new System.Windows.Forms.Label();
             this.hintAddCamera = new System.Windows.Forms.Label();
             this.hintOpenCtrl = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.stringsPanel = new System.Windows.Forms.Panel();
+            this.errorSetCamera = new System.Windows.Forms.Label();
             this.errorInitVLCbadLib = new System.Windows.Forms.Label();
             this.errorInitVLCbadLibVer = new System.Windows.Forms.Label();
             this.errorInitVLCnoLib = new System.Windows.Forms.Label();
             this.errorInitVLC = new System.Windows.Forms.Label();
-            this.splitter1 = new System.Windows.Forms.Splitter();
+            this.tabControlSplitter = new System.Windows.Forms.Splitter();
             this.showHintTimer = new System.Windows.Forms.Timer(this.components);
             this.cameraContextMenuStrip.SuspendLayout();
             this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
+            this.camerasPage.SuspendLayout();
             this.editCamPanel.SuspendLayout();
             this.camEditBtnsPanel.SuspendLayout();
             this.viewPanel.SuspendLayout();
-            this.tabPage2.SuspendLayout();
+            this.optionsPage.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.ctrlPanel.SuspendLayout();
             this.camPanel.SuspendLayout();
-            this.panel2.SuspendLayout();
+            this.stringsPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // cameraContextMenuStrip
@@ -205,22 +228,24 @@ namespace RTSP_mosaic_VLC_player
             // tabControl1
             // 
             resources.ApplyResources(this.tabControl1, "tabControl1");
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.camerasPage);
+            this.tabControl1.Controls.Add(this.optionsPage);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             // 
-            // tabPage1
+            // camerasPage
             // 
-            resources.ApplyResources(this.tabPage1, "tabPage1");
-            this.tabPage1.Controls.Add(this.editCamPanel);
-            this.tabPage1.Controls.Add(this.viewPanel);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            resources.ApplyResources(this.camerasPage, "camerasPage");
+            this.camerasPage.Controls.Add(this.editCamPanel);
+            this.camerasPage.Controls.Add(this.viewPanel);
+            this.camerasPage.Name = "camerasPage";
+            this.camerasPage.UseVisualStyleBackColor = true;
             // 
             // editCamPanel
             // 
             resources.ApplyResources(this.editCamPanel, "editCamPanel");
+            this.editCamPanel.Controls.Add(this.camNameShowInheritCheck);
+            this.editCamPanel.Controls.Add(this.camNameShowCheck);
             this.editCamPanel.Controls.Add(this.camNameLabel);
             this.editCamPanel.Controls.Add(this.camNameTextBox);
             this.editCamPanel.Controls.Add(this.camEditBtnsPanel);
@@ -232,7 +257,28 @@ namespace RTSP_mosaic_VLC_player
             this.editCamPanel.Controls.Add(this.rtsp1TextBox);
             this.editCamPanel.Controls.Add(this.camEditRtsp2Label);
             this.editCamPanel.Controls.Add(this.camEditRtsp1Label);
+            this.editCamPanel.Controls.Add(this.camNameShowModifyLabel);
             this.editCamPanel.Name = "editCamPanel";
+            // 
+            // camNameShowInheritCheck
+            // 
+            resources.ApplyResources(this.camNameShowInheritCheck, "camNameShowInheritCheck");
+            this.camNameShowInheritCheck.Checked = true;
+            this.camNameShowInheritCheck.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.camNameShowInheritCheck.Name = "camNameShowInheritCheck";
+            this.camNameShowInheritCheck.TabStop = false;
+            this.camNameShowInheritCheck.UseVisualStyleBackColor = true;
+            this.camNameShowInheritCheck.CheckedChanged += new System.EventHandler(this.camNameShowInheritCheck_CheckedChanged);
+            // 
+            // camNameShowCheck
+            // 
+            resources.ApplyResources(this.camNameShowCheck, "camNameShowCheck");
+            this.camNameShowCheck.Checked = true;
+            this.camNameShowCheck.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.camNameShowCheck.Name = "camNameShowCheck";
+            this.camNameShowCheck.TabStop = false;
+            this.camNameShowCheck.UseVisualStyleBackColor = true;
+            this.camNameShowCheck.CheckedChanged += new System.EventHandler(this.camNameShowCheck_CheckedChanged);
             // 
             // camNameLabel
             // 
@@ -242,7 +288,7 @@ namespace RTSP_mosaic_VLC_player
             // camNameTextBox
             // 
             resources.ApplyResources(this.camNameTextBox, "camNameTextBox");
-            this.camNameTextBox.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.camNameTextBox.ForeColor = System.Drawing.SystemColors.ButtonShadow;
             this.camNameTextBox.Name = "camNameTextBox";
             this.camNameTextBox.Enter += new System.EventHandler(this.camNameTextBox_Enter);
             // 
@@ -260,6 +306,8 @@ namespace RTSP_mosaic_VLC_player
             this.delCamLabel.ForeColor = System.Drawing.Color.Red;
             this.delCamLabel.Name = "delCamLabel";
             this.delCamLabel.Click += new System.EventHandler(this.delCamLabel_Click);
+            this.delCamLabel.MouseEnter += new System.EventHandler(this.ButtonLabel_MouseEnter);
+            this.delCamLabel.MouseLeave += new System.EventHandler(this.ButtonLabel_MouseLeave);
             // 
             // cancelCamButton
             // 
@@ -303,14 +351,14 @@ namespace RTSP_mosaic_VLC_player
             // rtsp2TextBox
             // 
             resources.ApplyResources(this.rtsp2TextBox, "rtsp2TextBox");
-            this.rtsp2TextBox.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.rtsp2TextBox.ForeColor = System.Drawing.SystemColors.ButtonShadow;
             this.rtsp2TextBox.Name = "rtsp2TextBox";
             this.rtsp2TextBox.Enter += new System.EventHandler(this.rtsp2TextBox_Enter);
             // 
             // rtsp1TextBox
             // 
             resources.ApplyResources(this.rtsp1TextBox, "rtsp1TextBox");
-            this.rtsp1TextBox.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.rtsp1TextBox.ForeColor = System.Drawing.SystemColors.ButtonShadow;
             this.rtsp1TextBox.Name = "rtsp1TextBox";
             this.rtsp1TextBox.Enter += new System.EventHandler(this.rtsp1TextBox_Enter);
             // 
@@ -323,6 +371,15 @@ namespace RTSP_mosaic_VLC_player
             // 
             resources.ApplyResources(this.camEditRtsp1Label, "camEditRtsp1Label");
             this.camEditRtsp1Label.Name = "camEditRtsp1Label";
+            // 
+            // camNameShowModifyLabel
+            // 
+            resources.ApplyResources(this.camNameShowModifyLabel, "camNameShowModifyLabel");
+            this.camNameShowModifyLabel.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.camNameShowModifyLabel.Name = "camNameShowModifyLabel";
+            this.camNameShowModifyLabel.Click += new System.EventHandler(this.camNameShowModifyLabel_Click);
+            this.camNameShowModifyLabel.MouseEnter += new System.EventHandler(this.ButtonLabel_MouseEnter);
+            this.camNameShowModifyLabel.MouseLeave += new System.EventHandler(this.ButtonLabel_MouseLeave);
             // 
             // viewPanel
             // 
@@ -357,12 +414,65 @@ namespace RTSP_mosaic_VLC_player
             resources.ApplyResources(this.infoPanel, "infoPanel");
             this.infoPanel.Name = "infoPanel";
             // 
-            // tabPage2
+            // optionsPage
             // 
-            resources.ApplyResources(this.tabPage2, "tabPage2");
-            this.tabPage2.Controls.Add(this.panel1);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            resources.ApplyResources(this.optionsPage, "optionsPage");
+            this.optionsPage.Controls.Add(this.panel2);
+            this.optionsPage.Controls.Add(this.matrixDimensionsLabel);
+            this.optionsPage.Controls.Add(this.camNameViewGlbButton);
+            this.optionsPage.Controls.Add(this.panel1);
+            this.optionsPage.Name = "optionsPage";
+            this.optionsPage.UseVisualStyleBackColor = true;
+            // 
+            // panel2
+            // 
+            resources.ApplyResources(this.panel2, "panel2");
+            this.panel2.Controls.Add(this.matrixSaveLabel);
+            this.panel2.Controls.Add(this.matrixYinput);
+            this.panel2.Controls.Add(this.matrixXinput);
+            this.panel2.Controls.Add(this.xLabel);
+            this.panel2.Name = "panel2";
+            // 
+            // matrixSaveLabel
+            // 
+            resources.ApplyResources(this.matrixSaveLabel, "matrixSaveLabel");
+            this.matrixSaveLabel.Name = "matrixSaveLabel";
+            this.matrixSaveLabel.Click += new System.EventHandler(this.matrixSaveLabel_Click);
+            this.matrixSaveLabel.MouseEnter += new System.EventHandler(this.ButtonLabel_MouseEnter);
+            this.matrixSaveLabel.MouseLeave += new System.EventHandler(this.ButtonLabel_MouseLeave);
+            // 
+            // matrixYinput
+            // 
+            resources.ApplyResources(this.matrixYinput, "matrixYinput");
+            this.matrixYinput.Name = "matrixYinput";
+            this.matrixYinput.TextChanged += new System.EventHandler(this.matrixXinput_TextChanged);
+            this.matrixYinput.KeyDown += new System.Windows.Forms.KeyEventHandler(this.matrixXinput_KeyDown);
+            this.matrixYinput.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.matrixXinput_KeyPress);
+            // 
+            // matrixXinput
+            // 
+            resources.ApplyResources(this.matrixXinput, "matrixXinput");
+            this.matrixXinput.Name = "matrixXinput";
+            this.matrixXinput.TextChanged += new System.EventHandler(this.matrixXinput_TextChanged);
+            this.matrixXinput.KeyDown += new System.Windows.Forms.KeyEventHandler(this.matrixXinput_KeyDown);
+            this.matrixXinput.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.matrixXinput_KeyPress);
+            // 
+            // xLabel
+            // 
+            resources.ApplyResources(this.xLabel, "xLabel");
+            this.xLabel.Name = "xLabel";
+            // 
+            // matrixDimensionsLabel
+            // 
+            resources.ApplyResources(this.matrixDimensionsLabel, "matrixDimensionsLabel");
+            this.matrixDimensionsLabel.Name = "matrixDimensionsLabel";
+            // 
+            // camNameViewGlbButton
+            // 
+            resources.ApplyResources(this.camNameViewGlbButton, "camNameViewGlbButton");
+            this.camNameViewGlbButton.Name = "camNameViewGlbButton";
+            this.camNameViewGlbButton.UseVisualStyleBackColor = true;
+            this.camNameViewGlbButton.Click += new System.EventHandler(this.camNameViewGlbButton_Click);
             // 
             // panel1
             // 
@@ -376,7 +486,7 @@ namespace RTSP_mosaic_VLC_player
             resources.ApplyResources(this.developerLinkLabel, "developerLinkLabel");
             this.developerLinkLabel.Name = "developerLinkLabel";
             this.developerLinkLabel.TabStop = true;
-            this.developerLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            this.developerLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.developerLinkLabel_LinkClicked);
             // 
             // commandLineHelpButton
             // 
@@ -435,7 +545,7 @@ namespace RTSP_mosaic_VLC_player
             this.camPanel.Controls.Add(this.hintRTSP1);
             this.camPanel.Controls.Add(this.hintAddCamera);
             this.camPanel.Controls.Add(this.hintOpenCtrl);
-            this.camPanel.Controls.Add(this.panel2);
+            this.camPanel.Controls.Add(this.stringsPanel);
             this.camPanel.Controls.Add(this.splitLabel);
             this.camPanel.ForeColor = System.Drawing.Color.White;
             this.camPanel.Name = "camPanel";
@@ -480,19 +590,25 @@ namespace RTSP_mosaic_VLC_player
             this.hintOpenCtrl.ForeColor = System.Drawing.SystemColors.ControlText;
             this.hintOpenCtrl.Name = "hintOpenCtrl";
             // 
-            // panel2
+            // stringsPanel
             // 
-            resources.ApplyResources(this.panel2, "panel2");
-            this.panel2.Controls.Add(this.errorInitVLCbadLib);
-            this.panel2.Controls.Add(this.errorInitVLCbadLibVer);
-            this.panel2.Controls.Add(this.errorInitVLCnoLib);
-            this.panel2.Controls.Add(this.errorInitVLC);
-            this.panel2.Controls.Add(this.cameraDeleteConfirm2);
-            this.panel2.Controls.Add(this.errorSaveSettings);
-            this.panel2.Controls.Add(this.commandLineHelp);
-            this.panel2.Controls.Add(this.errorLoadSettings);
-            this.panel2.Controls.Add(this.cameraDeleteConfirm1);
-            this.panel2.Name = "panel2";
+            resources.ApplyResources(this.stringsPanel, "stringsPanel");
+            this.stringsPanel.Controls.Add(this.errorSetCamera);
+            this.stringsPanel.Controls.Add(this.errorInitVLCbadLib);
+            this.stringsPanel.Controls.Add(this.errorInitVLCbadLibVer);
+            this.stringsPanel.Controls.Add(this.errorInitVLCnoLib);
+            this.stringsPanel.Controls.Add(this.errorInitVLC);
+            this.stringsPanel.Controls.Add(this.cameraDeleteConfirm2);
+            this.stringsPanel.Controls.Add(this.errorSaveSettings);
+            this.stringsPanel.Controls.Add(this.commandLineHelp);
+            this.stringsPanel.Controls.Add(this.errorLoadSettings);
+            this.stringsPanel.Controls.Add(this.cameraDeleteConfirm1);
+            this.stringsPanel.Name = "stringsPanel";
+            // 
+            // errorSetCamera
+            // 
+            resources.ApplyResources(this.errorSetCamera, "errorSetCamera");
+            this.errorSetCamera.Name = "errorSetCamera";
             // 
             // errorInitVLCbadLib
             // 
@@ -514,45 +630,48 @@ namespace RTSP_mosaic_VLC_player
             resources.ApplyResources(this.errorInitVLC, "errorInitVLC");
             this.errorInitVLC.Name = "errorInitVLC";
             // 
-            // splitter1
+            // tabControlSplitter
             // 
-            resources.ApplyResources(this.splitter1, "splitter1");
-            this.splitter1.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.splitter1.Name = "splitter1";
-            this.splitter1.TabStop = false;
-            this.splitter1.SplitterMoving += new System.Windows.Forms.SplitterEventHandler(this.splitter1_SplitterMoving);
-            this.splitter1.SplitterMoved += new System.Windows.Forms.SplitterEventHandler(this.splitter1_SplitterMoved);
+            resources.ApplyResources(this.tabControlSplitter, "tabControlSplitter");
+            this.tabControlSplitter.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.tabControlSplitter.Name = "tabControlSplitter";
+            this.tabControlSplitter.TabStop = false;
+            this.tabControlSplitter.SplitterMoving += new System.Windows.Forms.SplitterEventHandler(this.tabControlSplitter_SplitterMoving);
+            this.tabControlSplitter.SplitterMoved += new System.Windows.Forms.SplitterEventHandler(this.tabControlSplitter_SplitterMoved);
             // 
             // showHintTimer
             // 
             this.showHintTimer.Tick += new System.EventHandler(this.showHintTimer_Tick);
             // 
-            // Form1
+            // MainForm
             // 
             resources.ApplyResources(this, "$this");
-            this.Controls.Add(this.splitter1);
+            this.Controls.Add(this.tabControlSplitter);
             this.Controls.Add(this.camPanel);
             this.Controls.Add(this.ctrlPanel);
-            this.Name = "Form1";
+            this.Name = "MainForm";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Shown += new System.EventHandler(this.Form1_Shown);
             this.ResizeEnd += new System.EventHandler(this.Form1_ResizeEnd);
             this.Resize += new System.EventHandler(this.Form1_Resize);
             this.cameraContextMenuStrip.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
+            this.camerasPage.ResumeLayout(false);
             this.editCamPanel.ResumeLayout(false);
             this.editCamPanel.PerformLayout();
             this.camEditBtnsPanel.ResumeLayout(false);
             this.camEditBtnsPanel.PerformLayout();
             this.viewPanel.ResumeLayout(false);
-            this.tabPage2.ResumeLayout(false);
+            this.optionsPage.ResumeLayout(false);
+            this.optionsPage.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ctrlPanel.ResumeLayout(false);
             this.camPanel.ResumeLayout(false);
             this.camPanel.PerformLayout();
-            this.panel2.ResumeLayout(false);
+            this.stringsPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -574,7 +693,7 @@ namespace RTSP_mosaic_VLC_player
         private ToolStripMenuItem modifyCameraToolStripMenuItem;
         private ToolStripMenuItem disabledToolStripMenuItem;
         private TabControl tabControl1;
-        private TabPage tabPage1;
+        private TabPage camerasPage;
         private Panel viewPanel;
         private Panel infoPanel;
         private ListView camerasListView;
@@ -589,11 +708,11 @@ namespace RTSP_mosaic_VLC_player
         private TextBox rtsp1TextBox;
         private Label camEditRtsp2Label;
         private Label camEditRtsp1Label;
-        private TabPage tabPage2;
+        private TabPage optionsPage;
         private Panel ctrlPanel;
         private Label splitLabel;
         private Panel camPanel;
-        private Splitter splitter1;
+        private Splitter tabControlSplitter;
         private Label aspectRatioLabel;
         private TextBox aspectRatioTextBox;
         private Label camNameLabel;
@@ -606,7 +725,7 @@ namespace RTSP_mosaic_VLC_player
         private LinkLabel developerLinkLabel;
         private Label cameraDeleteConfirm2;
         private Label cameraDeleteConfirm1;
-        private Panel panel2;
+        private Panel stringsPanel;
         private Label errorInitVLC;
         private Label errorInitVLCnoLib;
         private Label errorInitVLCbadLibVer;
@@ -617,6 +736,17 @@ namespace RTSP_mosaic_VLC_player
         private Label hintDropCamera;
         private Label hintRTSP2;
         private Label hintRTSP1;
+        private Label camNameShowModifyLabel;
+        private CheckBox camNameShowInheritCheck;
+        private CheckBox camNameShowCheck;
+        private Button camNameViewGlbButton;
+        private Label matrixDimensionsLabel;
+        private TextBox matrixXinput;
+        private TextBox matrixYinput;
+        private Label xLabel;
+        private Panel panel2;
+        private Label matrixSaveLabel;
+        private Label errorSetCamera;
     }
 }
 

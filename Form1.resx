@@ -120,18 +120,18 @@
   <data name="&gt;&gt;aspectRatioLabel.Name" xml:space="preserve">
     <value>aspectRatioLabel</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="cameraDeleteConfirm1.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="splitter1.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="panel2.TabIndex" type="System.Int32, mscorlib">
+  <data name="&gt;&gt;matrixXinput.ZOrder" xml:space="preserve">
     <value>2</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="matrixXinput.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 3</value>
   </data>
   <data name="&gt;&gt;cameraDeleteConfirm1.Name" xml:space="preserve">
     <value>cameraDeleteConfirm1</value>
+  </data>
+  <data name="&gt;&gt;errorInitVLC.Name" xml:space="preserve">
+    <value>errorInitVLC</value>
   </data>
   <data name="camNameLabel.Text" xml:space="preserve">
     <value>Camera name</value>
@@ -139,49 +139,61 @@
   <data name="&gt;&gt;rtsp1TextBox.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;rtsp1TextBox.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
   <data name="&gt;&gt;editCamPanel.Type" xml:space="preserve">
     <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="toolStripMenuItem2.Text" xml:space="preserve">
     <value>Sorting</value>
   </data>
+  <data name="camerasPage.Text" xml:space="preserve">
+    <value>Sources</value>
+  </data>
   <data name="descendingToolStripMenuItem.Text" xml:space="preserve">
     <value>Descending</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="&gt;&gt;errorInitVLCbadLibVer.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;stringsPanel.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;optionsPage.Name" xml:space="preserve">
+    <value>optionsPage</value>
+  </data>
   <data name="hintOpenCtrl.Size" type="System.Drawing.Size, System.Drawing">
     <value>171, 35</value>
   </data>
   <data name="&gt;&gt;hintDropCamera.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="cancelCamButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>133, 3</value>
-  </data>
-  <data name="splitter1.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
   <data name="infoPanel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 430</value>
+    <value>0, 428</value>
   </data>
-  <data name="&gt;&gt;camerasListView.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ListView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="tabControlSplitter.MinExtra" type="System.Int32, mscorlib">
+    <value>100</value>
   </data>
-  <data name="errorInitVLCnoLib.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 26</value>
+  <data name="cameraDeleteConfirm1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>16, 176</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItem1.Name" xml:space="preserve">
+    <value>toolStripMenuItem1</value>
+  </data>
+  <data name="saveCamButton.Text" xml:space="preserve">
+    <value>Save</value>
   </data>
   <data name="errorLoadSettings.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
+  </data>
+  <data name="matrixXinput.Size" type="System.Drawing.Size, System.Drawing">
+    <value>32, 20</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="panel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Bottom</value>
   </data>
-  <data name="aspectRatioLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 381</value>
+  <data name="&gt;&gt;camNameShowModifyLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="hintAddCamera.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>0, 0, 0, 0</value>
@@ -189,17 +201,17 @@
   <data name="&gt;&gt;cancelCamButton.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="hintDropCamera.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="&gt;&gt;matrixDimensionsLabel.Name" xml:space="preserve">
+    <value>matrixDimensionsLabel</value>
   </data>
   <data name="commandLineHelpButton.Text" xml:space="preserve">
     <value>Command Line parameters help</value>
   </data>
-  <data name="&gt;&gt;aspectRatioTextBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;camNameShowCheck.Parent" xml:space="preserve">
+    <value>editCamPanel</value>
   </data>
-  <data name="&gt;&gt;descendingToolStripMenuItem.Name" xml:space="preserve">
-    <value>descendingToolStripMenuItem</value>
+  <data name="stringsPanel.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="largeIconsToolStripMenuItem.Text" xml:space="preserve">
     <value>Large Icons</value>
@@ -207,17 +219,17 @@
   <data name="delCamLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>76, 13</value>
   </data>
+  <data name="errorInitVLCnoLib.Location" type="System.Drawing.Point, System.Drawing">
+    <value>16, 26</value>
+  </data>
   <data name="&gt;&gt;viewPanel.Parent" xml:space="preserve">
-    <value>tabPage1</value>
+    <value>camerasPage</value>
   </data>
-  <data name="&gt;&gt;hintAddCamera.Parent" xml:space="preserve">
-    <value>camPanel</value>
-  </data>
-  <data name="rtsp2TextBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Left, Right</value>
+  <data name="hintAddCamera.Location" type="System.Drawing.Point, System.Drawing">
+    <value>314, 50</value>
   </data>
   <data name="largeListToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>130, 22</value>
+    <value>134, 22</value>
   </data>
   <data name="&gt;&gt;showHintTimer.Type" xml:space="preserve">
     <value>System.Windows.Forms.Timer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -225,14 +237,14 @@
   <data name="camNameTextBox.Text" xml:space="preserve">
     <value>Place of mount, view area, e.t.c.</value>
   </data>
-  <data name="toolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>146, 22</value>
-  </data>
   <data name="&gt;&gt;camEditIconLabel.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>8</value>
   </data>
-  <data name="hintDropCamera.Location" type="System.Drawing.Point, System.Drawing">
-    <value>314, 92</value>
+  <data name="&gt;&gt;camEditRtsp1Label.Name" xml:space="preserve">
+    <value>camEditRtsp1Label</value>
+  </data>
+  <data name="&gt;&gt;camNameShowModifyLabel.Parent" xml:space="preserve">
+    <value>editCamPanel</value>
   </data>
   <data name="aspectRatioTextBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>247, 20</value>
@@ -244,13 +256,22 @@
     <value>11, 3</value>
   </data>
   <data name="&gt;&gt;camEditRtsp1Label.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>12</value>
   </data>
   <data name="&gt;&gt;hintRTSP1.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;cameraDeleteConfirm2.Name" xml:space="preserve">
     <value>cameraDeleteConfirm2</value>
+  </data>
+  <data name="matrixXinput.MaxLength" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;camerasIconListView.Parent" xml:space="preserve">
+    <value>editCamPanel</value>
+  </data>
+  <data name="smallIconsToolStripMenuItem.Text" xml:space="preserve">
+    <value>Small Icons</value>
   </data>
   <data name="&gt;&gt;camerasListView.Parent" xml:space="preserve">
     <value>viewPanel</value>
@@ -261,9 +282,6 @@
   <data name="camEditRtsp1Label.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="panel2.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
   <data name="hintRTSP2.Location" type="System.Drawing.Point, System.Drawing">
     <value>314, 185</value>
   </data>
@@ -273,11 +291,11 @@
   <data name="infoPanel.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
   </data>
-  <data name="camEditBtnsPanel.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
   <data name="hintOpenCtrl.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>5, 3, 5, 4</value>
+  </data>
+  <data name="&gt;&gt;ascendingToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;developerLinkLabel.Type" xml:space="preserve">
     <value>System.Windows.Forms.LinkLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -285,38 +303,41 @@
   <data name="&gt;&gt;newCameraToolStripMenuItem.Name" xml:space="preserve">
     <value>newCameraToolStripMenuItem</value>
   </data>
+  <data name="&gt;&gt;hintAddCamera.Parent" xml:space="preserve">
+    <value>camPanel</value>
+  </data>
   <data name="disabledToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>129, 22</value>
+    <value>136, 22</value>
   </data>
   <data name="cancelCamButton.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
-  <data name="&gt;&gt;camEditRtsp1Label.Name" xml:space="preserve">
-    <value>camEditRtsp1Label</value>
+  <data name="errorInitVLCbadLibVer.Location" type="System.Drawing.Point, System.Drawing">
+    <value>16, 40</value>
   </data>
   <data name="&gt;&gt;ctrlPanel.Type" xml:space="preserve">
     <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="viewPanel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 0, 0, 0</value>
+  <data name="camNameShowInheritCheck.Text" xml:space="preserve">
+    <value>inherit global</value>
   </data>
   <data name="&gt;&gt;camerasIconListView.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>5</value>
   </data>
   <data name="errorInitVLC.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
   </data>
-  <data name="&gt;&gt;errorSaveSettings.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="aspectRatioTextBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
   </data>
   <data name="commandLineHelp.Size" type="System.Drawing.Size, System.Drawing">
     <value>252, 60</value>
   </data>
-  <data name="hintDropCamera.Size" type="System.Drawing.Size, System.Drawing">
-    <value>188, 45</value>
+  <data name="matrixYinput.Size" type="System.Drawing.Size, System.Drawing">
+    <value>32, 20</value>
   </data>
-  <data name="splitLabel.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 6pt</value>
+  <data name="&gt;&gt;commandLineHelp.Parent" xml:space="preserve">
+    <value>stringsPanel</value>
   </data>
   <data name="commandLineHelpButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
@@ -327,20 +348,20 @@
   <data name="tabControl1.Padding" type="System.Drawing.Point, System.Drawing">
     <value>9, 5</value>
   </data>
-  <data name="tabPage1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>248, 530</value>
-  </data>
   <data name="aspectRatioTextBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 404</value>
+    <value>0, 431</value>
   </data>
-  <data name="&gt;&gt;camerasIconListView.Name" xml:space="preserve">
-    <value>camerasIconListView</value>
+  <data name="camNameViewGlbButton.Text" xml:space="preserve">
+    <value>Camera name display</value>
+  </data>
+  <data name="&gt;&gt;cancelCamButton.Name" xml:space="preserve">
+    <value>cancelCamButton</value>
   </data>
   <data name="&gt;&gt;errorLoadSettings.Name" xml:space="preserve">
     <value>errorLoadSettings</value>
   </data>
-  <data name="&gt;&gt;modifyCameraToolStripMenuItem.Name" xml:space="preserve">
-    <value>modifyCameraToolStripMenuItem</value>
+  <data name="&gt;&gt;camNameShowModifyLabel.ZOrder" xml:space="preserve">
+    <value>13</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>MainForm</value>
@@ -349,52 +370,31 @@
     <value>True</value>
   </data>
   <data name="&gt;&gt;cameraDeleteConfirm1.Parent" xml:space="preserve">
-    <value>panel2</value>
-  </data>
-  <data name="splitter1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 0, 0, 0</value>
+    <value>stringsPanel</value>
   </data>
   <data name="&gt;&gt;toolStripSeparator1.Name" xml:space="preserve">
     <value>toolStripSeparator1</value>
   </data>
-  <data name="&gt;&gt;camEditBtnsPanel.ZOrder" xml:space="preserve">
-    <value>2</value>
+  <data name="xLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
-  <data name="camerasListView.Items1" mimetype="application/x-microsoft.net.object.binary.base64">
-    <value>
-        AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
-        LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkMAwAAAFFTeXN0
-        ZW0uRHJhd2luZywgVmVyc2lvbj00LjAuMC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2Vu
-        PWIwM2Y1ZjdmMTFkNTBhM2EFAQAAACFTeXN0ZW0uV2luZG93cy5Gb3Jtcy5MaXN0Vmlld0l0ZW0HAAAA
-        BFRleHQKSW1hZ2VJbmRleAlCYWNrQ29sb3IHQ2hlY2tlZARGb250CUZvcmVDb2xvchdVc2VJdGVtU3R5
-        bGVGb3JTdWJJdGVtcwEABAAEBAAIFFN5c3RlbS5EcmF3aW5nLkNvbG9yAwAAAAETU3lzdGVtLkRyYXdp
-        bmcuRm9udAMAAAAUU3lzdGVtLkRyYXdpbmcuQ29sb3IDAAAAAQIAAAAGBAAAAARDYW0yAQAAAAX7////
-        FFN5c3RlbS5EcmF3aW5nLkNvbG9yBAAAAARuYW1lBXZhbHVlCmtub3duQ29sb3IFc3RhdGUBAAAACQcH
-        AwAAAAoAAAAAAAAAABgAAQAACQYAAAAB+f////v///8KAAAAAAAAAAAaAAEAAQUGAAAAE1N5c3RlbS5E
-        cmF3aW5nLkZvbnQEAAAABE5hbWUEU2l6ZQVTdHlsZQRVbml0AQAEBAsYU3lzdGVtLkRyYXdpbmcuRm9u
-        dFN0eWxlAwAAABtTeXN0ZW0uRHJhd2luZy5HcmFwaGljc1VuaXQDAAAAAwAAAAYIAAAAFE1pY3Jvc29m
-        dCBTYW5zIFNlcmlmAAAEQQX3////GFN5c3RlbS5EcmF3aW5nLkZvbnRTdHlsZQEAAAAHdmFsdWVfXwAI
-        AwAAAAAAAAAF9v///xtTeXN0ZW0uRHJhd2luZy5HcmFwaGljc1VuaXQBAAAAB3ZhbHVlX18ACAMAAAAD
-        AAAACw==
-</value>
+  <data name="&gt;&gt;modifyCameraToolStripMenuItem.Name" xml:space="preserve">
+    <value>modifyCameraToolStripMenuItem</value>
   </data>
-  <data name="tabPage2.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
+  <data name="matrixDimensionsLabel.Text" xml:space="preserve">
+    <value>Matrix dimensions</value>
   </data>
-  <data name="&gt;&gt;panel1.Parent" xml:space="preserve">
-    <value>tabPage2</value>
+  <data name="&gt;&gt;errorInitVLC.Parent" xml:space="preserve">
+    <value>stringsPanel</value>
   </data>
-  <data name="&gt;&gt;camPanel.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="&gt;&gt;camPanel.Name" xml:space="preserve">
+    <value>camPanel</value>
   </data>
   <data name="&gt;&gt;errorInitVLCbadLibVer.Parent" xml:space="preserve">
-    <value>panel2</value>
+    <value>stringsPanel</value>
   </data>
   <data name="tabControl1.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
-  </data>
-  <data name="&gt;&gt;errorInitVLC.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="editCamPanel.TabIndex" type="System.Int32, mscorlib">
     <value>41</value>
@@ -402,11 +402,17 @@
   <data name="&gt;&gt;aspectRatioLabel.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="camPanel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
   <data name="&gt;&gt;errorLoadSettings.Parent" xml:space="preserve">
-    <value>panel2</value>
+    <value>stringsPanel</value>
   </data>
   <data name="&gt;&gt;editCamPanel.Name" xml:space="preserve">
     <value>editCamPanel</value>
+  </data>
+  <data name="errorInitVLCbadLib.Location" type="System.Drawing.Point, System.Drawing">
+    <value>16, 54</value>
   </data>
   <data name="&gt;&gt;hintRTSP1.Parent" xml:space="preserve">
     <value>camPanel</value>
@@ -414,24 +420,36 @@
   <data name="&gt;&gt;tabControl1.Parent" xml:space="preserve">
     <value>ctrlPanel</value>
   </data>
-  <data name="editCamPanel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
+  <data name="&gt;&gt;camerasIconListView.Name" xml:space="preserve">
+    <value>camerasIconListView</value>
   </data>
   <data name="ctrlPanel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Left</value>
   </data>
   <data name="ctrlPanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>256, 563</value>
+    <value>256, 561</value>
   </data>
   <data name="errorInitVLCbadLib.Text" xml:space="preserve">
     <value>Clean your VLC and install the latest VLC
-Try to get last "RTSP mosaic VLC player"</value>
+Or try to get last "RTSP mosaic VLC player"</value>
+  </data>
+  <data name="matrixXinput.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
   </data>
   <data name="errorInitVLCbadLibVer.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
   </data>
+  <data name="&gt;&gt;matrixXinput.Parent" xml:space="preserve">
+    <value>panel2</value>
+  </data>
+  <data name="hintRTSP1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>188, 48</value>
+  </data>
   <data name="&gt;&gt;editCamPanel.Parent" xml:space="preserve">
-    <value>tabPage1</value>
+    <value>camerasPage</value>
+  </data>
+  <data name="matrixDimensionsLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="camNameLabel.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -439,35 +457,44 @@ Try to get last "RTSP mosaic VLC player"</value>
   <data name="aspectRatioLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="&gt;&gt;errorInitVLCbadLibVer.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="hintOpenCtrl.Location" type="System.Drawing.Point, System.Drawing">
+    <value>314, 9</value>
   </data>
   <data name="viewPanel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
   <data name="&gt;&gt;errorInitVLCbadLib.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
-  <data name="hintAddCamera.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 3, 5, 4</value>
+  <data name="&gt;&gt;camEditBtnsPanel.Parent" xml:space="preserve">
+    <value>editCamPanel</value>
+  </data>
+  <data name="&gt;&gt;hintDropCamera.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;stringsPanel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="smallListToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>130, 22</value>
+    <value>134, 22</value>
   </data>
   <data name="cameraContextMenuStrip.Size" type="System.Drawing.Size, System.Drawing">
-    <value>147, 98</value>
+    <value>157, 98</value>
+  </data>
+  <data name="&gt;&gt;matrixDimensionsLabel.Parent" xml:space="preserve">
+    <value>optionsPage</value>
   </data>
   <data name="rtsp2TextBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>247, 60</value>
   </data>
-  <data name="camerasListView.Size" type="System.Drawing.Size, System.Drawing">
-    <value>248, 430</value>
+  <data name="hintDropCamera.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
-  <data name="&gt;&gt;camNameTextBox.Parent" xml:space="preserve">
-    <value>editCamPanel</value>
+  <data name="&gt;&gt;camPanel.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
-  <data name="tabPage1.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="delCamLabel.Text" xml:space="preserve">
+    <value>Delete camera</value>
   </data>
   <data name="delCamLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -481,17 +508,44 @@ Try to get last "RTSP mosaic VLC player"</value>
   <data name="&gt;&gt;saveCamButton.Name" xml:space="preserve">
     <value>saveCamButton</value>
   </data>
+  <data name="camNameShowInheritCheck.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="&gt;&gt;matrixYinput.Parent" xml:space="preserve">
+    <value>panel2</value>
+  </data>
+  <data name="tabControlSplitter.Location" type="System.Drawing.Point, System.Drawing">
+    <value>256, 0</value>
+  </data>
   <data name="&gt;&gt;viewPanel.Type" xml:space="preserve">
     <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;infoPanel.Name" xml:space="preserve">
     <value>infoPanel</value>
   </data>
+  <data name="tabControlSplitter.Size" type="System.Drawing.Size, System.Drawing">
+    <value>4, 561</value>
+  </data>
   <data name="toolStripMenuItem1.Text" xml:space="preserve">
     <value>Type View</value>
   </data>
+  <data name="stringsPanel.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="camNameShowCheck.Size" type="System.Drawing.Size, System.Drawing">
+    <value>51, 17</value>
+  </data>
   <data name="rtsp1TextBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>247, 60</value>
+  </data>
+  <data name="matrixYinput.Location" type="System.Drawing.Point, System.Drawing">
+    <value>56, 3</value>
+  </data>
+  <data name="camNameShowCheck.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 60</value>
+  </data>
+  <data name="&gt;&gt;modifyCameraToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;splitLabel.ZOrder" xml:space="preserve">
     <value>6</value>
@@ -500,16 +554,13 @@ Try to get last "RTSP mosaic VLC player"</value>
     <value>rtsp2TextBox</value>
   </data>
   <data name="&gt;&gt;cameraDeleteConfirm2.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="splitLabel.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleCenter</value>
   </data>
   <data name="camEditRtsp1Label.Text" xml:space="preserve">
     <value>Bad quality RTSP connect string</value>
-  </data>
-  <data name="hintAddCamera.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
   </data>
   <data name="&gt;&gt;camEditBtnsPanel.Name" xml:space="preserve">
     <value>camEditBtnsPanel</value>
@@ -518,37 +569,46 @@ Try to get last "RTSP mosaic VLC player"</value>
     <value>$this</value>
   </data>
   <data name="tabControl1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>256, 563</value>
+    <value>256, 561</value>
   </data>
   <data name="ctrlPanel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="errorInitVLCnoLib.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="camerasPage.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>0, 0, 0, 0</value>
   </data>
   <data name="rtsp1TextBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
   </data>
-  <data name="&gt;&gt;camPanel.Name" xml:space="preserve">
-    <value>camPanel</value>
+  <data name="errorSetCamera.Text" xml:space="preserve">
+    <value>Installed VLC version is unsupported</value>
   </data>
-  <data name="&gt;&gt;tabPage1.Parent" xml:space="preserve">
-    <value>tabControl1</value>
+  <data name="&gt;&gt;camNameShowInheritCheck.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;hintDropCamera.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="hintOpenCtrl.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
+  <data name="errorLoadSettings.Text" xml:space="preserve">
+    <value>Error: Can't Load settings. May be, there is no file</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="modifyCameraToolStripMenuItem.Text" xml:space="preserve">
-    <value>Modify Camera</value>
-  </data>
-  <data name="hintOpenCtrl.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="developerLinkLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>-1, 50</value>
   </data>
   <data name="&gt;&gt;descendingToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;errorSetCamera.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="matrixDimensionsLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;commandLineHelp.Name" xml:space="preserve">
+    <value>commandLineHelp</value>
   </data>
   <data name="camerasListView.Items" mimetype="application/x-microsoft.net.object.binary.base64">
     <value>
@@ -571,38 +631,38 @@ Try to get last "RTSP mosaic VLC player"</value>
   <data name="camEditRtsp1Label.Size" type="System.Drawing.Size, System.Drawing">
     <value>161, 13</value>
   </data>
-  <data name="&gt;&gt;cancelCamButton.Name" xml:space="preserve">
-    <value>cancelCamButton</value>
-  </data>
   <data name="&gt;&gt;errorInitVLC.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
-  <data name="splitter1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>256, 0</value>
+  <data name="&gt;&gt;matrixYinput.Name" xml:space="preserve">
+    <value>matrixYinput</value>
   </data>
   <data name="commandLineHelpButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>248, 26</value>
   </data>
+  <data name="hintRTSP2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>210, 64</value>
+  </data>
+  <data name="camNameViewGlbButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 58</value>
+  </data>
   <data name="&gt;&gt;largeListToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;hintAddCamera.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="cameraDeleteConfirm2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>16, 189</value>
   </data>
   <data name="&gt;&gt;smallListToolStripMenuItem.Name" xml:space="preserve">
     <value>smallListToolStripMenuItem</value>
   </data>
-  <data name="&gt;&gt;commandLineHelp.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;tabControl1.Name" xml:space="preserve">
+    <value>tabControl1</value>
   </data>
-  <data name="&gt;&gt;errorSaveSettings.Parent" xml:space="preserve">
-    <value>panel2</value>
-  </data>
-  <data name="rtsp1TextBox.TabIndex" type="System.Int32, mscorlib">
+  <data name="matrixYinput.MaxLength" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
-  <data name="&gt;&gt;commandLineHelp.Name" xml:space="preserve">
-    <value>commandLineHelp</value>
+  <data name="camNameShowModifyLabel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
   </data>
   <data name="&gt;&gt;camerasListView.ZOrder" xml:space="preserve">
     <value>0</value>
@@ -615,38 +675,56 @@ Try to get last "RTSP mosaic VLC player"</value>
 produces minimal network load.
 To show in small windows.</value>
   </data>
+  <data name="&gt;&gt;largeIconsToolStripMenuItem.Name" xml:space="preserve">
+    <value>largeIconsToolStripMenuItem</value>
+  </data>
   <data name="largeListToolStripMenuItem.Text" xml:space="preserve">
     <value>Large List</value>
+  </data>
+  <data name="&gt;&gt;camNameViewGlbButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;matrixXinput.Name" xml:space="preserve">
+    <value>matrixXinput</value>
+  </data>
+  <data name="hintRTSP1.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 3, 5, 4</value>
   </data>
   <data name="&gt;&gt;rtsp1TextBox.Name" xml:space="preserve">
     <value>rtsp1TextBox</value>
   </data>
-  <data name="&gt;&gt;tabPage1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;cameraDeleteConfirm1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;xLabel.Parent" xml:space="preserve">
+    <value>panel2</value>
   </data>
   <data name="camerasIconListView.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>0, 0, 0, 0</value>
   </data>
   <data name="camerasIconListView.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
+    <value>7</value>
   </data>
-  <data name="&gt;&gt;errorSaveSettings.ZOrder" xml:space="preserve">
-    <value>5</value>
+  <data name="toolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>156, 22</value>
   </data>
   <data name="aspectRatioLabel.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;hintRTSP1.Name" xml:space="preserve">
-    <value>hintRTSP1</value>
+  <data name="&gt;&gt;splitLabel.Name" xml:space="preserve">
+    <value>splitLabel</value>
   </data>
-  <data name="cameraDeleteConfirm2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 189</value>
+  <data name="camNameShowInheritCheck.Location" type="System.Drawing.Point, System.Drawing">
+    <value>84, 60</value>
+  </data>
+  <data name="xLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>38, 6</value>
   </data>
   <data name="&gt;&gt;commandLineHelp.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>7</value>
   </data>
-  <data name="&gt;&gt;tabPage2.Name" xml:space="preserve">
-    <value>tabPage2</value>
+  <data name="hintAddCamera.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="hintRTSP2.Text" xml:space="preserve">
     <value>Bad RTSP connect string, which
@@ -655,19 +733,25 @@ To show in big windows.
 Swiching between RTSPs is automated.</value>
   </data>
   <data name="splitLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>5, 231</value>
+    <value>5, 230</value>
+  </data>
+  <data name="&gt;&gt;stringsPanel.Parent" xml:space="preserve">
+    <value>camPanel</value>
   </data>
   <data name="&gt;&gt;camEditRtsp2Label.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>11</value>
   </data>
   <data name="errorInitVLCbadLib.Size" type="System.Drawing.Size, System.Drawing">
-    <value>249, 14</value>
+    <value>249, 24</value>
   </data>
-  <data name="smallIconsToolStripMenuItem.Text" xml:space="preserve">
-    <value>Small Icons</value>
+  <data name="xLabel.Text" xml:space="preserve">
+    <value>x</value>
   </data>
   <data name="aspectRatioTextBox.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;xLabel.ZOrder" xml:space="preserve">
+    <value>3</value>
   </data>
   <data name="infoPanel.Size" type="System.Drawing.Size, System.Drawing">
     <value>248, 100</value>
@@ -678,29 +762,35 @@ Swiching between RTSPs is automated.</value>
   <data name="&gt;&gt;commandLineHelpButton.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="delCamLabel.Text" xml:space="preserve">
-    <value>Delete camera</value>
+  <data name="camNameShowModifyLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>112, 17</value>
   </data>
   <data name="camerasListView.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
-  <data name="&gt;&gt;tabPage1.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="matrixSaveLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
-  <data name="camPanel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>256, 0</value>
+  <data name="cameraDeleteConfirm2.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="matrixSaveLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>19, 13</value>
+  </data>
+  <data name="camerasPage.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
   </data>
   <data name="&gt;&gt;errorInitVLCnoLib.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;ascendingToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="hintAddCamera.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 3, 5, 4</value>
   </data>
   <data name="&gt;&gt;camEditRtsp2Label.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="hintRTSP1.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 3, 5, 4</value>
+  <data name="matrixYinput.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
   </data>
   <data name="&gt;&gt;camEditRtsp2Label.Parent" xml:space="preserve">
     <value>editCamPanel</value>
@@ -708,20 +798,41 @@ Swiching between RTSPs is automated.</value>
   <data name="delCamLabel.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
   </data>
+  <data name="&gt;&gt;camPanel.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="splitLabel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="&gt;&gt;hintAddCamera.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="optionsPage.Text" xml:space="preserve">
+    <value>Options</value>
+  </data>
   <data name="camEditBtnsPanel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 447</value>
+    <value>0, 445</value>
+  </data>
+  <data name="camNameShowCheck.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="camEditIconLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>66, 13</value>
   </data>
   <data name="&gt;&gt;aspectRatioLabel.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>6</value>
   </data>
   <data name="developerLinkLabel.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
   </data>
-  <data name="hintDropCamera.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="hintOpenCtrl.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="hintDropCamera.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterScreen</value>
   </data>
   <data name="&gt;&gt;hintDropCamera.Name" xml:space="preserve">
     <value>hintDropCamera</value>
@@ -732,32 +843,41 @@ Swiching between RTSPs is automated.</value>
   <data name="camEditRtsp2Label.Text" xml:space="preserve">
     <value>Good quality RTSP connect string</value>
   </data>
-  <data name="&gt;&gt;tabPage2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="cameraDeleteConfirm1.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
   </data>
-  <data name="&gt;&gt;splitter1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Splitter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="camerasIconListView.Size" type="System.Drawing.Size, System.Drawing">
-    <value>247, 83</value>
+  <data name="&gt;&gt;errorSetCamera.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="hintRTSP2.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="cameraDeleteConfirm2.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
+  <data name="errorInitVLC.Text" xml:space="preserve">
+    <value>Please, install VLC 2.1.x with Web-modules to the default
+installation folder ''Program Files (x86)'' or ''Program Files''
+
+You can download VLC here:
+http://download.videolan.org/pub/videolan/vlc/2.1.5/win32/
+
+Would you like to download VLC now?</value>
+  </data>
+  <data name="modifyCameraToolStripMenuItem.Text" xml:space="preserve">
+    <value>Modify Camera</value>
+  </data>
+  <data name="hintAddCamera.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
   </data>
   <data name="cameraDeleteConfirm2.Text" xml:space="preserve">
     <value>You are watching this camera now. Are you sure?</value>
   </data>
-  <data name="&gt;&gt;cameraIconsImageList.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ImageList, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="errorInitVLCbadLibVer.Size" type="System.Drawing.Size, System.Drawing">
+    <value>249, 14</value>
   </data>
-  <data name="&gt;&gt;hintRTSP2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="matrixDimensionsLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>90, 13</value>
   </data>
   <data name="panel2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>282, 391</value>
+    <value>120, 26</value>
   </data>
   <data name="&gt;&gt;cameraDeleteConfirm2.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -768,11 +888,11 @@ Swiching between RTSPs is automated.</value>
   <data name="&gt;&gt;camEditRtsp1Label.Parent" xml:space="preserve">
     <value>editCamPanel</value>
   </data>
-  <data name="&gt;&gt;tabControl1.Name" xml:space="preserve">
-    <value>tabControl1</value>
+  <data name="panel2.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
-  <data name="&gt;&gt;largeListToolStripMenuItem.Name" xml:space="preserve">
-    <value>largeListToolStripMenuItem</value>
+  <data name="errorInitVLCbadLibVer.Text" xml:space="preserve">
+    <value>It seems, you have unsupported version of libvlc.dll / axvlc.dll</value>
   </data>
   <data name="&gt;&gt;splitLabel.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -786,20 +906,35 @@ Swiching between RTSPs is automated.</value>
   <data name="camEditIconLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="hintAddCamera.Location" type="System.Drawing.Point, System.Drawing">
-    <value>314, 50</value>
+  <data name="&gt;&gt;camNameShowInheritCheck.Name" xml:space="preserve">
+    <value>camNameShowInheritCheck</value>
+  </data>
+  <data name="panel2.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="camNameShowModifyLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
   </data>
   <data name="&gt;&gt;smallListToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="splitLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>6, 36</value>
+  <data name="panel2.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="&gt;&gt;xLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;infoPanel.Type" xml:space="preserve">
     <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;panel1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ascendingToolStripMenuItem.Name" xml:space="preserve">
+    <value>ascendingToolStripMenuItem</value>
+  </data>
   <data name="rtsp2TextBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 186</value>
+    <value>0, 213</value>
   </data>
   <data name="&gt;&gt;camEditIconLabel.Parent" xml:space="preserve">
     <value>editCamPanel</value>
@@ -807,22 +942,19 @@ Swiching between RTSPs is automated.</value>
   <data name="&gt;&gt;hintRTSP2.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="&gt;&gt;errorSaveSettings.Name" xml:space="preserve">
-    <value>errorSaveSettings</value>
-  </data>
   <data name="hintDropCamera.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
+  </data>
+  <data name="camNameViewGlbButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>10, 10, 10, 10</value>
   </data>
   <data name="errorInitVLCbadLib.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="toolStripSeparator1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>143, 6</value>
+    <value>153, 6</value>
   </data>
-  <data name="&gt;&gt;cameraContextMenuStrip.Name" xml:space="preserve">
-    <value>cameraContextMenuStrip</value>
-  </data>
-  <data name="&gt;&gt;cameraDeleteConfirm1.Type" xml:space="preserve">
+  <data name="&gt;&gt;camEditRtsp1Label.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;toolStripMenuItem1.Type" xml:space="preserve">
@@ -834,17 +966,26 @@ Swiching between RTSPs is automated.</value>
   <data name="&gt;&gt;tabControl1.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="commandLineHelp.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 89</value>
-  </data>
   <data name="&gt;&gt;editCamPanel.ZOrder" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="&gt;&gt;panel1.ZOrder" xml:space="preserve">
+    <value>3</value>
   </data>
   <data name="hintRTSP2.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>5, 3, 5, 4</value>
   </data>
-  <data name="splitLabel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 0, 0, 0</value>
+  <data name="&gt;&gt;camEditBtnsPanel.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;matrixSaveLabel.Parent" xml:space="preserve">
+    <value>panel2</value>
+  </data>
+  <data name="&gt;&gt;camerasPage.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;largeListToolStripMenuItem.Name" xml:space="preserve">
+    <value>largeListToolStripMenuItem</value>
   </data>
   <data name="&gt;&gt;ctrlPanel.ZOrder" xml:space="preserve">
     <value>3</value>
@@ -858,26 +999,38 @@ Swiching between RTSPs is automated.</value>
   <data name="editCamPanel.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
+  <data name="xLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>12, 13</value>
+  </data>
+  <data name="hintDropCamera.Location" type="System.Drawing.Point, System.Drawing">
+    <value>314, 92</value>
+  </data>
+  <data name="&gt;&gt;xLabel.Name" xml:space="preserve">
+    <value>xLabel</value>
+  </data>
   <data name="&gt;&gt;camEditIconLabel.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;errorInitVLCbadLib.Parent" xml:space="preserve">
-    <value>panel2</value>
+    <value>stringsPanel</value>
   </data>
-  <data name="developerLinkLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>-1, 50</value>
+  <data name="viewPanel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
   </data>
-  <data name="ctrlPanel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
+  <data name="&gt;&gt;errorLoadSettings.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="developerLinkLabel.Text" xml:space="preserve">
+    <value>Developer page</value>
   </data>
   <data name="rtsp2TextBox.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
+    <value>6</value>
   </data>
-  <data name="camEditBtnsPanel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Bottom</value>
+  <data name="&gt;&gt;camNameShowInheritCheck.Parent" xml:space="preserve">
+    <value>editCamPanel</value>
   </data>
-  <data name="&gt;&gt;splitter1.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="matrixSaveLabel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 8.25pt</value>
   </data>
   <data name="&gt;&gt;panel2.Type" xml:space="preserve">
     <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -885,8 +1038,15 @@ Swiching between RTSPs is automated.</value>
   <data name="&gt;&gt;cameraContextMenuStrip.Type" xml:space="preserve">
     <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="camNameViewGlbButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>228, 23</value>
+  </data>
+  <data name="hintDropCamera.Text" xml:space="preserve">
+    <value>Drag camera by mouse left-button
+and drop somewhere on grid here</value>
+  </data>
   <data name="camNameTextBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 36</value>
+    <value>0, 35</value>
   </data>
   <data name="camEditIconLabel.Text" xml:space="preserve">
     <value>Camera icon</value>
@@ -894,41 +1054,53 @@ Swiching between RTSPs is automated.</value>
   <data name="&gt;&gt;camerasIconListView.Type" xml:space="preserve">
     <value>System.Windows.Forms.ListView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="tabPage1.Text" xml:space="preserve">
-    <value>Cameras</value>
+  <data name="cameraDeleteConfirm2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
-  <data name="aspectRatioTextBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Left, Right</value>
+  <data name="&gt;&gt;camNameViewGlbButton.Parent" xml:space="preserve">
+    <value>optionsPage</value>
+  </data>
+  <data name="xLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="&gt;&gt;errorInitVLCbadLib.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="camPanel.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
   <data name="&gt;&gt;aspectRatioTextBox.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>7</value>
   </data>
   <data name="&gt;&gt;camNameLabel.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="splitter1.MinSize" type="System.Int32, mscorlib">
-    <value>100</value>
+  <data name="&gt;&gt;optionsPage.Parent" xml:space="preserve">
+    <value>tabControl1</value>
   </data>
-  <data name="&gt;&gt;camEditRtsp1Label.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;camNameViewGlbButton.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="matrixSaveLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>94, 6</value>
   </data>
   <data name="&gt;&gt;tabControl1.Type" xml:space="preserve">
     <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;camerasIconListView.Parent" xml:space="preserve">
-    <value>editCamPanel</value>
+  <data name="matrixDimensionsLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 20</value>
   </data>
   <data name="hintRTSP1.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
+  </data>
+  <data name="camNameShowModifyLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>133, 59</value>
   </data>
   <data name="rtsp1TextBox.Multiline" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="panel2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>14, 92</value>
+    <value>118, 13</value>
   </data>
   <data name="ascendingToolStripMenuItem.Text" xml:space="preserve">
     <value>Ascending</value>
@@ -936,29 +1108,44 @@ Swiching between RTSPs is automated.</value>
   <data name="errorSaveSettings.Location" type="System.Drawing.Point, System.Drawing">
     <value>16, 163</value>
   </data>
-  <data name="tabPage1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 29</value>
-  </data>
   <data name="&gt;&gt;hintDropCamera.Parent" xml:space="preserve">
     <value>camPanel</value>
   </data>
   <data name="saveCamButton.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
-  <data name="errorInitVLCbadLibVer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>249, 14</value>
+  <data name="camerasListView.Items1" mimetype="application/x-microsoft.net.object.binary.base64">
+    <value>
+        AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
+        LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkMAwAAAFFTeXN0
+        ZW0uRHJhd2luZywgVmVyc2lvbj00LjAuMC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2Vu
+        PWIwM2Y1ZjdmMTFkNTBhM2EFAQAAACFTeXN0ZW0uV2luZG93cy5Gb3Jtcy5MaXN0Vmlld0l0ZW0HAAAA
+        BFRleHQKSW1hZ2VJbmRleAlCYWNrQ29sb3IHQ2hlY2tlZARGb250CUZvcmVDb2xvchdVc2VJdGVtU3R5
+        bGVGb3JTdWJJdGVtcwEABAAEBAAIFFN5c3RlbS5EcmF3aW5nLkNvbG9yAwAAAAETU3lzdGVtLkRyYXdp
+        bmcuRm9udAMAAAAUU3lzdGVtLkRyYXdpbmcuQ29sb3IDAAAAAQIAAAAGBAAAAARDYW0yAQAAAAX7////
+        FFN5c3RlbS5EcmF3aW5nLkNvbG9yBAAAAARuYW1lBXZhbHVlCmtub3duQ29sb3IFc3RhdGUBAAAACQcH
+        AwAAAAoAAAAAAAAAABgAAQAACQYAAAAB+f////v///8KAAAAAAAAAAAaAAEAAQUGAAAAE1N5c3RlbS5E
+        cmF3aW5nLkZvbnQEAAAABE5hbWUEU2l6ZQVTdHlsZQRVbml0AQAEBAsYU3lzdGVtLkRyYXdpbmcuRm9u
+        dFN0eWxlAwAAABtTeXN0ZW0uRHJhd2luZy5HcmFwaGljc1VuaXQDAAAAAwAAAAYIAAAAFE1pY3Jvc29m
+        dCBTYW5zIFNlcmlmAAAEQQX3////GFN5c3RlbS5EcmF3aW5nLkZvbnRTdHlsZQEAAAAHdmFsdWVfXwAI
+        AwAAAAAAAAAF9v///xtTeXN0ZW0uRHJhd2luZy5HcmFwaGljc1VuaXQBAAAAB3ZhbHVlX18ACAMAAAAD
+        AAAACw==
+</value>
   </data>
-  <data name="errorSaveSettings.Text" xml:space="preserve">
-    <value>Error: Can't Save settings. May be, there is no write rights for</value>
+  <data name="camPanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>528, 561</value>
   </data>
-  <data name="&gt;&gt;rtsp2TextBox.ZOrder" xml:space="preserve">
-    <value>7</value>
+  <data name="&gt;&gt;cameraIconsImageList.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ImageList, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="errorInitVLCnoLib.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="aspectRatioLabel.Text" xml:space="preserve">
     <value>Aspect ratio</value>
   </data>
-  <data name="&gt;&gt;errorLoadSettings.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;optionsPage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;hintRTSP2.Parent" xml:space="preserve">
     <value>camPanel</value>
@@ -966,26 +1153,23 @@ Swiching between RTSPs is automated.</value>
   <data name="&gt;&gt;developerLinkLabel.Parent" xml:space="preserve">
     <value>panel1</value>
   </data>
-  <data name="panel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>248, 100</value>
+  <data name="camerasListView.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
   </data>
   <data name="camNameLabel.Location" type="System.Drawing.Point, System.Drawing">
     <value>8, 11</value>
-  </data>
-  <data name="splitter1.MinExtra" type="System.Int32, mscorlib">
-    <value>100</value>
   </data>
   <data name="errorLoadSettings.Location" type="System.Drawing.Point, System.Drawing">
     <value>16, 149</value>
   </data>
   <data name="camerasIconListView.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 283</value>
+    <value>0, 310</value>
   </data>
-  <data name="cameraDeleteConfirm2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="optionsPage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>248, 528</value>
   </data>
-  <data name="ctrlPanel.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="&gt;&gt;toolStripMenuItem2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;rtsp2TextBox.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -993,8 +1177,8 @@ Swiching between RTSPs is automated.</value>
   <data name="&gt;&gt;hintRTSP1.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="errorLoadSettings.Text" xml:space="preserve">
-    <value>Error: Can't Load settings. May be, there is no file</value>
+  <data name="descendingToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>136, 22</value>
   </data>
   <data name="tabControl1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>0, 0, 0, 0</value>
@@ -1003,22 +1187,25 @@ Swiching between RTSPs is automated.</value>
     <value>editCamPanel</value>
   </data>
   <data name="&gt;&gt;errorInitVLCnoLib.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
-  <data name="&gt;&gt;splitLabel.Name" xml:space="preserve">
-    <value>splitLabel</value>
+  <data name="&gt;&gt;camerasListView.Name" xml:space="preserve">
+    <value>camerasListView</value>
   </data>
   <data name="&gt;&gt;delCamLabel.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;tabPage1.Name" xml:space="preserve">
-    <value>tabPage1</value>
+  <data name="&gt;&gt;camNameShowCheck.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;infoPanel.Parent" xml:space="preserve">
     <value>viewPanel</value>
   </data>
-  <data name="&gt;&gt;errorInitVLC.Parent" xml:space="preserve">
-    <value>panel2</value>
+  <data name="matrixSaveLabel.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;errorSaveSettings.Name" xml:space="preserve">
+    <value>errorSaveSettings</value>
   </data>
   <data name="&gt;&gt;developerLinkLabel.ZOrder" xml:space="preserve">
     <value>0</value>
@@ -1026,70 +1213,103 @@ Swiching between RTSPs is automated.</value>
   <data name="&gt;&gt;infoPanel.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
+  <data name="&gt;&gt;smallIconsToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="optionsPage.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
   <data name="saveCamButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>100, 30</value>
   </data>
-  <data name="errorInitVLCnoLib.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
+  <data name="&gt;&gt;camNameTextBox.Name" xml:space="preserve">
+    <value>camNameTextBox</value>
   </data>
-  <data name="&gt;&gt;ascendingToolStripMenuItem.Name" xml:space="preserve">
-    <value>ascendingToolStripMenuItem</value>
+  <data name="&gt;&gt;matrixYinput.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;tabPage2.Parent" xml:space="preserve">
-    <value>tabControl1</value>
+  <data name="&gt;&gt;camNameShowInheritCheck.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="splitLabel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 6pt</value>
+  </data>
+  <data name="&gt;&gt;hintOpenCtrl.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;commandLineHelpButton.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>Form1</value>
+  <data name="&gt;&gt;matrixSaveLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;matrixXinput.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="camNameViewGlbButton.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
   </data>
   <data name="rtsp2TextBox.Text" xml:space="preserve">
     <value>Ask camera vendor. Examples:
 rtsp://admin:1111@192.168.1.3/live/main
 rtsp://192.168.1.4:554/av0_0&amp;user=admin&amp;password=1111</value>
   </data>
+  <data name="tabControlSplitter.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
   <data name="hintAddCamera.Size" type="System.Drawing.Size, System.Drawing">
     <value>161, 35</value>
   </data>
-  <data name="camPanel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
+  <data name="hintRTSP1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>314, 137</value>
+  </data>
+  <data name="camerasPage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>248, 528</value>
+  </data>
+  <data name="panel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>248, 100</value>
   </data>
   <data name="delCamLabel.Location" type="System.Drawing.Point, System.Drawing">
     <value>84, 66</value>
   </data>
   <data name="&gt;&gt;panel2.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>0</value>
   </data>
-  <data name="errorInitVLC.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 12</value>
+  <data name="ctrlPanel.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
   </data>
-  <data name="hintDropCamera.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 0, 0, 0</value>
+  <data name="&gt;&gt;hintRTSP1.Name" xml:space="preserve">
+    <value>hintRTSP1</value>
   </data>
   <data name="viewPanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>248, 530</value>
+    <value>248, 528</value>
   </data>
-  <data name="&gt;&gt;errorInitVLC.Name" xml:space="preserve">
-    <value>errorInitVLC</value>
+  <data name="errorInitVLC.Size" type="System.Drawing.Size, System.Drawing">
+    <value>249, 14</value>
   </data>
-  <data name="errorInitVLCbadLibVer.Text" xml:space="preserve">
-    <value>It seems, you have unsupported version of libvlc.dll / axvlc.dll</value>
+  <data name="&gt;&gt;largeIconsToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="panel1.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
+  <data name="matrixSaveLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
   <data name="&gt;&gt;cameraDeleteConfirm1.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>9</value>
   </data>
-  <data name="splitLabel.Text" xml:space="preserve">
-    <value>&gt;&gt;</value>
+  <data name="&gt;&gt;matrixDimensionsLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;camEditBtnsPanel.Parent" xml:space="preserve">
-    <value>editCamPanel</value>
+  <data name="&gt;&gt;errorSetCamera.Name" xml:space="preserve">
+    <value>errorSetCamera</value>
   </data>
-  <data name="&gt;&gt;largeIconsToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="camNameShowModifyLabel.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleRight</value>
+  </data>
+  <data name="&gt;&gt;aspectRatioTextBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="tabControl1.Appearance" type="System.Windows.Forms.TabAppearance, System.Windows.Forms">
     <value>FlatButtons</value>
@@ -1099,6 +1319,12 @@ rtsp://192.168.1.4:554/av0_0&amp;user=admin&amp;password=1111</value>
 rtsp://admin:1111@192.168.1.3/live/sub
 rtsp://192.168.1.4:554/av0_1&amp;user=admin&amp;password=1111</value>
   </data>
+  <data name="hintOpenCtrl.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="&gt;&gt;camerasPage.Parent" xml:space="preserve">
+    <value>tabControl1</value>
+  </data>
   <data name="&gt;&gt;delCamLabel.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -1106,26 +1332,28 @@ rtsp://192.168.1.4:554/av0_1&amp;user=admin&amp;password=1111</value>
     <value>252, 14</value>
   </data>
   <data name="&gt;&gt;cameraDeleteConfirm2.Parent" xml:space="preserve">
-    <value>panel2</value>
+    <value>stringsPanel</value>
   </data>
-  <data name="tabPage1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 0, 0, 0</value>
+  <data name="camEditBtnsPanel.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
   </data>
   <data name="&gt;&gt;viewPanel.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;tabControlSplitter.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
   <data name="&gt;&gt;hintOpenCtrl.Name" xml:space="preserve">
     <value>hintOpenCtrl</value>
   </data>
   <data name="ascendingToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>129, 22</value>
+    <value>136, 22</value>
   </data>
-  <data name="tabPage2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 0, 0, 0</value>
+  <data name="optionsPage.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
   </data>
-  <data name="hintDropCamera.Text" xml:space="preserve">
-    <value>Drag camera by mouse left-button
-and drop somewhere on grid here</value>
+  <data name="&gt;&gt;commandLineHelp.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;errorInitVLCnoLib.Name" xml:space="preserve">
     <value>errorInitVLCnoLib</value>
@@ -1133,17 +1361,26 @@ and drop somewhere on grid here</value>
   <data name="tabControl1.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
+  <data name="camNameShowCheck.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
   <data name="&gt;&gt;cancelCamButton.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="errorInitVLCbadLibVer.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 40</value>
+  <data name="errorSetCamera.Size" type="System.Drawing.Size, System.Drawing">
+    <value>249, 23</value>
   </data>
-  <data name="descendingToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>129, 22</value>
+  <data name="camNameShowInheritCheck.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="smallListToolStripMenuItem.Text" xml:space="preserve">
+    <value>Small List</value>
   </data>
   <data name="&gt;&gt;developerLinkLabel.Name" xml:space="preserve">
     <value>developerLinkLabel</value>
+  </data>
+  <data name="&gt;&gt;matrixSaveLabel.Name" xml:space="preserve">
+    <value>matrixSaveLabel</value>
   </data>
   <data name="&gt;&gt;saveCamButton.ZOrder" xml:space="preserve">
     <value>2</value>
@@ -1154,24 +1391,35 @@ and drop somewhere on grid here</value>
   <data name="camerasIconListView.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
   </data>
-  <data name="&gt;&gt;camNameTextBox.Name" xml:space="preserve">
-    <value>camNameTextBox</value>
+  <data name="hintAddCamera.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
-  <data name="hintAddCamera.Text" xml:space="preserve">
-    <value>Right-click on this area to Add
-new camera</value>
+  <data name="camNameViewGlbButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="rtsp1TextBox.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
   </data>
   <data name="splitLabel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Left</value>
   </data>
-  <data name="&gt;&gt;hintOpenCtrl.ZOrder" xml:space="preserve">
-    <value>4</value>
+  <data name="camEditBtnsPanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>248, 83</value>
   </data>
-  <data name="&gt;&gt;errorInitVLCbadLibVer.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;newCameraToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="hintDropCamera.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>10, 8, 10, 9</value>
+  </data>
+  <data name="&gt;&gt;cameraContextMenuStrip.Name" xml:space="preserve">
+    <value>cameraContextMenuStrip</value>
+  </data>
+  <data name="matrixSaveLabel.Text" xml:space="preserve">
+    <value>ok</value>
+  </data>
+  <data name="&gt;&gt;matrixDimensionsLabel.ZOrder" xml:space="preserve">
     <value>1</value>
-  </data>
-  <data name="&gt;&gt;camerasListView.Name" xml:space="preserve">
-    <value>camerasListView</value>
   </data>
   <data name="cameraDeleteConfirm2.Size" type="System.Drawing.Size, System.Drawing">
     <value>252, 13</value>
@@ -1179,47 +1427,47 @@ new camera</value>
   <data name="cancelCamButton.Text" xml:space="preserve">
     <value>Cancel</value>
   </data>
-  <data name="hintDropCamera.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>10, 8, 10, 9</value>
+  <data name="&gt;&gt;aspectRatioLabel.Parent" xml:space="preserve">
+    <value>editCamPanel</value>
   </data>
   <data name="errorInitVLCnoLib.Text" xml:space="preserve">
     <value>It seems, there is no libvlc.dll / axvlc.dll</value>
   </data>
-  <data name="&gt;&gt;tabPage2.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
   <data name="&gt;&gt;panel2.Name" xml:space="preserve">
     <value>panel2</value>
   </data>
-  <data name="&gt;&gt;hintOpenCtrl.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="camNameTextBox.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;stringsPanel.Name" xml:space="preserve">
+    <value>stringsPanel</value>
   </data>
   <data name="toolStripMenuItem2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>146, 22</value>
+    <value>156, 22</value>
   </data>
   <data name="camEditRtsp2Label.Size" type="System.Drawing.Size, System.Drawing">
     <value>168, 13</value>
   </data>
-  <data name="&gt;&gt;errorLoadSettings.ZOrder" xml:space="preserve">
-    <value>7</value>
+  <data name="cancelCamButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>133, 3</value>
   </data>
-  <data name="camEditRtsp2Label.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="tabControlSplitter.MinSize" type="System.Int32, mscorlib">
+    <value>100</value>
   </data>
-  <data name="&gt;&gt;newCameraToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;camerasPage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="hintRTSP1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>314, 137</value>
-  </data>
-  <data name="errorInitVLCbadLib.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 54</value>
+  <data name="hintDropCamera.Size" type="System.Drawing.Size, System.Drawing">
+    <value>188, 45</value>
   </data>
   <data name="&gt;&gt;cameraIconsImageList.Name" xml:space="preserve">
     <value>cameraIconsImageList</value>
   </data>
-  <data name="tabPage2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 29</value>
+  <data name="camEditRtsp2Label.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="camNameShowCheck.Text" xml:space="preserve">
+    <value>show</value>
   </data>
   <data name="camerasListView.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -1227,44 +1475,35 @@ new camera</value>
   <data name="viewPanel.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
-  <data name="&gt;&gt;commandLineHelp.Parent" xml:space="preserve">
-    <value>panel2</value>
+  <data name="&gt;&gt;rtsp1TextBox.ZOrder" xml:space="preserve">
+    <value>10</value>
   </data>
   <data name="rtsp1TextBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 92</value>
-  </data>
-  <data name="hintAddCamera.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
+    <value>0, 119</value>
   </data>
   <data name="smallIconsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>130, 22</value>
+    <value>134, 22</value>
   </data>
-  <data name="cameraDeleteConfirm1.Text" xml:space="preserve">
-    <value>Do you really want to delete camera</value>
+  <data name="hintAddCamera.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="camEditRtsp1Label.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 67</value>
+    <value>8, 95</value>
   </data>
   <data name="&gt;&gt;panel2.Parent" xml:space="preserve">
-    <value>camPanel</value>
+    <value>optionsPage</value>
   </data>
-  <data name="hintOpenCtrl.Location" type="System.Drawing.Point, System.Drawing">
-    <value>314, 9</value>
+  <data name="&gt;&gt;matrixSaveLabel.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
-  <data name="&gt;&gt;toolStripMenuItem2.Name" xml:space="preserve">
-    <value>toolStripMenuItem2</value>
+  <data name="&gt;&gt;errorSaveSettings.ZOrder" xml:space="preserve">
+    <value>6</value>
   </data>
-  <data name="errorInitVLCnoLib.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="&gt;&gt;panel1.Parent" xml:space="preserve">
+    <value>optionsPage</value>
   </data>
-  <data name="errorInitVLC.Text" xml:space="preserve">
-    <value>Please, install VLC 2.1.x with Web-modules to the default
-installation folder ''Program Files (x86)'' or ''Program Files''
-
-You can download VLC here:
-http://download.videolan.org/pub/videolan/vlc/2.1.5/win32/
-
-Would you like to download VLC now?</value>
+  <data name="aspectRatioLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 408</value>
   </data>
   <data name="hintDropCamera.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -1272,50 +1511,71 @@ Would you like to download VLC now?</value>
   <data name="errorInitVLCnoLib.Size" type="System.Drawing.Size, System.Drawing">
     <value>249, 14</value>
   </data>
+  <data name="&gt;&gt;disabledToolStripMenuItem.Name" xml:space="preserve">
+    <value>disabledToolStripMenuItem</value>
+  </data>
   <data name="&gt;&gt;hintRTSP2.Name" xml:space="preserve">
     <value>hintRTSP2</value>
   </data>
   <data name="hintRTSP1.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="errorInitVLC.Size" type="System.Drawing.Size, System.Drawing">
-    <value>249, 14</value>
+  <data name="hintDropCamera.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="camPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>256, 0</value>
+  </data>
+  <data name="&gt;&gt;tabControlSplitter.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Splitter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;errorInitVLCnoLib.Parent" xml:space="preserve">
-    <value>panel2</value>
+    <value>stringsPanel</value>
   </data>
   <data name="camEditIconLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 257</value>
+    <value>8, 285</value>
   </data>
-  <data name="&gt;&gt;panel1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="camNameShowInheritCheck.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
   </data>
   <data name="modifyCameraToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>146, 22</value>
+    <value>156, 22</value>
   </data>
-  <data name="smallListToolStripMenuItem.Text" xml:space="preserve">
-    <value>Small List</value>
+  <data name="editCamPanel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
   </data>
-  <data name="hintAddCamera.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
+  <data name="&gt;&gt;camNameLabel.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <data name="&gt;&gt;camNameTextBox.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;tabControlSplitter.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
   <data name="hintOpenCtrl.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="splitter1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>4, 563</value>
+  <data name="camerasPage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 29</value>
+  </data>
+  <data name="&gt;&gt;descendingToolStripMenuItem.Name" xml:space="preserve">
+    <value>descendingToolStripMenuItem</value>
+  </data>
+  <data name="errorSetCamera.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
   </data>
   <data name="tabControl1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
-  <data name="&gt;&gt;disabledToolStripMenuItem.Name" xml:space="preserve">
-    <value>disabledToolStripMenuItem</value>
+  <data name="cameraDeleteConfirm1.Text" xml:space="preserve">
+    <value>Do you really want to delete camera</value>
   </data>
-  <data name="camEditIconLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="camNameShowInheritCheck.Size" type="System.Drawing.Size, System.Drawing">
+    <value>85, 17</value>
+  </data>
+  <data name="optionsPage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 29</value>
   </data>
   <data name="&gt;&gt;hintAddCamera.Name" xml:space="preserve">
     <value>hintAddCamera</value>
@@ -1323,35 +1583,39 @@ Would you like to download VLC now?</value>
   <data name="errorInitVLCbadLib.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
   </data>
+  <data name="errorSetCamera.Location" type="System.Drawing.Point, System.Drawing">
+    <value>16, 69</value>
+  </data>
   <data name="ctrlPanel.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="tabPage2.Text" xml:space="preserve">
-    <value>Options</value>
+  <data name="&gt;&gt;errorSetCamera.Parent" xml:space="preserve">
+    <value>stringsPanel</value>
   </data>
   <data name="camEditRtsp2Label.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 162</value>
+    <value>8, 190</value>
   </data>
-  <data name="&gt;&gt;smallIconsToolStripMenuItem.Name" xml:space="preserve">
-    <value>smallIconsToolStripMenuItem</value>
+  <data name="ctrlPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>MainForm</value>
   </data>
   <data name="&gt;&gt;rtsp2TextBox.Parent" xml:space="preserve">
     <value>editCamPanel</value>
   </data>
-  <data name="camerasListView.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 0, 0, 0</value>
+  <data name="hintAddCamera.Text" xml:space="preserve">
+    <value>Right-click on this area to Add
+new camera</value>
   </data>
-  <data name="&gt;&gt;camPanel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;toolStripMenuItem2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="camerasIconListView.Size" type="System.Drawing.Size, System.Drawing">
+    <value>247, 83</value>
   </data>
   <data name="commandLineHelpButton.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;aspectRatioLabel.Parent" xml:space="preserve">
-    <value>editCamPanel</value>
+  <data name="camEditIconLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
   </data>
   <data name="&gt;&gt;aspectRatioTextBox.Parent" xml:space="preserve">
     <value>editCamPanel</value>
@@ -1359,41 +1623,53 @@ Would you like to download VLC now?</value>
   <data name="aspectRatioLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>63, 13</value>
   </data>
+  <data name="&gt;&gt;optionsPage.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="splitLabel.Text" xml:space="preserve">
+    <value>&gt;&gt;</value>
+  </data>
   <data name="camNameLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="camPanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>536, 563</value>
+  <data name="&gt;&gt;errorInitVLC.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="stringsPanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>282, 391</value>
   </data>
   <data name="camEditRtsp1Label.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="saveCamButton.Text" xml:space="preserve">
-    <value>Save</value>
+  <data name="rtsp2TextBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
   </data>
-  <data name="&gt;&gt;splitLabel.Parent" xml:space="preserve">
-    <value>camPanel</value>
+  <data name="errorInitVLC.Location" type="System.Drawing.Point, System.Drawing">
+    <value>16, 12</value>
   </data>
   <data name="camNameTextBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
   </data>
-  <data name="camEditBtnsPanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>248, 83</value>
+  <data name="&gt;&gt;camerasListView.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ListView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="camNameTextBox.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="hintAddCamera.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="camerasListView.Size" type="System.Drawing.Size, System.Drawing">
+    <value>248, 428</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>792, 563</value>
+    <value>784, 561</value>
   </data>
   <data name="&gt;&gt;camEditRtsp2Label.Name" xml:space="preserve">
     <value>camEditRtsp2Label</value>
   </data>
-  <data name="hintOpenCtrl.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 0, 0, 0</value>
+  <data name="&gt;&gt;toolStripMenuItem2.Name" xml:space="preserve">
+    <value>toolStripMenuItem2</value>
+  </data>
+  <data name="&gt;&gt;errorSaveSettings.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="tabControlSplitter.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="camNameTextBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>247, 20</value>
@@ -1401,11 +1677,20 @@ Would you like to download VLC now?</value>
   <data name="camerasListView.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
   </data>
-  <data name="cameraDeleteConfirm1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 176</value>
+  <data name="&gt;&gt;camNameShowModifyLabel.Name" xml:space="preserve">
+    <value>camNameShowModifyLabel</value>
   </data>
-  <data name="&gt;&gt;modifyCameraToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;camNameShowCheck.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;splitLabel.Parent" xml:space="preserve">
+    <value>camPanel</value>
+  </data>
+  <data name="&gt;&gt;camNameViewGlbButton.Name" xml:space="preserve">
+    <value>camNameViewGlbButton</value>
+  </data>
+  <data name="&gt;&gt;camNameShowCheck.Name" xml:space="preserve">
+    <value>camNameShowCheck</value>
   </data>
   <data name="commandLineHelp.Text" xml:space="preserve">
     <value>        Program actions, while start
@@ -1426,8 +1711,11 @@ RTSP mosaic VLC player.exe [fullscreen] [screen=N] [autoplay] [unmute] [priority
   <data name="&gt;&gt;camNameLabel.Name" xml:space="preserve">
     <value>camNameLabel</value>
   </data>
+  <data name="tabControlSplitter.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
   <data name="largeIconsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>130, 22</value>
+    <value>134, 22</value>
   </data>
   <data name="commandLineHelp.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -1435,14 +1723,17 @@ RTSP mosaic VLC player.exe [fullscreen] [screen=N] [autoplay] [unmute] [priority
   <data name="viewPanel.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
   </data>
+  <data name="xLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
   <data name="hintRTSP2.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
   </data>
-  <data name="&gt;&gt;errorInitVLCbadLib.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;camPanel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="editCamPanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>248, 530</value>
+    <value>248, 528</value>
   </data>
   <data name="&gt;&gt;toolStripSeparator1.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -1450,11 +1741,11 @@ RTSP mosaic VLC player.exe [fullscreen] [screen=N] [autoplay] [unmute] [priority
   <data name="&gt;&gt;commandLineHelpButton.Name" xml:space="preserve">
     <value>commandLineHelpButton</value>
   </data>
-  <data name="&gt;&gt;splitter1.Name" xml:space="preserve">
-    <value>splitter1</value>
+  <data name="&gt;&gt;errorInitVLCbadLibVer.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;camNameTextBox.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>3</value>
   </data>
   <data name="&gt;&gt;rtsp1TextBox.Parent" xml:space="preserve">
     <value>editCamPanel</value>
@@ -1464,7 +1755,7 @@ RTSP mosaic VLC player.exe [fullscreen] [screen=N] [autoplay] [unmute] [priority
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAACc
-        EQAAAk1TRnQBSQFMAgEBAgEAASABAgEoAQIBZAEAAWQBAAT/AQkBEAj/AUIBTQE2AQQGAAE2AQQCAAEo
+        EQAAAk1TRnQBSQFMAgEBAgEAAUwBAwFQAQMBZAEAAWQBAAT/AQkBEAj/AUIBTQE2AQQGAAE2AQQCAAEo
         AwABkAEBAgABZAMAAQEBAAEIBQABQAGcGAABgAIAAYADAAKAAQABgAMAAYABAAGAAQACgAIAA8ABAAHA
         AdwBwAEAAfABygGmAQABMwUAATMBAAEzAQABMwEAAjMCAAMWAQADHAEAAyIBAAMpAQADVQEAA00BAANC
         AQADOQEAAYABfAH/AQACUAH/AQABkwEAAdYBAAH/AewBzAEAAcYB1gHvAQAB1gLnAQABkAGpAa0CAAH/
@@ -1545,14 +1836,23 @@ RTSP mosaic VLC player.exe [fullscreen] [screen=N] [autoplay] [unmute] [priority
   <data name="&gt;&gt;errorInitVLCbadLib.Name" xml:space="preserve">
     <value>errorInitVLCbadLib</value>
   </data>
+  <data name="hintOpenCtrl.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
   <data name="&gt;&gt;showHintTimer.Name" xml:space="preserve">
     <value>showHintTimer</value>
+  </data>
+  <data name="errorSaveSettings.Text" xml:space="preserve">
+    <value>Error: Can't Save settings. May be, there is no write rights for</value>
   </data>
   <data name="&gt;&gt;hintOpenCtrl.Parent" xml:space="preserve">
     <value>camPanel</value>
   </data>
   <data name="panel1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 430</value>
+    <value>0, 428</value>
+  </data>
+  <data name="&gt;&gt;matrixYinput.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="errorInitVLCbadLibVer.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -1563,35 +1863,41 @@ RTSP mosaic VLC player.exe [fullscreen] [screen=N] [autoplay] [unmute] [priority
   <data name="&gt;&gt;camEditBtnsPanel.Type" xml:space="preserve">
     <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="hintRTSP1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>188, 48</value>
+  <data name="camNameShowModifyLabel.Text" xml:space="preserve">
+    <value>modify...</value>
   </data>
-  <data name="&gt;&gt;toolStripMenuItem1.Name" xml:space="preserve">
-    <value>toolStripMenuItem1</value>
+  <data name="splitLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>6, 36</value>
   </data>
-  <data name="&gt;&gt;camNameLabel.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="&gt;&gt;smallIconsToolStripMenuItem.Name" xml:space="preserve">
+    <value>smallIconsToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;hintRTSP2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;errorSaveSettings.Parent" xml:space="preserve">
+    <value>stringsPanel</value>
   </data>
   <data name="cameraDeleteConfirm1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
+  <data name="&gt;&gt;hintOpenCtrl.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;tabControlSplitter.Name" xml:space="preserve">
+    <value>tabControlSplitter</value>
+  </data>
   <data name="newCameraToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>146, 22</value>
+    <value>156, 22</value>
   </data>
   <data name="infoPanel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Bottom</value>
-  </data>
-  <data name="&gt;&gt;ctrlPanel.Name" xml:space="preserve">
-    <value>ctrlPanel</value>
   </data>
   <data name="&gt;&gt;cancelCamButton.Parent" xml:space="preserve">
     <value>camEditBtnsPanel</value>
   </data>
   <data name="&gt;&gt;hintAddCamera.ZOrder" xml:space="preserve">
     <value>3</value>
-  </data>
-  <data name="tabPage2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>248, 530</value>
   </data>
   <data name="rtsp2TextBox.Multiline" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1609,17 +1915,17 @@ RTSP mosaic VLC player.exe [fullscreen] [screen=N] [autoplay] [unmute] [priority
     <value>Open control panel to Add/View
 available cameras</value>
   </data>
-  <data name="&gt;&gt;splitter1.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="commandLineHelp.Location" type="System.Drawing.Point, System.Drawing">
+    <value>16, 89</value>
   </data>
-  <data name="&gt;&gt;camPanel.ZOrder" xml:space="preserve">
-    <value>2</value>
+  <data name="&gt;&gt;camNameTextBox.Parent" xml:space="preserve">
+    <value>editCamPanel</value>
   </data>
   <data name="cancelCamButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>100, 30</value>
   </data>
-  <data name="hintRTSP2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>210, 64</value>
+  <data name="camEditBtnsPanel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Bottom</value>
   </data>
   <data name="&gt;&gt;saveCamButton.Parent" xml:space="preserve">
     <value>camEditBtnsPanel</value>
@@ -1627,21 +1933,27 @@ available cameras</value>
   <data name="&gt;&gt;delCamLabel.Name" xml:space="preserve">
     <value>delCamLabel</value>
   </data>
-  <data name="&gt;&gt;largeIconsToolStripMenuItem.Name" xml:space="preserve">
-    <value>largeIconsToolStripMenuItem</value>
+  <data name="&gt;&gt;camerasPage.Name" xml:space="preserve">
+    <value>camerasPage</value>
   </data>
-  <data name="&gt;&gt;smallIconsToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;ctrlPanel.Name" xml:space="preserve">
+    <value>ctrlPanel</value>
   </data>
-  <data name="developerLinkLabel.Text" xml:space="preserve">
-    <value>Developer page</value>
+  <data name="stringsPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>14, 92</value>
   </data>
-  <data name="&gt;&gt;panel1.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="&gt;&gt;errorLoadSettings.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;rtsp2TextBox.ZOrder" xml:space="preserve">
+    <value>9</value>
   </data>
   <data name="developerLinkLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>83, 13</value>
   </data>
+  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>ru</value>
+  </metadata>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -1649,7 +1961,7 @@ available cameras</value>
     <value>350, 9</value>
   </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>40</value>
+    <value>30</value>
   </metadata>
   <metadata name="cameraContextMenuStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>173, 9</value>

@@ -2,6 +2,17 @@
 using System.Drawing;
 using System.Windows.Forms;
 
+/********************
+ * Copyright 2018 Grigory Lobkov
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ *
+ * You may obtain a copy of the License at
+ * https://github.com/grigory-lobkov/rtsp-camera-view/blob/master/LICENSE
+ *
+ ********************/
+
 namespace RTSP_mosaic_VLC_player
 {
     public partial class RtspBadGoodControl : Control
@@ -16,67 +27,153 @@ namespace RTSP_mosaic_VLC_player
         public bool isCameraSet = false;
         public VlcStatus Status { get { return bgvlc.Status; } }
         public event EventHandler onOptionsClick;
-        public Camera camera;
+        private Camera camera = null;
+        public Camera Camera { get { return camera; } set { setCamera(value); } }
+        private NameView nameView = null;
+        public NameView NameView { get { return nameView; } set { setNameView(value); } }
+        private NameView globalNameView = null;
+        public NameView GlobalNameView { get { return globalNameView; } set { setGlobalNameView(value); } }
         //private Graphics gfx;
 
         public RtspBadGoodControl()
         {
             InitializeComponent();
-            //gfx = this.CreateGraphics();
+            //gfx = CreateGraphics();
         }
 
         public void resizeEnd(object sender) { sizeChangedTimer_Tick(sizeChangedTimer, null); }
-        private void bgvlc_MouseEnter(Object sender, EventArgs e) { showControl(); this.OnMouseEnter(e); }
+        private void bgvlc_MouseEnter(Object sender, EventArgs e) { showControl(); OnMouseEnter(e); }
         private void bgvlc_MouseDoubleClick(Object sender, MouseEventArgs e) {
-            this.OnMouseDoubleClick(e);
-            if (this.Dock == DockStyle.Fill) btnMaxMin.BackgroundImage = Convert.ToInt32(btnMaxMin.Tag) == 0 ? Properties.Resources.btn_minimize : InvertImage(Properties.Resources.btn_minimize);
+            OnMouseDoubleClick(e);
+            if (Dock == DockStyle.Fill) btnMaxMin.BackgroundImage = Convert.ToInt32(btnMaxMin.Tag) == 0 ? Properties.Resources.btn_minimize : InvertImage(Properties.Resources.btn_minimize);
             else btnMaxMin.BackgroundImage = Convert.ToInt32(btnMaxMin.Tag) == 0 ? Properties.Resources.btn_maximize : InvertImage(Properties.Resources.btn_maximize);
         }
-        private void bgvlc_DragEnter(Object sender, DragEventArgs e) { showControl(); this.OnDragEnter(e); }
-        private void bgvlc_DragDrop(Object sender, DragEventArgs e) { showControl(); this.OnDragDrop(e); }
-        public void resetCamera()
+        private void bgvlc_DragEnter(Object sender, DragEventArgs e) { showControl(); OnDragEnter(e); }
+        private void bgvlc_DragDrop(Object sender, DragEventArgs e) { showControl(); OnDragDrop(e); }
+        private void bgvlc_MouseDown(Object sender, MouseEventArgs e) { showControl(); OnMouseDown(e); }
+        private void bgvlc_MouseMove(Object sender, MouseEventArgs e) { showControl(); OnMouseMove(e); }
+        private void bgvlc_MouseUp(Object sender, MouseEventArgs e) { showControl(); OnMouseUp(e); }
+
+        private void setCamera(Camera c)
         {
-            this.stop(this);
-            this.RtspBad = "";
-            this.RtspGood = "";
-            this.Title = "";
-            this.AspectRatio = Properties.Resources.defaultAspectRatio;
-            this.isCameraSet = false;
-            this.camera = null;
-            btnPlayStop.BackgroundImage = Convert.ToInt32(btnPlayStop.Tag) == 0 ? Properties.Resources.btn_eject : InvertImage(Properties.Resources.btn_eject);
-            controlPanelR.Visible = false;
-            btnVolMinus.Visible = false;
-            btnVolPlus.Visible = false;
+            if (c == null)
+            {
+                stop(this);
+                RtspBad = "";
+                RtspGood = "";
+                Title = "";
+                AspectRatio = Properties.Resources.defaultAspectRatio;
+                btnPlayStop.BackgroundImage = Convert.ToInt32(btnPlayStop.Tag) == 0 ? Properties.Resources.btn_eject : InvertImage(Properties.Resources.btn_eject);
+                hideControlTimer.Interval = Convert.ToInt32(Properties.Resources.hideControlTimer);
+                nameLabel.Enabled = false;
+                setNameView(null);
+            }
+            else
+            {
+                if (c.rtspBad == null || c.rtspBad == "") return;
+                Title = c.name;
+                RtspBad = c.rtspBad;
+                RtspGood = c.rtspGood;
+                AspectRatio = c.aspectRatio;
+                btnPlayStop.BackgroundImage = Convert.ToInt32(btnPlayStop.Tag) == 0 ? Properties.Resources.btn_play : InvertImage(Properties.Resources.btn_play);
+                setNameView(c.nameView);
+            }
+            camera = c;
+            isCameraSet = (c != null);
+            controlPanelR.Visible = isCameraSet;
+            btnVolMinus.Visible = isCameraSet;
+            btnVolPlus.Visible = isCameraSet;
         }
-        public void setCamera(Camera c)
+        private void setNameView(NameView nv)
         {
-            if (c.rtspBad == null || c.rtspBad == "") return;
-            this.RtspBad = c.rtspBad;
-            this.RtspGood = c.rtspGood;
-            this.Title = c.name;
-            this.AspectRatio = c.aspectRatio;
-            this.isCameraSet = true;
-            this.camera = c;
-            btnPlayStop.BackgroundImage = Convert.ToInt32(btnPlayStop.Tag) == 0 ? Properties.Resources.btn_play : InvertImage(Properties.Resources.btn_play);
-            controlPanelR.Visible = true;
+            if (nv == null)
+            {
+                nameView = globalNameView;
+            }
+            else
+            {
+                nameView = (nv.inheritGlobal && globalNameView != null) ? globalNameView : nv;
+                nameView.enabled = nv.enabled;
+                nameLabel.Enabled = nv.enabled;
+            }
+            if (nameView != null)
+            {
+                nameLabel.Enabled = nameView.enabled;
+                if (nameView.enabled)
+                {
+                    hideControlTimer.Interval = nameView.autoHide ? nameView.autoHideSec * 1000 :
+                        Convert.ToInt32(Properties.Resources.hideControlTimer);
+                    nameLabel.BackColor = nameView.paintBg ? nameView.bgColor : Color.Transparent;
+                    nameLabel.ForeColor = nameView.color;
+                    updateNameLabelPosition();
+                    nameLabel.Visible = nameView.autoHide ? controlPanel.Visible : true;
+                }
+            }
+            else
+            {
+                nameLabel.Enabled = false;
+            }
+        }
+        private void setGlobalNameView(NameView nv)
+        {
+            globalNameView = nv;
+            if (camera != null && camera.nameView != null && camera.nameView.inheritGlobal)
+            {
+                setNameView(camera.nameView);
+            }
+        }
+
+        private void updateNameLabelPosition()
+        {
+            if (nameView == null) return;
+            int clientw = ClientSize.Width,
+                clienth = ClientSize.Height,
+                clientm = Math.Min(clientw, clienth),
+                fs = Math.Max(clientm / 100 * nameView.size, 4);
+            nameLabel.Font = new Font(nameLabel.Font.Name, fs, nameLabel.Font.Style, nameLabel.Font.Unit);
+            nameLabel.Refresh();
+            int top, left;
+            switch (nameView.position) {
+                case TextPosition.TopLeft:
+                case TextPosition.TopCenter:
+                case TextPosition.TopRight:
+                    top = clienth / 40;
+                    break;
+                default: // bottom
+                    top = clienth * 11 / 12;
+                    if (nameView.autoHide || controlPanel.Visible) top = top - controlPanel.Height;
+                    break;
+            };
+            switch (nameView.position) {
+                case TextPosition.TopLeft:
+                case TextPosition.BottomLeft:
+                    left = clientw / 40;
+                    break;
+                case TextPosition.TopCenter:
+                case TextPosition.BottomCenter:
+                    left = (clientw - nameLabel.Width) / 2;
+                    break;
+                default: // right
+                    left = clientw * 39 / 40 - nameLabel.Width;
+                    break;
+            };
+            nameLabel.Location = new Point(left, top);
         }
 
         private void sizeChangedTimer_Tick(object sender, EventArgs e)
         {
             (sender as Timer).Enabled = false;
-            int clientw = this.ClientSize.Width,
-                clienth = this.ClientSize.Height,
+            int clientw = ClientSize.Width,
+                clienth = ClientSize.Height,
                 clientm = Math.Min(clientw, clienth);
             int bh = Math.Max(clientm / 14, 14), bm = bh / 7, bh2 = Math.Max(clientm / 21, 10), bm2 = bm * 2;
             Size bS = new Size(bh, bh), bS2 = new Size(bh2, bh2);
             int bs = bh + bm, bs2 = bh2 + bm;
 
-            nameLabel.Font = new Font(nameLabel.Font.Name, bh / 3, nameLabel.Font.Style, nameLabel.Font.Unit);
-            nameLabel.Location = new Point(clientw / 2 - nameLabel.Width / 2, clienth / 10 - bh / 2);
             controlPanel.Location = new Point(0, clienth - bs - bm);
             controlPanel.Size = new Size(clientw, bs + bm);
             bgvlc.Location = new Point(0, 0);
-            bgvlc.Size = this.ClientSize;
+            bgvlc.Size = ClientSize;
             btnPlayStop.Size = bS;
             btnVolMinus.Size = bS;
             btnVolPlus.Size = bS;
@@ -90,6 +187,7 @@ namespace RTSP_mosaic_VLC_player
             btnMaxMin.Location = new Point(bm2 + bs2, bm2);
             btnClose.Location = new Point(bm2 + bs2 * 2, bm2);
             controlPanelR.Width = bm2 * 2 + bs2 * 3;
+            updateNameLabelPosition();
         }
 
         public bool stop(object sender) 
@@ -125,7 +223,15 @@ namespace RTSP_mosaic_VLC_player
 
         private void showControl()
         {
-            nameLabel.Visible = true;
+            if (nameLabel.Enabled)
+            {
+                nameLabel.Visible = true;
+                if (!controlPanel.Visible && nameView != null && !nameView.autoHide &&
+                    (nameView.position == TextPosition.BottomLeft ||
+                    nameView.position == TextPosition.BottomCenter ||
+                    nameView.position == TextPosition.BottomRight
+                    )) nameLabel.Top = nameLabel.Top - controlPanel.Height;
+            }
             controlPanel.Visible = true;
             hideControlTimer.Enabled = false;
             hideControlTimer.Enabled = true;
@@ -134,7 +240,14 @@ namespace RTSP_mosaic_VLC_player
         private void hideControlTimer_Tick(object sender, EventArgs e)
         {
             hideControlTimer.Enabled = false;
-            nameLabel.Visible = false;
+            if (nameLabel.Enabled)
+            {
+                if (nameView.autoHide) nameLabel.Visible = false;
+                else if (nameView.position == TextPosition.BottomLeft ||
+                    nameView.position == TextPosition.BottomCenter ||
+                    nameView.position == TextPosition.BottomRight
+                    ) nameLabel.Top = nameLabel.Top + controlPanel.Height;
+            }
             controlPanel.Visible = false;
         }
 
@@ -194,8 +307,8 @@ namespace RTSP_mosaic_VLC_player
         {
             showControl();
             if (!isCameraSet) return;
-            if (bgvlc.Status == VlcStatus.Playing) this.stop(btnPlayStop);
-            else if (bgvlc.Status == VlcStatus.Stopped) this.play(btnPlayStop);
+            if (bgvlc.Status == VlcStatus.Playing) stop(btnPlayStop);
+            else if (bgvlc.Status == VlcStatus.Stopped) play(btnPlayStop);
         }
 
         private void btnVolMinus_Click(object sender, EventArgs e)
@@ -218,7 +331,7 @@ namespace RTSP_mosaic_VLC_player
         private void btnClose_Click(object sender, EventArgs e)
         {
             showControl();
-            resetCamera();
+            Camera = null;
         }
 
         private void btnMaxMin_Click(object sender, EventArgs e)
