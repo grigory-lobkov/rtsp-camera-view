@@ -114,6 +114,7 @@ namespace RTSP_mosaic_VLC_player
             this.errorInitVLC = new System.Windows.Forms.Label();
             this.tabControlSplitter = new System.Windows.Forms.Splitter();
             this.showHintTimer = new System.Windows.Forms.Timer(this.components);
+            this.watchDogTimer = new System.Windows.Forms.Timer(this.components);
             this.cameraContextMenuStrip.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.camerasPage.SuspendLayout();
@@ -130,7 +131,6 @@ namespace RTSP_mosaic_VLC_player
             // 
             // cameraContextMenuStrip
             // 
-            resources.ApplyResources(this.cameraContextMenuStrip, "cameraContextMenuStrip");
             this.cameraContextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem1,
             this.toolStripMenuItem2,
@@ -138,84 +138,85 @@ namespace RTSP_mosaic_VLC_player
             this.newCameraToolStripMenuItem,
             this.modifyCameraToolStripMenuItem});
             this.cameraContextMenuStrip.Name = "contextMenuStrip1";
+            resources.ApplyResources(this.cameraContextMenuStrip, "cameraContextMenuStrip");
             this.cameraContextMenuStrip.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
             // 
             // toolStripMenuItem1
             // 
-            resources.ApplyResources(this.toolStripMenuItem1, "toolStripMenuItem1");
             this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.largeIconsToolStripMenuItem,
             this.smallIconsToolStripMenuItem,
             this.largeListToolStripMenuItem,
             this.smallListToolStripMenuItem});
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            resources.ApplyResources(this.toolStripMenuItem1, "toolStripMenuItem1");
             // 
             // largeIconsToolStripMenuItem
             // 
-            resources.ApplyResources(this.largeIconsToolStripMenuItem, "largeIconsToolStripMenuItem");
             this.largeIconsToolStripMenuItem.Name = "largeIconsToolStripMenuItem";
+            resources.ApplyResources(this.largeIconsToolStripMenuItem, "largeIconsToolStripMenuItem");
             this.largeIconsToolStripMenuItem.Click += new System.EventHandler(this.largeIconsToolStripMenuItem_Click);
             // 
             // smallIconsToolStripMenuItem
             // 
-            resources.ApplyResources(this.smallIconsToolStripMenuItem, "smallIconsToolStripMenuItem");
             this.smallIconsToolStripMenuItem.Name = "smallIconsToolStripMenuItem";
+            resources.ApplyResources(this.smallIconsToolStripMenuItem, "smallIconsToolStripMenuItem");
             this.smallIconsToolStripMenuItem.Click += new System.EventHandler(this.smallIconsToolStripMenuItem_Click);
             // 
             // largeListToolStripMenuItem
             // 
-            resources.ApplyResources(this.largeListToolStripMenuItem, "largeListToolStripMenuItem");
             this.largeListToolStripMenuItem.Name = "largeListToolStripMenuItem";
+            resources.ApplyResources(this.largeListToolStripMenuItem, "largeListToolStripMenuItem");
             this.largeListToolStripMenuItem.Click += new System.EventHandler(this.largeListToolStripMenuItem_Click);
             // 
             // smallListToolStripMenuItem
             // 
-            resources.ApplyResources(this.smallListToolStripMenuItem, "smallListToolStripMenuItem");
             this.smallListToolStripMenuItem.Name = "smallListToolStripMenuItem";
+            resources.ApplyResources(this.smallListToolStripMenuItem, "smallListToolStripMenuItem");
             this.smallListToolStripMenuItem.Click += new System.EventHandler(this.smallListToolStripMenuItem_Click);
             // 
             // toolStripMenuItem2
             // 
-            resources.ApplyResources(this.toolStripMenuItem2, "toolStripMenuItem2");
             this.toolStripMenuItem2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ascendingToolStripMenuItem,
             this.descendingToolStripMenuItem,
             this.disabledToolStripMenuItem});
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            resources.ApplyResources(this.toolStripMenuItem2, "toolStripMenuItem2");
             // 
             // ascendingToolStripMenuItem
             // 
-            resources.ApplyResources(this.ascendingToolStripMenuItem, "ascendingToolStripMenuItem");
             this.ascendingToolStripMenuItem.Name = "ascendingToolStripMenuItem";
+            resources.ApplyResources(this.ascendingToolStripMenuItem, "ascendingToolStripMenuItem");
             this.ascendingToolStripMenuItem.Click += new System.EventHandler(this.ascendingToolStripMenuItem_Click);
             // 
             // descendingToolStripMenuItem
             // 
-            resources.ApplyResources(this.descendingToolStripMenuItem, "descendingToolStripMenuItem");
             this.descendingToolStripMenuItem.Name = "descendingToolStripMenuItem";
+            resources.ApplyResources(this.descendingToolStripMenuItem, "descendingToolStripMenuItem");
             this.descendingToolStripMenuItem.Click += new System.EventHandler(this.descendingToolStripMenuItem_Click);
             // 
             // disabledToolStripMenuItem
             // 
-            resources.ApplyResources(this.disabledToolStripMenuItem, "disabledToolStripMenuItem");
             this.disabledToolStripMenuItem.Name = "disabledToolStripMenuItem";
+            resources.ApplyResources(this.disabledToolStripMenuItem, "disabledToolStripMenuItem");
             this.disabledToolStripMenuItem.Click += new System.EventHandler(this.disabledToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
-            resources.ApplyResources(this.toolStripSeparator1, "toolStripSeparator1");
             this.toolStripSeparator1.Name = "toolStripSeparator1";
+            resources.ApplyResources(this.toolStripSeparator1, "toolStripSeparator1");
             // 
             // newCameraToolStripMenuItem
             // 
-            resources.ApplyResources(this.newCameraToolStripMenuItem, "newCameraToolStripMenuItem");
             this.newCameraToolStripMenuItem.Name = "newCameraToolStripMenuItem";
+            resources.ApplyResources(this.newCameraToolStripMenuItem, "newCameraToolStripMenuItem");
             this.newCameraToolStripMenuItem.Click += new System.EventHandler(this.newCameraToolStripMenuItem_Click);
             // 
             // modifyCameraToolStripMenuItem
             // 
-            resources.ApplyResources(this.modifyCameraToolStripMenuItem, "modifyCameraToolStripMenuItem");
             this.modifyCameraToolStripMenuItem.Name = "modifyCameraToolStripMenuItem";
+            resources.ApplyResources(this.modifyCameraToolStripMenuItem, "modifyCameraToolStripMenuItem");
             this.modifyCameraToolStripMenuItem.Click += new System.EventHandler(this.modifyCameraToolStripMenuItem_Click);
             // 
             // cameraIconsImageList
@@ -235,15 +236,14 @@ namespace RTSP_mosaic_VLC_player
             // 
             // camerasPage
             // 
-            resources.ApplyResources(this.camerasPage, "camerasPage");
             this.camerasPage.Controls.Add(this.editCamPanel);
             this.camerasPage.Controls.Add(this.viewPanel);
+            resources.ApplyResources(this.camerasPage, "camerasPage");
             this.camerasPage.Name = "camerasPage";
             this.camerasPage.UseVisualStyleBackColor = true;
             // 
             // editCamPanel
             // 
-            resources.ApplyResources(this.editCamPanel, "editCamPanel");
             this.editCamPanel.Controls.Add(this.camNameShowInheritCheck);
             this.editCamPanel.Controls.Add(this.camNameShowCheck);
             this.editCamPanel.Controls.Add(this.camNameLabel);
@@ -258,6 +258,7 @@ namespace RTSP_mosaic_VLC_player
             this.editCamPanel.Controls.Add(this.camEditRtsp2Label);
             this.editCamPanel.Controls.Add(this.camEditRtsp1Label);
             this.editCamPanel.Controls.Add(this.camNameShowModifyLabel);
+            resources.ApplyResources(this.editCamPanel, "editCamPanel");
             this.editCamPanel.Name = "editCamPanel";
             // 
             // camNameShowInheritCheck
@@ -294,10 +295,10 @@ namespace RTSP_mosaic_VLC_player
             // 
             // camEditBtnsPanel
             // 
-            resources.ApplyResources(this.camEditBtnsPanel, "camEditBtnsPanel");
             this.camEditBtnsPanel.Controls.Add(this.delCamLabel);
             this.camEditBtnsPanel.Controls.Add(this.cancelCamButton);
             this.camEditBtnsPanel.Controls.Add(this.saveCamButton);
+            resources.ApplyResources(this.camEditBtnsPanel, "camEditBtnsPanel");
             this.camEditBtnsPanel.Name = "camEditBtnsPanel";
             // 
             // delCamLabel
@@ -383,16 +384,16 @@ namespace RTSP_mosaic_VLC_player
             // 
             // viewPanel
             // 
-            resources.ApplyResources(this.viewPanel, "viewPanel");
             this.viewPanel.Controls.Add(this.camerasListView);
             this.viewPanel.Controls.Add(this.infoPanel);
+            resources.ApplyResources(this.viewPanel, "viewPanel");
             this.viewPanel.Name = "viewPanel";
             // 
             // camerasListView
             // 
-            resources.ApplyResources(this.camerasListView, "camerasListView");
             this.camerasListView.AllowDrop = true;
             this.camerasListView.ContextMenuStrip = this.cameraContextMenuStrip;
+            resources.ApplyResources(this.camerasListView, "camerasListView");
             this.camerasListView.HideSelection = false;
             this.camerasListView.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
             ((System.Windows.Forms.ListViewItem)(resources.GetObject("camerasListView.Items"))),
@@ -416,11 +417,11 @@ namespace RTSP_mosaic_VLC_player
             // 
             // optionsPage
             // 
-            resources.ApplyResources(this.optionsPage, "optionsPage");
             this.optionsPage.Controls.Add(this.panel2);
             this.optionsPage.Controls.Add(this.matrixDimensionsLabel);
             this.optionsPage.Controls.Add(this.camNameViewGlbButton);
             this.optionsPage.Controls.Add(this.panel1);
+            resources.ApplyResources(this.optionsPage, "optionsPage");
             this.optionsPage.Name = "optionsPage";
             this.optionsPage.UseVisualStyleBackColor = true;
             // 
@@ -476,9 +477,9 @@ namespace RTSP_mosaic_VLC_player
             // 
             // panel1
             // 
-            resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Controls.Add(this.developerLinkLabel);
             this.panel1.Controls.Add(this.commandLineHelpButton);
+            resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Name = "panel1";
             // 
             // developerLinkLabel
@@ -522,8 +523,8 @@ namespace RTSP_mosaic_VLC_player
             // 
             // ctrlPanel
             // 
-            resources.ApplyResources(this.ctrlPanel, "ctrlPanel");
             this.ctrlPanel.Controls.Add(this.tabControl1);
+            resources.ApplyResources(this.ctrlPanel, "ctrlPanel");
             this.ctrlPanel.Name = "ctrlPanel";
             // 
             // splitLabel
@@ -538,7 +539,6 @@ namespace RTSP_mosaic_VLC_player
             // 
             // camPanel
             // 
-            resources.ApplyResources(this.camPanel, "camPanel");
             this.camPanel.BackColor = System.Drawing.Color.Black;
             this.camPanel.Controls.Add(this.hintDropCamera);
             this.camPanel.Controls.Add(this.hintRTSP2);
@@ -547,6 +547,7 @@ namespace RTSP_mosaic_VLC_player
             this.camPanel.Controls.Add(this.hintOpenCtrl);
             this.camPanel.Controls.Add(this.stringsPanel);
             this.camPanel.Controls.Add(this.splitLabel);
+            resources.ApplyResources(this.camPanel, "camPanel");
             this.camPanel.ForeColor = System.Drawing.Color.White;
             this.camPanel.Name = "camPanel";
             // 
@@ -560,18 +561,18 @@ namespace RTSP_mosaic_VLC_player
             // 
             // hintRTSP2
             // 
-            resources.ApplyResources(this.hintRTSP2, "hintRTSP2");
             this.hintRTSP2.BackColor = System.Drawing.SystemColors.Info;
             this.hintRTSP2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.hintRTSP2.ForeColor = System.Drawing.SystemColors.ControlText;
+            resources.ApplyResources(this.hintRTSP2, "hintRTSP2");
             this.hintRTSP2.Name = "hintRTSP2";
             // 
             // hintRTSP1
             // 
-            resources.ApplyResources(this.hintRTSP1, "hintRTSP1");
             this.hintRTSP1.BackColor = System.Drawing.SystemColors.Info;
             this.hintRTSP1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.hintRTSP1.ForeColor = System.Drawing.SystemColors.ControlText;
+            resources.ApplyResources(this.hintRTSP1, "hintRTSP1");
             this.hintRTSP1.Name = "hintRTSP1";
             // 
             // hintAddCamera
@@ -592,7 +593,6 @@ namespace RTSP_mosaic_VLC_player
             // 
             // stringsPanel
             // 
-            resources.ApplyResources(this.stringsPanel, "stringsPanel");
             this.stringsPanel.Controls.Add(this.errorSetCamera);
             this.stringsPanel.Controls.Add(this.errorInitVLCbadLib);
             this.stringsPanel.Controls.Add(this.errorInitVLCbadLibVer);
@@ -603,6 +603,7 @@ namespace RTSP_mosaic_VLC_player
             this.stringsPanel.Controls.Add(this.commandLineHelp);
             this.stringsPanel.Controls.Add(this.errorLoadSettings);
             this.stringsPanel.Controls.Add(this.cameraDeleteConfirm1);
+            resources.ApplyResources(this.stringsPanel, "stringsPanel");
             this.stringsPanel.Name = "stringsPanel";
             // 
             // errorSetCamera
@@ -632,8 +633,8 @@ namespace RTSP_mosaic_VLC_player
             // 
             // tabControlSplitter
             // 
-            resources.ApplyResources(this.tabControlSplitter, "tabControlSplitter");
             this.tabControlSplitter.BackColor = System.Drawing.SystemColors.ControlDark;
+            resources.ApplyResources(this.tabControlSplitter, "tabControlSplitter");
             this.tabControlSplitter.Name = "tabControlSplitter";
             this.tabControlSplitter.TabStop = false;
             this.tabControlSplitter.SplitterMoving += new System.Windows.Forms.SplitterEventHandler(this.tabControlSplitter_SplitterMoving);
@@ -642,6 +643,11 @@ namespace RTSP_mosaic_VLC_player
             // showHintTimer
             // 
             this.showHintTimer.Tick += new System.EventHandler(this.showHintTimer_Tick);
+            // 
+            // watchDogTimer
+            // 
+            this.watchDogTimer.Interval = 500000;
+            this.watchDogTimer.Tick += new System.EventHandler(this.watchDogTimer_Tick);
             // 
             // MainForm
             // 
@@ -747,6 +753,7 @@ namespace RTSP_mosaic_VLC_player
         private Panel panel2;
         private Label matrixSaveLabel;
         private Label errorSetCamera;
+        private Timer watchDogTimer;
     }
 }
 

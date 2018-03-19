@@ -15,7 +15,10 @@ using System.Xml.Serialization;
  *
  * TODO
  * Fill "Options" Tab (start with windows?, parameters on start with windows, parameters on start)
- * Drag&Drop inside camera list?
+ * Alert e-mail when picture is disappeared.
+ * When in Full Screen, remove the title bar and borders to have only the black background with the cameras?
+When full screen it could be interested also if the little button for settings disappear after some seconds, and re-appear if the mouse cursor goes over it.
+In this way, when full screen, only the cameras are on the screen.
  * 
  * BUGS
  * When one VLC is preparing(many cameras), can't close window, or stop source
@@ -46,6 +49,9 @@ namespace RTSP_mosaic_VLC_player
         private Camera editCamera;
         private Point MouseDownPoint;
         private bool MouseDownFlag;
+        private int maxCamShown = 0;
+        private int maxKbTaken = 0;
+        private int lastRestartedCamera = -1;
 
 
 
@@ -236,6 +242,7 @@ namespace RTSP_mosaic_VLC_player
                 f = true;
                 foreach (RtspBadGoodControl c in gridline) if (c.isCameraSet) f = false;
                 if (f) showHintWithWait(HintType.OpenCtrl);
+                watchDogTimer.Enabled = true;
             }
         }
 
@@ -644,8 +651,8 @@ namespace RTSP_mosaic_VLC_player
             }
             camerasIconListView.Items[0].Focused = true;
             camerasIconListView.Items[0].Selected = true;
-            aspectRatioTextBox.Text = Properties.Resources.defaultAspectRatio;
             editCamera = new Camera();
+            aspectRatioTextBox.Text = editCamera.aspectRatio;
             camNameShowCheck.Checked = editCamera.nameView.enabled;
             camNameShowInheritCheck.Checked = editCamera.nameView.inheritGlobal;
             camNameShowCheck_CheckedChanged(this, null);
@@ -723,7 +730,7 @@ namespace RTSP_mosaic_VLC_player
         private void saveCamButton_Click(object sender, EventArgs e)
         {
             Camera m = this.editCamera;
-            if (m == null)
+            if (!delCamLabel.Visible)
             {
                 int l = appSet.cams.Length;
                 Array.Resize(ref appSet.cams, l+1);
@@ -734,6 +741,7 @@ namespace RTSP_mosaic_VLC_player
                 vi.Focused = true;
                 vi.Selected = true;
                 vi.Tag = m;
+                camerasListView.FocusedItem.ImageIndex = m.camIcon;
             }
             RtspBadGoodControl c = m.position >= 0 ? gridline[m.position] : null;
             if (m.name != camNameTextBox.Text)
@@ -765,7 +773,7 @@ namespace RTSP_mosaic_VLC_player
             }
             m.nameView.enabled = camNameShowCheck.Checked;
             m.nameView.inheritGlobal = camNameShowInheritCheck.Checked;
-            c.NameView = m.nameView;
+            if (c != null) c.NameView = m.nameView;
             cancelCamButton_Click(sender, null);
         }
 
@@ -1023,6 +1031,36 @@ namespace RTSP_mosaic_VLC_player
         {
             if ((int)showHintTimer.Tag < 0) showHintTimer_Tick(null, null);
             else showHintTimer.Enabled = false;
+        }
+
+        private void watchDogTimer_Tick(object sender, EventArgs e)
+        {
+            int kbTaken = (int)(GC.GetTotalMemory(true) / 1024); // app size in KB
+            int camShown = 0;
+            foreach (RtspBadGoodControl c in gridline) if (c.Status == VlcStatus.Playing) camShown = camShown + 1;
+            if (maxCamShown < camShown)
+            {
+                maxCamShown = camShown;
+                maxKbTaken = kbTaken;
+            }
+            else if (kbTaken / camShown > maxKbTaken * 1.3 / maxCamShown)
+            {
+                int restartCam = lastRestartedCamera + 1;
+                if(restartCam>gridline.GetUpperBound(0))
+                    restartCam = gridline.GetLowerBound(0);
+                for (int i = restartCam; i <= gridline.GetUpperBound(0); i++)
+                {
+                    RtspBadGoodControl c = gridline[i];
+                    if (c.Status != VlcStatus.Stopped)
+                    {
+                        c.stop(watchDogTimer);
+                        c.play(watchDogTimer);
+                        restartCam = i;
+                        break;
+                    }
+                }
+                lastRestartedCamera = restartCam;
+            }
         }
 
     }
