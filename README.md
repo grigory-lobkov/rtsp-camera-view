@@ -29,7 +29,3 @@ Download executable from [Releases](https://github.com/grigory-lobkov/rtsp-camer
 
 ### Overview
 [Screenshots, examples](https://github.com/grigory-lobkov/rtsp-camera-view/wiki/Overview)
-
-
-#### Hacks:
-- you can modify the dimension of the matrix in the "settings.xml" of portable version
