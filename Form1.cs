@@ -1035,7 +1035,8 @@ namespace RTSP_mosaic_VLC_player
 
         private void watchDogTimer_Tick(object sender, EventArgs e)
         {
-            int kbTaken = (int)(GC.GetTotalMemory(true) / 1024); // app size in KB
+            System.Diagnostics.Process currentProc = System.Diagnostics.Process.GetCurrentProcess();
+            int kbTaken = (int)(currentProc.PrivateMemorySize64 / 1024); // app size in KB
             int camShown = 0;
             foreach (RtspBadGoodControl c in gridline) if (c.Status == VlcStatus.Playing) camShown = camShown + 1;
             if (maxCamShown < camShown)
@@ -1061,6 +1062,7 @@ namespace RTSP_mosaic_VLC_player
                 }
                 lastRestartedCamera = restartCam;
             }
+            watchDogTimer.Enabled = true;
         }
 
     }

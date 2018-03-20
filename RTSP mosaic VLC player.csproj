@@ -29,8 +29,8 @@
     <ErrorReportUrl>http://xn--b1abfaar8alabm5a5e.xn--p1ai/mosaic-vlc-rtsp-player/</ErrorReportUrl>
     <PublisherName>Grigory Lobkov</PublisherName>
     <TrustUrlParameters>true</TrustUrlParameters>
-    <ApplicationRevision>1</ApplicationRevision>
-    <ApplicationVersion>0.1.4.1</ApplicationVersion>
+    <ApplicationRevision>2</ApplicationRevision>
+    <ApplicationVersion>0.1.4.2</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
