@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Presenter</RootNamespace>
     <AssemblyName>Presenter</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -33,27 +33,46 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\ApplicationController.cs" />
+    <Compile Include="Common\BasePresenterControl.cs" />
     <Compile Include="Common\IApplicationController.cs" />
     <Compile Include="Common\IContainer.cs" />
+    <Compile Include="Common\IPresenterControl.cs" />
     <Compile Include="Common\IView.cs" />
     <Compile Include="Common\BasePresener.cs" />
     <Compile Include="Common\IPresenter.cs" />
-    <Compile Include="Presenters\AboutPresenter.cs" />
+    <Compile Include="Common\IViewControl.cs" />
     <Compile Include="Presenters\MainPresenter.cs" />
+    <Compile Include="Presenters\ModifySourcePresenter.cs" />
     <Compile Include="Presenters\NameViewEditPresener.cs" />
-    <Compile Include="Views\IAboutView.cs" />
+    <Compile Include="Presenters\ModifySettingsPresenter.cs" />
+    <Compile Include="Presenters\SourceListPresenter.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Views\IMainView.cs" />
+    <Compile Include="Views\IModifySourceView.cs" />
     <Compile Include="Views\INameViewEditView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\IModifySettingsView.cs" />
+    <Compile Include="Views\ISourceListView.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Model\Model.csproj">
       <Project>{DEF7792E-23EE-42C4-B9F8-28D32BABFC94}</Project>
       <Name>DomainModel</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

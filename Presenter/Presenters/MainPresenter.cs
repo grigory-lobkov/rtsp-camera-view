@@ -3,37 +3,55 @@ using Model;
 using Model.Rtsp;
 using Presenter.Common;
 using Presenter.Views;
+using Presenter.Presenters;
 
 namespace Presenter.Presenters
 {
     public class MainPresenter : BasePresener<IMainView>
     {
-        private readonly IRtspService _service;
+        private SourceListPresenter _sourceList = null;
+        //private NameViewEditPresenter _nameViewEdit = null;
+        private ModifySettingsPresenter _settings = null;
+        private AppSettings _appSettings = null;
+        private ISettingsService _settingsService = null;
 
-        public MainPresenter(IApplicationController controller, IMainView view, IRtspService service)
+        public MainPresenter(IApplicationController controller, IMainView view, ISettingsService settingsService)
             : base(controller, view)
         {
-            _service = service;
+            // View actions
+            View.OpenClosePanelClick += OpenClosePanelClick;
+            View.SourcesPageSelected += SourcesPageSelected;
+            View.SettingsPageSelected += SettingsPageSelected;
+            // Settings
+            _settingsService = settingsService;
+            _appSettings = settingsService.GetSettings();
+            View.CtrlPanelWidth = _appSettings.controlPanelWidth;
             
-            View.Login += () => Login(View.Username, View.Password);
+            //if (createMatrix(appSet.matrix.cntX, appSet.matrix.cntY))
+            //{
+            //    fillMatrix();
         }
 
-        private void Login(string username, string password)
+        private void OpenClosePanelClick()
         {
-            if (username == null)
-                throw new ArgumentNullException("username");
-            if (password == null)
-                throw new ArgumentNullException("password");
-
-            var user = new User {Name = username, Password = password};
-            if (!_service.Login(user))
+            View.PanelState = !View.PanelState;
+        }
+        private void SourcesPageSelected()
+        {
+            if (_sourceList == null)
             {
-                View.ShowError("Invalid username or password");
+                _sourceList = Controller.Get<SourceListPresenter>();
+                _sourceList.SetSettings(_appSettings);
+                View.SetSourceListControl(_sourceList.Control);
             }
-            else
+        }
+        private void SettingsPageSelected()
+        {
+            if (_settings == null)
             {
-                Controller.Run<NameViewEditPresener, User>(user);
-                View.Close();
+                _settings = Controller.Get<ModifySettingsPresenter>();
+                _settings.SetSettings(_appSettings);
+                View.SetSettingsControl(_settings.Control);
             }
         }
     }

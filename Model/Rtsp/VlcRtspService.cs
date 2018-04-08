@@ -2,9 +2,9 @@
 {
     public class VlcRtspService : IRtspService
     {
-        public bool Login(User user)
+        public bool Login(Camera user)
         {
-            return !string.IsNullOrEmpty(user.Name);
+            return !string.IsNullOrEmpty(user.name);
         }
     }
 }

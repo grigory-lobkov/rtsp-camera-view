@@ -2,6 +2,6 @@
 {
     public interface IRtspService
     {
-        bool Login(User user);
+        bool Login(Camera user);
     }
 }

@@ -29,7 +29,7 @@
             Controller = controller;
             View = view;
         }
-
+        
         public abstract void Run(TArg argument);
     }
 }

@@ -79,8 +79,6 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
-    <Compile Include="AboutPresenterTests.cs" />
-    <Compile Include="NameViewEditPresenterTests.cs" />
     <Compile Include="MainPresenterTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

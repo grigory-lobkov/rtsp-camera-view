@@ -11,10 +11,18 @@
         }
 
         public IApplicationController RegisterView<TView, TImplementation>()
-            where TImplementation : class, TView 
+            where TImplementation : class, TView
             where TView : IView
         {
             _container.Register<TView, TImplementation>();
+            return this;
+        }
+
+        public IApplicationController RegisterControl<TViewControl, TImplementation>()
+            where TImplementation : class, TViewControl
+            where TViewControl : IViewControl
+        {
+            _container.Register<TViewControl, TImplementation>();
             return this;
         }
 
@@ -47,6 +55,26 @@
 
             var presenter = _container.Resolve<TPresenter>();
             presenter.Run(argumnent);
+        }
+
+        public TPresenter Get<TPresenter>() where TPresenter : class, IPresenterControl
+        {
+            if (!_container.IsRegistered<TPresenter>())
+                _container.Register<TPresenter>();
+
+            var presenter = _container.Resolve<TPresenter>();
+            presenter.Get();
+            return presenter;
+        }
+
+        public TPresenter Get<TPresenter, TArgumnent>(TArgumnent argumnent) where TPresenter : class, IPresenterControl<TArgumnent>
+        {
+            if (!_container.IsRegistered<TPresenter>())
+                _container.Register<TPresenter>();
+
+            var presenter = _container.Resolve<TPresenter>();
+            presenter.Get(argumnent);
+            return presenter;
         }
     }
 }

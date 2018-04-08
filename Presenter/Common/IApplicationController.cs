@@ -6,6 +6,10 @@ namespace Presenter.Common
             where TImplementation : class, TView
             where TView : IView;
 
+        IApplicationController RegisterControl<TViewControl, TImplementation>()
+            where TImplementation : class, TViewControl
+            where TViewControl : IViewControl;
+
         IApplicationController RegisterInstance<TArgument>(TArgument instance);
 
         IApplicationController RegisterService<TService, TImplementation>()
@@ -16,5 +20,10 @@ namespace Presenter.Common
 
         void Run<TPresenter, TArgumnent>(TArgumnent argumnent)
             where TPresenter : class, IPresenter<TArgumnent>;
+
+        TPresenter Get<TPresenter>()
+            where TPresenter : class, IPresenterControl;
+        TPresenter Get<TPresenter, TArgumnent>(TArgumnent argumnent)
+            where TPresenter : class, IPresenterControl<TArgumnent>;
     }
 }
