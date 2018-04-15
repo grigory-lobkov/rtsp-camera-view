@@ -1,6 +1,5 @@
 ﻿using System;
 using Model;
-using Model.Rtsp;
 using Presenter.Common;
 using Presenter.Views;
 using Presenter.Presenters;

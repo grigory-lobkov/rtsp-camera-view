@@ -100,15 +100,23 @@ namespace View
         }
 
         public void SetSourceListControl(IViewControl control) {
-            var c = (UserControl)control;
+            Control c = (Control)control;
             sourcesPage.Controls.Add(c);
             c.Dock = DockStyle.Fill;
         }
         public void SetSettingsControl(IViewControl control)
         {
-            var c = (UserControl)control;
+            Control c = (Control)control;
             settingsPage.Controls.Add(c);
             c.Dock = DockStyle.Fill;
+        }
+        public void SetGridControl(IViewControl control)
+        {
+            Control c = (Control)control;
+            this.Controls.Add(c);
+            c.Dock = DockStyle.Fill;
+            c.BringToFront();
+            splitLabel.BringToFront();
         }
 
         public event Action SourcesPageSelected;

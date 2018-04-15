@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "View", "View\View.csproj", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{48A433BE-3627-4952-9A2C-3962AC1852E6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ViewVlc215", "ViewVlc215\ViewVlc215.csproj", "{5D6A8F8C-07E2-4C4E-B584-0383EF1B769D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{48A433BE-3627-4952-9A2C-3962AC1852E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{48A433BE-3627-4952-9A2C-3962AC1852E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{48A433BE-3627-4952-9A2C-3962AC1852E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D6A8F8C-07E2-4C4E-B584-0383EF1B769D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D6A8F8C-07E2-4C4E-B584-0383EF1B769D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D6A8F8C-07E2-4C4E-B584-0383EF1B769D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D6A8F8C-07E2-4C4E-B584-0383EF1B769D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

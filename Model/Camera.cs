@@ -5,7 +5,7 @@
         public string name = "";
         public string rtspBad = "";
         public string rtspGood = "";
-        public string aspectRatio = "auto";
+        public string aspectRatio = "16:9";
         public int camIcon = 1;
         public int position = -1;
 

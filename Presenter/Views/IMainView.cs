@@ -7,6 +7,7 @@ namespace Presenter.Views
     {
         void SetSourceListControl(IViewControl control);
         void SetSettingsControl(IViewControl control);
+        void SetGridControl(IViewControl control);
 
         void ShowError(string errorMessage);
 

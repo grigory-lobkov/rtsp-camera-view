@@ -10,7 +10,7 @@ namespace Presenter.Presenters
     public class MainPresenter : BasePresener<IMainView>
     {
         private SourceListPresenter _sourceList = null;
-        //private NameViewEditPresenter _nameViewEdit = null;
+        private SourceGridPresenter _sourceGrid = null;
         private ModifySettingsPresenter _settings = null;
         private AppSettings _appSettings = null;
         private ISettingsService _settingsService = null;
@@ -26,10 +26,9 @@ namespace Presenter.Presenters
             _settingsService = settingsService;
             _appSettings = settingsService.GetSettings();
             View.CtrlPanelWidth = _appSettings.controlPanelWidth;
-            
-            //if (createMatrix(appSet.matrix.cntX, appSet.matrix.cntY))
-            //{
-            //    fillMatrix();
+            // Sources grid
+            CreateGrid();
+            //if(_appSettings.autoplay==1) _sourceGrid.PlayAll();
         }
 
         private void OpenClosePanelClick()
@@ -52,6 +51,15 @@ namespace Presenter.Presenters
                 _settings = Controller.Get<ModifySettingsPresenter>();
                 _settings.SetSettings(_appSettings);
                 View.SetSettingsControl(_settings.Control);
+            }
+        }
+        private void CreateGrid()
+        {
+            if (_sourceGrid == null)
+            {
+                _sourceGrid = Controller.Get<SourceGridPresenter>();
+                _sourceGrid.SetSettings(_appSettings);
+                View.SetGridControl(_sourceGrid.Control);
             }
         }
     }

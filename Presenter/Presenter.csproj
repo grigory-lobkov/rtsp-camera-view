@@ -33,7 +33,10 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\ApplicationController.cs" />
@@ -49,7 +52,11 @@
     <Compile Include="Presenters\ModifySourcePresenter.cs" />
     <Compile Include="Presenters\NameViewEditPresener.cs" />
     <Compile Include="Presenters\ModifySettingsPresenter.cs" />
+    <Compile Include="Presenters\PlayerControlPresenter.cs" />
+    <Compile Include="Presenters\PlayerPresenter.cs" />
+    <Compile Include="Presenters\SourceGridPresenter.cs" />
     <Compile Include="Presenters\SourceListPresenter.cs" />
+    <Compile Include="Presenters\SourcePresenter.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -60,6 +67,10 @@
     <Compile Include="Views\INameViewEditView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Views\IModifySettingsView.cs" />
+    <Compile Include="Views\IPlayerControlView.cs" />
+    <Compile Include="Views\IPlayerView.cs" />
+    <Compile Include="Views\ISourceView.cs" />
+    <Compile Include="Views\ISourceGridView.cs" />
     <Compile Include="Views\ISourceListView.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -72,6 +83,7 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

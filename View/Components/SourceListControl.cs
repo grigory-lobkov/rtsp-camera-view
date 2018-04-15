@@ -56,7 +56,7 @@ namespace View.Components
             action?.Invoke();
         }
 
-        public void ClearList()
+        public void Clear()
         {
             listView.Items.Clear();
         }

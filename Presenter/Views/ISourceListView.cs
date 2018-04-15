@@ -5,7 +5,7 @@ namespace Presenter.Views
 {
     public interface ISourceListView : IViewControl
     {
-        void ClearList();
+        void Clear();
         void AddItem(object obj, string name, int icoNr);
         object SelectedObject { get; set; }
         int ListSort { get; set; }

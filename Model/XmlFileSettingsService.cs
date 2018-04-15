@@ -23,7 +23,7 @@
                 c3.rtspBad = "rtsp://op:music@46.254.25.84:10556/av0_1";
                 c4.rtspGood = "rtsp://op:metal@46.254.25.84:10557/av0_0";
                 c4.rtspBad = "rtsp://op:metal@46.254.25.84:10557/av0_1";
-                c1.position = 0; c2.position = 1; c3.position = 2; c4.position = 3;
+                c1.position = 0; c2.position = 1; //c3.position = 2; c4.position = 3;
                 c1.name = "Hall-1"; c2.name = "Hall-2"; c3.name = "Enter-1"; c4.name = "Enter-2";
                 c1.camIcon = 0; c2.camIcon = 0;
                 Camera[] c = { c1, c2, c3, c4 };
