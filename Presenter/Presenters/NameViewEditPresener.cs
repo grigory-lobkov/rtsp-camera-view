@@ -1,4 +1,5 @@
-﻿using Model;
+﻿using System;
+using Model;
 using Presenter.Common;
 using Presenter.Views;
 
@@ -10,15 +11,19 @@ namespace Presenter.Presenters
 
         public NameViewEditPresenter(IApplicationController controller, INameViewEditView view) : base(controller, view)
         {
+            View.OkClick += OkClick;
+            View.CancelClick += CancelClick;
         }
 
         public override void Run(NameView nv)
         {
             _nameView = nv;
             ViewRefresh();
-            View.OkClick += OkClick;
-            View.CancelClick += CancelClick;
             View.Show();
+        }
+        private void Invoke(Action action)
+        {
+            action?.Invoke();
         }
 
         private void ViewRefresh()

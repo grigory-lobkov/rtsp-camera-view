@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Threading;
 using System.Windows.Forms;
 using Presenter.Views;
@@ -30,7 +31,8 @@ namespace ViewVlc215
         private void InitializeComponent()
         {
             vlc1 = new AxAXVLC.AxVLCPlugin2();
-            ((System.ComponentModel.ISupportInitialize)(vlc1)).BeginInit();
+            try { ((System.ComponentModel.ISupportInitialize)(vlc1)).BeginInit(); }
+            catch { };
             //ThreadPool.QueueUserWorkItem(InitInThread, new object[] { this });
             //Thread.Sleep(1000);
             //InitInThread(this);
@@ -38,15 +40,13 @@ namespace ViewVlc215
             this.SuspendLayout();
             vlc1.Enabled = false;
             vlc1.Dock = DockStyle.Fill;
-            vlc1.MediaPlayerPositionChanged += (sender,args) => vlc1PositionChanged();
-            vlc1.MediaPlayerBuffering += (sender, args) => vlc1Buffering();
-            //vlc1.MediaPlayerPositionChanged += new AxAXVLC.DVLCEvents_MediaPlayerPositionChangedEventHandler(vlc1PositionChanged);
-            //vlc1.MediaPlayerBuffering += new AxAXVLC.DVLCEvents_MediaPlayerBufferingEventHandler(vlc1Buffering);
+            vlc1.MediaPlayerPositionChanged += (sender,args) => Vlc1PositionChanged();
+            vlc1.MediaPlayerBuffering += (sender, args) => Vlc1Buffering();
             this.Controls.Add(vlc1);
             lostTimer = new System.Windows.Forms.Timer();
-            lostTimer.Tick += new EventHandler(this.lostRtsp1Timer_Tick);
-
-            ((System.ComponentModel.ISupportInitialize)(vlc1)).EndInit();
+            lostTimer.Tick += new EventHandler(this.LostRtsp1Timer_Tick);
+            try { ((System.ComponentModel.ISupportInitialize)(vlc1)).EndInit(); }
+            catch { };
             this.ResumeLayout(false);
         }
 
@@ -55,7 +55,9 @@ namespace ViewVlc215
         private string aspectRatio;
         private VlcStatus vlc1Status;
         private int vlcH;
+        public int SrcHeight { get => vlcH; }
         private int vlcW;
+        public int SrcWidth { get => vlcW; }
         private int volume = 0;
         private bool isSoundPresent;
         public event Action Stopped;
@@ -69,7 +71,7 @@ namespace ViewVlc215
         private int lostRtspOnStartTimer = 30000;
         private int lostRtspTimer = 5000;
 
-        public bool IsPlaying { get => vlc1Status != VlcStatus.Playing; }
+        public bool IsPlaying { get => vlc1Status == VlcStatus.Playing; }
 
         public Player()
         {
@@ -89,7 +91,7 @@ namespace ViewVlc215
             get => volume;
             set
             {
-                try { /*vlc1.*/volume = value; }
+                try { vlc1.audio.Volume = value; }
                 catch { }
                 volume = value;
             }
@@ -103,7 +105,7 @@ namespace ViewVlc215
             get => sourceString;
             set
             {
-                if (sourceString != value)
+                if (sourceString == null || !sourceString.Equals(value))
                 {
                     Stop();
                     vlc1.playlist.items.clear();
@@ -118,14 +120,14 @@ namespace ViewVlc215
             get => aspectRatio;
             set
             {
-                if (aspectRatio != value)
+                if (aspectRatio == null || !aspectRatio.Equals(value))
                 {
                     Stop();
                     try
                     {
-                        if (value != "" && value != null) vlc1.video.aspectRatio = value;
-                        else vlc1.video.aspectRatio = defaultAspectRatio;
-                        aspectRatio = vlc1.video.aspectRatio;
+                        if (value != "" && value != null) aspectRatio = value;
+                        else aspectRatio = defaultAspectRatio;
+                        vlc1.video.aspectRatio = aspectRatio;
                     }
                     catch { }
                 }
@@ -169,13 +171,12 @@ namespace ViewVlc215
             return false;
         }
 
-        //private void vlc1Buffering(object sender, AxAXVLC.DVLCEvents_MediaPlayerBufferingEvent e)
-        private void vlc1Buffering()
+        private void Vlc1Buffering()
         {
             if (vlc1Status == VlcStatus.Buffering)
             {
                 vlc1.audio.Volume = this.volume;
-                if (vlc1.audio.track > 1 && !isSoundPresent)
+                if (vlc1.audio.track > 0 && !isSoundPresent)
                 {
                     isSoundPresent = true;
                     Invoke(SoundDetected);
@@ -183,8 +184,7 @@ namespace ViewVlc215
             }
         }
 
-        //private void vlc1PositionChanged(object sender, AxAXVLC.DVLCEvents_MediaPlayerPositionChangedEvent e)
-        private void vlc1PositionChanged()
+        private void Vlc1PositionChanged()
         {
             lostTimer.Enabled = false;
             lostTimer.Enabled = true;
@@ -204,11 +204,11 @@ namespace ViewVlc215
                 else
                 {
                     vlcH -= 1;
-                    if (vlcH < -3) { vlcH = 576; vlcW = 704; }
+                    if (vlcH < -3) { vlcH = 576; vlcW = 704; Invoke(SizeDetected); }
                 }
         }
 
-        private void lostRtsp1Timer_Tick(object sender, EventArgs e)
+        private void LostRtsp1Timer_Tick(object sender, EventArgs e)
         {
             lostTimer.Enabled = false;
             Invoke(LostStream);

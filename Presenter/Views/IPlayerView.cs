@@ -5,7 +5,6 @@ namespace Presenter.Views
 {
     public interface IPlayerView : IViewControl
     {
-        //VlcStatus Status;
         bool Play();
         bool Stop();
         bool IsPlaying { get; }
@@ -14,13 +13,13 @@ namespace Presenter.Views
         event Action Buffering;
         event Action Stopped;
         event Action SoundDetected;
-        //event Action SizeDetected;
         event Action LostStream;
+        event Action SizeDetected;
 
         int Volume { get; set; }
-        //bool SoundPresent { get; }
         string SourceString { get; set; }
-        //string AspectRatio { get; set; }
         string AspectRatio { set; }
+        int SrcHeight { get; }
+        int SrcWidth { get; }
     }
 }

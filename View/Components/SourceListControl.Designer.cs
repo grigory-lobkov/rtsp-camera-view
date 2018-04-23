@@ -164,7 +164,6 @@
             // 
             // listView
             // 
-            this.listView.AllowDrop = true;
             this.listView.ContextMenuStrip = this.cameraContextMenuStrip;
             this.listView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listView.HideSelection = false;
@@ -183,6 +182,7 @@
             this.listView.TileSize = new System.Drawing.Size(150, 150);
             this.listView.UseCompatibleStateImageBehavior = false;
             this.listView.View = System.Windows.Forms.View.List;
+            this.listView.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ListView_MouseDown);
             // 
             // SourceListControl
             // 

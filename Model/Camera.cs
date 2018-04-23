@@ -1,4 +1,6 @@
-﻿namespace Model
+﻿using System;
+
+namespace Model
 {
     public class Camera
     {
@@ -9,7 +11,8 @@
         public int camIcon = 1;
         public int position = -1;
 
+        public Action Edit;
+
         public NameView nameView = new NameView(); // name show parameters
-        //[XmlIgnoreAttribute]
     }
 }

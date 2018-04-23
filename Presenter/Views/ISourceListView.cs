@@ -20,5 +20,12 @@ namespace Presenter.Views
         void SelectObject(object obj);
         void UpdateSelected(string name, int icoNr);
         void RemoveSelected();
+
+        event Action NameChanged;
+        string SelectedName { get; set; }
+
+        event Action DoDragDropping;
+        event Action DoneDragDropping;
+        object DragObject { get; }
     }
 }

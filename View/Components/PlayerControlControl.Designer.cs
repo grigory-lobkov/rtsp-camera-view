@@ -23,7 +23,6 @@ namespace View.Components
             }
             if (disposing)
             {
-                hideControlTimer.Dispose();
                 btnPlayStop.Dispose();
                 btnVolMinus.Dispose();
                 btnVolPlus.Dispose();
@@ -45,7 +44,6 @@ namespace View.Components
         /// </summary>
         private void InitializeComponent()
         {
-            hideControlTimer = new Timer();
             btnPlayStop = new Panel();
             btnVolMinus = new Panel();
             btnVolPlus = new Panel();
@@ -58,11 +56,6 @@ namespace View.Components
             this.ForeColor = System.Drawing.Color.White;
             this.BackColor = System.Drawing.Color.Gray;
             this.Height = 20;
-            //
-            // hideControlTimer
-            //
-            hideControlTimer.Interval = 8000;
-            hideControlTimer.Tick += new EventHandler(this.hideControlTimer_Tick);
             //
             // btnPlayStop
             //
@@ -85,7 +78,6 @@ namespace View.Components
             btnVolMinus.MouseLeave += new EventHandler(this.btn_MouseEnterLeaveInvert);
             btnVolMinus.MouseDown += new MouseEventHandler(this.btn_MouseDown);
             btnVolMinus.MouseUp += new MouseEventHandler(this.btn_MouseUp);
-            btnVolMinus.Click += new EventHandler(this.btnVolMinus_Click);
             btnVolMinus.Visible = false;
             btnVolMinus.Size = btnPlayStop.Size;
             btnVolMinus.Tag = null;
@@ -99,7 +91,6 @@ namespace View.Components
             btnVolPlus.MouseLeave += new EventHandler(this.btn_MouseEnterLeaveInvert);
             btnVolPlus.MouseDown += new MouseEventHandler(this.btn_MouseDown);
             btnVolPlus.MouseUp += new MouseEventHandler(this.btn_MouseUp);
-            btnVolPlus.Click += new EventHandler(this.btnVolPlus_Click);
             btnVolPlus.Visible = false;
             btnVolPlus.Size = btnPlayStop.Size;
             btnVolPlus.Tag = null;
@@ -121,7 +112,6 @@ namespace View.Components
             btnClose.MouseLeave += new EventHandler(this.btn_MouseEnterLeaveInvert);
             btnClose.MouseDown += new MouseEventHandler(this.btn_MouseDown);
             btnClose.MouseUp += new MouseEventHandler(this.btn_MouseUp);
-            btnClose.Click += new EventHandler(this.btnClose_Click);
             btnClose.Size = new System.Drawing.Size(15, 15);
             btnClose.Tag = null;
             controlPanelR.Controls.Add(btnClose);
@@ -134,7 +124,6 @@ namespace View.Components
             btnMaxMin.MouseLeave += new EventHandler(this.btn_MouseEnterLeaveInvert);
             btnMaxMin.MouseDown += new MouseEventHandler(this.btn_MouseDown);
             btnMaxMin.MouseUp += new MouseEventHandler(this.btn_MouseUp);
-            btnMaxMin.Click += new EventHandler(this.btnMaxMin_Click);
             btnMaxMin.Size = btnClose.Size;
             btnMaxMin.Tag = null;
             controlPanelR.Controls.Add(btnMaxMin);
@@ -147,7 +136,6 @@ namespace View.Components
             btnOptions.MouseLeave += new EventHandler(this.btn_MouseEnterLeaveInvert);
             btnOptions.MouseDown += new MouseEventHandler(this.btn_MouseDown);
             btnOptions.MouseUp += new MouseEventHandler(this.btn_MouseUp);
-            btnOptions.Click += new EventHandler(this.btnOptions_Click);
             btnOptions.Size = btnClose.Size;
             btnOptions.Tag = null;
             controlPanelR.Controls.Add(btnOptions);
@@ -158,7 +146,6 @@ namespace View.Components
 
         #endregion
 
-        private Timer hideControlTimer;
         private Panel btnPlayStop, btnVolMinus, btnVolPlus;
         private Panel controlPanelR;
         private Panel btnClose, btnMaxMin, btnOptions;

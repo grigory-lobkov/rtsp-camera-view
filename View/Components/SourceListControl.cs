@@ -49,6 +49,7 @@ namespace View.Components
                 cameraIconsImageList2.Images.Add(ikey, (Bitmap)cameraIconsImageList.Images[i]);
                 cameraIconsImageList3.Images.Add(ikey, (Bitmap)cameraIconsImageList.Images[i]);
             }
+            listView.AfterLabelEdit += ListView_AfterLabelEdit;
         }
 
         private void Invoke(Action action)
@@ -63,14 +64,13 @@ namespace View.Components
 
         public void AddItem(object obj, string name, int icoNr)
         {
-            ListViewItem lvi = new ListViewItem(name, icoNr);
-            lvi.Tag = obj;
+            ListViewItem lvi = new ListViewItem(name, icoNr) { Tag = obj };
             listView.Items.Add(lvi);
         }
 
         public object SelectedObject
         {
-            get { return listView.FocusedItem == null ? null : listView.FocusedItem.Tag; }
+            get { return listView.FocusedItem?.Tag; }
             set { if(listView.FocusedItem != null) listView.FocusedItem.Tag = value; }
         }
 
@@ -143,6 +143,38 @@ namespace View.Components
         public void RemoveSelected()
         {
             listView.FocusedItem.Remove();
+        }
+        private void ListView_AfterLabelEdit(object sender, LabelEditEventArgs e)
+        {
+            if (e.Label == "" || e.Label == null) { e.CancelEdit = true; return; }
+            listView.FocusedItem.Text = e.Label;
+            Invoke(NameChanged);
+        }
+        public event Action NameChanged;
+        public string SelectedName
+        {
+            get => listView.FocusedItem.Text;
+            set => listView.FocusedItem.Text = value;
+        }
+
+        /*****
+         *      Drag & Drop functions
+         */
+        public event Action DoDragDropping;
+        public event Action DoneDragDropping;
+        private object dragObject = null;
+        public object DragObject { get => dragObject; }
+        private void ListView_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button != MouseButtons.Left) return;
+            ListViewItem vi = listView.GetItemAt(e.X, e.Y);
+            if (vi == null) return;
+            vi.Focused = true;
+            vi.Selected = true;
+            dragObject = listView.FocusedItem.Tag;
+            Invoke(DoDragDropping);
+            DoDragDrop(listView.FocusedItem.Tag, DragDropEffects.Copy | DragDropEffects.Move);
+            Invoke(DoneDragDropping);
         }
     }
 }

@@ -51,19 +51,47 @@ namespace View.Components
                 }
             }
         }
-        public void Repaint()
+
+        public void SwapItems(object obj1, object obj2)
         {
-            int h = ClientRectangle.Height, w = ClientRectangle.Width;
+            GridItem fi = null, ti = null;
             foreach (GridItem i in _items)
             {
-                i.control.Location = new Point((int)(i.x * w),(int)(i.y * h));
-                i.control.Size = new Size((int)(i.w * w), (int)(i.h * h));
+                if (i.control == obj1) fi = i;
+                if (i.control == obj2) ti = i;
+            }
+            if (fi != null && ti != null)
+            {
+                Control t = fi.control;
+                fi.control = ti.control;
+                ti.control = t;
+            }
+            Repaint();
+        }
+
+        public void Repaint()
+        {
+            if (!oneMaximized)
+            {
+                int h = ClientRectangle.Height, w = ClientRectangle.Width;
+                foreach (GridItem i in _items)
+                {
+                    i.control.Location = new Point((int)(i.x * w), (int)(i.y * h));
+                    i.control.Size = new Size((int)(i.w * w), (int)(i.h * h));
+                }
             }
         }
 
         private void SourceGridControl_Resize(object sender, EventArgs e)
         {
             Repaint();
+        }
+
+        private bool oneMaximized = false;
+        public bool OneMaximized
+        {
+            get => oneMaximized;
+            set { oneMaximized = value; Repaint(); }
         }
     }
 

@@ -98,6 +98,7 @@
             this.autoHideCheckBox.TabIndex = 26;
             this.autoHideCheckBox.Text = "Hide automatically";
             this.autoHideCheckBox.UseVisualStyleBackColor = true;
+            this.autoHideCheckBox.Click += new System.EventHandler(this.autoHideCheckBox_Click);
             // 
             // textSizeTrackBar
             // 

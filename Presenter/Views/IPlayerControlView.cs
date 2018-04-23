@@ -5,15 +5,14 @@ namespace Presenter.Views
 {
     public interface IPlayerControlView : IViewControl
     {
-        void ShowMe();
-        int ShowSec { set; get; }
-
         void SourceSet();
         void SourceReset();
         void Playing();
         void Stopped();
         void Buffering();
         void SoundFound();
+        void Maximized();
+        void Minimized();
 
         event Action Play;
         event Action Stop;

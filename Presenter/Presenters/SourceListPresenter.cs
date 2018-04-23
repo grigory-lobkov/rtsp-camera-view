@@ -10,29 +10,31 @@ namespace Presenter.Presenters
         private AppSettings _settings = null;
         private ModifySourcePresenter _srcEdit = null;
         private Camera _camEdit = null;
-        public Camera CamEdited = null;
-        public Camera CamDeleted = null;
+        public Camera SourceEditedVar = null;
+        public Camera SourceDeletedVar = null;
 
         public SourceListPresenter(IApplicationController controller, ISourceListView view)
             : base(controller, view)
         {
             View.SortChanged += SortChanged;
             View.ViewChanged += ViewChanged;
-            View.EditClick += EditClick;
+            View.NameChanged += NameChanged;
+            View.DoDragDropping += DoDragDropping;
+            View.DoneDragDropping += DoneDragDropping;
+            View.EditClick += () => EditClick();
             View.NewClick += NewClick;
         }
 
         public event Action SourceModified;
         public event Action SourceDeleted;
+        public event Action SourceCreated;
 
         public void SetSettings(AppSettings settings)
         {
             _settings = settings;
             View.Clear();
             foreach (Camera m in _settings.cams)
-            {
                 View.AddItem(m, m.name, m.camIcon);
-            }
         }
 
         public void SortChanged()
@@ -43,8 +45,16 @@ namespace Presenter.Presenters
         {
             _settings.camListView = View.ListView;
         }
+        public void NameChanged()
+        {
+            Camera c = (Camera)View.SelectedObject;
+            if (c == null) return;
+            c.name = View.SelectedName;
+            SourceEditedVar = c;
+            SourceModified?.Invoke();
+        }
 
-        private void checkSrcEdit()
+        private void CheckSrcEdit()
         {
             if (_srcEdit == null)
             {
@@ -57,37 +67,49 @@ namespace Presenter.Presenters
             }
         }
 
-        public void EditClick()
+        public void EditClick(Camera m = null)
         {
+            if (m != null) View.SelectObject(m);
             _camEdit = (Camera)View.SelectedObject;
             if (_camEdit != null)
             {
-                checkSrcEdit();
+                CheckSrcEdit();
                 _srcEdit.Run(_camEdit);
             }
         }
         public void NewClick()
         {
             _camEdit = new Camera();
-            checkSrcEdit();
+            CheckSrcEdit();
             _srcEdit.Run(_camEdit, true);
         }
         private void NewSrcCreated()
         {
             View.AddItem(_camEdit, _camEdit.name, _camEdit.camIcon);
             View.SelectObject(_camEdit);
+            SourceEditedVar = _camEdit;
+            SourceCreated?.Invoke();
         }
         private void SrcModified()
         {
-            CamEdited = _camEdit;
+            SourceEditedVar = _camEdit;
             View.UpdateSelected(_camEdit.name, _camEdit.camIcon);
             SourceModified?.Invoke();
         }
         private void SrcDeleted()
         {
-            CamDeleted = _camEdit;
+            SourceDeletedVar = _camEdit;
             View.RemoveSelected();
             SourceDeleted?.Invoke();
         }
+
+        /*****
+         *      Drag & Drop functions
+         */
+        public event Action DoDragDrop;
+        public event Action DoneDragDrop;
+        private void DoDragDropping() { DoDragDrop?.Invoke(); }
+        private void DoneDragDropping() { DoneDragDrop?.Invoke(); }
+        public object DragObject { get => View.DragObject; }
     }
 }

@@ -24,20 +24,18 @@ namespace View.Components
         {
             InitializeComponent();
             status = Status.Preparing;
-            this.MouseMove += (sender, args) => this.controlPanel_MouseMove();
-            controlPanelR.MouseEnter += (sender, args) => this.controlPanel_MouseMove();
+            controlPanelR.MouseMove += (sender, args) => this.OnMouseMove(args);
             this.Resize += (sender, args) => this.Resized();
+            btnVolMinus.Click += (sender, args) => Invoke(VolumeDown);
+            btnVolPlus.Click += (sender, args) => Invoke(VolumeUp);
+            btnClose.Click += (sender, args) => Invoke(Remove);
+            btnMaxMin.Click += (sender, args) => Invoke(Maximize);
+            btnOptions.Click += (sender, args) => Invoke(OpenOptions);
         }
 
         private void Invoke(Action action)
         {
             action?.Invoke();
-        }
-
-        public int ShowSec
-        {
-            get => hideControlTimer.Interval / 1000;
-            set => hideControlTimer.Interval = value * 1000;
         }
 
         public void SourceReset()
@@ -63,7 +61,7 @@ namespace View.Components
             int clientw = this.ClientSize.Width,
                 clienth = this.ClientSize.Height,
                 clientm = Math.Min(clientw, clienth);
-            int bh = clientm * 4 / 5, bm = bh / 7, bh2 = clientm / 21, bm2 = bm * 2;
+            int bh = clientm * 4 / 5, bm = bh / 7, bh2 = clientm * 3 / 5, bm2 = bm*2;
             Size bS = new Size(bh, bh), bS2 = new Size(bh2, bh2);
             int bs = bh + bm, bs2 = bh2 + bm;
 
@@ -80,6 +78,7 @@ namespace View.Components
             btnMaxMin.Location = new Point(bm2 + bs2, bm2);
             btnClose.Location = new Point(bm2 + bs2 * 2, bm2);
             controlPanelR.Width = bm2 * 2 + bs2 * 3;
+            Location = new Point(0, Parent.ClientRectangle.Height - clienth);
         }
 
         public void Buffering()
@@ -107,25 +106,6 @@ namespace View.Components
         public void SoundFound()
         {
             btnVolMinus.Visible = btnVolPlus.Visible = true;
-            ShowMe();
-        }
-        /*
-        public void bgvlc_BeforeRtspSwitch(object sender)
-        {
-            hideControlTimer_Tick(hideControlTimer, null);
-        }*/
-
-        public void ShowMe()
-        {
-            Visible = true;
-            hideControlTimer.Enabled = false;
-            hideControlTimer.Enabled = true;
-        }
-
-        private void hideControlTimer_Tick(object sender, EventArgs e)
-        {
-            hideControlTimer.Enabled = false;
-            Visible = false;
         }
 
         private Bitmap InvertImage(Image source)
@@ -182,44 +162,20 @@ namespace View.Components
 
         private void btnPlayStop_MouseClick(object sender, MouseEventArgs e)
         {
-            ShowMe();
-            if (status == Status.Playing) { Invoke(Stop); Buffering(); }
-            else if (status == Status.Stopped) { Invoke(Play); Buffering(); }
+            if (status == Status.Playing) { Buffering(); Invoke(Stop); }
+            else if (status == Status.Stopped) { Buffering(); Invoke(Play); }
         }
-
-        private void btnVolMinus_Click(object sender, EventArgs e)
+        public void Maximized()
         {
-            Invoke(VolumeDown);
-            ShowMe();
+            btnMaxMin.BackgroundImage = btnMaxMin.Tag == null ?
+                RtspCameraView.Properties.Resources.btn_minimize :
+                InvertImage(RtspCameraView.Properties.Resources.btn_minimize);
         }
-
-        private void btnVolPlus_Click(object sender, EventArgs e)
+        public void Minimized()
         {
-            Invoke(VolumeUp);
-            ShowMe();
-        }
-
-        private void controlPanel_MouseMove()
-        {
-            ShowMe();
-        }
-
-        private void btnClose_Click(object sender, EventArgs e)
-        {
-            ShowMe();
-            Invoke(Remove);
-        }
-
-        private void btnMaxMin_Click(object sender, EventArgs e)
-        {
-            ShowMe();
-            Invoke(Maximize);
-        }
-
-        private void btnOptions_Click(object sender, EventArgs e)
-        {
-            ShowMe();
-            Invoke(OpenOptions);
+            btnMaxMin.BackgroundImage = btnMaxMin.Tag == null ?
+                RtspCameraView.Properties.Resources.btn_maximize :
+                InvertImage(RtspCameraView.Properties.Resources.btn_maximize);
         }
     }
 }

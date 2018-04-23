@@ -73,8 +73,8 @@ namespace Presenter.Presenters
                 _camera.rtspGood = View.RtspGood;
                 _camera.aspectRatio = View.AspectRatio;
                 _camera.camIcon = View.CamIcon;
-                View.Hide();
                 if (View.IsNewSource) Create?.Invoke(); else Save?.Invoke();
+                View.Hide();
             }
         }
 

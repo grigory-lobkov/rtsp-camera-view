@@ -134,5 +134,9 @@ namespace View
             }
         }
 
+        private void autoHideCheckBox_Click(object sender, EventArgs e)
+        {
+            autoHideTrackBar.Enabled = autoHideCheckBox.Checked;
+        }
     }
 }

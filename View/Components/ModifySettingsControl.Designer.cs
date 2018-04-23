@@ -1,4 +1,6 @@
-﻿namespace View.Components
+﻿using System.Windows.Forms;
+
+namespace View.Components
 {
     partial class ModifySettingsControl
     {
@@ -138,16 +140,16 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.LinkLabel githubLinkLabel;
-        private System.Windows.Forms.Button commandLineHelpButton;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label applyMatrixSize;
-        private System.Windows.Forms.TextBox matrixYinput;
-        private System.Windows.Forms.TextBox matrixXinput;
-        private System.Windows.Forms.Label xLabel;
-        private System.Windows.Forms.Label matrixDimensionsLabel;
-        private System.Windows.Forms.Button camNameViewGlbButton;
-        private System.Windows.Forms.Label commandLineHelp;
+        private Panel panel1;
+        private LinkLabel githubLinkLabel;
+        private Button commandLineHelpButton;
+        private Panel panel2;
+        private Label applyMatrixSize;
+        private TextBox matrixYinput;
+        private TextBox matrixXinput;
+        private Label xLabel;
+        private Label matrixDimensionsLabel;
+        private Button camNameViewGlbButton;
+        private Label commandLineHelp;
     }
 }

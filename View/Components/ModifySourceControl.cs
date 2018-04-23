@@ -109,7 +109,7 @@ namespace View.Components
         public bool IsNameInherit
         {
             get { return camNameInherit.Checked; }
-            set { camNameInherit.Checked = value; }
+            set { camNameInherit.Checked = value; camNameModify.Enabled = !value; }
         }
         private void TextBoxEnter(TextBox sender)
         {
@@ -158,6 +158,7 @@ namespace View.Components
                     != DialogResult.Yes) return;
                 Invoke(DeleteClick);
             }
+            else Invoke(DeleteClick);
         }
         private void ButtonLabel_MouseEnter(object sender, EventArgs e)
         {

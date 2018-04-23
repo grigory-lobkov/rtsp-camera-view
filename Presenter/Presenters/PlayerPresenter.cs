@@ -15,15 +15,21 @@ namespace Presenter.Presenters
         {
         }
 
+        public void LinkActions()
+        {
+            View.Playing += () => Invoke(Playing);
+            View.Buffering += () => Invoke(Buffering);
+            View.Stopped += () => Invoke(Stopped);
+            View.SoundDetected += () => Invoke(SoundDetected);
+            View.LostStream += () => Invoke(LostStream);
+            View.SizeDetected += () => Invoke(SizeDetected);
+        }
+        private void Invoke(Action action)
+        {
+            action?.Invoke();
+        }
+
         public bool Play() {
-            // actions link
-            // moved here from constructor, somewhy link disappear in ViewVlc215 elsewhere
-            View.Playing += Playing;
-            View.Buffering += Buffering;
-            View.Stopped += Stopped;
-            View.SoundDetected += SoundDetected;
-            View.LostStream += LostStream;
-            // end actions link
             return View.Play();
         }
         public bool Stop() { return View.Stop(); }
@@ -34,11 +40,14 @@ namespace Presenter.Presenters
         public event Action Stopped;
         public event Action SoundDetected;
         public event Action LostStream;
+        public event Action SizeDetected;
 
         public int Volume { get => View.Volume; set => View.Volume = value; }
 
         public void SetSourceString(string value) { View.SourceString = value; }
         public void SetAspectRatio(string value) { View.AspectRatio = value; }
         public string SourceString { get => View.SourceString; }
+        public int SrcHeight { get => View.SrcHeight; }
+        public int SrcWidth { get => View.SrcWidth; }
     }
 }

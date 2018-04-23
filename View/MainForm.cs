@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 using Presenter.Common;
 using Presenter.Views;
@@ -22,6 +23,9 @@ namespace View
             Shown += (sender, args) => RepaintControlPanel();
             splitter.SplitterMoved += (sender, args) => RepaintControlPanel();
             splitter.SplitterMoved += (sender, args) => Invoke(SplitterMoved);
+            fullScreenMenuItem.Click += (sender, args) => DoFullscreen();
+            exitFullScreenMenuItem.Click += (sender, args) => ExitFullscreen();
+            exitFullScreenMenuItem.Visible = false;
         }
 
         public new void Show()
@@ -35,7 +39,7 @@ namespace View
 
         private void Invoke(Action action)
         {
-            if (action != null) action();
+            action?.Invoke();
         }
 
         public void ShowError(string errorMessage)
@@ -61,7 +65,7 @@ namespace View
             {
                 controlPanel.Visible = value;
                 splitter.Visible = value;
-                if (value) controlPanel_SelectedIndexChanged(null, null);
+                if (value) ControlPanel_SelectedIndexChanged(null, null);
                 RepaintControlPanel();
                 splitLabel.Text = value ? CloseLabelTextConst : OpenLabelTextConst;
             }
@@ -92,14 +96,15 @@ namespace View
             splitter.Width = s / 2;
             RepaintSplitLabel();
         }
-        
+
         private void RepaintSplitLabel(bool hover = false)
         {
             splitLabel.Left = (controlPanel.Visible ? controlPanel.Width : -splitter.Width)
                 + (hover ? splitter.Width : 0);
         }
 
-        public void SetSourceListControl(IViewControl control) {
+        public void SetSourceListControl(IViewControl control)
+        {
             Control c = (Control)control;
             sourcesPage.Controls.Add(c);
             c.Dock = DockStyle.Fill;
@@ -116,15 +121,16 @@ namespace View
             this.Controls.Add(c);
             c.Dock = DockStyle.Fill;
             c.BringToFront();
+            c.ContextMenuStrip = gridMenu;
             splitLabel.BringToFront();
         }
 
         public event Action SourcesPageSelected;
         public event Action SettingsPageSelected;
 
-        private void controlPanel_SelectedIndexChanged(object sender, EventArgs e)
+        private void ControlPanel_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(controlPanel.SelectedTab == sourcesPage)
+            if (controlPanel.SelectedTab == sourcesPage)
             {
                 Invoke(SourcesPageSelected);
             }
@@ -132,6 +138,67 @@ namespace View
             {
                 Invoke(SettingsPageSelected);
             }
+        }
+
+        private FormBorderStyle saveBorderStyle;
+        private FormWindowState saveWindowState;
+        public void DoFullscreen()
+        {
+            saveBorderStyle = this.FormBorderStyle;
+            saveWindowState = this.WindowState;
+            this.FormBorderStyle = FormBorderStyle.None;
+            this.WindowState = FormWindowState.Maximized;
+            fullScreenMenuItem.Visible = false;
+            exitFullScreenMenuItem.Visible = true;
+        }
+        public void ExitFullscreen()
+        {
+            this.FormBorderStyle = saveBorderStyle;
+            this.WindowState = saveWindowState;
+            fullScreenMenuItem.Visible = true;
+            exitFullScreenMenuItem.Visible = false;
+        }
+        public void DoAlwaysOnTop()
+        {
+            this.TopMost = true;
+        }
+        public void ExitAlwaysOnTop()
+        {
+            this.TopMost = false;
+        }
+
+        public void MoveToScreen(int screen)
+        {
+            Screen[] sc = Screen.AllScreens;
+            if (screen > -1 && sc.Length > screen)
+            {
+                this.Location = new Point(sc[screen].Bounds.Location.X, sc[screen].Bounds.Location.Y);
+                this.Size = new Size(sc[screen].Bounds.Width, sc[screen].Bounds.Height);
+            }
+        }
+        public void Maximize()
+        {
+            this.WindowState = FormWindowState.Maximized;
+        }
+        public void SetPriority(int priority)
+        {
+            if (priority < 0 || priority > 4) return;
+            System.Diagnostics.ProcessPriorityClass c = System.Diagnostics.ProcessPriorityClass.Normal;
+            switch (priority)
+            {
+                case 0: c = System.Diagnostics.ProcessPriorityClass.Idle; break;
+                case 1: c = System.Diagnostics.ProcessPriorityClass.BelowNormal; break;
+                case 2: c = System.Diagnostics.ProcessPriorityClass.Normal; break;
+                case 3: c = System.Diagnostics.ProcessPriorityClass.AboveNormal; break;
+                case 4: c = System.Diagnostics.ProcessPriorityClass.High; break;
+            }
+            System.Diagnostics.Process.GetCurrentProcess().PriorityClass = c;
+        }
+        public void SetAppCaption()
+        {
+            this.Text = Application.ProductName + " " + Application.ProductVersion
+                + "  /  gg81@yandex.ru  /  "
+                + (Application.CurrentCulture.TwoLetterISOLanguageName == "ru" ? "решениеготово.рф  /  Григорий Лобков" : "Gregory Lobkov");
         }
     }
 }

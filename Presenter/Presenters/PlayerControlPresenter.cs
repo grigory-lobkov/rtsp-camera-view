@@ -13,24 +13,31 @@ namespace Presenter.Presenters
         public PlayerControlPresenter(IApplicationController controller, IPlayerControlView view)
             : base(controller, view)
         {
-            View.Play += Play;
-            View.Stop += Stop;
-            View.VolumeUp += VolumeUp;
-            View.VolumeDown += VolumeDown;
-            View.OpenOptions += OpenOptions;
-            View.Maximize += Maximize;
-            View.Remove += Remove;
+            View.Play += () => Invoke(Play);
+            View.Stop += () => Invoke(Stop);
+            View.VolumeUp += () => Invoke(VolumeUp);
+            View.VolumeDown += () => Invoke(VolumeDown);
+            View.OpenOptions += () => Invoke(OpenOptions);
+            View.Maximize += () => Invoke(Maximize);
+            View.Remove += () => Invoke(Remove);
             View.SourceReset();
         }
+        private void Invoke(Action action)
+        {
+            action?.Invoke();
+        }
 
-        public void Show() { View.ShowMe(); }
-        public int ShowSec { set => View.ShowSec = value; get => View.ShowSec; }
-
-        public void SetSource() { View.SourceSet(); }
-        //public void EmptySource() { View.SourceReset(); }
+        public void SourceSet()
+        {
+            View.SourceSet();
+        }
+        public void SourceReset() { View.SourceReset(); }
         public void Playing() { View.Playing(); }
         public void Stopped() { View.Stopped(); }
         public void Buffering() { View.Buffering(); }
+        public void SoundFound() { View.SoundFound(); }
+        public void Maximized() { View.Maximized(); }
+        public void Minimized() { View.Minimized(); }
 
         public event Action Play;
         public event Action Stop;

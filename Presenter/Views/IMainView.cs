@@ -21,5 +21,14 @@ namespace Presenter.Views
 
         event Action SourcesPageSelected;
         event Action SettingsPageSelected;
+
+        void DoFullscreen();
+        void ExitFullscreen();
+        void DoAlwaysOnTop();
+        void ExitAlwaysOnTop();
+        void MoveToScreen(int screen);
+        void Maximize();
+        void SetPriority(int priority);
+        void SetAppCaption();
     }
 }

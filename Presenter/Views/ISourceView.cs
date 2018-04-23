@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 using Presenter.Common;
 
 namespace Presenter.Views
@@ -24,5 +25,42 @@ namespace Presenter.Views
         bool SrcNameAutoHide { get; set; }
         int SrcNameShowSec { get; set; }
         void SrcNameRefresh();
+        int Height { get; }
+        int Width { get; }
+
+        event Action MouseMoved;
+        event Action DoubleClicked;
+        event Action SizeChange;
+
+        bool Maximized { get; set; }
+        void Log(string str);
+
+        void StartSwitchToGoodTimer();
+        void StartSwitchToBadTimer();
+        void StartStopBadPlayerTimer();
+        void StartStopGoodPlayerTimer();
+        void StartStopOnInvisibleTimer();
+        void StartPreshowGoodPlayerTimer();
+        void StopSwitchToGoodTimer();
+        void StopSwitchToBadTimer();
+        void StopStopBadPlayerTimer();
+        void StopStopGoodPlayerTimer();
+        void StopStopOnInvisibleTimer();
+        void StopPreshowGoodPlayerTimer();
+        event Action SwitchToGood;
+        event Action SwitchToBad;
+        event Action StopBadPlayer;
+        event Action StopGoodPlayer;
+        event Action StopOnInvisible;
+        event Action PreshowGoodPlayer;
+        void ShowBadPlayer();
+        void ShowGoodPlayer();
+        void ShowSmallGoodPlayer();
+
+
+        bool SourceDragging { get; set; }
+        event Action DragDropAccept;
+        event Action DragDropInit;
+        event Action DragDropInitFinish;
     }
 }

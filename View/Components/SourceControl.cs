@@ -28,12 +28,24 @@ namespace View.Components
             set => nameHideTimer.Interval = value * 1000;
         }
         public bool srcNameAutoHide = true;
-        public bool SrcNameAutoHide { get => srcNameAutoHide; set => srcNameAutoHide = value; }
+        public bool SrcNameAutoHide
+        {
+            get => srcNameAutoHide;
+            set { srcNameAutoHide = value; if (srcNameShow && value && srcName.Visible) ShowSrcName(); }
+        }
+
         private bool srcNameShow = true;
-        public bool SrcNameShow { get => srcNameShow; set => srcNameShow = value; }
+        public bool SrcNameShow
+        {
+            get => srcNameShow;
+            set { srcNameShow = value; srcName.Visible = value; }
+        }
+
         private int srcNameSize = 3;
         public int SrcNameSize { get => srcNameSize; set => srcNameSize = value; }
+
         public Color SrcNameColor { get => srcName.ForeColor; set => srcName.ForeColor = value; }
+
         private bool srcNameBg = true;
         public bool SrcNameBg
         {
@@ -55,12 +67,27 @@ namespace View.Components
             hidePlayerPanel.SendToBack();
             controlHideTimer.Tick += (sender, args) => HideControl();
             nameHideTimer.Tick += (sender, args) => HideSrcName();
+            //topPanel.MouseMove += (sender, args) => Invoke(MouseMoved);
+            topPanel.Click += (sender, args) => Invoke(MouseMoved);
+            topPanel.DoubleClick += (sender, args) => Invoke(DoubleClicked);
+            switchToGoodTimer.Tick += (sender, args) => { switchToGoodTimer.Enabled = false; Invoke(SwitchToGood); };
+            switchToBadTimer.Tick += (sender, args) => { switchToBadTimer.Enabled = false; Invoke(SwitchToBad); };
+            stopBadPlayerTimer.Tick += (sender, args) => { stopBadPlayerTimer.Enabled = false; Invoke(StopBadPlayer); };
+            stopGoodPlayerTimer.Tick += (sender, args) => { stopGoodPlayerTimer.Enabled = false; Invoke(StopGoodPlayer); };
+            stopOnInvisibleTimer.Tick += (sender, args) => { stopOnInvisibleTimer.Enabled = false; Invoke(StopOnInvisible); };
+            preshowGoodPlayerTimer.Tick += (sender, args) => { preshowGoodPlayerTimer.Enabled = false; Invoke(PreshowGoodPlayer); };
+            this.SizeChanged += (sender, args) => Invoke(SizeChange);
+            log.Dock = DockStyle.Right;
+            log.BringToFront();
         }
 
         private void Invoke(Action action)
         {
             action?.Invoke();
         }
+        public event Action MouseMoved;
+        public event Action DoubleClicked;
+        public event Action SizeChange;
 
         public void SetBadPlayerControl(IViewControl control)
         {
@@ -81,26 +108,31 @@ namespace View.Components
         {
             controlPlayer = (UserControl)control;
             this.Controls.Add(controlPlayer);
-            controlPlayer.Dock = DockStyle.Bottom;
+            controlPlayer.Anchor = ((AnchorStyles)(((AnchorStyles.Bottom | AnchorStyles.Left) | AnchorStyles.Right)));
             controlPlayer.Visible = false;
+            controlPlayer.MouseMove += (sender, args) => Invoke(MouseMoved);
+            controlPlayer.BringToFront();
         }
         public void ShowControl()
         {
             if (controlPlayer == null) return;
-            controlPlayer.Visible = true;
             controlHideTimer.Enabled = false;
             controlHideTimer.Enabled = true;
-            if (!srcNameAutoHide) SrcNameRefresh(); else
-            { 
-                srcName.Visible = true;
+            if (!controlPlayer.Visible)
+            {
+                controlPlayer.Visible = true;
+                if (srcNameShow)
+                    if (srcNameAutoHide) ShowSrcName();
+                    else SrcNameRefresh();
             }
+            if (srcNameShow && srcNameAutoHide) ShowSrcName();
         }
         private void HideControl()
         {
             if (controlPlayer == null) return;
             controlPlayer.Visible = false;
             controlHideTimer.Enabled = false;
-            if (!srcNameAutoHide) SrcNameRefresh();
+            if (srcNameShow) if (!srcNameAutoHide) SrcNameRefresh();
         }
         private void ShowSrcName()
         {
@@ -110,17 +142,18 @@ namespace View.Components
         }
         private void HideSrcName()
         {
-            if(!srcNameShow) srcName.Visible = false;
+            srcName.Visible = false;
             nameHideTimer.Enabled = false;
         }
         public void SrcNameRefresh()
         {
+            if (!srcNameShow) { srcName.Visible = false; return; }
             int clientw = ClientSize.Width,
                 clienth = ClientSize.Height,
                 clientm = Math.Min(clientw, clienth),
                 fs = Math.Max(clientm / 100 * SrcNameSize, 4);
             srcName.Font = new Font(srcName.Font.Name, fs, srcName.Font.Style, srcName.Font.Unit);
-            if (srcNameShow) srcName.Visible = true; else nameHideTimer.Enabled = srcName.Visible;
+            //if (srcNameShow) srcName.Visible = true; else nameHideTimer.Enabled = srcName.Visible;
             srcName.Refresh();
             int top, left;
             switch (srcNameAlign)
@@ -152,13 +185,104 @@ namespace View.Components
                     break;
             };
             srcName.Location = new Point(left, top);
+            controlPlayer.Width = clientw;
         }
 
         private void SourceControl_Resize(object sender, EventArgs e)
         {
-            SrcNameRefresh();
             int clienth = ClientSize.Height;
             controlPlayer.Height = clienth > 200 ? clienth / 10 : (clienth < 100 ? clienth / 5 : 20);
+            SrcNameRefresh();
+        }
+        public bool Maximized
+        {
+            get => Dock == DockStyle.Fill;
+            set
+            {
+                Dock = value ? DockStyle.Fill : DockStyle.None;
+                SourceControl_Resize(null, null);
+                BringToFront();
+            }
+        }
+        public void Log(string str)
+        {
+            log.Items.Add(str);
+            log.Visible = true;
+            log.Width = Math.Min(ClientRectangle.Width - 20, 150);
+        }
+
+        /*****
+         *      Stream switch functions
+         */
+        public void StartSwitchToGoodTimer() { switchToGoodTimer.Enabled = false; switchToGoodTimer.Enabled = true; }
+        public void StartSwitchToBadTimer() { switchToBadTimer.Enabled = false; switchToBadTimer.Enabled = true; }
+        public void StartStopBadPlayerTimer() { stopBadPlayerTimer.Enabled = false; stopBadPlayerTimer.Enabled = true; }
+        public void StartStopGoodPlayerTimer() { stopGoodPlayerTimer.Enabled = false; stopGoodPlayerTimer.Enabled = true; }
+        public void StartStopOnInvisibleTimer() { stopOnInvisibleTimer.Enabled = false; stopOnInvisibleTimer.Enabled = true; }
+        public void StartPreshowGoodPlayerTimer() { preshowGoodPlayerTimer.Enabled = false; preshowGoodPlayerTimer.Enabled = true; }
+        public void StopSwitchToGoodTimer() { switchToGoodTimer.Enabled = false; }
+        public void StopSwitchToBadTimer() { switchToBadTimer.Enabled = false; }
+        public void StopStopBadPlayerTimer() { stopBadPlayerTimer.Enabled = false; }
+        public void StopStopGoodPlayerTimer() { stopGoodPlayerTimer.Enabled = false; }
+        public void StopStopOnInvisibleTimer() { stopOnInvisibleTimer.Enabled = false; }
+        public void StopPreshowGoodPlayerTimer() { preshowGoodPlayerTimer.Enabled = false; }
+        public event Action SwitchToGood;
+        public event Action SwitchToBad;
+        public event Action StopBadPlayer;
+        public event Action StopGoodPlayer;
+        public event Action StopOnInvisible;
+        public event Action PreshowGoodPlayer;
+        public void ShowBadPlayer() { goodPlayer.SendToBack(); }
+        public void ShowGoodPlayer() { badPlayer.SendToBack(); goodPlayer.Dock = DockStyle.Fill; }
+        public void ShowSmallGoodPlayer()
+        {
+            // VLC 2.1.3 does not process stream until visible :(, let's fool him and wait some seconds for buffering
+            // todo: try to Show small player on Buffering time(right after "play" command, until "play" action)!!!
+            badPlayer.SendToBack();
+            goodPlayer.Dock = DockStyle.None;
+            goodPlayer.Size = new Size(1, 1);
+        }
+        /*****
+         * Drag & Drop methods
+         */
+        private bool sourceDragging = false;
+        public bool SourceDragging { get => sourceDragging; set => sourceDragging = value; }
+        public event Action DragDropAccept;
+        public event Action DragDropInit;
+        public event Action DragDropInitFinish;
+        private void TopPanel_DragEnter(object sender, DragEventArgs e)
+        {
+            if (sourceDragging) e.Effect = DragDropEffects.Copy;
+        }
+        private void TopPanel_DragDrop(object sender, DragEventArgs e) { Invoke(DragDropAccept); }
+        private bool isMouseDown;
+        private Point mouseDownLocation;
+        private void TopPanel_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                isMouseDown = true;
+                mouseDownLocation = e.Location;
+            }
+        }
+        private void TopPanel_MouseUp(object sender, MouseEventArgs e)
+        {
+            isMouseDown = false;
+        }
+        private void TopPanel_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (Math.Abs(e.X - mouseDownLocation.X) + Math.Abs(e.Y - mouseDownLocation.Y) > 10)
+            {
+                if (isMouseDown)
+                {
+                    Invoke(DragDropInit);
+                    DoDragDrop(this, DragDropEffects.Copy | DragDropEffects.Move);
+                    Invoke(DragDropInitFinish);
+                    isMouseDown = false;
+                }
+                else Invoke(MouseMoved);
+                mouseDownLocation = e.Location;
+            }
         }
     }
     public class TopPanel : Panel
