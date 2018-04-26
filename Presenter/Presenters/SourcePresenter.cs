@@ -99,10 +99,10 @@ namespace Presenter.Presenters
         {
             if (log) View.Log("SetSource");
             source.position = _position;
-            if (source.rtspBad == "")
+            if (String.IsNullOrEmpty(source.rtspBad))
             {
-                if (source.rtspGood == "") return; //todo: generate error message on empty bad and good strings
-                _badString = source.rtspBad;
+                if (String.IsNullOrEmpty(source.rtspGood)) return; //todo: generate error message on empty bad and good strings
+                _badString = source.rtspGood;
                 _goodString = "";
             } else
             {
@@ -123,7 +123,7 @@ namespace Presenter.Presenters
             _badPlayer.SetSourceString(_badString);
             _badPlayer.SetAspectRatio(source.aspectRatio);
             _badPlayer.Volume = 0;
-            if (_goodString != "")
+            if (String.IsNullOrEmpty(_goodString))
             {
                 if (_goodPlayer == null)
                 {
@@ -198,7 +198,7 @@ namespace Presenter.Presenters
         {
             if (log) View.Log("CommandPlay");
             if (_source == null) return;
-            if (_goodPlayer.IsPlaying)
+            if (_goodPlayer != null && _goodPlayer.IsPlaying)
             {
                 _shownPlayer = _goodPlayer;
                 View.ShowGoodPlayer();
@@ -215,7 +215,7 @@ namespace Presenter.Presenters
             if (log) View.Log("CommandStop");
             if (_shownPlayer == _goodPlayer) _badPlayer.Volume = _goodPlayer.Volume;
             _badPlayer.Stop();
-            _goodPlayer.Stop();
+            if(_goodPlayer != null) _goodPlayer.Stop();
             _shownPlayer = null;
             View.StopSwitchToGoodTimer();
             View.StopSwitchToBadTimer();
@@ -370,7 +370,7 @@ namespace Presenter.Presenters
             if (_badH <= 0) return;
             if (View.Height > _badH && View.Width > _badW)
             {
-                if (_shownPlayer != _goodPlayer && _goodString != "")
+                if (_shownPlayer != _goodPlayer && _goodString != "" && _goodPlayer != null)
                 {
                     if (_goodPlayer.IsPlaying) GoodPlaying();
                     else View.StartSwitchToGoodTimer();
@@ -388,6 +388,7 @@ namespace Presenter.Presenters
         private void SwitchToGood()
         {
             if (log) View.Log("SwitchToGood");
+            //if (_goodPlayer == null) return;
             if (View.Height > _badH && View.Width > _badW)
             {
                 if (_goodPlayer.IsPlaying) GoodPlaying();
@@ -412,14 +413,14 @@ namespace Presenter.Presenters
         private void StopGoodPlayer()
         {
             if (log) View.Log("StopGoodPlayer");
-            if (_goodPlayer == null || _goodString == "") return;
+            if (_goodPlayer == null || String.IsNullOrEmpty(_goodString)) return;
             if (_shownPlayer != _goodPlayer) _goodPlayer.Stop();
             else CheckNeedSwitch();
         }
         private void PreshowGoodPlayer()
         {
             if (log) View.Log("PreshowGoodPlayer");
-            if (_goodPlayer == null || _goodString == "") return;
+            if (_goodPlayer == null || String.IsNullOrEmpty(_goodString)) return;
             if (_shownPlayer != _goodPlayer) GoodPlaying();
         }
 

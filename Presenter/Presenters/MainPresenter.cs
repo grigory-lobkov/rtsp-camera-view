@@ -21,10 +21,12 @@ namespace Presenter.Presenters
             // View actions
             View.OpenClosePanelClick += OpenClosePanelClick;
             View.SourcesPageSelected += SourcesPageSelected;
-            View.SettingsPageSelected += SettingsPageSelected;
+            View.SettingsPageSelected += SettingsPageSelected; 
+            View.SplitterMoved += SplitterMoved;
             // Settings
             _settingsService = settingsService;
             _appSettings = settingsService.GetSettings();
+            
             View.CtrlPanelWidth = _appSettings.controlPanelWidth;
             // Sources grid
             CreateGrid();
@@ -72,6 +74,10 @@ namespace Presenter.Presenters
         {
             View.PanelState = !View.PanelState;
         }
+        private void SplitterMoved()
+        {
+            _appSettings.controlPanelWidth = View.CtrlPanelWidth;
+        }
         private void SourcesPageSelected()
         {
             if (_sourceList == null)
@@ -114,10 +120,12 @@ namespace Presenter.Presenters
         private void SourceCreated()
         {
             _sourceList.SourceEditedVar.Edit += () => EditSrcClick(_sourceList.SourceEditedVar);
+            _settingsService.Save();
         }
         private void SourceModified()
         {
             _sourceGrid.SourceRefreshed(_sourceList.SourceEditedVar);
+            _settingsService.Save();
         }
         private void SourceDeleted()
         {

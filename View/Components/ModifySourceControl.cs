@@ -49,7 +49,8 @@ namespace View.Components
             get { return camName.ForeColor == emptyColor ? "" : camName.Text; }
             set
             {
-                if (value == "") { camName.ForeColor = emptyColor; camName.Text = emptySrcName; }
+                if (String.IsNullOrEmpty(value))
+                    { camName.ForeColor = emptyColor; camName.Text = emptySrcName; }
                 else { camName.ForeColor = textColor; camName.Text = value; }
             }
         }
@@ -59,7 +60,8 @@ namespace View.Components
             get { return rtspBad.ForeColor == emptyColor ? "" : rtspBad.Text; }
             set
             {
-                if (value == "") { rtspBad.ForeColor = emptyColor; rtspBad.Text = emptyRtspBad; }
+                if (String.IsNullOrEmpty(value))
+                    { rtspBad.ForeColor = emptyColor; rtspBad.Text = emptyRtspBad; }
                 else { rtspBad.ForeColor = textColor; rtspBad.Text = value; }
             }
         }
@@ -68,7 +70,8 @@ namespace View.Components
             get { return rtspGood.ForeColor == emptyColor ? "" : rtspGood.Text; }
             set
             {
-                if (value == "") { rtspGood.ForeColor = emptyColor; rtspGood.Text = emptyRtspGood; }
+                if (String.IsNullOrEmpty(value))
+                    { rtspGood.ForeColor = emptyColor; rtspGood.Text = emptyRtspGood; }
                 else { rtspGood.ForeColor = textColor; rtspGood.Text = value; }
             }
         }
@@ -77,7 +80,8 @@ namespace View.Components
             get { return aspectRatio.ForeColor == emptyColor ? "" : aspectRatio.Text; }
             set
             {
-                if (value == "") { aspectRatio.ForeColor = emptyColor; aspectRatio.Text = emptyAspectRatio; }
+                if (String.IsNullOrEmpty(value))
+                    { aspectRatio.ForeColor = emptyColor; aspectRatio.Text = emptyAspectRatio; }
                 else { aspectRatio.ForeColor = textColor; aspectRatio.Text = value; }
             }
         }

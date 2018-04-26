@@ -146,7 +146,7 @@ namespace View.Components
         }
         private void ListView_AfterLabelEdit(object sender, LabelEditEventArgs e)
         {
-            if (e.Label == "" || e.Label == null) { e.CancelEdit = true; return; }
+            if (String.IsNullOrEmpty(e.Label)) { e.CancelEdit = true; return; }
             listView.FocusedItem.Text = e.Label;
             Invoke(NameChanged);
         }

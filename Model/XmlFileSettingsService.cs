@@ -3,12 +3,15 @@
     public class XmlFileSettingsService: ISettingsService
     {
         AppSettings _settings = null;
+        string storeFileName = "settings.xml";
+        bool saveThrown = false;
+        bool loadThrown = false;
 
         public AppSettings GetSettings()
         {
             if (_settings != null) return _settings;
 #if !DEBUG
-            Load(_settings);
+            Load();
 #endif
             if (_settings == null) _settings = new AppSettings();
 #if DEBUG
@@ -34,41 +37,50 @@
             if (_settings.cams == null) _settings.cams = new Camera[0];
             return _settings;
         }
-        
-        public bool Load(AppSettings settings)
+
+        ~XmlFileSettingsService()
         {
-            if (!System.IO.File.Exists(settings.storeFileName)) return true;
+            try { Save(); } finally { }
+        }
+
+        public bool Load()
+        {
+            if (!System.IO.File.Exists(storeFileName)) return true;
             try
             {
-                using (System.IO.Stream stream = new System.IO.FileStream(settings.storeFileName, System.IO.FileMode.Open))
+                using (System.IO.Stream stream = new System.IO.FileStream(storeFileName, System.IO.FileMode.Open))
                 {
                     System.Xml.Serialization.XmlSerializer serializer = new System.Xml.Serialization.XmlSerializer(typeof(AppSettings));
-                    settings = (AppSettings)serializer.Deserialize(stream);
+                    _settings = (AppSettings)serializer.Deserialize(stream);
                 }
             }
             catch
             {
                 //MessageBox.Show(errorLoadSettings.Text + "\n" + settings.storeFileName, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                if (settings == null) settings = new AppSettings();
+                //if (settings == null) settings = new AppSettings();
+                //return false;
+                if (!loadThrown) { loadThrown = true; throw; }
                 return false;
             }
             return true;
         }
 
-        public bool Save(AppSettings settings)
+        public bool Save()
         {
-            if (settings == null) return false;
+            if (_settings == null) return false;
             try
             {
-                using (System.IO.Stream writer = new System.IO.FileStream(settings.storeFileName, System.IO.FileMode.Create))
+                using (System.IO.Stream writer = new System.IO.FileStream(storeFileName, System.IO.FileMode.Create))
                 {
                     System.Xml.Serialization.XmlSerializer serializer = new System.Xml.Serialization.XmlSerializer(typeof(AppSettings));
-                    serializer.Serialize(writer, settings);
+                    serializer.Serialize(writer, _settings);
                 }
             }
             catch
             {
                 //MessageBox.Show(errorSaveSettings.Text + "\n" + Properties.Resources.settingsFileName, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //return false;
+                if (!saveThrown) { saveThrown = true; throw; }
                 return false;
             }
             return true;

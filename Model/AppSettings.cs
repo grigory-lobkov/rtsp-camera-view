@@ -11,13 +11,12 @@ namespace Model
         [XmlIgnore]
         public int autoplay_now = -1; // runtime(can be set by command line)
         public int priority = -1; // application base priority: 0-Idle, 1-BelowNormal, 2-Normal, 3-AboveNormal, 4-High
-        public int unmute = 1; // do not mute audio: 0-silent, 1-enable sounds
+        public int unmute = 0; // do not mute audio: 0-silent, 1-enable sounds
         [XmlIgnore]
         public int unmute_now = -1; // runtime(can be set by command line)
         public int controlPanelWidth = 250; // width of control panel
         public int camListView = 1; // cameras list type of view (1-4:largeIcon/smallIcon/largeList/smallList)
         public int camListSort = 3; // cameras list sort type (1-3:asc/desc/none)
-        public string storeFileName = "settings.xml";
 
         public Matrix matrix = new Matrix(); // matrix parameters (rows and columns count)
         public NameView nameView = new NameView(); // camera name show global option

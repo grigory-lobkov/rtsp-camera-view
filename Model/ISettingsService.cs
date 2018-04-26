@@ -8,7 +8,6 @@ namespace Model
     public interface ISettingsService
     {
         AppSettings GetSettings();
-        bool Load(AppSettings settings);
-        bool Save(AppSettings settings);
+        bool Save();
     }
 }

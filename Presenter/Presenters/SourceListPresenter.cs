@@ -85,6 +85,9 @@ namespace Presenter.Presenters
         }
         private void NewSrcCreated()
         {
+            int l = _settings.cams.Length;
+            Array.Resize(ref _settings.cams, l + 1);
+            _settings.cams[l] = _camEdit;
             View.AddItem(_camEdit, _camEdit.name, _camEdit.camIcon);
             View.SelectObject(_camEdit);
             SourceEditedVar = _camEdit;

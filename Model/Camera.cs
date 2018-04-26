@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Xml.Serialization;
 
 namespace Model
 {
@@ -11,6 +12,7 @@ namespace Model
         public int camIcon = 1;
         public int position = -1;
 
+        [XmlIgnore]
         public Action Edit;
 
         public NameView nameView = new NameView(); // name show parameters
