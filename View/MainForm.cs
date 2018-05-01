@@ -10,6 +10,7 @@ namespace View
     {
         private const string OpenLabelTextConst = ">>";
         private const string CloseLabelTextConst = "<<";
+        private const string VlcDownloadPage = "http://download.videolan.org/pub/videolan/vlc/2.1.5/win32/";
         private readonly ApplicationContext _context;
         public MainForm(ApplicationContext context)
         {
@@ -216,5 +217,30 @@ namespace View
             MessageBox.Show(SettingsSaveError.Text + "\n\n" + msg,
                 Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
+        public void ErrorOnCreateGridNoLib(string msg)
+        {
+            DialogResult a = MessageBox.Show(CreateGridCommonError.Text + "\n" + CreateGridNoLibError.Text +
+                "\n\n" + msg + "\n\n" + CreateGridEndError.Text.Replace("{url}", VlcDownloadPage),
+                Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Error);
+            if (a == DialogResult.Yes) System.Diagnostics.Process.Start(VlcDownloadPage);
+            Environment.Exit(101);
+        }
+        public void ErrorOnCreateGridBadVer(string msg)
+        {
+            DialogResult a = MessageBox.Show(CreateGridCommonError.Text + "\n" + CreateGridBadVerError.Text +
+                "\n\n" + msg + "\n\n" + CreateGridEndError.Text.Replace("{url}", VlcDownloadPage),
+                Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Error);
+            if (a == DialogResult.Yes) System.Diagnostics.Process.Start(VlcDownloadPage);
+            Environment.Exit(101);
+        }
+        public void ErrorOnCreateGridOther(string msg)
+        {
+            DialogResult a = MessageBox.Show(
+                msg + "\n\n" + CreateGridEndError.Text.Replace("{url}", VlcDownloadPage),
+                Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Error);
+            if (a == DialogResult.Yes) System.Diagnostics.Process.Start(VlcDownloadPage);
+            Environment.Exit(101);
+        }
+
     }
 }

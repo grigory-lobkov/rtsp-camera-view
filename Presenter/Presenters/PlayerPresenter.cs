@@ -13,10 +13,6 @@ namespace Presenter.Presenters
         public PlayerPresenter(IApplicationController controller, IPlayerView view)
             : base(controller, view)
         {
-        }
-
-        public void LinkActions()
-        {
             View.Playing += () => Invoke(Playing);
             View.Buffering += () => Invoke(Buffering);
             View.Stopped += () => Invoke(Stopped);
@@ -24,6 +20,7 @@ namespace Presenter.Presenters
             View.LostStream += () => Invoke(LostStream);
             View.SizeDetected += () => Invoke(SizeDetected);
         }
+
         private void Invoke(Action action)
         {
             action?.Invoke();
@@ -49,5 +46,6 @@ namespace Presenter.Presenters
         public string SourceString { get => View.SourceString; }
         public int SrcHeight { get => View.SrcHeight; }
         public int SrcWidth { get => View.SrcWidth; }
+
     }
 }

@@ -18,6 +18,8 @@ namespace Presenter.Presenters
         public MainPresenter(IApplicationController controller, IMainView view, ISettingsService settingsService)
             : base(controller, view)
         {
+            // Check FrameWork version
+            //CheckFrameworkVersion();
             // View actions
             View.OpenClosePanelClick += OpenClosePanelClick;
             View.SourcesPageSelected += SourcesPageSelected;
@@ -31,11 +33,12 @@ namespace Presenter.Presenters
 
             View.CtrlPanelWidth = _appSettings.controlPanelWidth;
             // Sources grid
-            CreateGrid();
-            foreach (Camera m in _appSettings.cams)
-            {
-                m.Edit += () => EditSrcClick(m);
-            }
+            try { CreateGrid(); }
+            catch (System.IO.FileNotFoundException e) { View.ErrorOnCreateGridNoLib(e.Message); } //no VLC or ActiveX lib
+            catch (System.NotSupportedException e) { View.ErrorOnCreateGridBadVer(e.Message); } //bad VLC version
+            catch (System.InvalidCastException e) { View.ErrorOnCreateGridBadVer(e.Message); } //bad VLC version
+            catch (Exception e) { View.ErrorOnCreateGridOther(e.Message); }
+            foreach (Camera m in _appSettings.cams) { m.Edit += () => EditSrcClick(m); }
             // Process command line arguments
             ProcessCommandLine(Environment.GetCommandLineArgs());
         }
@@ -78,6 +81,15 @@ namespace Presenter.Presenters
             catch (UnauthorizedAccessException e) { View.ErrorAccessSettings(e.Message); }
             catch (Exception e) { View.ErrorOnSaveSettings(e.Message); }
         }
+
+        /*private void CheckFrameworkVersion()
+        {
+            RegistryKey installed_versions = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\NET Framework Setup\NDP");
+            string[] version_names = installed_versions.GetSubKeyNames();
+            //version names start with 'v', eg, 'v3.5' which needs to be trimmed off before conversion
+            double Framework = Convert.ToDouble(version_names[version_names.Length - 1].Remove(0, 1), CultureInfo.InvariantCulture);
+            int SP = Convert.ToInt32(installed_versions.OpenSubKey(version_names[version_names.Length - 1]).GetValue("SP", 0));
+        }*/
 
         private void OpenClosePanelClick()
         {

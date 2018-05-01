@@ -44,6 +44,7 @@ namespace Presenter.Presenters
                     s.Minimized += OneSourceMinimized;
                     s.DragDropInit += () => SourceDoDragDrop();
                     s.DragDropInitFinish += SourceDoneDragDrop;
+                    if (pos == 0) s.CreateBadSource(); // try to create player for catch error
                     pos++;
                 }
             }

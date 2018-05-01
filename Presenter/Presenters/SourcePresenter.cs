@@ -95,6 +95,16 @@ namespace Presenter.Presenters
             _shownPlayer = null;
             _control.SourceReset();
         }
+        public void CreateBadSource()
+        {
+            _badPlayer = Controller.Get<PlayerPresenter>();
+            View.SetBadPlayerControl(_badPlayer.Control);
+            _badPlayer.Playing += BadPlaying;
+            _badPlayer.Stopped += BadStopped;
+            _badPlayer.SoundDetected += BadSoundDetected;
+            _badPlayer.Buffering += BadBuffering;
+            _badPlayer.SizeDetected += BadSizeDetected;
+        }
         private void SetSource(Camera source)
         {
             if (log) View.Log("SetSource");
@@ -111,14 +121,7 @@ namespace Presenter.Presenters
             }
             if (_badPlayer == null)
             {
-                _badPlayer = Controller.Get<PlayerPresenter>();
-                View.SetBadPlayerControl(_badPlayer.Control);
-                _badPlayer.Playing += BadPlaying;
-                _badPlayer.Stopped += BadStopped;
-                _badPlayer.SoundDetected += BadSoundDetected;
-                _badPlayer.Buffering += BadBuffering;
-                _badPlayer.SizeDetected += BadSizeDetected;
-                _badPlayer.LinkActions();
+                CreateBadSource();
             }
             _badPlayer.SetSourceString(_badString);
             _badPlayer.SetAspectRatio(source.aspectRatio);
@@ -133,7 +136,6 @@ namespace Presenter.Presenters
                     _goodPlayer.Stopped += GoodStopped;
                     _goodPlayer.SoundDetected += GoodSoundDetected;
                     _goodPlayer.Buffering += GoodBuffering;
-                    _goodPlayer.LinkActions();
                 }
                 _goodPlayer.SetSourceString(_goodString);
                 _goodPlayer.SetAspectRatio(source.aspectRatio);
@@ -213,9 +215,12 @@ namespace Presenter.Presenters
         private void CommandStop()
         {
             if (log) View.Log("CommandStop");
-            if (_shownPlayer == _goodPlayer) _badPlayer.Volume = _goodPlayer.Volume;
             _badPlayer.Stop();
-            if(_goodPlayer != null) _goodPlayer.Stop();
+            if (_goodPlayer != null)
+            {
+                if (_shownPlayer == _goodPlayer) _badPlayer.Volume = _goodPlayer.Volume;
+                _goodPlayer.Stop();
+            }
             _shownPlayer = null;
             View.StopSwitchToGoodTimer();
             View.StopSwitchToBadTimer();
@@ -280,12 +285,12 @@ namespace Presenter.Presenters
                 _goodPlayer.Volume = 0;
             }
             _shownPlayer = _badPlayer;
-            View.ShowBadPlayer();
             View.StopSwitchToBadTimer();
             View.StopStopBadPlayerTimer();
             View.StartStopGoodPlayerTimer();
             _control.Playing();
             CheckNeedSwitch();
+            View.ShowBadPlayer(); //must be final line, cause program don't go after this line :( wierd
         }
         private void GoodPlaying()
         {

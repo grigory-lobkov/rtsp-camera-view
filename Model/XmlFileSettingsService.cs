@@ -63,7 +63,7 @@ namespace Model
                     _settings = (AppSettings)serializer.Deserialize(stream);
                 }
             }
-            catch (Exception e)
+            catch
             {
                 //MessageBox.Show(errorLoadSettings.Text + "\n" + settings.storeFileName, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 //if (settings == null) settings = new AppSettings();

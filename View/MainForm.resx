@@ -120,4 +120,13 @@
   <metadata name="gridMenu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <data name="CreateGridEndError.Text" xml:space="preserve">
+    <value>Please, install VLC 2.1.x with ActiveX Web-module to the default
+installation folder ''Program Files (x86)'' or ''Program Files''
+
+You can download VLC here:
+{url}
+
+Would you like to download VLC now?</value>
+  </data>
 </root>

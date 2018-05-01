@@ -34,5 +34,8 @@ namespace Presenter.Views
         void ErrorAccessSettings(string msg);
         void ErrorOnLoadSettings(string msg);
         void ErrorOnSaveSettings(string msg);
+        void ErrorOnCreateGridNoLib(string msg);
+        void ErrorOnCreateGridBadVer(string msg);
+        void ErrorOnCreateGridOther(string msg);
     }
 }

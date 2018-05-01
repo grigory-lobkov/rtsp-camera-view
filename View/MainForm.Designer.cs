@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.controlPanel = new System.Windows.Forms.TabControl();
             this.sourcesPage = new System.Windows.Forms.TabPage();
             this.settingsPage = new System.Windows.Forms.TabPage();
@@ -40,6 +41,10 @@
             this.SettingsAccesError = new System.Windows.Forms.Label();
             this.SettingsLoadError = new System.Windows.Forms.Label();
             this.SettingsSaveError = new System.Windows.Forms.Label();
+            this.CreateGridCommonError = new System.Windows.Forms.Label();
+            this.CreateGridNoLibError = new System.Windows.Forms.Label();
+            this.CreateGridBadVerError = new System.Windows.Forms.Label();
+            this.CreateGridEndError = new System.Windows.Forms.Label();
             this.controlPanel.SuspendLayout();
             this.gridMenu.SuspendLayout();
             this.SuspendLayout();
@@ -133,6 +138,7 @@
             this.SettingsAccesError.Size = new System.Drawing.Size(262, 13);
             this.SettingsAccesError.TabIndex = 4;
             this.SettingsAccesError.Text = "Error accessing settings file, your work won\'t be saved";
+            this.SettingsAccesError.Visible = false;
             // 
             // SettingsLoadError
             // 
@@ -143,6 +149,7 @@
             this.SettingsLoadError.Size = new System.Drawing.Size(121, 13);
             this.SettingsLoadError.TabIndex = 5;
             this.SettingsLoadError.Text = "Error loading settings file";
+            this.SettingsLoadError.Visible = false;
             // 
             // SettingsSaveError
             // 
@@ -153,6 +160,50 @@
             this.SettingsSaveError.Size = new System.Drawing.Size(118, 13);
             this.SettingsSaveError.TabIndex = 6;
             this.SettingsSaveError.Text = "Error saving settings file";
+            this.SettingsSaveError.Visible = false;
+            // 
+            // CreateGridCommonError
+            // 
+            this.CreateGridCommonError.AutoSize = true;
+            this.CreateGridCommonError.ForeColor = System.Drawing.Color.White;
+            this.CreateGridCommonError.Location = new System.Drawing.Point(296, 308);
+            this.CreateGridCommonError.Name = "CreateGridCommonError";
+            this.CreateGridCommonError.Size = new System.Drawing.Size(126, 13);
+            this.CreateGridCommonError.TabIndex = 7;
+            this.CreateGridCommonError.Text = "Error creating players grid";
+            this.CreateGridCommonError.Visible = false;
+            // 
+            // CreateGridNoLibError
+            // 
+            this.CreateGridNoLibError.AutoSize = true;
+            this.CreateGridNoLibError.ForeColor = System.Drawing.Color.White;
+            this.CreateGridNoLibError.Location = new System.Drawing.Point(296, 321);
+            this.CreateGridNoLibError.Name = "CreateGridNoLibError";
+            this.CreateGridNoLibError.Size = new System.Drawing.Size(247, 13);
+            this.CreateGridNoLibError.TabIndex = 8;
+            this.CreateGridNoLibError.Text = "Can\'t find VLC and/or ActiveX Web-plugin installed";
+            this.CreateGridNoLibError.Visible = false;
+            // 
+            // CreateGridBadVerError
+            // 
+            this.CreateGridBadVerError.AutoSize = true;
+            this.CreateGridBadVerError.ForeColor = System.Drawing.Color.White;
+            this.CreateGridBadVerError.Location = new System.Drawing.Point(296, 334);
+            this.CreateGridBadVerError.Name = "CreateGridBadVerError";
+            this.CreateGridBadVerError.Size = new System.Drawing.Size(194, 13);
+            this.CreateGridBadVerError.TabIndex = 9;
+            this.CreateGridBadVerError.Text = "Please, check your VLC version is 2.1.x";
+            this.CreateGridBadVerError.Visible = false;
+            // 
+            // CreateGridEndError
+            // 
+            this.CreateGridEndError.ForeColor = System.Drawing.Color.White;
+            this.CreateGridEndError.Location = new System.Drawing.Point(296, 347);
+            this.CreateGridEndError.Name = "CreateGridEndError";
+            this.CreateGridEndError.Size = new System.Drawing.Size(222, 13);
+            this.CreateGridEndError.TabIndex = 10;
+            this.CreateGridEndError.Text = resources.GetString("CreateGridEndError.Text");
+            this.CreateGridEndError.Visible = false;
             // 
             // MainForm
             // 
@@ -160,6 +211,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(825, 444);
+            this.Controls.Add(this.CreateGridEndError);
+            this.Controls.Add(this.CreateGridBadVerError);
+            this.Controls.Add(this.CreateGridNoLibError);
+            this.Controls.Add(this.CreateGridCommonError);
             this.Controls.Add(this.SettingsSaveError);
             this.Controls.Add(this.SettingsLoadError);
             this.Controls.Add(this.SettingsAccesError);
@@ -188,5 +243,9 @@
         private System.Windows.Forms.Label SettingsAccesError;
         private System.Windows.Forms.Label SettingsLoadError;
         private System.Windows.Forms.Label SettingsSaveError;
+        private System.Windows.Forms.Label CreateGridCommonError;
+        private System.Windows.Forms.Label CreateGridNoLibError;
+        private System.Windows.Forms.Label CreateGridBadVerError;
+        private System.Windows.Forms.Label CreateGridEndError;
     }
 }

@@ -31,8 +31,9 @@ namespace ViewVlc215
         private void InitializeComponent()
         {
             vlc1 = new AxAXVLC.AxVLCPlugin2();
-            try { ((System.ComponentModel.ISupportInitialize)(vlc1)).BeginInit(); }
-            catch { };
+            ((System.ComponentModel.ISupportInitialize)(vlc1)).BeginInit();
+            //try { ((System.ComponentModel.ISupportInitialize)(vlc1)).BeginInit(); }
+            //catch { };
             //ThreadPool.QueueUserWorkItem(InitInThread, new object[] { this });
             //Thread.Sleep(1000);
             //InitInThread(this);
@@ -45,8 +46,9 @@ namespace ViewVlc215
             this.Controls.Add(vlc1);
             lostTimer = new System.Windows.Forms.Timer();
             lostTimer.Tick += new EventHandler(this.LostRtsp1Timer_Tick);
-            try { ((System.ComponentModel.ISupportInitialize)(vlc1)).EndInit(); }
-            catch { };
+            ((System.ComponentModel.ISupportInitialize)(vlc1)).EndInit(); //no vlc: System.IO.FileNotFoundException: 'Не найден указанный модуль. (Исключение из HRESULT: 0x8007007E)'
+            //try { ((System.ComponentModel.ISupportInitialize)(vlc1)).EndInit(); }
+            //catch { };
             this.ResumeLayout(false);
         }
 
@@ -76,9 +78,8 @@ namespace ViewVlc215
         public Player()
         {
             InitializeComponent();
+            vlc1.playlist.stop(); // to generate error InvalidCastException on bad VLC version on grid creation
             vlc1Status = VlcStatus.Preparing;
-            try { }
-            catch { }
         }
 
         private void Invoke(Action action)
