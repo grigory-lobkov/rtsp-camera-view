@@ -1,17 +1,26 @@
-﻿namespace Model
+﻿using System;
+
+namespace Model
 {
     public class XmlFileSettingsService: ISettingsService
     {
-        AppSettings _settings = null;
-        string storeFileName = "settings.xml";
-        bool saveThrown = false;
-        bool loadThrown = false;
+        private AppSettings _settings = null;
+        private string storeFileName = "settings.xml";
+        private bool saveThrown = false;
+        private bool loadThrown = false;
+        private bool hasWriteRights = false;
+        public bool HasWriteRights { get => hasWriteRights; }
 
         public AppSettings GetSettings()
         {
             if (_settings != null) return _settings;
 #if !DEBUG
-            Load();
+            try { Load(); }
+            catch {
+                _settings = new AppSettings();
+                _settings.cams = new Camera[0];
+                throw;
+            }
 #endif
             if (_settings == null) _settings = new AppSettings();
 #if DEBUG
@@ -45,7 +54,7 @@
 
         public bool Load()
         {
-            if (!System.IO.File.Exists(storeFileName)) return true;
+            if (!System.IO.File.Exists(storeFileName)) return false;
             try
             {
                 using (System.IO.Stream stream = new System.IO.FileStream(storeFileName, System.IO.FileMode.Open))
@@ -54,12 +63,12 @@
                     _settings = (AppSettings)serializer.Deserialize(stream);
                 }
             }
-            catch
+            catch (Exception e)
             {
                 //MessageBox.Show(errorLoadSettings.Text + "\n" + settings.storeFileName, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 //if (settings == null) settings = new AppSettings();
                 //return false;
-                if (!loadThrown) { loadThrown = true; throw; }
+                if (!loadThrown) { loadThrown = true; throw; }//UnauthorizedAccessException - no rights to read
                 return false;
             }
             return true;
@@ -74,13 +83,14 @@
                 {
                     System.Xml.Serialization.XmlSerializer serializer = new System.Xml.Serialization.XmlSerializer(typeof(AppSettings));
                     serializer.Serialize(writer, _settings);
+                    writer.Close();
                 }
             }
             catch
             {
                 //MessageBox.Show(errorSaveSettings.Text + "\n" + Properties.Resources.settingsFileName, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 //return false;
-                if (!saveThrown) { saveThrown = true; throw; }
+                if (!saveThrown) { saveThrown = true; throw; }//UnauthorizedAccessException - no rights to write
                 return false;
             }
             return true;

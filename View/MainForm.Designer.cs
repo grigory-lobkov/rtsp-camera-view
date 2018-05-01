@@ -37,6 +37,9 @@
             this.gridMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.fullScreenMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitFullScreenMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.SettingsAccesError = new System.Windows.Forms.Label();
+            this.SettingsLoadError = new System.Windows.Forms.Label();
+            this.SettingsSaveError = new System.Windows.Forms.Label();
             this.controlPanel.SuspendLayout();
             this.gridMenu.SuspendLayout();
             this.SuspendLayout();
@@ -107,19 +110,49 @@
             this.fullScreenMenuItem,
             this.exitFullScreenMenuItem});
             this.gridMenu.Name = "contextMenuStrip1";
-            this.gridMenu.Size = new System.Drawing.Size(181, 70);
+            this.gridMenu.Size = new System.Drawing.Size(152, 48);
             // 
             // fullScreenMenuItem
             // 
             this.fullScreenMenuItem.Name = "fullScreenMenuItem";
-            this.fullScreenMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.fullScreenMenuItem.Size = new System.Drawing.Size(151, 22);
             this.fullScreenMenuItem.Text = "Full screen";
             // 
             // exitFullScreenMenuItem
             // 
             this.exitFullScreenMenuItem.Name = "exitFullScreenMenuItem";
-            this.exitFullScreenMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exitFullScreenMenuItem.Size = new System.Drawing.Size(151, 22);
             this.exitFullScreenMenuItem.Text = "Exit Full screen";
+            // 
+            // SettingsAccesError
+            // 
+            this.SettingsAccesError.AutoSize = true;
+            this.SettingsAccesError.ForeColor = System.Drawing.Color.White;
+            this.SettingsAccesError.Location = new System.Drawing.Point(296, 422);
+            this.SettingsAccesError.Name = "SettingsAccesError";
+            this.SettingsAccesError.Size = new System.Drawing.Size(262, 13);
+            this.SettingsAccesError.TabIndex = 4;
+            this.SettingsAccesError.Text = "Error accessing settings file, your work won\'t be saved";
+            // 
+            // SettingsLoadError
+            // 
+            this.SettingsLoadError.AutoSize = true;
+            this.SettingsLoadError.ForeColor = System.Drawing.Color.White;
+            this.SettingsLoadError.Location = new System.Drawing.Point(296, 409);
+            this.SettingsLoadError.Name = "SettingsLoadError";
+            this.SettingsLoadError.Size = new System.Drawing.Size(121, 13);
+            this.SettingsLoadError.TabIndex = 5;
+            this.SettingsLoadError.Text = "Error loading settings file";
+            // 
+            // SettingsSaveError
+            // 
+            this.SettingsSaveError.AutoSize = true;
+            this.SettingsSaveError.ForeColor = System.Drawing.Color.White;
+            this.SettingsSaveError.Location = new System.Drawing.Point(296, 396);
+            this.SettingsSaveError.Name = "SettingsSaveError";
+            this.SettingsSaveError.Size = new System.Drawing.Size(118, 13);
+            this.SettingsSaveError.TabIndex = 6;
+            this.SettingsSaveError.Text = "Error saving settings file";
             // 
             // MainForm
             // 
@@ -127,6 +160,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(825, 444);
+            this.Controls.Add(this.SettingsSaveError);
+            this.Controls.Add(this.SettingsLoadError);
+            this.Controls.Add(this.SettingsAccesError);
             this.Controls.Add(this.splitLabel);
             this.Controls.Add(this.splitter);
             this.Controls.Add(this.controlPanel);
@@ -135,6 +171,7 @@
             this.controlPanel.ResumeLayout(false);
             this.gridMenu.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -148,5 +185,8 @@
         private System.Windows.Forms.ContextMenuStrip gridMenu;
         private System.Windows.Forms.ToolStripMenuItem fullScreenMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitFullScreenMenuItem;
+        private System.Windows.Forms.Label SettingsAccesError;
+        private System.Windows.Forms.Label SettingsLoadError;
+        private System.Windows.Forms.Label SettingsSaveError;
     }
 }

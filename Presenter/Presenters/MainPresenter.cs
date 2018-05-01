@@ -25,8 +25,10 @@ namespace Presenter.Presenters
             View.SplitterMoved += SplitterMoved;
             // Settings
             _settingsService = settingsService;
-            _appSettings = settingsService.GetSettings();
-            
+            try { _appSettings = settingsService.GetSettings(); }
+            catch (UnauthorizedAccessException e) { View.ErrorAccessSettings(e.Message); }
+            catch (Exception e) { View.ErrorOnLoadSettings(e.Message); }
+
             View.CtrlPanelWidth = _appSettings.controlPanelWidth;
             // Sources grid
             CreateGrid();
@@ -68,6 +70,13 @@ namespace Presenter.Presenters
             if (autoplay > 0) { _appSettings.autoplay_now = autoplay; _sourceGrid.PlayAll(); }
             if (priority >= 0) View.SetPriority(priority);
             View.SetAppCaption();
+        }
+
+        private void SaveSettings()
+        {
+            try { _settingsService.Save(); }
+            catch (UnauthorizedAccessException e) { View.ErrorAccessSettings(e.Message); }
+            catch (Exception e) { View.ErrorOnSaveSettings(e.Message); }
         }
 
         private void OpenClosePanelClick()
@@ -120,12 +129,12 @@ namespace Presenter.Presenters
         private void SourceCreated()
         {
             _sourceList.SourceEditedVar.Edit += () => EditSrcClick(_sourceList.SourceEditedVar);
-            _settingsService.Save();
+            SaveSettings();
         }
         private void SourceModified()
         {
             _sourceGrid.SourceRefreshed(_sourceList.SourceEditedVar);
-            _settingsService.Save();
+            SaveSettings();
         }
         private void SourceDeleted()
         {

@@ -30,5 +30,9 @@ namespace Presenter.Views
         void Maximize();
         void SetPriority(int priority);
         void SetAppCaption();
+
+        void ErrorAccessSettings(string msg);
+        void ErrorOnLoadSettings(string msg);
+        void ErrorOnSaveSettings(string msg);
     }
 }

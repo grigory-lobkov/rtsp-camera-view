@@ -200,5 +200,21 @@ namespace View
                 + "  /  gg81@yandex.ru  /  "
                 + (Application.CurrentCulture.TwoLetterISOLanguageName == "ru" ? "решениеготово.рф  /  Григорий Лобков" : "Gregory Lobkov");
         }
+
+        public void ErrorAccessSettings(string msg)
+        {
+            MessageBox.Show(SettingsAccesError.Text + "\n\n" + msg,
+                Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+        public void ErrorOnLoadSettings(string msg)
+        {
+            MessageBox.Show(SettingsLoadError.Text + "\n\n" + msg,
+                Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+        public void ErrorOnSaveSettings(string msg)
+        {
+            MessageBox.Show(SettingsSaveError.Text + "\n\n" + msg,
+                Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
     }
 }
