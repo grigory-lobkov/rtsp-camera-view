@@ -4,6 +4,7 @@ using Model.Rtsp;
 using Presenter.Common;
 using Presenter.Views;
 using Presenter.Presenters;
+using Microsoft.Win32;
 
 namespace Presenter.Presenters
 {
@@ -18,8 +19,6 @@ namespace Presenter.Presenters
         public MainPresenter(IApplicationController controller, IMainView view, ISettingsService settingsService)
             : base(controller, view)
         {
-            // Check FrameWork version
-            //CheckFrameworkVersion();
             // View actions
             View.OpenClosePanelClick += OpenClosePanelClick;
             View.SourcesPageSelected += SourcesPageSelected;
@@ -81,15 +80,6 @@ namespace Presenter.Presenters
             catch (UnauthorizedAccessException e) { View.ErrorAccessSettings(e.Message); }
             catch (Exception e) { View.ErrorOnSaveSettings(e.Message); }
         }
-
-        /*private void CheckFrameworkVersion()
-        {
-            RegistryKey installed_versions = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\NET Framework Setup\NDP");
-            string[] version_names = installed_versions.GetSubKeyNames();
-            //version names start with 'v', eg, 'v3.5' which needs to be trimmed off before conversion
-            double Framework = Convert.ToDouble(version_names[version_names.Length - 1].Remove(0, 1), CultureInfo.InvariantCulture);
-            int SP = Convert.ToInt32(installed_versions.OpenSubKey(version_names[version_names.Length - 1]).GetValue("SP", 0));
-        }*/
 
         private void OpenClosePanelClick()
         {
