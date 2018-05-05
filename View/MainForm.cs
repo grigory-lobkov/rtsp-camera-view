@@ -3,6 +3,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using Presenter.Common;
 using Presenter.Views;
+//using System.Runtime.InteropServices;//for DllImport
 
 namespace View
 {
@@ -12,6 +13,28 @@ namespace View
         private const string CloseLabelTextConst = "<<";
         private const string VlcDownloadPage = "http://download.videolan.org/pub/videolan/vlc/2.1.5/win32/";
         private readonly ApplicationContext _context;
+        /*
+        internal enum SWP
+        {
+            ASYNCWINDOWPOS = 0x4000,
+            DEFERERASE = 0x2000,
+            DRAWFRAME = 0x0020,
+            FRAMECHANGED = 0x0020,
+            HIDEWINDOW = 0x0080,
+            NOACTIVATE = 0x0010,
+            NOCOPYBITS = 0x0100,
+            NOMOVE = 0x0002,
+            NOOWNERZORDER = 0x0200,
+            NOREDRAW = 0x0008,
+            NOREPOSITION = 0x0200,
+            NOSENDCHANGING = 0x0400,
+            NOSIZE = 0x0001,
+            NOZORDER = 0x0004,
+            SHOWWINDOW = 0x0040,
+        }
+        [DllImport("user32.dll", EntryPoint = "SetWindowPos", SetLastError = true)]
+        private static extern bool _SetWindowPos(IntPtr hWnd, IntPtr hWndInsertAfter, int x, int y, int cx, int cy, SWP uFlags);
+        */
         public MainForm(ApplicationContext context)
         {
             _context = context;
@@ -173,8 +196,14 @@ namespace View
             Screen[] sc = Screen.AllScreens;
             if (screen > -1 && sc.Length > screen)
             {
-                this.Location = new Point(sc[screen].Bounds.Location.X, sc[screen].Bounds.Location.Y);
+                this.StartPosition = FormStartPosition.Manual;
+                this.Location = new Point(sc[screen].Bounds.X, sc[screen].Bounds.Y);
                 this.Size = new Size(sc[screen].Bounds.Width, sc[screen].Bounds.Height);
+                /*
+                IntPtr h1 = this.Handle;
+                Point screenlocation = Screen.AllScreens[1].Bounds.Location;
+                _SetWindowPos(h1, IntPtr.Zero, screenlocation.X, screenlocation.Y, Screen.AllScreens[1].Bounds.Width, Screen.AllScreens[1].Bounds.Height, 0);// SWP_NOZORDER | SWP_SHOWWINDOW);
+                */
             }
         }
         public void Maximize()
