@@ -215,6 +215,7 @@ namespace Presenter.Presenters
         private void CommandStop()
         {
             if (log) View.Log("CommandStop");
+            if (_badPlayer == null) return;
             _badPlayer.Stop();
             if (_goodPlayer != null)
             {

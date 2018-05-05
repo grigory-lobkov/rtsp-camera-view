@@ -66,7 +66,7 @@
             this.camNameInherit.TabStop = false;
             this.camNameInherit.Text = "inherit global";
             this.camNameInherit.UseVisualStyleBackColor = true;
-            this.camNameInherit.CheckedChanged += new System.EventHandler(this.camNameInherit_CheckedChanged);
+            this.camNameInherit.CheckedChanged += new System.EventHandler(this.CamNameInherit_CheckedChanged);
             // 
             // camNameShow
             // 
@@ -81,7 +81,7 @@
             this.camNameShow.TabStop = false;
             this.camNameShow.Text = "show";
             this.camNameShow.UseVisualStyleBackColor = true;
-            this.camNameShow.CheckedChanged += new System.EventHandler(this.camNameShow_CheckedChanged);
+            this.camNameShow.CheckedChanged += new System.EventHandler(this.CamNameShow_CheckedChanged);
             // 
             // camNameLabel
             // 
@@ -116,7 +116,7 @@
             this.delCam.TabIndex = 22;
             this.delCam.Text = "Delete camera";
             this.delCam.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.delCam.Click += new System.EventHandler(this.delCam_Click);
+            this.delCam.Click += new System.EventHandler(this.DelCam_Click);
             this.delCam.MouseEnter += new System.EventHandler(this.ButtonLabel_MouseEnter);
             this.delCam.MouseLeave += new System.EventHandler(this.ButtonLabel_MouseLeave);
             // 

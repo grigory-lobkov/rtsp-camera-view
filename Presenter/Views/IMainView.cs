@@ -37,5 +37,14 @@ namespace Presenter.Views
         void ErrorOnCreateGridNoLib(string msg);
         void ErrorOnCreateGridBadVer(string msg);
         void ErrorOnCreateGridOther(string msg);
+
+        event Action ShowHintTimer;
+        event Action HideHintTimer;
+        bool HintShowTimer { get; set; }
+        bool HintOpenCtrlShow { get; set; }
+        bool HintAddCameraShow { get; set; }
+        bool HintDropCameraShow { get; set; }
+        bool HintNewRtspBadShow { get; set; }
+        bool HintNewRtspGoodShow { get; set; }
     }
 }

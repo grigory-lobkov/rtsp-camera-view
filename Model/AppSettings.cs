@@ -23,6 +23,9 @@ namespace Model
 
         [XmlArrayItem(ElementName = "cam", Type = typeof(Camera))]
         public Camera[] cams;
+
+        [XmlIgnore]
+        public Hint hint;
     }
 
     public class Matrix

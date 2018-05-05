@@ -6,7 +6,6 @@ using Presenter.Views;
 using Presenter.Presenters;
 using Microsoft.Win32;
 
-public enum HintType { None = 0, OpenCtrl = 1, AddCamera = 2, DropCamera = 3, NewRTSP1 = 5, NewRTSP2 = 6 };
 
 namespace Presenter.Presenters
 {
@@ -26,6 +25,7 @@ namespace Presenter.Presenters
             View.SourcesPageSelected += SourcesPageSelected;
             View.SettingsPageSelected += SettingsPageSelected; 
             View.SplitterMoved += SplitterMoved;
+
             // Settings
             _settingsService = settingsService;
             try { _appSettings = settingsService.GetSettings(); }
@@ -42,6 +42,18 @@ namespace Presenter.Presenters
             foreach (Camera m in _appSettings.cams) { m.Edit += () => EditSrcClick(m); }
             // Process command line arguments
             ProcessCommandLine(Environment.GetCommandLineArgs());
+            // Prepare hints engine
+            _appSettings.hint.onShow += ShowHintWithWait;
+            _appSettings.hint.onHide += HideHint;
+            View.HideHintTimer += () => _appSettings.hint.Hide();
+            View.ShowHintTimer += ShowHint;
+            // Hint if empty grid and control is not shown
+            if (!View.PanelState)
+            {
+                bool camPosFound = false;
+                foreach (Camera c in _appSettings.cams) if (c.position >= 0) camPosFound = true;
+                if(!camPosFound) _appSettings.hint.Show(HintType.OpenCtrl);
+            }
         }
 
         private void ProcessCommandLine(string[] args)
@@ -85,6 +97,7 @@ namespace Presenter.Presenters
 
         private void OpenClosePanelClick()
         {
+            _appSettings.hint.Hide();
             View.PanelState = !View.PanelState;
         }
         private void SplitterMoved()
@@ -104,6 +117,7 @@ namespace Presenter.Presenters
                 _sourceList.DoneDragDrop += SourceDoneDragDrop;
                 View.SetSourceListControl(_sourceList.Control);
             }
+            if (_appSettings.cams.Length == 0) _appSettings.hint.Show(HintType.AddCamera);
         }
         private void SettingsPageSelected()
         {
@@ -160,5 +174,35 @@ namespace Presenter.Presenters
         {
             _sourceGrid.SetSettings(_appSettings);
         }
+
+        private void ShowHintWithWait()
+        {
+            View.HintShowTimer = true;
+        }
+        private void ShowHint()
+        {
+            switch (_appSettings.hint.lastType) {
+                case HintType.OpenCtrl: View.HintOpenCtrlShow = true; break;
+                case HintType.AddCamera: View.HintAddCameraShow = true; break;
+                case HintType.DropCamera: View.HintDropCameraShow = true; break;
+                case HintType.NewRtspBad: View.HintNewRtspBadShow = true; break;
+                case HintType.NewRtspGood: View.HintNewRtspGoodShow = true; break;
+                case HintType.None: break;
+            }
+        }
+        private void HideHint()
+        {
+            View.HintShowTimer = false;
+            switch (_appSettings.hint.lastType)
+            {
+                case HintType.OpenCtrl: View.HintOpenCtrlShow = false; break;
+                case HintType.AddCamera: View.HintAddCameraShow = false; break;
+                case HintType.DropCamera: View.HintDropCameraShow = false; break;
+                case HintType.NewRtspBad: View.HintNewRtspBadShow = false; break;
+                case HintType.NewRtspGood: View.HintNewRtspGoodShow = false; break;
+                case HintType.None: break;
+            }
+        }
+
     }
 }

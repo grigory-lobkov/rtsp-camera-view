@@ -50,6 +50,8 @@
             this.hintDropCamera = new System.Windows.Forms.Label();
             this.hintAddCamera = new System.Windows.Forms.Label();
             this.hintOpenCtrl = new System.Windows.Forms.Label();
+            this.showHintTimer = new System.Windows.Forms.Timer(this.components);
+            this.hideHintTimer = new System.Windows.Forms.Timer(this.components);
             this.controlPanel.SuspendLayout();
             this.gridMenu.SuspendLayout();
             this.SuspendLayout();
@@ -213,12 +215,13 @@
             // 
             this.hintRTSP2.AutoSize = true;
             this.hintRTSP2.BackColor = System.Drawing.SystemColors.Info;
+            this.hintRTSP2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.hintRTSP2.ForeColor = System.Drawing.SystemColors.ControlText;
             this.hintRTSP2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.hintRTSP2.Location = new System.Drawing.Point(602, 172);
+            this.hintRTSP2.Location = new System.Drawing.Point(602, 180);
             this.hintRTSP2.Name = "hintRTSP2";
             this.hintRTSP2.Padding = new System.Windows.Forms.Padding(9, 7, 9, 8);
-            this.hintRTSP2.Size = new System.Drawing.Size(215, 67);
+            this.hintRTSP2.Size = new System.Drawing.Size(217, 69);
             this.hintRTSP2.TabIndex = 12;
             this.hintRTSP2.Text = "Good RTSP connect string, which\r\nproduces high network load.\r\nTo show in big wind" +
     "ows.\r\nSwiching between RTSPs is automated.";
@@ -228,12 +231,13 @@
             // 
             this.hintRTSP1.AutoSize = true;
             this.hintRTSP1.BackColor = System.Drawing.SystemColors.Info;
+            this.hintRTSP1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.hintRTSP1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.hintRTSP1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.hintRTSP1.Location = new System.Drawing.Point(602, 120);
+            this.hintRTSP1.Location = new System.Drawing.Point(602, 126);
             this.hintRTSP1.Name = "hintRTSP1";
             this.hintRTSP1.Padding = new System.Windows.Forms.Padding(9, 6, 9, 7);
-            this.hintRTSP1.Size = new System.Drawing.Size(180, 52);
+            this.hintRTSP1.Size = new System.Drawing.Size(182, 54);
             this.hintRTSP1.TabIndex = 13;
             this.hintRTSP1.Text = "Bad RTSP connect string, which\r\nproduces minimal network load.\r\nTo show in small " +
     "windows.";
@@ -243,12 +247,13 @@
             // 
             this.hintDropCamera.AutoSize = true;
             this.hintDropCamera.BackColor = System.Drawing.SystemColors.Info;
+            this.hintDropCamera.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.hintDropCamera.ForeColor = System.Drawing.SystemColors.ControlText;
             this.hintDropCamera.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.hintDropCamera.Location = new System.Drawing.Point(602, 83);
+            this.hintDropCamera.Location = new System.Drawing.Point(602, 87);
             this.hintDropCamera.Name = "hintDropCamera";
             this.hintDropCamera.Padding = new System.Windows.Forms.Padding(9, 5, 9, 6);
-            this.hintDropCamera.Size = new System.Drawing.Size(184, 37);
+            this.hintDropCamera.Size = new System.Drawing.Size(186, 39);
             this.hintDropCamera.TabIndex = 11;
             this.hintDropCamera.Text = "Drag camera by mouse left-button\r\nand drop somewhere on grid here";
             this.hintDropCamera.Visible = false;
@@ -257,12 +262,13 @@
             // 
             this.hintAddCamera.AutoSize = true;
             this.hintAddCamera.BackColor = System.Drawing.SystemColors.Info;
+            this.hintAddCamera.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.hintAddCamera.ForeColor = System.Drawing.SystemColors.ControlText;
             this.hintAddCamera.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.hintAddCamera.Location = new System.Drawing.Point(602, 46);
+            this.hintAddCamera.Location = new System.Drawing.Point(602, 48);
             this.hintAddCamera.Name = "hintAddCamera";
             this.hintAddCamera.Padding = new System.Windows.Forms.Padding(9, 5, 9, 6);
-            this.hintAddCamera.Size = new System.Drawing.Size(167, 37);
+            this.hintAddCamera.Size = new System.Drawing.Size(169, 39);
             this.hintAddCamera.TabIndex = 14;
             this.hintAddCamera.Text = "Right-click on this area to Add\r\nnew camera";
             this.hintAddCamera.Visible = false;
@@ -271,15 +277,26 @@
             // 
             this.hintOpenCtrl.AutoSize = true;
             this.hintOpenCtrl.BackColor = System.Drawing.SystemColors.Info;
+            this.hintOpenCtrl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.hintOpenCtrl.ForeColor = System.Drawing.SystemColors.ControlText;
             this.hintOpenCtrl.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.hintOpenCtrl.Location = new System.Drawing.Point(602, 9);
             this.hintOpenCtrl.Name = "hintOpenCtrl";
             this.hintOpenCtrl.Padding = new System.Windows.Forms.Padding(9, 5, 9, 6);
-            this.hintOpenCtrl.Size = new System.Drawing.Size(177, 37);
+            this.hintOpenCtrl.Size = new System.Drawing.Size(179, 39);
             this.hintOpenCtrl.TabIndex = 15;
             this.hintOpenCtrl.Text = "Open control panel to Add/View\r\navailable cameras";
             this.hintOpenCtrl.Visible = false;
+            // 
+            // showHintTimer
+            // 
+            this.showHintTimer.Interval = 5000;
+            this.showHintTimer.Tick += new System.EventHandler(this.ShowHintTimer_Tick);
+            // 
+            // hideHintTimer
+            // 
+            this.hideHintTimer.Interval = 30000;
+            this.hideHintTimer.Tick += new System.EventHandler(this.HideHintTimer_Tick);
             // 
             // MainForm
             // 
@@ -333,5 +350,7 @@
         private System.Windows.Forms.Label hintDropCamera;
         private System.Windows.Forms.Label hintAddCamera;
         private System.Windows.Forms.Label hintOpenCtrl;
+        private System.Windows.Forms.Timer showHintTimer;
+        private System.Windows.Forms.Timer hideHintTimer;
     }
 }

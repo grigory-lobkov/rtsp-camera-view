@@ -9,6 +9,7 @@ namespace Presenter.Presenters
 {
     class ModifySourcePresenter : BasePresenterControl<IModifySourceView>
     {
+        private AppSettings _settings = null;
         private Camera _camera = null;
         private NameView _nameView = null;
 
@@ -20,12 +21,18 @@ namespace Presenter.Presenters
             View.CancelClick += CancelClick;
             View.DeleteClick += DeleteClick;
             View.NameViewClick += ModifyNameView;
+            View.RtspBadEnter += RtspBadEnter;
+            View.RtspGoodEnter += RtspGoodEnter;
             View.Hide();
         }
 
         public void SetImageList(object imageList)
         {
             View.SetImges(imageList);
+        }
+        public void SetSettings(AppSettings settings)
+        {
+            _settings = settings;
         }
         public void Run(Camera camera, bool newSource = false)
         {
@@ -95,5 +102,17 @@ namespace Presenter.Presenters
             Controller.Run<NameViewEditPresenter, NameView>(_nameView);
         }
 
+        private void RtspBadEnter()
+        {
+            bool camPosFound = false;
+            foreach (Camera c in _settings.cams) if (c.position >= 0) camPosFound = true;
+            if (!camPosFound) _settings.hint.Show(HintType.NewRtspBad);
+        }
+        private void RtspGoodEnter()
+        {
+            bool camPosFound = false;
+            foreach (Camera c in _settings.cams) if (c.position >= 0) camPosFound = true;
+            if (!camPosFound) _settings.hint.Show(HintType.NewRtspGood);
+        }
     }
 }

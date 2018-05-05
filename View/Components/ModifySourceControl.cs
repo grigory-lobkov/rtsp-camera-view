@@ -115,6 +115,8 @@ namespace View.Components
             get { return camNameInherit.Checked; }
             set { camNameInherit.Checked = value; camNameModify.Enabled = !value; }
         }
+        public event Action RtspBadEnter;
+        public event Action RtspGoodEnter;
         private void TextBoxEnter(TextBox sender)
         {
             if (sender.ForeColor == emptyColor)
@@ -122,6 +124,8 @@ namespace View.Components
                 sender.ForeColor = textColor;
                 sender.Text = "";
             }
+            if (sender == rtspBad) Invoke(RtspBadEnter);
+            if (sender == rtspGood) Invoke(RtspGoodEnter);
         }
 
         public event Action CreateClick;
@@ -152,7 +156,7 @@ namespace View.Components
 
         }
 
-        private void delCam_Click(object sender, EventArgs e)
+        private void DelCam_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show(cameraDeleteConfirm1.Text + " ''" + camName.Text + "''?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
                 != DialogResult.Yes) return;
@@ -173,12 +177,12 @@ namespace View.Components
             if (sender == delCam) ((Label)sender).ForeColor = Color.Red;
             else ((Label)sender).ForeColor = SystemColors.ControlText;
         }
-        private void camNameShow_CheckedChanged(object sender, EventArgs e)
+        private void CamNameShow_CheckedChanged(object sender, EventArgs e)
         {
             camNameInherit.Enabled = camNameShow.Checked;
         }
 
-        private void camNameInherit_CheckedChanged(object sender, EventArgs e)
+        private void CamNameInherit_CheckedChanged(object sender, EventArgs e)
         {
             camNameModify.Enabled = !camNameInherit.Checked;
         }

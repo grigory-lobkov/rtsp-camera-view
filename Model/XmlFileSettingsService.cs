@@ -19,6 +19,7 @@ namespace Model
             catch {
                 _settings = new AppSettings();
                 _settings.cams = new Camera[0];
+                _settings.hint = new Hint();
                 throw;
             }
 #endif
@@ -44,6 +45,7 @@ namespace Model
             _settings.camListView = 4;
 #endif
             if (_settings.cams == null) _settings.cams = new Camera[0];
+            _settings.hint = new Hint();
             return _settings;
         }
 

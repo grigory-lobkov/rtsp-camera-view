@@ -271,5 +271,91 @@ namespace View
             Environment.Exit(101);
         }
 
+        public event Action ShowHintTimer;
+        public event Action HideHintTimer;
+        public bool HintShowTimer
+        {
+            get => showHintTimer.Enabled;
+            set { if(value) showHintTimer.Enabled = false; showHintTimer.Enabled = value; }
+        }
+        public bool HintOpenCtrlShow
+        {
+            get => hintOpenCtrl.Visible;
+            set
+            {
+                if (value)
+                {
+                    hintOpenCtrl.Location = new Point(splitLabel.Location.X + splitLabel.Width + 4, splitLabel.Location.Y + 3);
+                    splitLabel.BackColor = Color.Red;
+                    hintOpenCtrl.BringToFront();
+                }
+                else splitLabel.BackColor = SystemColors.ControlDark;
+                hintOpenCtrl.Visible = value;
+            }
+        }
+        public bool HintAddCameraShow
+        {
+            get => hintAddCamera.Visible;
+            set
+            {
+                if (value)
+                {
+                    hintAddCamera.Location = new Point(sourcesPage.Location.X + 15, sourcesPage.Location.Y + 15);
+                    hintAddCamera.BringToFront();
+                }
+                hintAddCamera.Visible = value;
+            }
+        }
+        public bool HintDropCameraShow
+        {
+            get => hintDropCamera.Visible;
+            set
+            {
+                if (value)
+                {
+                    hintDropCamera.Location = new Point(controlPanel.Width + 40, 30);
+                    hintDropCamera.BringToFront();
+                }
+                hintDropCamera.Visible = value;
+            }
+        }
+        public bool HintNewRtspBadShow
+        {
+            get => hintRTSP1.Visible;
+            set
+            {
+                if (value)
+                {
+                    hintRTSP1.Location = new Point(controlPanel.Width + 10, 138);
+                    hintRTSP1.BringToFront();
+                }
+                hintRTSP1.Visible = value;
+            }
+        }
+        public bool HintNewRtspGoodShow
+        {
+            get => hintRTSP2.Visible;
+            set
+            {
+                if (value)
+                {
+                    hintRTSP2.Location = new Point(controlPanel.Width + 10, 227);
+                    hintRTSP2.BringToFront();
+                }
+                hintRTSP2.Visible = value;
+            }
+        }
+
+        private void ShowHintTimer_Tick(object sender, EventArgs e)
+        {
+            showHintTimer.Enabled = false;
+            Invoke(ShowHintTimer);
+        }
+
+        private void HideHintTimer_Tick(object sender, EventArgs e)
+        {
+            hideHintTimer.Enabled = false;
+            Invoke(HideHintTimer);
+        }
     }
 }

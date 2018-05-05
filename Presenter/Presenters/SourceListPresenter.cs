@@ -61,9 +61,11 @@ namespace Presenter.Presenters
                 _srcEdit = Controller.Get<ModifySourcePresenter>();
                 View.SetModifySourceControl(_srcEdit.Control);
                 _srcEdit.SetImageList(View.GetImageList());
+                _srcEdit.SetSettings(_settings);
                 _srcEdit.Create += NewSrcCreated;
                 _srcEdit.Save += SrcModified;
                 _srcEdit.Delete += SrcDeleted;
+                _srcEdit.Cancel += SrcCancelled;
             }
         }
 
@@ -79,6 +81,7 @@ namespace Presenter.Presenters
         }
         public void NewClick()
         {
+            _settings.hint.Hide();
             _camEdit = new Camera();
             CheckSrcEdit();
             _srcEdit.Run(_camEdit, true);
@@ -92,18 +95,27 @@ namespace Presenter.Presenters
             View.SelectObject(_camEdit);
             SourceEditedVar = _camEdit;
             SourceCreated?.Invoke();
+            bool camPosFound = false;
+            foreach (Camera c in _settings.cams) if (c.position >= 0) camPosFound = true;
+            if (!camPosFound) _settings.hint.Show(HintType.DropCamera);
         }
         private void SrcModified()
         {
+            _settings.hint.Hide();
             SourceEditedVar = _camEdit;
             View.UpdateSelected(_camEdit.name, _camEdit.camIcon);
             SourceModified?.Invoke();
         }
         private void SrcDeleted()
         {
+            _settings.hint.Hide();
             SourceDeletedVar = _camEdit;
             View.RemoveSelected();
             SourceDeleted?.Invoke();
+        }
+        private void SrcCancelled()
+        {
+            _settings.hint.Hide();
         }
 
         /*****

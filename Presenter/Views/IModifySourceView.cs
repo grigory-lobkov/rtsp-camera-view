@@ -23,6 +23,8 @@ namespace Presenter.Views
         event Action SaveClick;
         event Action CancelClick;
         event Action DeleteClick;
+        event Action RtspBadEnter;
+        event Action RtspGoodEnter;
 
         void Show();
         void Hide();
