@@ -6,6 +6,8 @@ using Presenter.Views;
 using Presenter.Presenters;
 using Microsoft.Win32;
 
+public enum HintType { None = 0, OpenCtrl = 1, AddCamera = 2, DropCamera = 3, NewRTSP1 = 5, NewRTSP2 = 6 };
+
 namespace Presenter.Presenters
 {
     public class MainPresenter : BasePresener<IMainView>

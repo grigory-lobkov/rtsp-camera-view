@@ -45,18 +45,22 @@
             this.CreateGridNoLibError = new System.Windows.Forms.Label();
             this.CreateGridBadVerError = new System.Windows.Forms.Label();
             this.CreateGridEndError = new System.Windows.Forms.Label();
+            this.hintRTSP2 = new System.Windows.Forms.Label();
+            this.hintRTSP1 = new System.Windows.Forms.Label();
+            this.hintDropCamera = new System.Windows.Forms.Label();
+            this.hintAddCamera = new System.Windows.Forms.Label();
+            this.hintOpenCtrl = new System.Windows.Forms.Label();
             this.controlPanel.SuspendLayout();
             this.gridMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // controlPanel
             // 
-            this.controlPanel.Appearance = System.Windows.Forms.TabAppearance.FlatButtons;
             this.controlPanel.Controls.Add(this.sourcesPage);
             this.controlPanel.Controls.Add(this.settingsPage);
             this.controlPanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.controlPanel.Location = new System.Drawing.Point(0, 0);
-            this.controlPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.controlPanel.Margin = new System.Windows.Forms.Padding(0, 2, 0, 0);
             this.controlPanel.Name = "controlPanel";
             this.controlPanel.Padding = new System.Drawing.Point(10, 3);
             this.controlPanel.SelectedIndex = 0;
@@ -66,20 +70,20 @@
             // 
             // sourcesPage
             // 
-            this.sourcesPage.Location = new System.Drawing.Point(4, 25);
+            this.sourcesPage.Location = new System.Drawing.Point(4, 22);
             this.sourcesPage.Margin = new System.Windows.Forms.Padding(0);
             this.sourcesPage.Name = "sourcesPage";
-            this.sourcesPage.Size = new System.Drawing.Size(277, 415);
+            this.sourcesPage.Size = new System.Drawing.Size(277, 418);
             this.sourcesPage.TabIndex = 0;
             this.sourcesPage.Text = "Sources";
             this.sourcesPage.UseVisualStyleBackColor = true;
             // 
             // settingsPage
             // 
-            this.settingsPage.Location = new System.Drawing.Point(4, 25);
+            this.settingsPage.Location = new System.Drawing.Point(4, 22);
             this.settingsPage.Margin = new System.Windows.Forms.Padding(0);
             this.settingsPage.Name = "settingsPage";
-            this.settingsPage.Size = new System.Drawing.Size(277, 415);
+            this.settingsPage.Size = new System.Drawing.Size(277, 418);
             this.settingsPage.TabIndex = 1;
             this.settingsPage.Text = "Settings";
             this.settingsPage.UseVisualStyleBackColor = true;
@@ -205,12 +209,89 @@
             this.CreateGridEndError.Text = resources.GetString("CreateGridEndError.Text");
             this.CreateGridEndError.Visible = false;
             // 
+            // hintRTSP2
+            // 
+            this.hintRTSP2.AutoSize = true;
+            this.hintRTSP2.BackColor = System.Drawing.SystemColors.Info;
+            this.hintRTSP2.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.hintRTSP2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.hintRTSP2.Location = new System.Drawing.Point(602, 172);
+            this.hintRTSP2.Name = "hintRTSP2";
+            this.hintRTSP2.Padding = new System.Windows.Forms.Padding(9, 7, 9, 8);
+            this.hintRTSP2.Size = new System.Drawing.Size(215, 67);
+            this.hintRTSP2.TabIndex = 12;
+            this.hintRTSP2.Text = "Good RTSP connect string, which\r\nproduces high network load.\r\nTo show in big wind" +
+    "ows.\r\nSwiching between RTSPs is automated.";
+            this.hintRTSP2.Visible = false;
+            // 
+            // hintRTSP1
+            // 
+            this.hintRTSP1.AutoSize = true;
+            this.hintRTSP1.BackColor = System.Drawing.SystemColors.Info;
+            this.hintRTSP1.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.hintRTSP1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.hintRTSP1.Location = new System.Drawing.Point(602, 120);
+            this.hintRTSP1.Name = "hintRTSP1";
+            this.hintRTSP1.Padding = new System.Windows.Forms.Padding(9, 6, 9, 7);
+            this.hintRTSP1.Size = new System.Drawing.Size(180, 52);
+            this.hintRTSP1.TabIndex = 13;
+            this.hintRTSP1.Text = "Bad RTSP connect string, which\r\nproduces minimal network load.\r\nTo show in small " +
+    "windows.";
+            this.hintRTSP1.Visible = false;
+            // 
+            // hintDropCamera
+            // 
+            this.hintDropCamera.AutoSize = true;
+            this.hintDropCamera.BackColor = System.Drawing.SystemColors.Info;
+            this.hintDropCamera.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.hintDropCamera.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.hintDropCamera.Location = new System.Drawing.Point(602, 83);
+            this.hintDropCamera.Name = "hintDropCamera";
+            this.hintDropCamera.Padding = new System.Windows.Forms.Padding(9, 5, 9, 6);
+            this.hintDropCamera.Size = new System.Drawing.Size(184, 37);
+            this.hintDropCamera.TabIndex = 11;
+            this.hintDropCamera.Text = "Drag camera by mouse left-button\r\nand drop somewhere on grid here";
+            this.hintDropCamera.Visible = false;
+            // 
+            // hintAddCamera
+            // 
+            this.hintAddCamera.AutoSize = true;
+            this.hintAddCamera.BackColor = System.Drawing.SystemColors.Info;
+            this.hintAddCamera.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.hintAddCamera.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.hintAddCamera.Location = new System.Drawing.Point(602, 46);
+            this.hintAddCamera.Name = "hintAddCamera";
+            this.hintAddCamera.Padding = new System.Windows.Forms.Padding(9, 5, 9, 6);
+            this.hintAddCamera.Size = new System.Drawing.Size(167, 37);
+            this.hintAddCamera.TabIndex = 14;
+            this.hintAddCamera.Text = "Right-click on this area to Add\r\nnew camera";
+            this.hintAddCamera.Visible = false;
+            // 
+            // hintOpenCtrl
+            // 
+            this.hintOpenCtrl.AutoSize = true;
+            this.hintOpenCtrl.BackColor = System.Drawing.SystemColors.Info;
+            this.hintOpenCtrl.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.hintOpenCtrl.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.hintOpenCtrl.Location = new System.Drawing.Point(602, 9);
+            this.hintOpenCtrl.Name = "hintOpenCtrl";
+            this.hintOpenCtrl.Padding = new System.Windows.Forms.Padding(9, 5, 9, 6);
+            this.hintOpenCtrl.Size = new System.Drawing.Size(177, 37);
+            this.hintOpenCtrl.TabIndex = 15;
+            this.hintOpenCtrl.Text = "Open control panel to Add/View\r\navailable cameras";
+            this.hintOpenCtrl.Visible = false;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Black;
+            this.BackColor = System.Drawing.SystemColors.ControlDark;
             this.ClientSize = new System.Drawing.Size(825, 444);
+            this.Controls.Add(this.hintDropCamera);
+            this.Controls.Add(this.hintRTSP2);
+            this.Controls.Add(this.hintRTSP1);
+            this.Controls.Add(this.hintAddCamera);
+            this.Controls.Add(this.hintOpenCtrl);
             this.Controls.Add(this.CreateGridEndError);
             this.Controls.Add(this.CreateGridBadVerError);
             this.Controls.Add(this.CreateGridNoLibError);
@@ -247,5 +328,10 @@
         private System.Windows.Forms.Label CreateGridNoLibError;
         private System.Windows.Forms.Label CreateGridBadVerError;
         private System.Windows.Forms.Label CreateGridEndError;
+        private System.Windows.Forms.Label hintRTSP2;
+        private System.Windows.Forms.Label hintRTSP1;
+        private System.Windows.Forms.Label hintDropCamera;
+        private System.Windows.Forms.Label hintAddCamera;
+        private System.Windows.Forms.Label hintOpenCtrl;
     }
 }
