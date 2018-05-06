@@ -4,16 +4,12 @@
 [![GitHub last commit](https://img.shields.io/github/last-commit/grigory-lobkov/rtsp-camera-view.svg?style=flat-square)](https://github.com/grigory-lobkov/rtsp-camera-view) 
 [![license](https://img.shields.io/github/license/grigory-lobkov/rtsp-camera-view.svg?style=flat-square)](https://github.com/grigory-lobkov/rtsp-camera-view/blob/master/LICENSE)
 
-Monitoring of ip-cameras, view any streaming video sources in the grid mode
+Monitoring of IP-cameras, view any streaming video sources in the grid mode
 
-Release
-
-[![GitHub release](https://img.shields.io/github/release/grigory-lobkov/rtsp-camera-view.svg?style=flat-square)](https://github.com/grigory-lobkov/rtsp-camera-view/releases) 
+Release &nbsp; &nbsp; &nbsp; [![GitHub release](https://img.shields.io/github/release/grigory-lobkov/rtsp-camera-view.svg?style=flat-square)](https://github.com/grigory-lobkov/rtsp-camera-view/releases) 
 [![Github Releases](https://img.shields.io/github/downloads-pre/grigory-lobkov/rtsp-camera-view/latest/total.svg?style=flat-square)](https://github.com/grigory-lobkov/rtsp-camera-view/releases)
 
-Beta
-
-[![GitHub (pre-)release](https://img.shields.io/github/release/grigory-lobkov/rtsp-camera-view/all.svg?style=flat-square)](https://github.com/grigory-lobkov/rtsp-camera-view/releases) 
+Beta &nbsp; &nbsp; &nbsp; &nbsp; [![GitHub (pre-)release](https://img.shields.io/github/release/grigory-lobkov/rtsp-camera-view/all.svg?style=flat-square)](https://github.com/grigory-lobkov/rtsp-camera-view/releases) 
 [![Github Releases](https://img.shields.io/github/downloads/grigory-lobkov/rtsp-camera-view/latest/total.svg?style=flat-square)](https://github.com/grigory-lobkov/rtsp-camera-view/releases)
 
 If you using it, please, put your [Issue here](https://github.com/grigory-lobkov/rtsp-camera-view/issues)
