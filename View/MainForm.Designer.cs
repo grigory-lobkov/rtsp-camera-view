@@ -319,6 +319,7 @@
             this.Controls.Add(this.splitLabel);
             this.Controls.Add(this.splitter);
             this.Controls.Add(this.controlPanel);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
             this.Text = "RTSP IP-camera Viewer";
             this.controlPanel.ResumeLayout(false);

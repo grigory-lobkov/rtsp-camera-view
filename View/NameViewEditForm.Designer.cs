@@ -272,10 +272,6 @@
             this.textColorPanel.Size = new System.Drawing.Size(82, 23);
             this.textColorPanel.TabIndex = 20;
             // 
-            // colorDialog
-            // 
-            this.colorDialog.AllowFullOpen = false;
-            // 
             // NameViewEditForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);

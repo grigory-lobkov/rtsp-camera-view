@@ -87,6 +87,10 @@ namespace View
             }
             set
             {
+                if(value) // on show panel
+                {
+                    controlPanel.SelectedTab = sourcesPage; // to show EditForm of Source, when on camera "settings" pressed
+                }
                 controlPanel.Visible = value;
                 splitter.Visible = value;
                 if (value) ControlPanel_SelectedIndexChanged(null, null);
@@ -228,7 +232,7 @@ namespace View
         {
             this.Text = Application.ProductName + " " + Application.ProductVersion
                 + "  /  gg81@yandex.ru  /  "
-                + (Application.CurrentCulture.TwoLetterISOLanguageName == "ru" ? "решениеготово.рф  /  Григорий Лобков" : "Gregory Lobkov");
+                + (Application.CurrentCulture.TwoLetterISOLanguageName == "ru" ? "Григорий Лобков" : "Gregory Lobkov");
         }
 
         public void ErrorAccessSettings(string msg)

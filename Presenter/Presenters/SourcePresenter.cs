@@ -237,13 +237,17 @@ namespace Presenter.Presenters
         {
             if (log) View.Log("CommandVolumeUp");
             if (_shownPlayer == null) return;
-            _shownPlayer.Volume += Math.Max(_shownPlayer.Volume / 4, 5);
+            int vol = _shownPlayer.Volume;
+            vol = Math.Min(200, vol + Math.Max(vol / 4, 5));
+            _shownPlayer.Volume = vol;
         }
         private void CommandVolumeDown()
         {
             if (log) View.Log("CommandVolumeDown");
             if (_shownPlayer == null) return;
-            _shownPlayer.Volume -= Math.Max(_shownPlayer.Volume / 5, 4);
+            int vol = _shownPlayer.Volume;
+            vol = Math.Max(0, vol - Math.Max(vol / 5, 4));
+            _shownPlayer.Volume = vol;
         }
         private void CommandOpenOptions()
         {

@@ -48,7 +48,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>conus-film-128.ico</ApplicationIcon>
+    <ApplicationIcon>appicon-1.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="LightInject, Version=3.0.1.9, Culture=neutral, processorArchitecture=MSIL">
@@ -173,7 +173,6 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="conus-film-128.ico" />
     <None Include="ico\btn-wait.png" />
     <None Include="ico\btn-vol-plus.png" />
     <None Include="ico\btn-vol-minus.png" />
@@ -184,6 +183,9 @@
     <None Include="ico\btn-maximize.png" />
     <None Include="ico\btn-eject.png" />
     <None Include="ico\btn-close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="appicon-1.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -102,6 +102,7 @@ namespace Presenter.Presenters
         }
         public void SourceDoneDragDrop()
         {
+            _settings.hint.Hide();
             SourcePresenter fp = null, tp = null;
             foreach (SourcePresenter s in _srcs)
             {

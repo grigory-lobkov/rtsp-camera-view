@@ -92,8 +92,7 @@ namespace ViewVlc215
             get => volume;
             set
             {
-                try { vlc1.audio.Volume = value; }
-                catch { }
+                try { vlc1.audio.Volume = value; } catch { }
                 volume = value;
             }
         }
@@ -166,6 +165,7 @@ namespace ViewVlc215
                 lostTimer.Interval = lostRtspOnStartTimer;
                 lostTimer.Enabled = true;
                 vlc1.playlist.play();
+                vlc1.audio.Volume = this.volume; // important for user movies
                 Invoke(Buffering);
                 return true;
             }
@@ -176,7 +176,7 @@ namespace ViewVlc215
         {
             if (vlc1Status == VlcStatus.Buffering)
             {
-                vlc1.audio.Volume = this.volume;
+                vlc1.audio.Volume = this.volume; // for user movies and rtsp sources
                 if (vlc1.audio.track > 0 && !isSoundPresent)
                 {
                     isSoundPresent = true;
