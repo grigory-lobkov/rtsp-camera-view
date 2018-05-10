@@ -18,8 +18,6 @@ namespace Presenter.Presenters
         private Camera _source = null;
         private int _badH, _badW;
         private string _badString, _goodString;
-        private bool switchedToBad = false;
-        private bool switchedToGood = false;
         private bool stoppedOnInvisible = false;
         private bool log = false; // for debug
 
@@ -41,8 +39,6 @@ namespace Presenter.Presenters
             View.MouseMoved += MouseMoved;
             View.DoubleClicked += CommandMaximize;
             View.SizeChange += CheckNeedSwitch;
-            View.PreshowBadPlayer += PreshowBadPlayer;
-            View.PreshowGoodPlayer += PreshowGoodPlayer;
             View.SwitchToGood += SwitchToGood;
             View.SwitchToBad += SwitchToBad;
             View.StopBadPlayer += StopBadPlayer;
@@ -88,7 +84,7 @@ namespace Presenter.Presenters
         {
             if (log) View.Log("ResetSource");
             CommandStop();
-            //View.HidePlayer = true;
+            View.HidePlayer = true;
             if (_source != null) { _source.position = -1; _source = null; }
             View.SrcName = "";
             _badString = "";
@@ -113,7 +109,7 @@ namespace Presenter.Presenters
             source.position = _position;
             if (String.IsNullOrEmpty(source.rtspBad))
             {
-                if (String.IsNullOrEmpty(source.rtspGood)) return; //todo: generate error message on empty bad and good strings
+                if (String.IsNullOrEmpty(source.rtspGood)) return; //todo: generate error message on empty bad (and good?) strings
                 _badString = source.rtspGood;
                 _goodString = "";
             } else
@@ -157,12 +153,10 @@ namespace Presenter.Presenters
             _source = source;
             if (!_badPlayer.IsPlaying) // todo: can be Buffering, SourceSet need not!
             {
-                //View.HidePlayer = true;
+                View.HidePlayer = true;
                 _badH = 0;
                 _badW = 0;
                 _control.SourceSet();
-                switchedToBad = false;
-                switchedToGood = false;
             }
             if (_settings.autoplay_now == 1) CommandPlay();
         }
@@ -174,7 +168,7 @@ namespace Presenter.Presenters
         public void Visible()
         {
             if (log) View.Log("Visible");
-            View.StopStopOnInvisibleTimer();
+            View.StopOnInvisibleTimerEnabled = false;
             if (stoppedOnInvisible)
             {
                 CommandPlay();
@@ -184,7 +178,7 @@ namespace Presenter.Presenters
         public void InvisibleIfMinimized()
         {
             if (log) View.Log("InvisibleIfMinimized");
-            if (!View.Maximized) View.StartStopOnInvisibleTimer();
+            if (!View.Maximized) View.StopOnInvisibleTimerEnabled = true;
         }
         private void StopOnInvisible()
         {
@@ -211,8 +205,6 @@ namespace Presenter.Presenters
             else
             {
                 _shownPlayer = _badPlayer;
-                View.ShowSmallBadPlayer();
-                switchedToBad = true;
                 _badPlayer.Play();
             }
             CheckNeedSwitch();
@@ -226,17 +218,14 @@ namespace Presenter.Presenters
             {
                 if (_shownPlayer == _goodPlayer) _badPlayer.Volume = _goodPlayer.Volume;
                 _goodPlayer.Stop();
-                View.ShowSmallGoodPlayer();
             }
             _shownPlayer = null;
-            View.StopSwitchToGoodTimer();
-            View.StopSwitchToBadTimer();
-            View.StopStopBadPlayerTimer();
-            View.StopStopGoodPlayerTimer();
-            View.StopStopOnInvisibleTimer();
-            View.StopPreshowGoodPlayerTimer();
-            View.ShowSmallBadPlayer();
-            //View.HidePlayer = true;
+            View.SwitchToGoodTimerEnabled = false;
+            View.SwitchToBadTimerEnabled = false;
+            View.StopBadTimerEnabled = false;
+            View.StopGoodTimerEnabled = false;
+            View.StopOnInvisibleTimerEnabled = false;
+            View.HidePlayer = true;
             _badH = 0;
             _badW = 0;
         }
@@ -290,69 +279,49 @@ namespace Presenter.Presenters
         private void BadPlaying()
         {
             if (log) View.Log("BadPlaying");
-            //View.HidePlayer = false;
-            if (switchedToBad)
+            View.HidePlayer = false;
+            if (_shownPlayer == _goodPlayer)
             {
-                View.StartPreshowBadPlayerTimer();
-                View.ShowBigBadPlayerOnBack();
-                switchedToBad = false;
+                _badPlayer.Volume = _goodPlayer.Volume;
+                _goodPlayer.Volume = 0;
             }
-            else
-            {
-                if (_shownPlayer == _goodPlayer)
-                {
-                    _badPlayer.Volume = _goodPlayer.Volume;
-                    _goodPlayer.Volume = 0;
-                }
-                _shownPlayer = _badPlayer;
-                View.ShowBadPlayer();
-                _control.Playing();
-                CheckNeedSwitch();
-            }
-            View.StopSwitchToBadTimer();
-            View.StopStopBadPlayerTimer();
-            View.StartStopGoodPlayerTimer();
+            _shownPlayer = _badPlayer;
+            View.ShowBadPlayer();
+            _control.Playing();
+            CheckNeedSwitch();
+            View.SwitchToBadTimerEnabled = false;
+            View.StopBadTimerEnabled = false;
+            View.StopGoodTimerEnabled = true;
         }
         private void GoodPlaying()
         {
             if (log) View.Log("GoodPlaying");
-            //View.HidePlayer = false;
-            if (switchedToGood)
-            {
-                View.StartPreshowGoodPlayerTimer();
-                View.ShowBigGoodPlayerOnBack();
-                //View.ShowBadPlayer();
-                switchedToGood = false;
-            }
-            else
-            {
-                _shownPlayer = _goodPlayer;
-                _goodPlayer.Volume = _badPlayer.Volume;
-                _badPlayer.Volume = 0;
-                View.ShowGoodPlayer();
-                _control.Playing();
-                CheckNeedSwitch();
-            }
-            View.StopSwitchToGoodTimer();
-            View.StopStopGoodPlayerTimer();
-            View.StartStopBadPlayerTimer();
+            View.HidePlayer = false;
+            _shownPlayer = _goodPlayer;
+            _goodPlayer.Volume = _badPlayer.Volume;
+            _badPlayer.Volume = 0;
+            View.ShowGoodPlayer();
+            _control.Playing();
+            View.SwitchToGoodTimerEnabled = false;
+            View.StopGoodTimerEnabled = false;
+            View.StopBadTimerEnabled = true;
+            CheckNeedSwitch();
         }
         private void BadStopped()
         {
             if (log) View.Log("BadStopped");
             if (_shownPlayer == _badPlayer)
             {
-                //View.HidePlayer = true;
+                View.HidePlayer = true;
                 _control.Stopped();
             }
         }
         private void GoodStopped()
         {
             if (log) View.Log("GoodStopped");
-
             if (_shownPlayer == _goodPlayer)
             {
-                //View.HidePlayer = true;
+                View.HidePlayer = true;
                 _control.Stopped();
             }
         }
@@ -360,7 +329,7 @@ namespace Presenter.Presenters
         {
             if (log) View.Log("BadSoundDetected");
             _control.SoundFound();
-            if (_settings.unmute_now == 1) _badPlayer.Volume = 50;
+            if (_settings.unmute_now == 1) _badPlayer.Volume = 75;
         }
         private void GoodSoundDetected()
         {
@@ -400,7 +369,7 @@ namespace Presenter.Presenters
                 if (_shownPlayer != _goodPlayer && _goodString != "" && _goodPlayer != null)
                 {
                     if (_goodPlayer.IsPlaying) GoodPlaying();
-                    else View.StartSwitchToGoodTimer();
+                    else View.SwitchToGoodTimerEnabled = true;
                 }
             }
             else
@@ -408,7 +377,7 @@ namespace Presenter.Presenters
                 if (_shownPlayer != _badPlayer)
                 {
                     if (_badPlayer.IsPlaying) BadPlaying();
-                    else View.StartSwitchToBadTimer();
+                    else View.SwitchToBadTimerEnabled = true;
                 }
             }
         }
@@ -419,12 +388,7 @@ namespace Presenter.Presenters
             if (View.Height > _badH && View.Width > _badW)
             {
                 if (_goodPlayer.IsPlaying) GoodPlaying();
-                else
-                {
-                    View.ShowSmallGoodPlayer();
-                    switchedToGood = true;
-                    _goodPlayer.Play();
-                }
+                else _goodPlayer.Play();
             }
         }
         private void SwitchToBad()
@@ -433,12 +397,7 @@ namespace Presenter.Presenters
             if (View.Height <= _badH && View.Width <= _badW)
             {
                 if (_badPlayer.IsPlaying) BadPlaying();
-                else
-                {
-                    View.ShowSmallBadPlayer();
-                    switchedToBad = true;
-                    _badPlayer.Play();
-                }
+                else _badPlayer.Play();
             }
         }
         private void StopBadPlayer()

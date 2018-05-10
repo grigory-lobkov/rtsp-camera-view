@@ -6,6 +6,18 @@ using Presenter.Views;
 using Presenter.Presenters;
 using Microsoft.Win32;
 
+/* TODO:
+
+Попробовать исправить иконку большого размера PNG->BMP
+
+Локализация на русский.
+
+Переподключаться при плохом сигнале.
+
+Отслеживание превышения памяти.
+
+Отправлять почту, когда не удается получить картинку очень долго.
+*/
 
 namespace Presenter.Presenters
 {
@@ -97,7 +109,6 @@ namespace Presenter.Presenters
 
         private void OpenClosePanelClick()
         {
-            _appSettings.hint.Hide();
             View.PanelState = !View.PanelState;
         }
         private void SplitterMoved()
@@ -106,6 +117,7 @@ namespace Presenter.Presenters
         }
         private void SourcesPageSelected()
         {
+            _appSettings.hint.Hide();
             if (_sourceList == null)
             {
                 _sourceList = Controller.Get<SourceListPresenter>();
@@ -121,6 +133,7 @@ namespace Presenter.Presenters
         }
         private void SettingsPageSelected()
         {
+            _appSettings.hint.Hide();
             if (_settings == null)
             {
                 _settings = Controller.Get<ModifySettingsPresenter>();
