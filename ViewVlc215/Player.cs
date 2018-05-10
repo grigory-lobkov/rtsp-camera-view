@@ -10,7 +10,7 @@ namespace ViewVlc215
 {
     public class Player : UserControl, IPlayerView
     {
-        public enum VlcStatus { Stopped = 0, Playing = 1, Buffering = 2, PositionFound = 3, Preparing = 4 };
+        public enum VlcStatus { Stopped = 0, Playing = 1, Buffering = 2, Preparing = 3 };
         private AxAXVLC.AxVLCPlugin2 vlc1;
         private System.Windows.Forms.Timer lostTimer;
         private System.ComponentModel.IContainer components = null;
@@ -162,6 +162,7 @@ namespace ViewVlc215
             if (vlc1Status == VlcStatus.Stopped && vlc1.playlist.items.count > 0)
             {
                 vlc1Status = VlcStatus.Buffering;
+                PosChangedTimes = 0;
                 lostTimer.Interval = lostRtspOnStartTimer;
                 lostTimer.Enabled = true;
                 vlc1.playlist.play();
@@ -184,29 +185,23 @@ namespace ViewVlc215
                 }
             }
         }
-        private int PosChangedTimes = 0;
+        private int PosChangedTimes;
         private void Vlc1PositionChanged()
         {
             lostTimer.Enabled = false;
             lostTimer.Enabled = true;
             if (vlc1Status == VlcStatus.Buffering)
             {
-                vlc1Status = VlcStatus.PositionFound;
-                PosChangedTimes = 1;
-            }
-            else if (vlc1Status == VlcStatus.PositionFound)
-            {
                 PosChangedTimes++;
-                if (PosChangedTimes == 5)
+                vlc1.audio.Volume = this.volume; // important for user movies
+                if (PosChangedTimes == 10)//>7,<~10
                 {
                     vlc1Status = VlcStatus.Playing;
                     Invoke(Playing);
                     lostTimer.Interval = lostRtspTimer;
                 }
-            }
-            if (vlcH <= 0)
+            } else if (vlcH <= 0)
             {
-                vlc1.audio.Volume = this.volume; // important for user movies
                 if (vlc1.video.height > 0)
                 {
                     vlcH = vlc1.video.height;
