@@ -75,8 +75,8 @@ namespace RTSP_mosaic_VLC_player
             // 
             vlc1.Enabled = false;
             vlc1.Dock = DockStyle.Fill;
-            vlc1.MediaPlayerPositionChanged += new AxAXVLC.DVLCEvents_MediaPlayerPositionChangedEventHandler(vlc1PositionChanged);
-            vlc1.MediaPlayerBuffering += new AxAXVLC.DVLCEvents_MediaPlayerBufferingEventHandler(vlc1Buffering);
+            vlc1.MediaPlayerPositionChanged += new AxAXVLC.DVLCEvents_MediaPlayerPositionChangedEventHandler(Vlc1PositionChanged);
+            vlc1.MediaPlayerBuffering += new AxAXVLC.DVLCEvents_MediaPlayerBufferingEventHandler(Vlc1Buffering);
             //vlc1.Visible = false;
             this.Controls.Add(vlc1);
             // 
@@ -84,8 +84,8 @@ namespace RTSP_mosaic_VLC_player
             // 
             vlc2.Enabled = true;
             vlc2.Dock = DockStyle.Fill;
-            vlc2.MediaPlayerPositionChanged += new AxAXVLC.DVLCEvents_MediaPlayerPositionChangedEventHandler(vlc2PositionChanged);
-            vlc2.MediaPlayerBuffering += new AxAXVLC.DVLCEvents_MediaPlayerBufferingEventHandler(vlc2Buffering);
+            vlc2.MediaPlayerPositionChanged += new AxAXVLC.DVLCEvents_MediaPlayerPositionChangedEventHandler(Vlc2PositionChanged);
+            vlc2.MediaPlayerBuffering += new AxAXVLC.DVLCEvents_MediaPlayerBufferingEventHandler(Vlc2Buffering);
             vlc2.Visible = false;
             this.Controls.Add(vlc2);
             //
@@ -94,27 +94,27 @@ namespace RTSP_mosaic_VLC_player
             topPanel.Dock = DockStyle.Fill;
             this.Controls.Add(topPanel);
             topPanel.BringToFront();
-            topPanel.MouseEnter += new EventHandler(this.topPanel_MouseEnter);
-            topPanel.MouseDoubleClick += new MouseEventHandler(this.topPanel_MouseDoubleClick);
-            topPanel.MouseDown += new MouseEventHandler(this.topPanel_MouseDown);
-            topPanel.MouseMove += new MouseEventHandler(this.topPanel_MouseMove);
-            topPanel.MouseUp += new MouseEventHandler(this.topPanel_MouseUp);
-            topPanel.DragEnter += new DragEventHandler(this.topPanel_DragEnter);
-            topPanel.DragDrop += new DragEventHandler(this.topPanel_DragDrop);
+            topPanel.MouseEnter += new EventHandler(this.TopPanel_MouseEnter);
+            topPanel.MouseDoubleClick += new MouseEventHandler(this.TopPanel_MouseDoubleClick);
+            topPanel.MouseDown += new MouseEventHandler(this.TopPanel_MouseDown);
+            topPanel.MouseMove += new MouseEventHandler(this.TopPanel_MouseMove);
+            topPanel.MouseUp += new MouseEventHandler(this.TopPanel_MouseUp);
+            topPanel.DragEnter += new DragEventHandler(this.TopPanel_DragEnter);
+            topPanel.DragDrop += new DragEventHandler(this.TopPanel_DragDrop);
             // Timers
-            lostRtsp1Timer.Tick += new EventHandler(this.lostRtsp1Timer_Tick);
-            switchToRtsp2Timer.Tick += new EventHandler(this.switchToRtsp2Timer_Tick);
-            lostRtsp2Timer.Tick += new EventHandler(this.lostRtsp2Timer_Tick);
-            switchToRtsp1Timer.Tick += new EventHandler(this.switchToRtsp1Timer_Tick);
+            lostRtsp1Timer.Tick += new EventHandler(this.LostRtsp1Timer_Tick);
+            switchToRtsp2Timer.Tick += new EventHandler(this.SwitchToRtsp2Timer_Tick);
+            lostRtsp2Timer.Tick += new EventHandler(this.LostRtsp2Timer_Tick);
+            switchToRtsp1Timer.Tick += new EventHandler(this.SwitchToRtsp1Timer_Tick);
             stopRtsp1Timer.Interval = Convert.ToInt32(Properties.Resources.stopBadRtspTimer);
-            stopRtsp1Timer.Tick += new EventHandler(this.stopRtsp1Timer_Tick);
+            stopRtsp1Timer.Tick += new EventHandler(this.StopRtsp1Timer_Tick);
             stopRtsp2Timer.Interval = Convert.ToInt32(Properties.Resources.stopGoodRtspTimer);
-            stopRtsp2Timer.Tick += new EventHandler(this.stopRtsp2Timer_Tick);
+            stopRtsp2Timer.Tick += new EventHandler(this.StopRtsp2Timer_Tick);
             stopOnInvisibleTimer.Interval = Convert.ToInt32(Properties.Resources.stopOnInvisibleTimer);
-            stopOnInvisibleTimer.Tick += new EventHandler(this.stopOnInvisibleTimer_Tick);
+            stopOnInvisibleTimer.Tick += new EventHandler(this.StopOnInvisibleTimer_Tick);
 
-            ((System.ComponentModel.ISupportInitialize)(this.vlc1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vlc2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(vlc1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(vlc2)).EndInit();
             this.ResumeLayout(false);
         }
 

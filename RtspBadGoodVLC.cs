@@ -38,11 +38,11 @@ namespace RTSP_mosaic_VLC_player
         //private int mouseDownX, mouseDownY, mouseDownW, mouseDownH;
         private bool isSoundPresent;
         private bool isRtsp2Shown;
-        public event EventHandlerWObject onStop;
-        public event EventHandlerWObject onBuffering;
-        public event EventHandlerWObject onPlay;
-        public event EventHandlerWObject onSoundtrackFound;
-        public event EventHandlerWObject onBeforeRtspSwitch;
+        public event EventHandlerWObject OnStop;
+        public event EventHandlerWObject OnBuffering;
+        public event EventHandlerWObject OnPlay;
+        public event EventHandlerWObject OnSoundtrackFound;
+        public event EventHandlerWObject OnBeforeRtspSwitch;
         private string playlistAddOptions = null;//":no-audio"
 
         public int Volume
@@ -64,7 +64,7 @@ namespace RTSP_mosaic_VLC_player
             get { return rtspBad; }
             set
             {
-                stop(this);
+                Stop(this);
                 vlc1.playlist.items.clear();
                 if (value != "" && value != null) vlc1.playlist.add(value, null, playlistAddOptions);
                 vlc1.Toolbar = false;
@@ -76,7 +76,7 @@ namespace RTSP_mosaic_VLC_player
             get { return rtspGood; }
             set
             {
-                stop(this);
+                Stop(this);
                 vlc2.playlist.items.clear();
                 if (value != "" && value != null) vlc2.playlist.add(value, null, playlistAddOptions);
                 vlc2.Toolbar = false;
@@ -88,7 +88,7 @@ namespace RTSP_mosaic_VLC_player
             get { return aspectRatio; }
             set
             {
-                stop(this);
+                Stop(this);
                 try
                 {
                     if (value != "" && value != null)
@@ -126,11 +126,11 @@ namespace RTSP_mosaic_VLC_player
             InitializeComponent();
             vlc1Status = VlcStatus.Preparing;
             vlc2Status = VlcStatus.Preparing;
-            try { stop(null); }
+            try { Stop(null); }
             catch { }
         }
 
-        public bool stop(object sender)
+        public bool Stop(object sender)
         {
             if (vlc1Status != VlcStatus.Stopped || vlc2Status != VlcStatus.Stopped)
             {
@@ -151,14 +151,14 @@ namespace RTSP_mosaic_VLC_player
                 isSoundPresent = false;
                 vlc1Status = VlcStatus.Stopped;
                 vlc2Status = VlcStatus.Stopped;
-                if (sender != null) if (onStop != null) onStop(this);
+                if (sender != null) OnStop?.Invoke(this);
                 topPanel.Wait = false;
                 return true;
             }
             return false;
         }
 
-        public bool play(object sender)
+        public bool Play(object sender)
         {
             if (vlc1Status == VlcStatus.Stopped && vlc2Status == VlcStatus.Stopped && vlc1.playlist.items.count>0)
             {
@@ -167,18 +167,18 @@ namespace RTSP_mosaic_VLC_player
                 lostRtsp1Timer.Enabled = true;
                 vlc1Status = VlcStatus.Buffering;
                 vlc1.playlist.play();
-                if (onBuffering != null) onBuffering(this);
+                OnBuffering?.Invoke(this);
                 return true;
             }
             return false;
         }
         
-        protected virtual void OnBeforeRtspSwitch(object sender)
+        protected virtual void OnBeforeRtspSwitch1(object sender)
         {
-            if (sender != null) if (onBeforeRtspSwitch != null) onBeforeRtspSwitch(this);
+            if (sender != null) OnBeforeRtspSwitch?.Invoke(this);
         }
 
-        private void vlc1Buffering(object sender, AxAXVLC.DVLCEvents_MediaPlayerBufferingEvent e)
+        private void Vlc1Buffering(object sender, AxAXVLC.DVLCEvents_MediaPlayerBufferingEvent e)
         {
             if (vlc1Status == VlcStatus.Buffering)
             {
@@ -191,12 +191,12 @@ namespace RTSP_mosaic_VLC_player
                 if (vlc1.audio.track > 1 && !isSoundPresent)
                 {
                     isSoundPresent = vlc1.audio.track > 1;
-                    if (onSoundtrackFound != null) onSoundtrackFound(this);
+                    OnSoundtrackFound?.Invoke(this);
                 }
             }
         }
 
-        private void vlc2Buffering(object sender, AxAXVLC.DVLCEvents_MediaPlayerBufferingEvent e)
+        private void Vlc2Buffering(object sender, AxAXVLC.DVLCEvents_MediaPlayerBufferingEvent e)
         {
             if (vlc2Status == VlcStatus.Buffering)
             {
@@ -209,26 +209,26 @@ namespace RTSP_mosaic_VLC_player
                 if (vlc1.audio.track > 1 && !isSoundPresent)
                 {
                     isSoundPresent = vlc1.audio.track > 1;
-                    if (onSoundtrackFound != null) onSoundtrackFound(this);
+                    OnSoundtrackFound?.Invoke(this);
                 }
             }
         }
 
-        private void vlc1PositionChanged(object sender, AxAXVLC.DVLCEvents_MediaPlayerPositionChangedEvent e)
+        private void Vlc1PositionChanged(object sender, AxAXVLC.DVLCEvents_MediaPlayerPositionChangedEvent e)
         {
             lostRtsp1Timer.Enabled = false;
             lostRtsp1Timer.Enabled = true;
             if (vlc1Status == VlcStatus.Buffering)
             {
                 vlc1Status = VlcStatus.Playing;
-                if (onPlay != null) onPlay(sender);
+                OnPlay?.Invoke(sender);
                 topPanel.Wait = false;
                 lostRtsp1Timer.Interval = Convert.ToInt32(Properties.Resources.lostRtspTimer);
                 if (vlc2Status == VlcStatus.Playing)
                 {
                     switchToRtsp1Timer.Interval = 500;
                     switchToRtsp1Timer.Enabled = true;
-                    OnBeforeRtspSwitch(this);
+                    OnBeforeRtspSwitch1(this);
                 }
             }
             if (isRtsp2Shown) return;
@@ -248,7 +248,7 @@ namespace RTSP_mosaic_VLC_player
                 if (vlc2Status == VlcStatus.Playing)
                 {
                     switchToRtsp2Timer.Interval = 50;
-                    OnBeforeRtspSwitch(this);
+                    OnBeforeRtspSwitch1(this);
                 }
                 else
                 {
@@ -259,7 +259,7 @@ namespace RTSP_mosaic_VLC_player
             }
         }
 
-        private void vlc2PositionChanged(object sender, AxAXVLC.DVLCEvents_MediaPlayerPositionChangedEvent e)
+        private void Vlc2PositionChanged(object sender, AxAXVLC.DVLCEvents_MediaPlayerPositionChangedEvent e)
         {
             lostRtsp2Timer.Enabled = false;
             lostRtsp2Timer.Enabled = true;
@@ -271,7 +271,7 @@ namespace RTSP_mosaic_VLC_player
                 {
                     switchToRtsp2Timer.Interval = 500;
                     switchToRtsp2Timer.Enabled = true;
-                    OnBeforeRtspSwitch(this);
+                    OnBeforeRtspSwitch1(this);
                 }
             }
             if (!isRtsp2Shown) return;
@@ -280,7 +280,7 @@ namespace RTSP_mosaic_VLC_player
                 if (vlc1Status == VlcStatus.Playing)
                 {
                     switchToRtsp1Timer.Interval = 50;
-                    OnBeforeRtspSwitch(this);
+                    OnBeforeRtspSwitch1(this);
                 }
                 else
                 {
@@ -291,9 +291,21 @@ namespace RTSP_mosaic_VLC_player
             }
         }
 
-        private void lostRtsp1Timer_Tick(object sender, EventArgs e)
+        private void LostRtsp1Timer_Tick(object sender, EventArgs e)
         {
             lostRtsp1Timer.Enabled = false;
+            if (vlc2Status == VlcStatus.Playing)
+            {
+                vlc1.playlist.stop();
+                vlc1Status = VlcStatus.Stopped;
+                vlc1.SendToBack();
+                isRtsp2Shown = true;
+            }
+        }
+
+        private void LostRtsp2Timer_Tick(object sender, EventArgs e)
+        {
+            lostRtsp2Timer.Enabled = false;
             if (vlc1Status == VlcStatus.Playing)
             {
                 vlc2.playlist.stop();
@@ -303,19 +315,7 @@ namespace RTSP_mosaic_VLC_player
             }
         }
 
-        private void lostRtsp2Timer_Tick(object sender, EventArgs e)
-        {
-            lostRtsp2Timer.Enabled = false;
-            if (vlc2Status == VlcStatus.Playing)
-            {
-                vlc2.playlist.stop();
-                vlc2Status = VlcStatus.Stopped;
-                vlc2.SendToBack();
-                isRtsp2Shown = false;
-            }
-        }
-
-        private void switchToRtsp2Timer_Tick(object sender, EventArgs e)
+        private void SwitchToRtsp2Timer_Tick(object sender, EventArgs e)
         {
             switchToRtsp2Timer.Enabled = false;
             stopRtsp2Timer.Enabled = false;
@@ -338,7 +338,7 @@ namespace RTSP_mosaic_VLC_player
             }
         }
 
-        private void switchToRtsp1Timer_Tick(object sender, EventArgs e)
+        private void SwitchToRtsp1Timer_Tick(object sender, EventArgs e)
         {
             switchToRtsp1Timer.Enabled = false;
             stopRtsp1Timer.Enabled = false;
@@ -361,7 +361,7 @@ namespace RTSP_mosaic_VLC_player
             }
         }
 
-        private void stopRtsp1Timer_Tick(object sender, EventArgs e)
+        private void StopRtsp1Timer_Tick(object sender, EventArgs e)
         {
             stopRtsp1Timer.Enabled = false;
             if (!isRtsp2Shown) return;
@@ -369,7 +369,7 @@ namespace RTSP_mosaic_VLC_player
             vlc1Status = VlcStatus.Stopped;
         }
 
-        private void stopRtsp2Timer_Tick(object sender, EventArgs e)
+        private void StopRtsp2Timer_Tick(object sender, EventArgs e)
         {
             stopRtsp2Timer.Enabled = false;
             if (isRtsp2Shown) return;
@@ -377,22 +377,22 @@ namespace RTSP_mosaic_VLC_player
             vlc2Status = VlcStatus.Stopped;
         }
 
-        private void stopOnInvisibleTimer_Tick(object sender, EventArgs e)
+        private void StopOnInvisibleTimer_Tick(object sender, EventArgs e)
         {
             stopOnInvisibleTimer.Enabled = false;
             if (isSoundPresent && this.volume > 0) return;
             if (vlc1Status == VlcStatus.Stopped && vlc2Status == VlcStatus.Stopped) return;
-            stop(null);
+            Stop(null);
             vlc1Status = VlcStatus.Invisible;
         }
 
-        private void topPanel_MouseEnter(Object sender, EventArgs e) { this.OnMouseEnter(e); }
-        private void topPanel_MouseDoubleClick(Object sender, MouseEventArgs e) { this.OnMouseDoubleClick(e); }
-        private void topPanel_MouseDown(Object sender, MouseEventArgs e) { this.OnMouseDown(e); }
-        private void topPanel_MouseMove(Object sender, MouseEventArgs e) { this.OnMouseMove(e); }
-        private void topPanel_MouseUp(Object sender, MouseEventArgs e) { this.OnMouseUp(e); }
-        private void topPanel_DragEnter(Object sender, DragEventArgs e) { this.OnDragEnter(e); }
-        private void topPanel_DragDrop(Object sender, DragEventArgs e) { this.OnDragDrop(e); }
+        private void TopPanel_MouseEnter(Object sender, EventArgs e) { this.OnMouseEnter(e); }
+        private void TopPanel_MouseDoubleClick(Object sender, MouseEventArgs e) { this.OnMouseDoubleClick(e); }
+        private void TopPanel_MouseDown(Object sender, MouseEventArgs e) { this.OnMouseDown(e); }
+        private void TopPanel_MouseMove(Object sender, MouseEventArgs e) { this.OnMouseMove(e); }
+        private void TopPanel_MouseUp(Object sender, MouseEventArgs e) { this.OnMouseUp(e); }
+        private void TopPanel_DragEnter(Object sender, DragEventArgs e) { this.OnDragEnter(e); }
+        private void TopPanel_DragDrop(Object sender, DragEventArgs e) { this.OnDragDrop(e); }
     }
     [ToolboxBitmap(typeof(Panel))]
     public class TopPanel : Panel
@@ -406,12 +406,12 @@ namespace RTSP_mosaic_VLC_player
         private int z5; // for paintWait
         private bool paintRect = false;
         private Timer repaintTimer;
-        public event ZoomEventHandler onZoom;
+        public event ZoomEventHandler OnZoom;
         private bool paintWait = true;
 
         public TopPanel() {
             repaintTimer = new Timer();
-            repaintTimer.Tick += new EventHandler(this.repaintTimer_Tick);
+            repaintTimer.Tick += new EventHandler(this.RepaintTimer_Tick);
         }
         protected override void OnPaintBackground(PaintEventArgs e) { } //for transparency
         protected override CreateParams CreateParams //for transparency
@@ -423,7 +423,7 @@ namespace RTSP_mosaic_VLC_player
                 return cp;
             }
         }
-        private void repaintTimer_Tick(object sender, EventArgs e)
+        private void RepaintTimer_Tick(object sender, EventArgs e)
         {
             x3 = -1;
             z5 = (z5 + 1) % waitBrickCount;
@@ -514,7 +514,7 @@ namespace RTSP_mosaic_VLC_player
             {
                 repaintTimer.Enabled = false;
                 x2 = e.X; y2 = e.Y;
-                if (onZoom != null) onZoom(this, Math.Min(x1, x2), Math.Min(y1, y2), Math.Abs(x2 - x1), Math.Abs(y2 - y1));
+                OnZoom?.Invoke(this, Math.Min(x1, x2), Math.Min(y1, y2), Math.Abs(x2 - x1), Math.Abs(y2 - y1));
                 x1 = -1;
                 Invalidate();
             }

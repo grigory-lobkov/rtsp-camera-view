@@ -193,12 +193,12 @@ namespace RTSP_mosaic_VLC_player
         public bool stop(object sender) 
         {
             btnPlayStop.BackgroundImage = Convert.ToInt32(btnPlayStop.Tag) == 0 ? Properties.Resources.btn_wait : InvertImage(Properties.Resources.btn_wait);
-            return bgvlc.stop(this);
+            return bgvlc.Stop(this);
         }
         public bool play(object sender)
         {
             btnPlayStop.BackgroundImage = Convert.ToInt32(btnPlayStop.Tag) == 0 ? Properties.Resources.btn_wait : InvertImage(Properties.Resources.btn_wait);
-            return bgvlc.play(this);
+            return bgvlc.Play(this);
         }
 
         public void bgvlc_Stop(object sender)

@@ -99,10 +99,10 @@ namespace RTSP_mosaic_VLC_player
             // bgvlc
             //
             this.Controls.Add(bgvlc);
-            bgvlc.onStop += new EventHandlerWObject(this.bgvlc_Stop);
-            bgvlc.onPlay += new EventHandlerWObject(this.bgvlc_Play);
-            bgvlc.onSoundtrackFound += new EventHandlerWObject(this.bgvlc_SoundTrackFound);
-            bgvlc.onBeforeRtspSwitch += new EventHandlerWObject(this.bgvlc_BeforeRtspSwitch);
+            bgvlc.OnStop += new EventHandlerWObject(this.bgvlc_Stop);
+            bgvlc.OnPlay += new EventHandlerWObject(this.bgvlc_Play);
+            bgvlc.OnSoundtrackFound += new EventHandlerWObject(this.bgvlc_SoundTrackFound);
+            bgvlc.OnBeforeRtspSwitch += new EventHandlerWObject(this.bgvlc_BeforeRtspSwitch);
             bgvlc.Anchor = ((AnchorStyles)((((AnchorStyles.Bottom | AnchorStyles.Left) | AnchorStyles.Right) | AnchorStyles.Top)));
             bgvlc.MouseEnter += new EventHandler(this.bgvlc_MouseEnter);
             bgvlc.MouseDoubleClick += new MouseEventHandler(this.bgvlc_MouseDoubleClick);
