@@ -17,7 +17,7 @@ namespace View.Components
             get => controlHideTimer.Interval / 1000;
             set => controlHideTimer.Interval = value * 1000;
         }
-        public bool HidePlayer { get => hidePlayerPanel.Visible; set => hidePlayerPanel.Visible = value; }
+        //public bool HidePlayer { get => hidePlayerPanel.Visible; set => hidePlayerPanel.Visible = value; }
 
         public string SrcName { get => srcName.Text; set => srcName.Text = value; }
         private Align srcNameAlign;
@@ -64,18 +64,19 @@ namespace View.Components
             InitializeComponent();
             srcName.SendToBack();
             srcName.Text = "";
-            hidePlayerPanel.SendToBack();
+            //hidePlayerPanel.SendToBack();
             controlHideTimer.Tick += (sender, args) => HideControl();
             nameHideTimer.Tick += (sender, args) => HideSrcName();
             //topPanel.MouseMove += (sender, args) => Invoke(MouseMoved);
             topPanel.Click += (sender, args) => Invoke(MouseMoved);
             topPanel.DoubleClick += (sender, args) => Invoke(DoubleClicked);
+            preshowBadPlayerTimer.Tick += (sender, args) => { preshowBadPlayerTimer.Enabled = false; Invoke(PreshowBadPlayer); };
+            preshowGoodPlayerTimer.Tick += (sender, args) => { preshowGoodPlayerTimer.Enabled = false; Invoke(PreshowGoodPlayer); };
             switchToGoodTimer.Tick += (sender, args) => { switchToGoodTimer.Enabled = false; Invoke(SwitchToGood); };
             switchToBadTimer.Tick += (sender, args) => { switchToBadTimer.Enabled = false; Invoke(SwitchToBad); };
             stopBadPlayerTimer.Tick += (sender, args) => { stopBadPlayerTimer.Enabled = false; Invoke(StopBadPlayer); };
             stopGoodPlayerTimer.Tick += (sender, args) => { stopGoodPlayerTimer.Enabled = false; Invoke(StopGoodPlayer); };
             stopOnInvisibleTimer.Tick += (sender, args) => { stopOnInvisibleTimer.Enabled = false; Invoke(StopOnInvisible); };
-            preshowGoodPlayerTimer.Tick += (sender, args) => { preshowGoodPlayerTimer.Enabled = false; Invoke(PreshowGoodPlayer); };
             this.SizeChanged += (sender, args) => Invoke(SizeChange);
             log.Dock = DockStyle.Right;
             log.BringToFront();
@@ -93,7 +94,8 @@ namespace View.Components
         {
             badPlayer = (UserControl)control;
             this.Controls.Add(badPlayer);
-            badPlayer.Dock = DockStyle.Fill;
+            //badPlayer.Dock = DockStyle.Fill;
+            badPlayer.Size = new Size(1, 1);
             badPlayer.SendToBack();
             if (goodPlayer != null) goodPlayer.SendToBack();
         }
@@ -101,7 +103,8 @@ namespace View.Components
         {
             goodPlayer = (UserControl)control;
             this.Controls.Add(goodPlayer);
-            goodPlayer.Dock = DockStyle.Fill;
+            //goodPlayer.Dock = DockStyle.Fill;
+            goodPlayer.Size = new Size(1, 1);
             goodPlayer.SendToBack();
         }
         public void SetPlayerControlControl(IViewControl control)
@@ -219,29 +222,49 @@ namespace View.Components
         public void StartStopBadPlayerTimer() { stopBadPlayerTimer.Enabled = false; stopBadPlayerTimer.Enabled = true; }
         public void StartStopGoodPlayerTimer() { stopGoodPlayerTimer.Enabled = false; stopGoodPlayerTimer.Enabled = true; }
         public void StartStopOnInvisibleTimer() { stopOnInvisibleTimer.Enabled = false; stopOnInvisibleTimer.Enabled = true; }
+        public void StartPreshowBadPlayerTimer() { preshowBadPlayerTimer.Enabled = false; preshowBadPlayerTimer.Enabled = true; }
         public void StartPreshowGoodPlayerTimer() { preshowGoodPlayerTimer.Enabled = false; preshowGoodPlayerTimer.Enabled = true; }
         public void StopSwitchToGoodTimer() { switchToGoodTimer.Enabled = false; }
         public void StopSwitchToBadTimer() { switchToBadTimer.Enabled = false; }
         public void StopStopBadPlayerTimer() { stopBadPlayerTimer.Enabled = false; }
         public void StopStopGoodPlayerTimer() { stopGoodPlayerTimer.Enabled = false; }
         public void StopStopOnInvisibleTimer() { stopOnInvisibleTimer.Enabled = false; }
+        public void StopPreshowBadPlayerTimer() { preshowBadPlayerTimer.Enabled = false; }
         public void StopPreshowGoodPlayerTimer() { preshowGoodPlayerTimer.Enabled = false; }
+        public event Action PreshowBadPlayer;
+        public event Action PreshowGoodPlayer;
         public event Action SwitchToGood;
         public event Action SwitchToBad;
         public event Action StopBadPlayer;
         public event Action StopGoodPlayer;
         public event Action StopOnInvisible;
-        public event Action PreshowGoodPlayer;
-        public void ShowBadPlayer() { goodPlayer.SendToBack(); }
+        public void ShowBadPlayer() { goodPlayer?.SendToBack(); }
+        public void ShowSmallBadPlayer() { badPlayer.SendToBack(); badPlayer.Dock = DockStyle.Fill; }
+        public void ShowBigBadPlayerOnBack() { }
         public void ShowGoodPlayer() { badPlayer.SendToBack(); goodPlayer.Dock = DockStyle.Fill; }
+        public void ShowSmallGoodPlayer() { goodPlayer?.SendToBack(); goodPlayer.Dock = DockStyle.Fill; }
+        public void ShowBigGoodPlayerOnBack() { }
+        /*
+        public void ShowBadPlayer() { goodPlayer?.SendToBack(); }
+        public void ShowBigBadPlayerOnBack() { badPlayer.SendToBack(); badPlayer.Dock = DockStyle.Fill; }
+        public void ShowSmallBadPlayer()
+        {
+            // VLC 2.1.3 does not process stream until visible :(, let's fool him and wait some seconds for buffering
+            goodPlayer?.SendToBack();
+            badPlayer.Dock = DockStyle.None;
+            badPlayer.Size = new Size(2, 2);
+        }
+        public void ShowGoodPlayer() { badPlayer.SendToBack(); goodPlayer.Dock = DockStyle.Fill; }
+        public void ShowBigGoodPlayerOnBack() { goodPlayer?.SendToBack(); goodPlayer.Dock = DockStyle.Fill; }
         public void ShowSmallGoodPlayer()
         {
             // VLC 2.1.3 does not process stream until visible :(, let's fool him and wait some seconds for buffering
-            // todo: try to Show small player on Buffering time(right after "play" command, until "play" action)!!!
             badPlayer.SendToBack();
+            //goodPlayer.BringToFront();
             goodPlayer.Dock = DockStyle.None;
-            goodPlayer.Size = new Size(1, 1);
+            goodPlayer.Size = new Size(2, 2);
         }
+        */
         /*****
          * Drag & Drop methods
          */

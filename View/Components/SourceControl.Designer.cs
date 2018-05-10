@@ -33,15 +33,16 @@ namespace View.Components
             this.components = new System.ComponentModel.Container();
             this.controlHideTimer = new System.Windows.Forms.Timer(this.components);
             this.nameHideTimer = new System.Windows.Forms.Timer(this.components);
-            this.switchToGoodTimer = new System.Windows.Forms.Timer(this.components);
+            this.preshowBadPlayerTimer = new System.Windows.Forms.Timer(this.components);
+            this.preshowGoodPlayerTimer = new System.Windows.Forms.Timer(this.components);
             this.switchToBadTimer = new System.Windows.Forms.Timer(this.components);
+            this.switchToGoodTimer = new System.Windows.Forms.Timer(this.components);
             this.stopBadPlayerTimer = new System.Windows.Forms.Timer(this.components);
             this.stopGoodPlayerTimer = new System.Windows.Forms.Timer(this.components);
             this.stopOnInvisibleTimer = new System.Windows.Forms.Timer(this.components);
-            this.preshowGoodPlayerTimer = new System.Windows.Forms.Timer(this.components);
             this.srcName = new System.Windows.Forms.Label();
-            this.hidePlayerPanel = new System.Windows.Forms.Panel();
             this.log = new System.Windows.Forms.ListBox();
+            this.hidePlayerPanel = new System.Windows.Forms.Panel();
             this.topPanel = new View.Components.TopPanel();
             this.SuspendLayout();
             // 
@@ -53,13 +54,21 @@ namespace View.Components
             // 
             this.nameHideTimer.Interval = 5000;
             // 
-            // switchToGoodTimer
+            // preshowBadPlayerTimer
             // 
-            this.switchToGoodTimer.Interval = 3000;
+            this.preshowBadPlayerTimer.Interval = 2000;
+            // 
+            // preshowGoodPlayerTimer
+            // 
+            this.preshowGoodPlayerTimer.Interval = 2000;
             // 
             // switchToBadTimer
             // 
-            this.switchToBadTimer.Interval = 15000;
+            this.switchToBadTimer.Interval = 4000;
+            // 
+            // switchToGoodTimer
+            // 
+            this.switchToGoodTimer.Interval = 3000;
             // 
             // stopBadPlayerTimer
             // 
@@ -73,10 +82,6 @@ namespace View.Components
             // 
             this.stopOnInvisibleTimer.Interval = 180000;
             // 
-            // preshowGoodPlayerTimer
-            // 
-            this.preshowGoodPlayerTimer.Interval = 2000;
-            // 
             // srcName
             // 
             this.srcName.AutoSize = true;
@@ -88,15 +93,6 @@ namespace View.Components
             this.srcName.TabIndex = 0;
             this.srcName.Text = "nameLabel";
             // 
-            // hidePlayerPanel
-            // 
-            this.hidePlayerPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.hidePlayerPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.hidePlayerPanel.Location = new System.Drawing.Point(0, 0);
-            this.hidePlayerPanel.Name = "hidePlayerPanel";
-            this.hidePlayerPanel.Size = new System.Drawing.Size(150, 150);
-            this.hidePlayerPanel.TabIndex = 0;
-            // 
             // log
             // 
             this.log.FormattingEnabled = true;
@@ -106,6 +102,16 @@ namespace View.Components
             this.log.Size = new System.Drawing.Size(196, 329);
             this.log.TabIndex = 0;
             this.log.Visible = false;
+            // 
+            // hidePlayerPanel
+            // 
+            this.hidePlayerPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.hidePlayerPanel.ForeColor = System.Drawing.Color.White;
+            this.hidePlayerPanel.Location = new System.Drawing.Point(0, 0);
+            this.hidePlayerPanel.Name = "hidePlayerPanel";
+            this.hidePlayerPanel.Size = new System.Drawing.Size(150, 150);
+            this.hidePlayerPanel.TabIndex = 2;
+            this.hidePlayerPanel.Visible = false;
             // 
             // topPanel
             // 
@@ -127,10 +133,10 @@ namespace View.Components
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
+            this.Controls.Add(this.log);
             this.Controls.Add(this.srcName);
             this.Controls.Add(this.topPanel);
             this.Controls.Add(this.hidePlayerPanel);
-            this.Controls.Add(this.log);
             this.Name = "SourceControl";
             this.Resize += new System.EventHandler(this.SourceControl_Resize);
             this.ResumeLayout(false);
@@ -142,15 +148,16 @@ namespace View.Components
 
         private Timer controlHideTimer;
         private Timer nameHideTimer;
+        private Timer preshowBadPlayerTimer;
+        private Timer preshowGoodPlayerTimer;
         private Timer switchToGoodTimer;
         private Timer switchToBadTimer;
         private Timer stopBadPlayerTimer;
         private Timer stopGoodPlayerTimer;
         private Timer stopOnInvisibleTimer;
-        private Timer preshowGoodPlayerTimer;
         private Label srcName;
-        private Panel hidePlayerPanel;
         private TopPanel topPanel;
         private ListBox log;
+        private Panel hidePlayerPanel;
     }
 }

@@ -10,7 +10,7 @@ namespace Presenter.Views
         void SetGoodPlayerControl(IViewControl control);
         void SetPlayerControlControl(IViewControl control);
 
-        bool HidePlayer { get; set; }
+        //bool HidePlayer { get; set; }
 
         int ControlShowSec { get; set; }
         void ShowControl();
@@ -35,27 +35,33 @@ namespace Presenter.Views
         bool Maximized { get; set; }
         void Log(string str);
 
+        void StartPreshowBadPlayerTimer();
+        void StartPreshowGoodPlayerTimer();
         void StartSwitchToGoodTimer();
         void StartSwitchToBadTimer();
         void StartStopBadPlayerTimer();
         void StartStopGoodPlayerTimer();
         void StartStopOnInvisibleTimer();
-        void StartPreshowGoodPlayerTimer();
+        void StopPreshowBadPlayerTimer();
+        void StopPreshowGoodPlayerTimer();
         void StopSwitchToGoodTimer();
         void StopSwitchToBadTimer();
         void StopStopBadPlayerTimer();
         void StopStopGoodPlayerTimer();
         void StopStopOnInvisibleTimer();
-        void StopPreshowGoodPlayerTimer();
+        event Action PreshowBadPlayer;
+        event Action PreshowGoodPlayer;
         event Action SwitchToGood;
         event Action SwitchToBad;
         event Action StopBadPlayer;
         event Action StopGoodPlayer;
         event Action StopOnInvisible;
-        event Action PreshowGoodPlayer;
         void ShowBadPlayer();
+        void ShowSmallBadPlayer();
+        void ShowBigBadPlayerOnBack();
         void ShowGoodPlayer();
         void ShowSmallGoodPlayer();
+        void ShowBigGoodPlayerOnBack();
 
 
         bool SourceDragging { get; set; }

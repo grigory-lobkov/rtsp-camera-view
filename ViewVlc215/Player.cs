@@ -10,7 +10,7 @@ namespace ViewVlc215
 {
     public class Player : UserControl, IPlayerView
     {
-        public enum VlcStatus { Stopped = 0, Playing = 1, Buffering = 2, Preparing = 3 };
+        public enum VlcStatus { Stopped = 0, Playing = 1, Buffering = 2, PositionFound = 3, Preparing = 4 };
         private AxAXVLC.AxVLCPlugin2 vlc1;
         private System.Windows.Forms.Timer lostTimer;
         private System.ComponentModel.IContainer components = null;
@@ -184,18 +184,29 @@ namespace ViewVlc215
                 }
             }
         }
-
+        private int PosChangedTimes = 0;
         private void Vlc1PositionChanged()
         {
             lostTimer.Enabled = false;
             lostTimer.Enabled = true;
             if (vlc1Status == VlcStatus.Buffering)
             {
-                vlc1Status = VlcStatus.Playing;
-                Invoke(Playing);
-                lostTimer.Interval = lostRtspTimer;
+                vlc1Status = VlcStatus.PositionFound;
+                PosChangedTimes = 1;
+            }
+            else if (vlc1Status == VlcStatus.PositionFound)
+            {
+                PosChangedTimes++;
+                if (PosChangedTimes == 5)
+                {
+                    vlc1Status = VlcStatus.Playing;
+                    Invoke(Playing);
+                    lostTimer.Interval = lostRtspTimer;
+                }
             }
             if (vlcH <= 0)
+            {
+                vlc1.audio.Volume = this.volume; // important for user movies
                 if (vlc1.video.height > 0)
                 {
                     vlcH = vlc1.video.height;
@@ -207,6 +218,7 @@ namespace ViewVlc215
                     vlcH -= 1;
                     if (vlcH < -3) { vlcH = 576; vlcW = 704; Invoke(SizeDetected); }
                 }
+            }
         }
 
         private void LostRtsp1Timer_Tick(object sender, EventArgs e)
