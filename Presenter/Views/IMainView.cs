@@ -46,5 +46,7 @@ namespace Presenter.Views
         bool HintDropCameraShow { get; set; }
         bool HintNewRtspBadShow { get; set; }
         bool HintNewRtspGoodShow { get; set; }
+
+        bool AskIfAddSamples();
     }
 }

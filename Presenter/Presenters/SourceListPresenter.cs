@@ -111,6 +111,11 @@ namespace Presenter.Presenters
             _settings.hint.Hide();
             SourceDeletedVar = _camEdit;
             View.RemoveSelected();
+            int i = 0;
+            Camera[] tmp = new Camera[_settings.cams.Length - 1];
+            foreach (Camera c in _settings.cams) if (c != SourceDeletedVar) { tmp[i] = c; i++; }
+            Array.Resize(ref _settings.cams, 0);
+            _settings.cams = tmp;
             SourceDeleted?.Invoke();
         }
         private void SrcCancelled()

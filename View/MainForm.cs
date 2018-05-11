@@ -209,6 +209,10 @@ namespace View
                 _SetWindowPos(h1, IntPtr.Zero, screenlocation.X, screenlocation.Y, Screen.AllScreens[1].Bounds.Width, Screen.AllScreens[1].Bounds.Height, 0);// SWP_NOZORDER | SWP_SHOWWINDOW);
                 */
             }
+            else
+            {
+                //Screen scr = Screen.FromPoint(Cursor.Position);
+            }
         }
         public void Maximize()
         {
@@ -273,6 +277,12 @@ namespace View
                 Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Error);
             if (a == DialogResult.Yes) System.Diagnostics.Process.Start(VlcDownloadPage);
             Environment.Exit(101);
+        }
+        public bool AskIfAddSamples()
+        {
+            DialogResult a = MessageBox.Show(AskAddSamples.Text,
+                Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            return a == DialogResult.Yes;
         }
 
         public event Action ShowHintTimer;

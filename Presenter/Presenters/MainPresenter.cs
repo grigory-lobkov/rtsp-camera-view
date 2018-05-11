@@ -8,8 +8,6 @@ using Microsoft.Win32;
 
 /* TODO:
 
-Попробовать исправить иконку большого размера PNG->BMP
-
 Локализация на русский.
 
 Переподключаться при плохом сигнале.
@@ -43,6 +41,8 @@ namespace Presenter.Presenters
             try { _appSettings = settingsService.GetSettings(); }
             catch (UnauthorizedAccessException e) { View.ErrorAccessSettings(e.Message); }
             catch (Exception e) { View.ErrorOnLoadSettings(e.Message); }
+            if (_appSettings == null) _appSettings = settingsService.GetSettings();
+            if (_appSettings.cams.Length == 0) if (View.AskIfAddSamples()) settingsService.AddSampleCameras();
 
             View.CtrlPanelWidth = _appSettings.controlPanelWidth;
             // Sources grid
@@ -86,7 +86,7 @@ namespace Presenter.Presenters
                 }
                 if (l >= 6)
                 {
-                    string s = arg.Substring(0, 8);
+                    string s = arg.Substring(0, 6);
                     if (s.Equals("unmute")) if (l > 6) f = int.TryParse(arg.Substring(7), out unmute); else unmute = 1;
                     if (s.Equals("screen")) if (l > 6) f = int.TryParse(arg.Substring(7), out screen);
                 }
@@ -159,7 +159,8 @@ namespace Presenter.Presenters
         }
         private void SourceCreated()
         {
-            _sourceList.SourceEditedVar.Edit += () => EditSrcClick(_sourceList.SourceEditedVar);
+            Camera c = _sourceList.SourceEditedVar;
+            c.Edit += () => EditSrcClick(c);
             SaveSettings();
         }
         private void SourceModified()

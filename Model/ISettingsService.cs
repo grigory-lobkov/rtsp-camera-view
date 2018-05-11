@@ -9,5 +9,6 @@ namespace Model
     {
         AppSettings GetSettings();
         bool Save();
+        void AddSampleCameras();
     }
 }

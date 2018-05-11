@@ -167,6 +167,7 @@
             this.listView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.listView.ContextMenuStrip = this.cameraContextMenuStrip;
             this.listView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
             this.listView.HideSelection = false;
             this.listView.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
             listViewItem1,

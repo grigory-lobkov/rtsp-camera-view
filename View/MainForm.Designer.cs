@@ -52,6 +52,7 @@
             this.hintOpenCtrl = new System.Windows.Forms.Label();
             this.showHintTimer = new System.Windows.Forms.Timer(this.components);
             this.hideHintTimer = new System.Windows.Forms.Timer(this.components);
+            this.AskAddSamples = new System.Windows.Forms.Label();
             this.controlPanel.SuspendLayout();
             this.gridMenu.SuspendLayout();
             this.SuspendLayout();
@@ -298,12 +299,24 @@
             this.hideHintTimer.Interval = 30000;
             this.hideHintTimer.Tick += new System.EventHandler(this.HideHintTimer_Tick);
             // 
+            // AskAddSamples
+            // 
+            this.AskAddSamples.AutoSize = true;
+            this.AskAddSamples.ForeColor = System.Drawing.Color.White;
+            this.AskAddSamples.Location = new System.Drawing.Point(296, 280);
+            this.AskAddSamples.Name = "AskAddSamples";
+            this.AskAddSamples.Size = new System.Drawing.Size(270, 13);
+            this.AskAddSamples.TabIndex = 16;
+            this.AskAddSamples.Text = "Would you like to add sample cameras to your sources?";
+            this.AskAddSamples.Visible = false;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDark;
             this.ClientSize = new System.Drawing.Size(825, 444);
+            this.Controls.Add(this.AskAddSamples);
             this.Controls.Add(this.hintDropCamera);
             this.Controls.Add(this.hintRTSP2);
             this.Controls.Add(this.hintRTSP1);
@@ -321,6 +334,7 @@
             this.Controls.Add(this.controlPanel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.WindowsDefaultBounds;
             this.Text = "RTSP IP-camera Viewer";
             this.controlPanel.ResumeLayout(false);
             this.gridMenu.ResumeLayout(false);
@@ -353,5 +367,6 @@
         private System.Windows.Forms.Label hintOpenCtrl;
         private System.Windows.Forms.Timer showHintTimer;
         private System.Windows.Forms.Timer hideHintTimer;
+        private System.Windows.Forms.Label AskAddSamples;
     }
 }

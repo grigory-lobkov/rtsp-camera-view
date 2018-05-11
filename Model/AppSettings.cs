@@ -2,6 +2,7 @@
 
 namespace Model
 {
+    [XmlRoot(ElementName = "appSettings")]
     public class AppSettings
     {
         public int screen = -1; // screen number to open window on start
