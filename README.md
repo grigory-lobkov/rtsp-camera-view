@@ -1,8 +1,8 @@
-# RTSP Camera view &nbsp; [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?text=Watch%20your%20cameras%20in%20one%20place%20for%20free&url=https://github.com/grigory-lobkov/rtsp-camera-view&hashtags=rtsp,ip-camera,windows,c#)
+# RTSP Camera view &nbsp; [![Share](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?text=Watch%20your%20cameras%20in%20one%20place%20for%20free&url=https://github.com/grigory-lobkov/rtsp-camera-view&hashtags=rtsp,ip-camera,windows,c#)
 
-[![Price](https://img.shields.io/badge/price-FREE-0098f7.svg?style=flat-square)](https://github.com/grigory-lobkov/rtsp-camera-view/blob/master/LICENSE) 
-[![GitHub last commit](https://img.shields.io/github/last-commit/grigory-lobkov/rtsp-camera-view.svg?style=flat-square)](https://github.com/grigory-lobkov/rtsp-camera-view) 
-[![license](https://img.shields.io/github/license/grigory-lobkov/rtsp-camera-view.svg?style=flat-square)](https://github.com/grigory-lobkov/rtsp-camera-view/blob/master/LICENSE)
+[![FREE](https://img.shields.io/badge/price-FREE-0098f7.svg?style=flat-square)](https://github.com/grigory-lobkov/rtsp-camera-view/blob/master/LICENSE) 
+[![Open Source](https://img.shields.io/github/last-commit/grigory-lobkov/rtsp-camera-view.svg?style=flat-square)](https://github.com/grigory-lobkov/rtsp-camera-view) 
+[![Pro](https://img.shields.io/github/license/grigory-lobkov/rtsp-camera-view.svg?style=flat-square)](https://github.com/grigory-lobkov/rtsp-camera-view/blob/master/LICENSE)
 
 Monitoring of IP-cameras, view any streaming video sources in the grid mode
 
@@ -32,7 +32,10 @@ If you using it, please, put your [Issue here](https://github.com/grigory-lobkov
 
 
 ## Installation
-Check, you have Windows, .NET Framework 4.0, VLC 2.1.3 / 2.1.5 installed
+Dependencies
+- Windows XP or higher
+- .NET Framework 4.0 or higher
+- VLC 2.1.3 / 2.1.5
 
 Download executable from [Releases](https://github.com/grigory-lobkov/rtsp-camera-view/releases) and unpack
 
