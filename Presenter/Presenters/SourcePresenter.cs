@@ -65,6 +65,11 @@ namespace Presenter.Presenters
             get => _position;
             set { _position = value; if (_source != null) _source.position = -1; }
         }
+        public bool IsPlaying
+        {
+            get => _shownPlayer != null && _shownPlayer.IsPlaying;
+            set { if (value) CommandPlay(); else CommandStop(); }
+        }
 
         private void MouseMoved()
         {
@@ -458,5 +463,6 @@ namespace Presenter.Presenters
             DragDropInitiator = true;
             DragDropInit?.Invoke();
         }
+        //public void Log(string msg) { View.Log(msg); }
     }
 }

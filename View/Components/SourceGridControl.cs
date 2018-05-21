@@ -18,6 +18,7 @@ namespace View.Components
         public SourceGridControl()
         {
             InitializeComponent();
+            WatchDogTimer.Tick += (sender, args) => { WatchDogTimer.Enabled = false; Invoke(WatchDog); };
         }
 
         public void Clear()
@@ -92,6 +93,13 @@ namespace View.Components
         {
             get => oneMaximized;
             set { oneMaximized = value; Repaint(); }
+        }
+
+        public event Action WatchDog;
+        public bool WatchDogTimerEnabled
+        {
+            get => WatchDogTimer.Enabled;
+            set { if (value) WatchDogTimer.Enabled = false; WatchDogTimer.Enabled = value; }
         }
     }
 

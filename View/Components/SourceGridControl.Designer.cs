@@ -28,7 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            this.WatchDogTimer = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
+            // 
+            // WatchDogTimer
+            // 
+            this.WatchDogTimer.Interval = 50000;
             // 
             // SourceGridControl
             // 
@@ -43,5 +49,7 @@
         }
 
         #endregion
+
+        private System.Windows.Forms.Timer WatchDogTimer;
     }
 }

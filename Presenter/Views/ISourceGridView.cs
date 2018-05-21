@@ -1,4 +1,5 @@
-﻿using Presenter.Common;
+﻿using System;
+using Presenter.Common;
 
 namespace Presenter.Views
 {
@@ -10,5 +11,8 @@ namespace Presenter.Views
         void SwapItems(object obj1, object obj2);
         void Repaint();
         bool OneMaximized { get; set; }
+
+        event Action WatchDog;
+        bool WatchDogTimerEnabled { get; set; }
     }
 }

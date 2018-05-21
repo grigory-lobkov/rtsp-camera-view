@@ -11,10 +11,14 @@ namespace Presenter.Presenters
     {
         private AppSettings _settings = null;
         List<SourcePresenter> _srcs = new List<SourcePresenter>();
+        private int watchdogCountMax = -1;
+        private int watchdogKbTaken = 999999999;
+        private int watchdogRestartedLast = 0;
 
         public SourceGridPresenter(IApplicationController controller, ISourceGridView view)
             : base(controller, view)
         {
+            View.WatchDog += WatchDog;
         }
 
         public void SetSettings(AppSettings settings)
@@ -22,6 +26,7 @@ namespace Presenter.Presenters
             _settings = settings;
             CreateGrid();
             FillWithSources();
+            View.WatchDogTimerEnabled = true;
         }
 
         private void CreateGrid()
@@ -123,6 +128,38 @@ namespace Presenter.Presenters
                 else if (_draggedSource != null) tp.Source = _draggedSource;
             }
             _draggedSource = null;
+        }
+
+        private void WatchDog()
+        {
+            System.Diagnostics.Process currentProc = System.Diagnostics.Process.GetCurrentProcess();
+            int kbTaken = (int)(currentProc.PrivateMemorySize64 / 1024); // app size in KB
+            int playingCount = 0;
+            //_srcs[0].Log(kbTaken.ToString());
+            foreach (SourcePresenter s in _srcs) if (s.IsPlaying) playingCount = playingCount + 1;
+            if (watchdogCountMax < playingCount)
+            {
+                watchdogCountMax = playingCount;
+                watchdogKbTaken = kbTaken;
+            }
+            else if (watchdogCountMax > 0 && kbTaken > watchdogKbTaken * 1.2)
+            {
+                int restartNow = watchdogRestartedLast + 1;
+                if (restartNow >= _srcs.Count) restartNow = 0;
+                for (int i = restartNow; i < _srcs.Count; i++)
+                {
+                    SourcePresenter s = _srcs[i];
+                    if (s != null && s.IsPlaying)
+                    {
+                        s.IsPlaying = false;
+                        s.IsPlaying = true;
+                        restartNow = i;
+                        break;
+                    }
+                }
+                watchdogRestartedLast = restartNow;
+            }
+            View.WatchDogTimerEnabled = true;
         }
     }
 }
