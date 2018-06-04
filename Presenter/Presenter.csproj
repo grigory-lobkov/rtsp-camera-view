@@ -48,6 +48,7 @@
     <Compile Include="Common\BasePresener.cs" />
     <Compile Include="Common\IPresenter.cs" />
     <Compile Include="Common\IViewControl.cs" />
+    <Compile Include="Presenters\AlertSetupPresenter.cs" />
     <Compile Include="Presenters\MainPresenter.cs" />
     <Compile Include="Presenters\ModifySourcePresenter.cs" />
     <Compile Include="Presenters\NameViewEditPresener.cs" />
@@ -62,6 +63,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Views\IAlertSetupView.cs" />
     <Compile Include="Views\IMainView.cs" />
     <Compile Include="Views\IModifySourceView.cs" />
     <Compile Include="Views\INameViewEditView.cs" />

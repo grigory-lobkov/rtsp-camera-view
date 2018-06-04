@@ -93,6 +93,7 @@ namespace Presenter.Presenters
             FillWithSources();
         }
 
+
         /*****
          *      Drag & Drop functions
          */
@@ -129,6 +130,27 @@ namespace Presenter.Presenters
             }
             _draggedSource = null;
         }
+        
+
+        /*****
+         *      Lost signal alerting functions
+         */
+        private void SignalLost()
+        {
+            foreach (SourcePresenter s in _srcs) if (s.signalLost)
+                {
+                    s.signalLost = false;
+                    View.EmailOnLostSignal(s.Source.name, s.Source.rtspBad, s.Source.rtspGood);
+                }
+        }
+        private void SignalRestored()
+        {
+            foreach (SourcePresenter s in _srcs) if (s.signalRestored)
+                {
+                    s.signalLost = false;
+                    View.EmailOnRestoreSignal(s.Source.name, s.Source.rtspBad, s.Source.rtspGood);
+                }
+        }
 
         private void WatchDog()
         {
@@ -161,5 +183,6 @@ namespace Presenter.Presenters
             }
             View.WatchDogTimerEnabled = true;
         }
+
     }
 }

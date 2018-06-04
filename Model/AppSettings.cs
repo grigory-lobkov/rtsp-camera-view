@@ -21,6 +21,7 @@ namespace Model
 
         public Matrix matrix = new Matrix(); // matrix parameters (rows and columns count)
         public NameView nameView = new NameView(); // camera name show global option
+        public Alert alert = new Alert(); // alert messages
 
         [XmlArrayItem(ElementName = "cam", Type = typeof(Camera))]
         public Camera[] cams;
@@ -34,4 +35,5 @@ namespace Model
         public int cntX = 2;
         public int cntY = 2;
     }
+
 }

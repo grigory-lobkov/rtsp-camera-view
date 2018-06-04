@@ -3,7 +3,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using Presenter.Common;
 using Presenter.Views;
-//using System.Runtime.InteropServices;//for DllImport
+using System.Runtime.InteropServices;//for DllImport
 
 namespace View
 {
@@ -13,7 +13,7 @@ namespace View
         private const string CloseLabelTextConst = "<<";
         private const string VlcDownloadPage = "http://download.videolan.org/pub/videolan/vlc/2.1.5/win32/";
         private readonly ApplicationContext _context;
-        /*
+        
         internal enum SWP
         {
             ASYNCWINDOWPOS = 0x4000,
@@ -34,7 +34,7 @@ namespace View
         }
         [DllImport("user32.dll", EntryPoint = "SetWindowPos", SetLastError = true)]
         private static extern bool _SetWindowPos(IntPtr hWnd, IntPtr hWndInsertAfter, int x, int y, int cx, int cy, SWP uFlags);
-        */
+        
         public MainForm(ApplicationContext context)
         {
             _context = context;
@@ -197,21 +197,36 @@ namespace View
 
         public void MoveToScreen(int screen)
         {
-            Screen[] sc = Screen.AllScreens;
-            if (screen > -1 && sc.Length > screen)
+            int hopes = 10;
+            Screen[] sc = null;
+            while (sc == null && hopes > 0)
             {
-                this.StartPosition = FormStartPosition.Manual;
-                this.Location = new Point(sc[screen].Bounds.X, sc[screen].Bounds.Y);
-                this.Size = new Size(sc[screen].Bounds.Width, sc[screen].Bounds.Height);
-                /*
-                IntPtr h1 = this.Handle;
-                Point screenlocation = Screen.AllScreens[1].Bounds.Location;
-                _SetWindowPos(h1, IntPtr.Zero, screenlocation.X, screenlocation.Y, Screen.AllScreens[1].Bounds.Width, Screen.AllScreens[1].Bounds.Height, 0);// SWP_NOZORDER | SWP_SHOWWINDOW);
-                */
+                try { sc = Screen.AllScreens; }
+                catch { System.Threading.Thread.Sleep(100); }
+                hopes = hopes - 1;
             }
-            else
+
+            if (screen > -1 && sc!=null && sc.Length > screen)
             {
-                //Screen scr = Screen.FromPoint(Cursor.Position);
+                hopes = 10;
+                while (hopes > 0)
+                {
+                    try { this.StartPosition = FormStartPosition.Manual; }
+                    catch { this.Refresh(); System.Threading.Thread.Sleep(200); }
+                    hopes = hopes - 1;
+                }
+                hopes = 10;
+                while (hopes > 0)
+                {
+                    try
+                    {
+                        //this.Location = new Point(sc[screen].Bounds.X, sc[screen].Bounds.Y);
+                        //this.Size = new Size(sc[screen].Bounds.Width, sc[screen].Bounds.Height);
+                        _SetWindowPos(this.Handle, IntPtr.Zero, sc[screen].Bounds.X, sc[screen].Bounds.Y, sc[screen].Bounds.Width, sc[screen].Bounds.Height, 0);// SWP_NOZORDER | SWP_SHOWWINDOW);
+                    }
+                    catch { this.Refresh(); System.Threading.Thread.Sleep(300); }
+                    hopes = hopes - 1;
+                }
             }
         }
         public void Maximize()

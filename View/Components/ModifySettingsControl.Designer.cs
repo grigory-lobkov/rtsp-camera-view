@@ -42,6 +42,7 @@ namespace View.Components
             this.matrixDimensionsLabel = new System.Windows.Forms.Label();
             this.camNameViewGlbButton = new System.Windows.Forms.Button();
             this.commandLineHelp = new System.Windows.Forms.Label();
+            this.alertSetupButton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -119,10 +120,17 @@ namespace View.Components
             resources.ApplyResources(this.commandLineHelp, "commandLineHelp");
             this.commandLineHelp.Name = "commandLineHelp";
             // 
+            // alertSetupButton
+            // 
+            resources.ApplyResources(this.alertSetupButton, "alertSetupButton");
+            this.alertSetupButton.Name = "alertSetupButton";
+            this.alertSetupButton.UseVisualStyleBackColor = true;
+            // 
             // ModifySettingsControl
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.alertSetupButton);
             this.Controls.Add(this.commandLineHelp);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.matrixDimensionsLabel);
@@ -151,5 +159,6 @@ namespace View.Components
         private Label matrixDimensionsLabel;
         private Button camNameViewGlbButton;
         private Label commandLineHelp;
+        private Button alertSetupButton;
     }
 }

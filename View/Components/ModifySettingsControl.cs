@@ -18,6 +18,7 @@ namespace View.Components
             commandLineHelpButton.Click += (sender, args) => Invoke(CommandLineHelpClick);
             githubLinkLabel.Click += (sender, args) => Invoke(GitHubSiteClick);
             camNameViewGlbButton.Click += (sender, args) => Invoke(ModifyNameViewClick);
+            alertSetupButton.Click += (sender, args) => Invoke(AlertSetupClick);
         }
 
         private void Invoke(Action action)
@@ -61,6 +62,7 @@ namespace View.Components
         }
 
         public event Action ModifyNameViewClick;
+        public event Action AlertSetupClick;
 
         private void applyMatrixSize_MouseEnter(object sender, EventArgs e)
         {
@@ -134,5 +136,6 @@ namespace View.Components
             _lastX = Convert.ToInt32(matrixXinput.Text);
             _lastY = Convert.ToInt32(matrixYinput.Text);
         }
+
     }
 }

@@ -138,5 +138,6 @@ namespace View
         {
             autoHideTrackBar.Enabled = autoHideCheckBox.Checked;
         }
+
     }
 }

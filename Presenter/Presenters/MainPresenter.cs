@@ -1,6 +1,5 @@
 ﻿using System;
 using Model;
-using Model.Rtsp;
 using Presenter.Common;
 using Presenter.Views;
 using Presenter.Presenters;
@@ -8,13 +7,11 @@ using Microsoft.Win32;
 
 /* TODO:
 
-Локализация на русский.
+    Попробовать исправить иконку большого размера PNG->BMP
 
-Переподключаться при плохом сигнале.
+    Локализация на русский
 
-Отслеживание превышения памяти.
-
-Отправлять почту, когда не удается получить картинку очень долго.
+    Send mail on lost signal
 */
 
 namespace Presenter.Presenters
@@ -88,7 +85,7 @@ namespace Presenter.Presenters
                 {
                     string s = arg.Substring(0, 6);
                     if (s.Equals("unmute")) if (l > 6) f = int.TryParse(arg.Substring(7), out unmute); else unmute = 1;
-                    if (s.Equals("screen")) if (l > 6) f = int.TryParse(arg.Substring(7), out screen);
+                    if (s.Equals("screen")) if (l > 6) try { f = int.TryParse(arg.Substring(7), out screen); } catch { }
                 }
             }
             _appSettings.unmute_now = unmute;

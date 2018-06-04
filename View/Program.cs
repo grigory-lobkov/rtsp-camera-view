@@ -1,6 +1,6 @@
 ﻿using System.Windows.Forms;
 using Model;
-//using Model.Rtsp;
+//using Model.Alert;
 //using Presenter.Common;
 //using Presenter.Presenters;
 using Presenter.Views;
@@ -29,8 +29,9 @@ namespace UI
                 .RegisterControl<IPlayerView, ViewVlc215.Player>()
                 .RegisterView<IMainView, MainForm>()
                 .RegisterView<INameViewEditView, NameViewEditForm>()
+                .RegisterView<IAlertSetupView, AlertSetupForm>()
                 .RegisterService<ISettingsService, XmlFileSettingsService>()
-                //.RegisterService<IRtspService, VlcRtspService>()
+                .RegisterService<IEmailAlertService, TextEmailAlertService>()
                 .RegisterInstance(Context);
 
             controller.Run<Presenter.Presenters.MainPresenter>();

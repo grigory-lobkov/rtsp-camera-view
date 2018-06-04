@@ -17,6 +17,7 @@ namespace Presenter.Presenters
             View.GitHubSiteClick += View.OpenGitHubSite;
             View.ApplyMatrixSizeClick += ModifyMatrixSize;
             View.ModifyNameViewClick += ModifyNameView;
+            View.AlertSetupClick += AlertSetup;
         }
 
         public void SetSettings(AppSettings appSettings)
@@ -27,6 +28,7 @@ namespace Presenter.Presenters
         }
         public event Action MatrixSizeChanged;
         public event Action NameViewChanged;
+        public event Action AlertSettingsChanged;
 
         private void ModifyMatrixSize()
         {
@@ -44,6 +46,18 @@ namespace Presenter.Presenters
             {
                 _appSettings.nameView = nv;
                 NameViewChanged?.Invoke();
+            }
+        }
+
+        private void AlertSetup()
+        {
+            Alert alert = new Alert();
+            _appSettings.alert.SaveTo(alert);
+            Controller.Run<AlertSetupPresenter, Alert>(alert);
+            if (!_appSettings.alert.Equals(alert))
+            {
+                _appSettings.alert = alert;
+                AlertSettingsChanged?.Invoke();
             }
         }
 

@@ -76,6 +76,7 @@ namespace Presenter.Presenters
             View.ShowControl();
         }
 
+
         /*****
          * Set/Reset Source functions
          */
@@ -107,6 +108,8 @@ namespace Presenter.Presenters
             _badPlayer.SoundDetected += BadSoundDetected;
             _badPlayer.Buffering += BadBuffering;
             _badPlayer.SizeDetected += BadSizeDetected;
+            _badPlayer.LostStream += SignalLostF;
+            _badPlayer.LostStreamRestored += SignalRestoredF;
         }
         private void SetSource(Camera source)
         {
@@ -117,7 +120,8 @@ namespace Presenter.Presenters
                 if (String.IsNullOrEmpty(source.rtspGood)) return; //todo: generate error message on empty bad (and good?) strings
                 _badString = source.rtspGood;
                 _goodString = "";
-            } else
+            }
+            else
             {
                 _badString = source.rtspBad;
                 _goodString = source.rtspGood;
@@ -139,6 +143,8 @@ namespace Presenter.Presenters
                     _goodPlayer.Stopped += GoodStopped;
                     _goodPlayer.SoundDetected += GoodSoundDetected;
                     _goodPlayer.Buffering += GoodBuffering;
+                    _goodPlayer.LostStream += SignalLostF;
+                    _goodPlayer.LostStreamRestored += SignalRestoredF;
                 }
                 _goodPlayer.SetSourceString(_goodString);
                 _goodPlayer.SetAspectRatio(source.aspectRatio);
@@ -188,7 +194,7 @@ namespace Presenter.Presenters
         private void StopOnInvisible()
         {
             if (log) View.Log("StopOnInvisible");
-            if (_shownPlayer.IsPlaying)
+            if (_shownPlayer != null && _shownPlayer.IsPlaying)
             {
                 stoppedOnInvisible = true;
                 CommandStop();
@@ -278,6 +284,7 @@ namespace Presenter.Presenters
             ResetSource();
         }
 
+
         /*****
          * Player event react functions
          */
@@ -362,6 +369,7 @@ namespace Presenter.Presenters
             }
         }
 
+
         /*****
          * Switch Bad/Good SourceString functions
          */
@@ -431,6 +439,7 @@ namespace Presenter.Presenters
             if (_shownPlayer != _goodPlayer) GoodPlaying();
         }
 
+
         /*****
          * Drag & Drop functions
          */
@@ -463,6 +472,28 @@ namespace Presenter.Presenters
             DragDropInitiator = true;
             DragDropInit?.Invoke();
         }
+
+
+        /*****
+         * Lost stream alerting functions
+         */
+        public bool signalLost = false;
+        public bool signalRestored = false;
+        public Action SignalLost;
+        public Action SignalRestored;
+        private void SignalLostF()
+        {
+            if (log) View.Log("SignalLostF");
+            signalLost = true;
+            SignalLost?.Invoke();
+        }
+        private void SignalRestoredF()
+        {
+            if (log) View.Log("SignalRestoredF");
+            signalRestored = true;
+            SignalRestored?.Invoke();
+        }
+        
         //public void Log(string msg) { View.Log(msg); }
     }
 }

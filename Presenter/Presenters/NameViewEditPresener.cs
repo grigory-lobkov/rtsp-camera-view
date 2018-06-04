@@ -21,10 +21,6 @@ namespace Presenter.Presenters
             ViewRefresh();
             View.Show();
         }
-        private void Invoke(Action action)
-        {
-            action?.Invoke();
-        }
 
         private void ViewRefresh()
         {

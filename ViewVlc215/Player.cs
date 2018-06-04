@@ -10,10 +10,18 @@ namespace ViewVlc215
 {
     public class Player : UserControl, IPlayerView
     {
+        private int lostRtspOnStartTimer = 30000;
+        private int lostRtspTimer = 10000;
+        private int lostRtspRetry;
+        private int lostRtspRetryAlert = 20; // 10 min = 20 * 30000 / 60000
+        private string playlistAddOptions = null;//":no-audio"
+        private string defaultAspectRatio = "auto";
+
         public enum VlcStatus { Stopped = 0, Playing = 1, Buffering = 2, Preparing = 3 };
         private AxAXVLC.AxVLCPlugin2 vlc1;
         private System.Windows.Forms.Timer lostTimer;
         private System.ComponentModel.IContainer components = null;
+
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -27,6 +35,7 @@ namespace ViewVlc215
             }
             base.Dispose(disposing);
         }
+
         //private void InitInThread(object sender) { }
         private void InitializeComponent()
         {
@@ -68,10 +77,7 @@ namespace ViewVlc215
         public event Action SoundDetected;
         public event Action SizeDetected;
         public event Action LostStream;
-        private string playlistAddOptions = null;//":no-audio"
-        private string defaultAspectRatio = "auto";
-        private int lostRtspOnStartTimer = 30000;
-        private int lostRtspTimer = 5000;
+        public event Action LostStreamRestored;
 
         public bool IsPlaying { get => vlc1Status == VlcStatus.Playing; }
 
@@ -80,6 +86,7 @@ namespace ViewVlc215
             InitializeComponent();
             vlc1.playlist.stop(); // to generate error InvalidCastException on bad VLC version on grid creation
             vlc1Status = VlcStatus.Preparing;
+            lostRtspRetry = 0;
         }
 
         private void Invoke(Action action)
@@ -140,18 +147,22 @@ namespace ViewVlc215
         }
 
 
-
+        private void PrivateStop()
+        {
+            lostTimer.Enabled = false;
+            vlcH = 0;
+            vlcW = 0;
+            vlc1.playlist.stop();
+            isSoundPresent = false;
+            vlc1Status = VlcStatus.Stopped;
+        }
         public bool Stop()
         {
             if (vlc1Status != VlcStatus.Stopped)
             {
-                lostTimer.Enabled = false;
-                vlcH = 0;
-                vlcW = 0;
-                vlc1.playlist.stop();
-                isSoundPresent = false;
-                vlc1Status = VlcStatus.Stopped;
+                PrivateStop();
                 Invoke(Stopped);
+                lostRtspRetry = 0;
                 return true;
             }
             return false;
@@ -199,6 +210,8 @@ namespace ViewVlc215
                     vlc1Status = VlcStatus.Playing;
                     Invoke(Playing);
                     lostTimer.Interval = lostRtspTimer;
+                    if (lostRtspRetry >= lostRtspRetryAlert) Invoke(LostStreamRestored);
+                    lostRtspRetry = 0;
                 }
             } else if (vlcH <= 0)
             {
@@ -211,15 +224,17 @@ namespace ViewVlc215
                 else
                 {
                     vlcH -= 1;
-                    if (vlcH < -3) { vlcH = 576; vlcW = 704; Invoke(SizeDetected); }
+                    if (vlcH < -5) { vlcH = 576; vlcW = 704; Invoke(SizeDetected); }
                 }
             }
         }
 
         private void LostRtsp1Timer_Tick(object sender, EventArgs e)
         {
-            lostTimer.Enabled = false;
-            Invoke(LostStream);
+            PrivateStop();
+            lostRtspRetry += 1;
+            if (lostRtspRetry == lostRtspRetryAlert) Invoke(LostStream);
+            Play();
         }
     }
 }

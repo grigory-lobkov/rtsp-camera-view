@@ -13,8 +13,9 @@ namespace Presenter.Views
         event Action Buffering;
         event Action Stopped;
         event Action SoundDetected;
-        event Action LostStream;
         event Action SizeDetected;
+        event Action LostStream;
+        event Action LostStreamRestored;
 
         int Volume { get; set; }
         string SourceString { get; set; }

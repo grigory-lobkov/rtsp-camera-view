@@ -15,5 +15,6 @@ namespace Presenter.Views
         int MatrixY { get; set; }
         event Action ApplyMatrixSizeClick;
         event Action ModifyNameViewClick;
+        event Action AlertSetupClick;
     }
 }

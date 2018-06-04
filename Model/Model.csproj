@@ -34,15 +34,16 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Alert.cs" />
+    <Compile Include="Alert\TextEmailAlertService.cs" />
     <Compile Include="Hint.cs" />
-    <Compile Include="ISettingsService.cs" />
+    <Compile Include="Alert\IEmailAlertService.cs" />
+    <Compile Include="Settings\ISettingsService.cs" />
     <Compile Include="AppSettings.cs" />
     <Compile Include="CameraNameView.cs" />
-    <Compile Include="Rtsp\IRtspService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Rtsp\VlcRtspService.cs" />
     <Compile Include="Camera.cs" />
-    <Compile Include="XmlFileSettingsService.cs" />
+    <Compile Include="Settings\XmlFileSettingsService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

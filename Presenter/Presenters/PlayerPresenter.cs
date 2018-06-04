@@ -18,6 +18,7 @@ namespace Presenter.Presenters
             View.Stopped += () => Invoke(Stopped);
             View.SoundDetected += () => Invoke(SoundDetected);
             View.LostStream += () => Invoke(LostStream);
+            View.LostStreamRestored += () => Invoke(LostStreamRestored);
             View.SizeDetected += () => Invoke(SizeDetected);
         }
 
@@ -36,8 +37,9 @@ namespace Presenter.Presenters
         public event Action Buffering;
         public event Action Stopped;
         public event Action SoundDetected;
-        public event Action LostStream;
         public event Action SizeDetected;
+        public event Action LostStream;
+        public event Action LostStreamRestored;
 
         public int Volume { get => View.Volume; set => View.Volume = value; }
 

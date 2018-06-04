@@ -99,6 +99,12 @@
       <DependentUpon>SourceListControl.cs</DependentUpon>
     </Compile>
     <Compile Include="LightInjectAdapter.cs" />
+    <Compile Include="AlertSetupForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AlertSetupForm.Designer.cs">
+      <DependentUpon>AlertSetupForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -160,6 +166,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Components\SourceListControl.resx">
       <DependentUpon>SourceListControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AlertSetupForm.resx">
+      <DependentUpon>AlertSetupForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
