@@ -3,7 +3,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using Presenter.Common;
 using Presenter.Views;
-using System.Runtime.InteropServices;//for DllImport
+//using System.Runtime.InteropServices;//for DllImport
 
 namespace View
 {
@@ -13,7 +13,7 @@ namespace View
         private const string CloseLabelTextConst = "<<";
         private const string VlcDownloadPage = "http://download.videolan.org/pub/videolan/vlc/2.1.5/win32/";
         private readonly ApplicationContext _context;
-        
+        /*
         internal enum SWP
         {
             ASYNCWINDOWPOS = 0x4000,
@@ -34,7 +34,7 @@ namespace View
         }
         [DllImport("user32.dll", EntryPoint = "SetWindowPos", SetLastError = true)]
         private static extern bool _SetWindowPos(IntPtr hWnd, IntPtr hWndInsertAfter, int x, int y, int cx, int cy, SWP uFlags);
-        
+        */
         public MainForm(ApplicationContext context)
         {
             _context = context;
@@ -172,19 +172,41 @@ namespace View
         private FormWindowState saveWindowState;
         public void DoFullscreen()
         {
-            saveBorderStyle = this.FormBorderStyle;
-            saveWindowState = this.WindowState;
-            this.FormBorderStyle = FormBorderStyle.None;
-            this.WindowState = FormWindowState.Maximized;
-            fullScreenMenuItem.Visible = false;
-            exitFullScreenMenuItem.Visible = true;
+            try
+            {
+                saveBorderStyle = this.FormBorderStyle;
+                saveWindowState = this.WindowState;
+            }
+            catch { }
+            int hopes = 20;
+            while (hopes > 0)
+            {
+                try
+                {
+                    this.FormBorderStyle = FormBorderStyle.None;
+                    this.WindowState = FormWindowState.Maximized;
+                    fullScreenMenuItem.Visible = false;
+                    exitFullScreenMenuItem.Visible = true;
+                    hopes = 0;
+                }
+                catch { System.Threading.Thread.Sleep(101); hopes--; }
+            }
         }
         public void ExitFullscreen()
         {
-            this.FormBorderStyle = saveBorderStyle;
-            this.WindowState = saveWindowState;
-            fullScreenMenuItem.Visible = true;
-            exitFullScreenMenuItem.Visible = false;
+            int hopes = 20;
+            while (hopes > 0)
+            {
+                try
+                {
+                    this.FormBorderStyle = saveBorderStyle;
+                    this.WindowState = saveWindowState;
+                    fullScreenMenuItem.Visible = true;
+                    exitFullScreenMenuItem.Visible = false;
+                    hopes = 0;
+                }
+                catch { System.Threading.Thread.Sleep(102); hopes--; }
+            }
         }
         public void DoAlwaysOnTop()
         {
@@ -197,55 +219,62 @@ namespace View
 
         public void MoveToScreen(int screen)
         {
-            int hopes = 10;
             Screen[] sc = null;
+            int hopes = 32;
             while (sc == null && hopes > 0)
             {
                 try { sc = Screen.AllScreens; }
-                catch { System.Threading.Thread.Sleep(100); }
-                hopes = hopes - 1;
+                catch { System.Threading.Thread.Sleep(111); hopes--; }
             }
 
             if (screen > -1 && sc!=null && sc.Length > screen)
             {
-                hopes = 10;
+                hopes = 28;
                 while (hopes > 0)
                 {
-                    try { this.StartPosition = FormStartPosition.Manual; }
-                    catch { this.Refresh(); System.Threading.Thread.Sleep(200); }
-                    hopes = hopes - 1;
+                    try { this.StartPosition = FormStartPosition.Manual; hopes = 0; }
+                    catch { this.Refresh(); System.Threading.Thread.Sleep(123); hopes--; }
                 }
-                hopes = 10;
+                hopes = 24;
                 while (hopes > 0)
                 {
                     try
                     {
-                        //this.Location = new Point(sc[screen].Bounds.X, sc[screen].Bounds.Y);
-                        //this.Size = new Size(sc[screen].Bounds.Width, sc[screen].Bounds.Height);
-                        _SetWindowPos(this.Handle, IntPtr.Zero, sc[screen].Bounds.X, sc[screen].Bounds.Y, sc[screen].Bounds.Width, sc[screen].Bounds.Height, 0);// SWP_NOZORDER | SWP_SHOWWINDOW);
+                        this.Location = new Point(sc[screen].Bounds.X, sc[screen].Bounds.Y);
+                        this.Size = new Size(sc[screen].Bounds.Width, sc[screen].Bounds.Height);
+                        //_SetWindowPos(this.Handle, IntPtr.Zero, sc[screen].Bounds.X, sc[screen].Bounds.Y, sc[screen].Bounds.Width, sc[screen].Bounds.Height, 0);// SWP_NOZORDER | SWP_SHOWWINDOW); //08.06.2018 commented, ZioWeb said it less stable
+                        hopes = 0;
                     }
-                    catch { this.Refresh(); System.Threading.Thread.Sleep(300); }
-                    hopes = hopes - 1;
+                    catch { this.Refresh(); System.Threading.Thread.Sleep(135); hopes--; }
                 }
             }
         }
         public void Maximize()
         {
-            this.WindowState = FormWindowState.Maximized;
+            int hopes = 20;
+            while (hopes > 0)
+            {
+                try { this.WindowState = FormWindowState.Maximized; hopes = 0; }
+                catch { System.Threading.Thread.Sleep(103); hopes--; }
+            }
         }
         public void SetPriority(int priority)
         {
             if (priority < 0 || priority > 4) return;
-            System.Diagnostics.ProcessPriorityClass c = System.Diagnostics.ProcessPriorityClass.Normal;
-            switch (priority)
+            try
             {
-                case 0: c = System.Diagnostics.ProcessPriorityClass.Idle; break;
-                case 1: c = System.Diagnostics.ProcessPriorityClass.BelowNormal; break;
-                case 2: c = System.Diagnostics.ProcessPriorityClass.Normal; break;
-                case 3: c = System.Diagnostics.ProcessPriorityClass.AboveNormal; break;
-                case 4: c = System.Diagnostics.ProcessPriorityClass.High; break;
+                System.Diagnostics.ProcessPriorityClass c = System.Diagnostics.ProcessPriorityClass.Normal;
+                switch (priority)
+                {
+                    case 0: c = System.Diagnostics.ProcessPriorityClass.Idle; break;
+                    case 1: c = System.Diagnostics.ProcessPriorityClass.BelowNormal; break;
+                    case 2: c = System.Diagnostics.ProcessPriorityClass.Normal; break;
+                    case 3: c = System.Diagnostics.ProcessPriorityClass.AboveNormal; break;
+                    case 4: c = System.Diagnostics.ProcessPriorityClass.High; break;
+                }
+                System.Diagnostics.Process.GetCurrentProcess().PriorityClass = c;
             }
-            System.Diagnostics.Process.GetCurrentProcess().PriorityClass = c;
+            finally { }
         }
         public void SetAppCaption()
         {
