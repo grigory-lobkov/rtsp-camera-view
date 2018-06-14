@@ -15,7 +15,9 @@ namespace Presenter.Views
         event Action WatchDog;
         bool WatchDogTimerEnabled { get; set; }
 
-        void EmailOnLostSignal(string name, string bad, string good);
-        void EmailOnRestoreSignal(string name, string bad, string good);
+        string EmLostSignalTitle { get; }
+        string EmLostSignalSubject { get; }
+        string EmRestoreSignalTitle { get; }
+        string EmRestoreSignalSubject { get; }
     }
 }

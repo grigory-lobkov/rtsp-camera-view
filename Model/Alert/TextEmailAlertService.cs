@@ -33,8 +33,8 @@ namespace Model
                 MailMessage mail = new MailMessage()
                 {
                     From = new MailAddress(_config.emailFrom),
-                    Subject = subject,
-                    Body = body,
+                    Subject = subject + " [rtsp-camera-view]",
+                    Body = body + "\n\n\nThis message was sent by rtsp-camera-view\nhttps://github.com/grigory-lobkov/rtsp-camera-view",
                 };
                 mail.To.Add(new MailAddress(_config.emailTo));
                 //if (!string.IsNullOrEmpty(attachFile)) mail.Attachments.Add(new Attachment(attachFile));
@@ -42,11 +42,15 @@ namespace Model
                 {
                     Host = _config.serverUrl,
                     Port = _config.serverPort,
-                    EnableSsl = true,
-                    UseDefaultCredentials = false,
-                    Credentials = new NetworkCredential(_config.authUser, _config.authPassword),
+                    EnableSsl = _config.serverPort != 25,
+                    UseDefaultCredentials = String.IsNullOrEmpty(_config.authUser),
                     DeliveryMethod = SmtpDeliveryMethod.Network,
+                    Timeout = 30000,
                 };
+                if (!client.UseDefaultCredentials)
+                {
+                    client.Credentials = new NetworkCredential(_config.authUser, _config.authPassword);
+                }
                 client.Send(mail);
                 mail.Dispose();
             }

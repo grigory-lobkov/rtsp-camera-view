@@ -32,8 +32,8 @@
             this.WatchDogTimer = new System.Windows.Forms.Timer(this.components);
             this.EmailOnLostSignalTitle = new System.Windows.Forms.Label();
             this.EmailOnLostSignalSubject = new System.Windows.Forms.Label();
-            this.EmailRestoreSignalSubject = new System.Windows.Forms.Label();
-            this.EmailRestoreSignalTitle = new System.Windows.Forms.Label();
+            this.EmailOnRestoreSignalSubject = new System.Windows.Forms.Label();
+            this.EmailOnRestoreSignalTitle = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // WatchDogTimer
@@ -61,30 +61,30 @@
             // 
             // EmailRestoreSignalSubject
             // 
-            this.EmailRestoreSignalSubject.AutoSize = true;
-            this.EmailRestoreSignalSubject.Location = new System.Drawing.Point(157, 390);
-            this.EmailRestoreSignalSubject.Name = "EmailRestoreSignalSubject";
-            this.EmailRestoreSignalSubject.Size = new System.Drawing.Size(146, 104);
-            this.EmailRestoreSignalSubject.TabIndex = 3;
-            this.EmailRestoreSignalSubject.Text = "Signal of {name} is recovered\r\n\r\nBad stream url:\r\n{bad}\r\n\r\nGood stream url:\r\n{goo" +
+            this.EmailOnRestoreSignalSubject.AutoSize = true;
+            this.EmailOnRestoreSignalSubject.Location = new System.Drawing.Point(157, 390);
+            this.EmailOnRestoreSignalSubject.Name = "EmailRestoreSignalSubject";
+            this.EmailOnRestoreSignalSubject.Size = new System.Drawing.Size(146, 104);
+            this.EmailOnRestoreSignalSubject.TabIndex = 3;
+            this.EmailOnRestoreSignalSubject.Text = "Signal of {name} is recovered\r\n\r\nBad stream url:\r\n{bad}\r\n\r\nGood stream url:\r\n{goo" +
     "d}\r\n\r\n";
             // 
             // EmailRestoreSignalTitle
             // 
-            this.EmailRestoreSignalTitle.AutoSize = true;
-            this.EmailRestoreSignalTitle.Location = new System.Drawing.Point(157, 368);
-            this.EmailRestoreSignalTitle.Name = "EmailRestoreSignalTitle";
-            this.EmailRestoreSignalTitle.Size = new System.Drawing.Size(111, 13);
-            this.EmailRestoreSignalTitle.TabIndex = 2;
-            this.EmailRestoreSignalTitle.Text = "{name} recovered link";
+            this.EmailOnRestoreSignalTitle.AutoSize = true;
+            this.EmailOnRestoreSignalTitle.Location = new System.Drawing.Point(157, 368);
+            this.EmailOnRestoreSignalTitle.Name = "EmailRestoreSignalTitle";
+            this.EmailOnRestoreSignalTitle.Size = new System.Drawing.Size(111, 13);
+            this.EmailOnRestoreSignalTitle.TabIndex = 2;
+            this.EmailOnRestoreSignalTitle.Text = "{name} recovered link";
             // 
             // SourceGridControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.Controls.Add(this.EmailRestoreSignalSubject);
-            this.Controls.Add(this.EmailRestoreSignalTitle);
+            this.Controls.Add(this.EmailOnRestoreSignalSubject);
+            this.Controls.Add(this.EmailOnRestoreSignalTitle);
             this.Controls.Add(this.EmailOnLostSignalSubject);
             this.Controls.Add(this.EmailOnLostSignalTitle);
             this.Name = "SourceGridControl";
@@ -100,7 +100,7 @@
         private System.Windows.Forms.Timer WatchDogTimer;
         private System.Windows.Forms.Label EmailOnLostSignalTitle;
         private System.Windows.Forms.Label EmailOnLostSignalSubject;
-        private System.Windows.Forms.Label EmailRestoreSignalSubject;
-        private System.Windows.Forms.Label EmailRestoreSignalTitle;
+        private System.Windows.Forms.Label EmailOnRestoreSignalSubject;
+        private System.Windows.Forms.Label EmailOnRestoreSignalTitle;
     }
 }

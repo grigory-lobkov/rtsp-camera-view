@@ -17,8 +17,6 @@ namespace Presenter.Views
         string EmFrom { get; set; }
         string EmSerName { get; set; }
         int EmSerPort { get; set; }
-        int EmConnProt { get; set; }
-        int EmAuthMethod { get; set; }
         string EmUsername { get; set; }
         string EmPassword { get; set; }
 

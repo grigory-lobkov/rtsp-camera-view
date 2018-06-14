@@ -11,7 +11,7 @@ using Microsoft.Win32;
 
     Локализация на русский
 
-    Send mail on lost signal
+    Пробросить событие изменения настройки алёрта от ModifySettingsPresenter до дочерних SourcePresenter
 */
 
 namespace Presenter.Presenters
@@ -23,8 +23,9 @@ namespace Presenter.Presenters
         private ModifySettingsPresenter _settings = null;
         private AppSettings _appSettings = null;
         private ISettingsService _settingsService = null;
+        private IEmailAlertService _eMalertService;
 
-        public MainPresenter(IApplicationController controller, IMainView view, ISettingsService settingsService)
+        public MainPresenter(IApplicationController controller, IMainView view, ISettingsService settingsService, IEmailAlertService eMalertService)
             : base(controller, view)
         {
             // View actions
@@ -42,6 +43,11 @@ namespace Presenter.Presenters
             if (_appSettings.cams.Length == 0) if (View.AskIfAddSamples()) settingsService.AddSampleCameras();
 
             View.CtrlPanelWidth = _appSettings.controlPanelWidth;
+
+            // Alerts
+            _eMalertService = eMalertService;
+            _eMalertService.SetSettings(_appSettings.alert);
+
             // Sources grid
             try { CreateGrid(); }
             catch (System.IO.FileNotFoundException e) { View.ErrorOnCreateGridNoLib(e.Message); } //no VLC or ActiveX lib
@@ -145,7 +151,7 @@ namespace Presenter.Presenters
             if (_sourceGrid == null)
             {
                 _sourceGrid = Controller.Get<SourceGridPresenter>();
-                _sourceGrid.SetSettings(_appSettings);
+                _sourceGrid.SetSettings(_appSettings, _eMalertService);
                 View.SetGridControl(_sourceGrid.Control);
             }
         }
@@ -183,7 +189,7 @@ namespace Presenter.Presenters
         }
         private void MatrixSizeChanged()
         {
-            _sourceGrid.SetSettings(_appSettings);
+            _sourceGrid.SetSettings(_appSettings, _eMalertService);
         }
 
         private void ShowHintWithWait()

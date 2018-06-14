@@ -10,6 +10,7 @@ namespace Presenter.Presenters
     public class SourceGridPresenter : BasePresenterControl<ISourceGridView>
     {
         private AppSettings _settings = null;
+        private IEmailAlertService _eMalertService;
         List<SourcePresenter> _srcs = new List<SourcePresenter>();
         private int watchdogCountMax = -1;
         private int watchdogKbTaken = 999999999;
@@ -21,9 +22,10 @@ namespace Presenter.Presenters
             View.WatchDog += WatchDog;
         }
 
-        public void SetSettings(AppSettings settings)
+        public void SetSettings(AppSettings settings, IEmailAlertService eMalertService)
         {
             _settings = settings;
+            _eMalertService = eMalertService;
             CreateGrid();
             FillWithSources();
             View.WatchDogTimerEnabled = true;
@@ -130,25 +132,38 @@ namespace Presenter.Presenters
             }
             _draggedSource = null;
         }
-        
+
 
         /*****
          *      Lost signal alerting functions
          */
+        private string FillAlertTemplate(string template, Camera camera)
+        {
+            return template.Replace("{name}", camera.name)
+                .Replace("{bad}", camera.rtspBad).Replace("{good}", camera.rtspGood);
+        }
         private void SignalLost()
         {
-            foreach (SourcePresenter s in _srcs) if (s.signalLost)
+            foreach (SourcePresenter s in _srcs)
+                if (s.signalLost)
                 {
                     s.signalLost = false;
-                    View.EmailOnLostSignal(s.Source.name, s.Source.rtspBad, s.Source.rtspGood);
+                    if (_settings.alert.email.onSignalLost)
+                        _eMalertService.SendAlert(
+                            FillAlertTemplate(View.EmLostSignalTitle, s.Source),
+                            FillAlertTemplate(View.EmLostSignalSubject, s.Source));
                 }
         }
         private void SignalRestored()
         {
-            foreach (SourcePresenter s in _srcs) if (s.signalRestored)
+            foreach (SourcePresenter s in _srcs)
+                if (s.signalRestored)
                 {
                     s.signalLost = false;
-                    View.EmailOnRestoreSignal(s.Source.name, s.Source.rtspBad, s.Source.rtspGood);
+                    if (_settings.alert.email.onSignalRecover)
+                        _eMalertService.SendAlertRecover(
+                            FillAlertTemplate(View.EmRestoreSignalTitle, s.Source),
+                            FillAlertTemplate(View.EmRestoreSignalSubject, s.Source));
                 }
         }
 

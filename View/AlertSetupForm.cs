@@ -71,8 +71,6 @@ namespace View
         public string EmFrom { get => emFromTextBox.Text; set => emFromTextBox.Text = value; }
         public string EmSerName { get => emNameTextBox.Text; set => emNameTextBox.Text = value; }
         public int EmSerPort { get => Convert.ToInt32(emPortTextBox.Text); set => emPortTextBox.Text = value.ToString(); }
-        public int EmConnProt { get => emConnProtComboBox.SelectedIndex; set => emConnProtComboBox.SelectedIndex = value; }
-        public int EmAuthMethod { get => emAuthMethodComboBox.SelectedIndex; set => emAuthMethodComboBox.SelectedIndex = value; }
         public string EmUsername { get => emUsernameTextBox.Text; set => emUsernameTextBox.Text = value; }
         public string EmPassword { get => emPasswordTextBox.Text; set => emPasswordTextBox.Text = value; }
 

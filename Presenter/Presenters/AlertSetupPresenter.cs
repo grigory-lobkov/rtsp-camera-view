@@ -28,8 +28,6 @@ namespace Presenter.Presenters
 
         private void ViewRefresh()
         {
-            View.EmAuthMethod = _alert.email.authMethod;
-            View.EmConnProt = _alert.email.connProt;
             View.EmFrom = _alert.email.emailFrom;
             View.EmLost = _alert.email.onSignalLost;
             View.EmLostMin = _alert.email.whenDissapearMin;
@@ -43,8 +41,6 @@ namespace Presenter.Presenters
 
         private void OkClick()
         {
-            _alert.email.authMethod = View.EmAuthMethod;
-            _alert.email.serverPort = View.EmConnProt;
             _alert.email.emailFrom = View.EmFrom;
             _alert.email.onSignalLost = View.EmLost;
             _alert.email.whenDissapearMin = View.EmLostMin;
@@ -64,8 +60,8 @@ namespace Presenter.Presenters
 
         private void TestClick()
         {
-            //check authUser, authPassword, emailFrom, emailTo
-            _eMalertService.SendAlert("test_header", "test_content");
+            //ToDo: check emailFrom, emailTo
+            _eMalertService.SendAlert("Alert test", "Congratulations!\nYour settings are working!");
         }
     }
 }

@@ -103,16 +103,10 @@ namespace View.Components
             set { if (value) WatchDogTimer.Enabled = false; WatchDogTimer.Enabled = value; }
         }
 
-        public void EmailOnLostSignal(string name, string bad, string good)
-        {
-            //https://ru.stackoverflow.com/questions/457072/%D0%9E%D1%82%D0%BF%D1%80%D0%B0%D0%B2%D0%BA%D0%B0-%D0%BF%D0%BE%D1%87%D1%82%D1%8B-c
-            //https://stud-work.ru/c-sharp-mail-send-prostoj-primer-c-otpravka-email
-        }
-        public void EmailOnRestoreSignal(string name, string bad, string good)
-        {
-
-        }
-
+        public string EmLostSignalTitle { get => EmailOnLostSignalTitle.Text; }
+        public string EmLostSignalSubject { get => EmailOnLostSignalSubject.Text; }
+        public string EmRestoreSignalTitle { get => EmailOnRestoreSignalTitle.Text; }
+        public string EmRestoreSignalSubject { get => EmailOnRestoreSignalSubject.Text; }
     }
 
     public class GridItem

@@ -41,10 +41,6 @@
             this.emPasswordTextBox = new System.Windows.Forms.TextBox();
             this.emUsernameLabel = new System.Windows.Forms.Label();
             this.emUsernameTextBox = new System.Windows.Forms.TextBox();
-            this.emAuthMethodLabel = new System.Windows.Forms.Label();
-            this.emAuthMethodComboBox = new System.Windows.Forms.ComboBox();
-            this.emConnProtComboBox = new System.Windows.Forms.ComboBox();
-            this.emConnProtLabel = new System.Windows.Forms.Label();
             this.emPortLabel = new System.Windows.Forms.Label();
             this.emPortTextBox = new System.Windows.Forms.TextBox();
             this.emNameTextBox = new System.Windows.Forms.TextBox();
@@ -107,10 +103,6 @@
             this.emServerGroupBox.Controls.Add(this.emPasswordTextBox);
             this.emServerGroupBox.Controls.Add(this.emUsernameLabel);
             this.emServerGroupBox.Controls.Add(this.emUsernameTextBox);
-            this.emServerGroupBox.Controls.Add(this.emAuthMethodLabel);
-            this.emServerGroupBox.Controls.Add(this.emAuthMethodComboBox);
-            this.emServerGroupBox.Controls.Add(this.emConnProtComboBox);
-            this.emServerGroupBox.Controls.Add(this.emConnProtLabel);
             this.emServerGroupBox.Controls.Add(this.emPortLabel);
             this.emServerGroupBox.Controls.Add(this.emPortTextBox);
             this.emServerGroupBox.Controls.Add(this.emNameTextBox);
@@ -146,39 +138,6 @@
             // 
             resources.ApplyResources(this.emUsernameTextBox, "emUsernameTextBox");
             this.emUsernameTextBox.Name = "emUsernameTextBox";
-            // 
-            // emAuthMethodLabel
-            // 
-            resources.ApplyResources(this.emAuthMethodLabel, "emAuthMethodLabel");
-            this.emAuthMethodLabel.Name = "emAuthMethodLabel";
-            // 
-            // emAuthMethodComboBox
-            // 
-            resources.ApplyResources(this.emAuthMethodComboBox, "emAuthMethodComboBox");
-            this.emAuthMethodComboBox.FormattingEnabled = true;
-            this.emAuthMethodComboBox.Items.AddRange(new object[] {
-            resources.GetString("emAuthMethodComboBox.Items"),
-            resources.GetString("emAuthMethodComboBox.Items1"),
-            resources.GetString("emAuthMethodComboBox.Items2"),
-            resources.GetString("emAuthMethodComboBox.Items3"),
-            resources.GetString("emAuthMethodComboBox.Items4"),
-            resources.GetString("emAuthMethodComboBox.Items5")});
-            this.emAuthMethodComboBox.Name = "emAuthMethodComboBox";
-            // 
-            // emConnProtComboBox
-            // 
-            resources.ApplyResources(this.emConnProtComboBox, "emConnProtComboBox");
-            this.emConnProtComboBox.FormattingEnabled = true;
-            this.emConnProtComboBox.Items.AddRange(new object[] {
-            resources.GetString("emConnProtComboBox.Items"),
-            resources.GetString("emConnProtComboBox.Items1"),
-            resources.GetString("emConnProtComboBox.Items2")});
-            this.emConnProtComboBox.Name = "emConnProtComboBox";
-            // 
-            // emConnProtLabel
-            // 
-            resources.ApplyResources(this.emConnProtLabel, "emConnProtLabel");
-            this.emConnProtLabel.Name = "emConnProtLabel";
             // 
             // emPortLabel
             // 
@@ -268,10 +227,6 @@
         private System.Windows.Forms.TextBox emPasswordTextBox;
         private System.Windows.Forms.Label emUsernameLabel;
         private System.Windows.Forms.TextBox emUsernameTextBox;
-        private System.Windows.Forms.Label emAuthMethodLabel;
-        private System.Windows.Forms.ComboBox emAuthMethodComboBox;
-        private System.Windows.Forms.ComboBox emConnProtComboBox;
-        private System.Windows.Forms.Label emConnProtLabel;
         private System.Windows.Forms.TextBox emLostMinTextBox;
         private System.Windows.Forms.Button okButton;
         private System.Windows.Forms.Button cancelButton;

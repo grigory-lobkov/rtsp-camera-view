@@ -289,7 +289,7 @@
     <value>NoControl</value>
   </data>
   <data name="emPasswordLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>13, 186</value>
+    <value>13, 126</value>
   </data>
   <data name="emPasswordLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>53, 13</value>
@@ -316,7 +316,7 @@
     <value>Top, Right</value>
   </data>
   <data name="emPasswordTextBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>104, 183</value>
+    <value>104, 123</value>
   </data>
   <data name="emPasswordTextBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>202, 20</value>
@@ -343,7 +343,7 @@
     <value>NoControl</value>
   </data>
   <data name="emUsernameLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>13, 160</value>
+    <value>13, 100</value>
   </data>
   <data name="emUsernameLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>55, 13</value>
@@ -370,7 +370,7 @@
     <value>Top, Right</value>
   </data>
   <data name="emUsernameTextBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>104, 157</value>
+    <value>104, 97</value>
   </data>
   <data name="emUsernameTextBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>202, 20</value>
@@ -389,138 +389,6 @@
   </data>
   <data name="&gt;&gt;emUsernameTextBox.ZOrder" xml:space="preserve">
     <value>4</value>
-  </data>
-  <data name="emAuthMethodLabel.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="emAuthMethodLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="emAuthMethodLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>13, 133</value>
-  </data>
-  <data name="emAuthMethodLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>113, 13</value>
-  </data>
-  <data name="emAuthMethodLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="emAuthMethodLabel.Text" xml:space="preserve">
-    <value>Authentication method</value>
-  </data>
-  <data name="&gt;&gt;emAuthMethodLabel.Name" xml:space="preserve">
-    <value>emAuthMethodLabel</value>
-  </data>
-  <data name="&gt;&gt;emAuthMethodLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;emAuthMethodLabel.Parent" xml:space="preserve">
-    <value>emServerGroupBox</value>
-  </data>
-  <data name="&gt;&gt;emAuthMethodLabel.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="emAuthMethodComboBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
-  </data>
-  <data name="emAuthMethodComboBox.Items" xml:space="preserve">
-    <value>No authentication</value>
-  </data>
-  <data name="emAuthMethodComboBox.Items1" xml:space="preserve">
-    <value>Normal password</value>
-  </data>
-  <data name="emAuthMethodComboBox.Items2" xml:space="preserve">
-    <value>Encrypted password</value>
-  </data>
-  <data name="emAuthMethodComboBox.Items3" xml:space="preserve">
-    <value>Kerberos / GSSAPI</value>
-  </data>
-  <data name="emAuthMethodComboBox.Items4" xml:space="preserve">
-    <value>NTLM</value>
-  </data>
-  <data name="emAuthMethodComboBox.Items5" xml:space="preserve">
-    <value>OAuth2</value>
-  </data>
-  <data name="emAuthMethodComboBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>142, 130</value>
-  </data>
-  <data name="emAuthMethodComboBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>164, 21</value>
-  </data>
-  <data name="emAuthMethodComboBox.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;emAuthMethodComboBox.Name" xml:space="preserve">
-    <value>emAuthMethodComboBox</value>
-  </data>
-  <data name="&gt;&gt;emAuthMethodComboBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;emAuthMethodComboBox.Parent" xml:space="preserve">
-    <value>emServerGroupBox</value>
-  </data>
-  <data name="&gt;&gt;emAuthMethodComboBox.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="emConnProtComboBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
-  </data>
-  <data name="emConnProtComboBox.Items" xml:space="preserve">
-    <value>No</value>
-  </data>
-  <data name="emConnProtComboBox.Items1" xml:space="preserve">
-    <value>STARTTLS</value>
-  </data>
-  <data name="emConnProtComboBox.Items2" xml:space="preserve">
-    <value>SSL/TLS</value>
-  </data>
-  <data name="emConnProtComboBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>142, 103</value>
-  </data>
-  <data name="emConnProtComboBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>164, 21</value>
-  </data>
-  <data name="emConnProtComboBox.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;emConnProtComboBox.Name" xml:space="preserve">
-    <value>emConnProtComboBox</value>
-  </data>
-  <data name="&gt;&gt;emConnProtComboBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;emConnProtComboBox.Parent" xml:space="preserve">
-    <value>emServerGroupBox</value>
-  </data>
-  <data name="&gt;&gt;emConnProtComboBox.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="emConnProtLabel.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="emConnProtLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>13, 106</value>
-  </data>
-  <data name="emConnProtLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>111, 13</value>
-  </data>
-  <data name="emConnProtLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="emConnProtLabel.Text" xml:space="preserve">
-    <value>Connection protection</value>
-  </data>
-  <data name="&gt;&gt;emConnProtLabel.Name" xml:space="preserve">
-    <value>emConnProtLabel</value>
-  </data>
-  <data name="&gt;&gt;emConnProtLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;emConnProtLabel.Parent" xml:space="preserve">
-    <value>emServerGroupBox</value>
-  </data>
-  <data name="&gt;&gt;emConnProtLabel.ZOrder" xml:space="preserve">
-    <value>8</value>
   </data>
   <data name="emPortLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -550,7 +418,7 @@
     <value>emServerGroupBox</value>
   </data>
   <data name="&gt;&gt;emPortLabel.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>5</value>
   </data>
   <data name="emPortTextBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -574,7 +442,7 @@
     <value>emServerGroupBox</value>
   </data>
   <data name="&gt;&gt;emPortTextBox.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>6</value>
   </data>
   <data name="emNameTextBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -598,7 +466,7 @@
     <value>emServerGroupBox</value>
   </data>
   <data name="&gt;&gt;emNameTextBox.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>7</value>
   </data>
   <data name="emNameLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -625,16 +493,16 @@
     <value>emServerGroupBox</value>
   </data>
   <data name="&gt;&gt;emNameLabel.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>8</value>
   </data>
   <data name="emServerGroupBox.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Bottom</value>
   </data>
   <data name="emServerGroupBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 150</value>
+    <value>3, 171</value>
   </data>
   <data name="emServerGroupBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>319, 227</value>
+    <value>319, 182</value>
   </data>
   <data name="emServerGroupBox.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -718,7 +586,7 @@
     <value>3, 3, 3, 3</value>
   </data>
   <data name="emailPage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>325, 380</value>
+    <value>325, 356</value>
   </data>
   <data name="emailPage.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -745,7 +613,7 @@
     <value>0, 0</value>
   </data>
   <data name="typeTabControl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>333, 406</value>
+    <value>333, 382</value>
   </data>
   <data name="typeTabControl.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -766,7 +634,7 @@
     <value>Bottom, Left</value>
   </data>
   <data name="okButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>84, 416</value>
+    <value>84, 392</value>
   </data>
   <data name="okButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 23</value>
@@ -793,7 +661,7 @@
     <value>Bottom, Left</value>
   </data>
   <data name="cancelButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>186, 416</value>
+    <value>186, 392</value>
   </data>
   <data name="cancelButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 23</value>
@@ -823,7 +691,7 @@
     <value>6, 13</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>333, 451</value>
+    <value>333, 427</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Lost stream alert setup</value>

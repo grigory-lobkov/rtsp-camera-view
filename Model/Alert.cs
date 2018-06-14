@@ -41,12 +41,9 @@ namespace Model
         public string emailTo = "";
         public string authUser = "";
         public string authPassword = "";
-        public int authMethod = 0;
-        public int connProt = 0;
 
         public void SaveTo(EmailAlert alert)
         {
-            alert.authMethod = this.authMethod;
             alert.serverPort = this.serverPort;
             alert.emailFrom = this.emailFrom;
             alert.onSignalLost = this.onSignalLost;
@@ -54,21 +51,18 @@ namespace Model
             alert.authPassword = this.authPassword;
             alert.onSignalRecover = this.onSignalRecover;
             alert.serverUrl = this.serverUrl;
-            alert.connProt = this.connProt;
             alert.emailTo = this.emailTo;
             alert.authUser = this.authUser;
         }
         public bool Equals(EmailAlert alert)
         {
-            return (alert.authMethod == this.authMethod) &&
-                (alert.serverPort == this.serverPort) &&
+            return (alert.serverPort == this.serverPort) &&
                 (alert.emailFrom == this.emailFrom) &&
                 (alert.onSignalLost == this.onSignalLost) &&
                 (alert.whenDissapearMin == this.whenDissapearMin) &&
                 (alert.authPassword == this.authPassword) &&
                 (alert.onSignalRecover == this.onSignalRecover) &&
                 (alert.serverUrl == this.serverUrl) &&
-                (alert.connProt == this.connProt) &&
                 (alert.emailTo == this.emailTo) &&
                 (alert.authUser == this.authUser);
         }
