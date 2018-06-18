@@ -22,5 +22,6 @@ namespace Presenter.Views
         string AspectRatio { set; }
         int SrcHeight { get; }
         int SrcWidth { get; }
+        int LostRtspRetryMin { get; set; }
     }
 }

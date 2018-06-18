@@ -48,6 +48,7 @@
             this.EmailOnLostSignalTitle.Size = new System.Drawing.Size(91, 13);
             this.EmailOnLostSignalTitle.TabIndex = 0;
             this.EmailOnLostSignalTitle.Text = "{name} LOST link";
+            this.EmailOnLostSignalTitle.Visible = false;
             // 
             // EmailOnLostSignalSubject
             // 
@@ -58,25 +59,28 @@
             this.EmailOnLostSignalSubject.TabIndex = 1;
             this.EmailOnLostSignalSubject.Text = "Signal of {name} is lost\r\n\r\nBad stream url:\r\n{bad}\r\n\r\nGood stream url:\r\n{good}\r\n\r" +
     "\n";
+            this.EmailOnLostSignalSubject.Visible = false;
             // 
-            // EmailRestoreSignalSubject
+            // EmailOnRestoreSignalSubject
             // 
             this.EmailOnRestoreSignalSubject.AutoSize = true;
             this.EmailOnRestoreSignalSubject.Location = new System.Drawing.Point(157, 390);
-            this.EmailOnRestoreSignalSubject.Name = "EmailRestoreSignalSubject";
+            this.EmailOnRestoreSignalSubject.Name = "EmailOnRestoreSignalSubject";
             this.EmailOnRestoreSignalSubject.Size = new System.Drawing.Size(146, 104);
             this.EmailOnRestoreSignalSubject.TabIndex = 3;
             this.EmailOnRestoreSignalSubject.Text = "Signal of {name} is recovered\r\n\r\nBad stream url:\r\n{bad}\r\n\r\nGood stream url:\r\n{goo" +
     "d}\r\n\r\n";
+            this.EmailOnRestoreSignalSubject.Visible = false;
             // 
-            // EmailRestoreSignalTitle
+            // EmailOnRestoreSignalTitle
             // 
             this.EmailOnRestoreSignalTitle.AutoSize = true;
             this.EmailOnRestoreSignalTitle.Location = new System.Drawing.Point(157, 368);
-            this.EmailOnRestoreSignalTitle.Name = "EmailRestoreSignalTitle";
+            this.EmailOnRestoreSignalTitle.Name = "EmailOnRestoreSignalTitle";
             this.EmailOnRestoreSignalTitle.Size = new System.Drawing.Size(111, 13);
             this.EmailOnRestoreSignalTitle.TabIndex = 2;
             this.EmailOnRestoreSignalTitle.Text = "{name} recovered link";
+            this.EmailOnRestoreSignalTitle.Visible = false;
             // 
             // SourceGridControl
             // 

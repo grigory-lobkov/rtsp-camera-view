@@ -6,12 +6,7 @@ using Presenter.Presenters;
 using Microsoft.Win32;
 
 /* TODO:
-
-    Попробовать исправить иконку большого размера PNG->BMP
-
     Локализация на русский
-
-    Пробросить событие изменения настройки алёрта от ModifySettingsPresenter до дочерних SourcePresenter
 */
 
 namespace Presenter.Presenters
@@ -143,6 +138,7 @@ namespace Presenter.Presenters
                 _settings.SetSettings(_appSettings);
                 View.SetSettingsControl(_settings.Control);
                 _settings.NameViewChanged += NameViewChanged;
+                _settings.AlertSettingsChanged += AlertsChanged;
                 _settings.MatrixSizeChanged += MatrixSizeChanged;
             }
         }
@@ -185,7 +181,11 @@ namespace Presenter.Presenters
         }
         private void NameViewChanged()
         {
-            _sourceGrid.GlobalNameViewChanged();
+            _sourceGrid.GlobalSettingsChanged();
+        }
+        private void AlertsChanged()
+        {
+            _sourceGrid.GlobalSettingsChanged();
         }
         private void MatrixSizeChanged()
         {

@@ -17,6 +17,11 @@ namespace ViewVlc215
         private string playlistAddOptions = null;//":no-audio"
         private string defaultAspectRatio = "auto";
 
+        public int LostRtspRetryMin
+        {
+            set => lostRtspRetryAlert = value * 60000 / lostRtspOnStartTimer;
+            get => lostRtspRetryAlert * lostRtspOnStartTimer / 60000;
+        }
         public enum VlcStatus { Stopped = 0, Playing = 1, Buffering = 2, Preparing = 3 };
         private AxAXVLC.AxVLCPlugin2 vlc1;
         private System.Windows.Forms.Timer lostTimer;

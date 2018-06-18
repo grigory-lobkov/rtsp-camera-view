@@ -90,7 +90,7 @@ namespace Presenter.Presenters
                 if (c == deleted && c.position >= 0 && c.position < _srcs.Count)
                     _srcs[c.position].Source = null;
         }
-        public void GlobalNameViewChanged()
+        public void GlobalSettingsChanged()
         {
             FillWithSources();
         }
@@ -167,6 +167,10 @@ namespace Presenter.Presenters
                 }
         }
 
+
+        /*****
+         *      Memory care function
+         */
         private void WatchDog()
         {
             System.Diagnostics.Process currentProc = System.Diagnostics.Process.GetCurrentProcess();

@@ -49,5 +49,6 @@ namespace Presenter.Presenters
         public int SrcHeight { get => View.SrcHeight; }
         public int SrcWidth { get => View.SrcWidth; }
 
+        public int LostRtspRetryMin { get => View.LostRtspRetryMin; set => View.LostRtspRetryMin = value; }
     }
 }

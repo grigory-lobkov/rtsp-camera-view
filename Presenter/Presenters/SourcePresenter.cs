@@ -110,10 +110,12 @@ namespace Presenter.Presenters
             _badPlayer.SizeDetected += BadSizeDetected;
             _badPlayer.LostStream += SignalLostF;
             _badPlayer.LostStreamRestored += SignalRestoredF;
+            _badPlayer.LostRtspRetryMin = _settings.alert.email.whenDissapearMin;
         }
         private void SetSource(Camera source)
         {
             if (log) View.Log("SetSource");
+            if (_settings == null) return;
             source.position = _position;
             if (String.IsNullOrEmpty(source.rtspBad))
             {
@@ -133,6 +135,7 @@ namespace Presenter.Presenters
             _badPlayer.SetSourceString(_badString);
             _badPlayer.SetAspectRatio(source.aspectRatio);
             _badPlayer.Volume = 0;
+            _badPlayer.LostRtspRetryMin = _settings.alert.email.whenDissapearMin;
             if (!String.IsNullOrEmpty(_goodString))
             {
                 if (_goodPlayer == null)
@@ -145,10 +148,12 @@ namespace Presenter.Presenters
                     _goodPlayer.Buffering += GoodBuffering;
                     _goodPlayer.LostStream += SignalLostF;
                     _goodPlayer.LostStreamRestored += SignalRestoredF;
+                    _goodPlayer.LostRtspRetryMin = _settings.alert.email.whenDissapearMin;
                 }
                 _goodPlayer.SetSourceString(_goodString);
                 _goodPlayer.SetAspectRatio(source.aspectRatio);
                 _goodPlayer.Volume = _badPlayer.Volume;
+                _goodPlayer.LostRtspRetryMin = _settings.alert.email.whenDissapearMin;
             }
             View.SrcName = source.name;
             View.SrcNameShow = source.nameView.enabled;
