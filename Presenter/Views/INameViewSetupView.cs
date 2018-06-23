@@ -4,7 +4,7 @@ using Presenter.Common;
 
 namespace Presenter.Views
 {
-    public interface INameViewEditView : IView
+    public interface INameViewSetupView : IView
     {
         //event Action PositionChanged;
         int Position { get; set; }

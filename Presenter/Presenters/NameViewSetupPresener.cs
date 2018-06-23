@@ -5,11 +5,11 @@ using Presenter.Views;
 
 namespace Presenter.Presenters
 {
-    public class NameViewEditPresenter : BasePresener<INameViewEditView, NameView>
+    public class NameViewSetupPresenter : BasePresener<INameViewSetupView, NameView>
     {
         public NameView _nameView;
 
-        public NameViewEditPresenter(IApplicationController controller, INameViewEditView view) : base(controller, view)
+        public NameViewSetupPresenter(IApplicationController controller, INameViewSetupView view) : base(controller, view)
         {
             View.OkClick += OkClick;
             View.CancelClick += CancelClick;

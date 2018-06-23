@@ -41,7 +41,7 @@ namespace Presenter.Presenters
         {
             NameView nv = new NameView();
             _appSettings.nameView.SaveTo(nv);
-            Controller.Run<NameViewEditPresenter, NameView>(nv);
+            Controller.Run<NameViewSetupPresenter, NameView>(nv);
             if(!_appSettings.nameView.Equals(nv))
             {
                 _appSettings.nameView = nv;

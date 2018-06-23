@@ -1,6 +1,6 @@
 ﻿namespace View
 {
-    partial class NameViewEditForm
+    partial class NameViewSetupForm
     {
         /// <summary>
         /// Required designer variable.
@@ -293,6 +293,7 @@
             this.Controls.Add(this.textColorButton);
             this.Controls.Add(this.textColorLabel);
             this.Controls.Add(this.textColorPanel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "NameViewEditForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Главное окно";

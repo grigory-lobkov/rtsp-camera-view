@@ -28,7 +28,7 @@ namespace UI
                 .RegisterControl<IPlayerControlView, PlayerControlControl>()
                 .RegisterControl<IPlayerView, ViewVlc215.Player>()
                 .RegisterView<IMainView, MainForm>()
-                .RegisterView<INameViewEditView, NameViewEditForm>()
+                .RegisterView<INameViewSetupView, NameViewSetupForm>()
                 .RegisterView<IAlertSetupView, AlertSetupForm>()
                 .RegisterService<ISettingsService, XmlFileSettingsService>()
                 .RegisterService<IEmailAlertService, TextEmailAlertService>()

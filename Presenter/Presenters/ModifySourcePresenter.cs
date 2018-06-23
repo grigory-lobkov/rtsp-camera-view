@@ -98,7 +98,7 @@ namespace Presenter.Presenters
 
         private void ModifyNameView()
         {
-            Controller.Run<NameViewEditPresenter, NameView>(_nameView);
+            Controller.Run<NameViewSetupPresenter, NameView>(_nameView);
         }
 
         private void RtspBadEnter()

@@ -5,7 +5,7 @@ using Presenter.Views;
 
 namespace View
 {
-    public partial class NameViewEditForm : Form, INameViewEditView
+    public partial class NameViewSetupForm : Form, INameViewSetupView
     {
         private readonly ApplicationContext _context;
 
@@ -56,7 +56,7 @@ namespace View
         public event Action OkClick;
         public event Action CancelClick;
 
-        public NameViewEditForm(ApplicationContext context)
+        public NameViewSetupForm(ApplicationContext context)
         {
             _context = context;
             InitializeComponent();

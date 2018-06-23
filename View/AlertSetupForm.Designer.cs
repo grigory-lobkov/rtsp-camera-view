@@ -202,6 +202,7 @@
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.okButton);
             this.Controls.Add(this.typeTabControl);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "AlertSetupForm";
             this.emailPage.ResumeLayout(false);
             this.emailPage.PerformLayout();

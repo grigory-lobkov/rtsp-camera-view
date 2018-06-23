@@ -111,11 +111,17 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="NameViewEditForm.cs">
+    <Compile Include="MatrixSetupForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="NameViewEditForm.Designer.cs">
-      <DependentUpon>NameViewEditForm.cs</DependentUpon>
+    <Compile Include="MatrixSetupForm.Designer.cs">
+      <DependentUpon>MatrixSetupForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NameViewSetupForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NameViewSetupForm.Designer.cs">
+      <DependentUpon>NameViewSetupForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -173,8 +179,11 @@
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="NameViewEditForm.resx">
-      <DependentUpon>NameViewEditForm.cs</DependentUpon>
+    <EmbeddedResource Include="MatrixSetupForm.resx">
+      <DependentUpon>MatrixSetupForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NameViewSetupForm.resx">
+      <DependentUpon>NameViewSetupForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
