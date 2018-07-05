@@ -1,4 +1,6 @@
-﻿namespace RtspCameraView
+﻿using System.Windows.Forms;
+
+namespace View
 {
     partial class MatrixSetupForm
     {
@@ -30,17 +32,18 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MatrixSetupForm));
             this.controlPanel = new System.Windows.Forms.Panel();
+            this.hideButton = new System.Windows.Forms.Button();
+            this.showButton = new System.Windows.Forms.Button();
             this.sizeYinput = new System.Windows.Forms.TextBox();
+            this.divideButton = new System.Windows.Forms.Button();
             this.sizeXinput = new System.Windows.Forms.TextBox();
             this.xLabel = new System.Windows.Forms.Label();
             this.combineButton = new System.Windows.Forms.Button();
-            this.divideButton = new System.Windows.Forms.Button();
             this.gridPanel = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.saveButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
-            this.showButton = new System.Windows.Forms.Button();
-            this.hideButton = new System.Windows.Forms.Button();
+            this.saveButton = new System.Windows.Forms.Button();
+            this.topPanel = new View.SelectRectPanel();
             this.controlPanel.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -57,21 +60,42 @@
             resources.ApplyResources(this.controlPanel, "controlPanel");
             this.controlPanel.Name = "controlPanel";
             // 
+            // hideButton
+            // 
+            resources.ApplyResources(this.hideButton, "hideButton");
+            this.hideButton.Name = "hideButton";
+            this.hideButton.UseVisualStyleBackColor = true;
+            this.hideButton.Click += new System.EventHandler(this.HideButton_Click);
+            // 
+            // showButton
+            // 
+            resources.ApplyResources(this.showButton, "showButton");
+            this.showButton.Name = "showButton";
+            this.showButton.UseVisualStyleBackColor = true;
+            this.showButton.Click += new System.EventHandler(this.ShowButton_Click);
+            // 
             // sizeYinput
             // 
             resources.ApplyResources(this.sizeYinput, "sizeYinput");
             this.sizeYinput.Name = "sizeYinput";
-            this.sizeYinput.KeyDown += new System.Windows.Forms.KeyEventHandler(this.intInput_KeyDown);
-            this.sizeYinput.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.intInput_KeyPress);
-            this.sizeYinput.KeyUp += new System.Windows.Forms.KeyEventHandler(this.intInput_KeyUp);
+            this.sizeYinput.KeyDown += new System.Windows.Forms.KeyEventHandler(this.IntInput_KeyDown);
+            this.sizeYinput.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.IntInput_KeyPress);
+            this.sizeYinput.KeyUp += new System.Windows.Forms.KeyEventHandler(this.IntInput_KeyUp);
+            // 
+            // divideButton
+            // 
+            resources.ApplyResources(this.divideButton, "divideButton");
+            this.divideButton.Name = "divideButton";
+            this.divideButton.UseVisualStyleBackColor = true;
+            this.divideButton.Click += new System.EventHandler(this.DivideButton_Click);
             // 
             // sizeXinput
             // 
             resources.ApplyResources(this.sizeXinput, "sizeXinput");
             this.sizeXinput.Name = "sizeXinput";
-            this.sizeXinput.KeyDown += new System.Windows.Forms.KeyEventHandler(this.intInput_KeyDown);
-            this.sizeXinput.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.intInput_KeyPress);
-            this.sizeXinput.KeyUp += new System.Windows.Forms.KeyEventHandler(this.intInput_KeyUp);
+            this.sizeXinput.KeyDown += new System.Windows.Forms.KeyEventHandler(this.IntInput_KeyDown);
+            this.sizeXinput.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.IntInput_KeyPress);
+            this.sizeXinput.KeyUp += new System.Windows.Forms.KeyEventHandler(this.IntInput_KeyUp);
             // 
             // xLabel
             // 
@@ -83,14 +107,7 @@
             resources.ApplyResources(this.combineButton, "combineButton");
             this.combineButton.Name = "combineButton";
             this.combineButton.UseVisualStyleBackColor = true;
-            this.combineButton.Click += new System.EventHandler(this.combineButton_Click);
-            // 
-            // divideButton
-            // 
-            resources.ApplyResources(this.divideButton, "divideButton");
-            this.divideButton.Name = "divideButton";
-            this.divideButton.UseVisualStyleBackColor = true;
-            this.divideButton.Click += new System.EventHandler(this.divideButton_Click);
+            this.combineButton.Click += new System.EventHandler(this.CombineButton_Click);
             // 
             // gridPanel
             // 
@@ -104,42 +121,32 @@
             resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Name = "panel1";
             // 
-            // saveButton
-            // 
-            resources.ApplyResources(this.saveButton, "saveButton");
-            this.saveButton.Name = "saveButton";
-            this.saveButton.UseVisualStyleBackColor = true;
-            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
-            // 
             // cancelButton
             // 
             resources.ApplyResources(this.cancelButton, "cancelButton");
             this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.UseVisualStyleBackColor = true;
-            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
-            // showButton
+            // saveButton
             // 
-            resources.ApplyResources(this.showButton, "showButton");
-            this.showButton.Name = "showButton";
-            this.showButton.UseVisualStyleBackColor = true;
-            this.showButton.Click += new System.EventHandler(this.showButton_Click);
+            resources.ApplyResources(this.saveButton, "saveButton");
+            this.saveButton.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.saveButton.Name = "saveButton";
+            this.saveButton.UseVisualStyleBackColor = false;
             // 
-            // hideButton
+            // topPanel
             // 
-            resources.ApplyResources(this.hideButton, "hideButton");
-            this.hideButton.Name = "hideButton";
-            this.hideButton.UseVisualStyleBackColor = true;
-            this.hideButton.Click += new System.EventHandler(this.hideButton_Click);
+            resources.ApplyResources(this.topPanel, "topPanel");
+            this.topPanel.Name = "topPanel";
             // 
             // MatrixSetupForm
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.CancelButton = this.cancelButton;
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.topPanel);
             this.Controls.Add(this.gridPanel);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.controlPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Name = "MatrixSetupForm";
@@ -153,17 +160,18 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel controlPanel;
-        private System.Windows.Forms.TextBox sizeYinput;
-        private System.Windows.Forms.Button divideButton;
-        private System.Windows.Forms.TextBox sizeXinput;
-        private System.Windows.Forms.Label xLabel;
-        private System.Windows.Forms.Button combineButton;
-        private System.Windows.Forms.Panel gridPanel;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button cancelButton;
-        private System.Windows.Forms.Button saveButton;
-        private System.Windows.Forms.Button hideButton;
-        private System.Windows.Forms.Button showButton;
+        private Panel controlPanel;
+        private TextBox sizeYinput;
+        private Button divideButton;
+        private TextBox sizeXinput;
+        private Label xLabel;
+        private Button combineButton;
+        private Button hideButton;
+        private Button showButton;
+        private Panel gridPanel;
+        private Panel panel1;
+        private Button cancelButton;
+        private Button saveButton;
+        private SelectRectPanel topPanel;
     }
 }

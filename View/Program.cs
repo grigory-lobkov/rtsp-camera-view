@@ -30,6 +30,7 @@ namespace UI
                 .RegisterView<IMainView, MainForm>()
                 .RegisterView<INameViewSetupView, NameViewSetupForm>()
                 .RegisterView<IAlertSetupView, AlertSetupForm>()
+                .RegisterView<IMatrixSetupView, MatrixSetupForm>()
                 .RegisterService<ISettingsService, XmlFileSettingsService>()
                 .RegisterService<IEmailAlertService, TextEmailAlertService>()
                 .RegisterInstance(Context);

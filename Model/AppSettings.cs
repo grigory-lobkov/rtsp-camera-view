@@ -34,6 +34,18 @@ namespace Model
     {
         public int cntX = 2;
         public int cntY = 2;
+
+        public void SaveTo(Matrix m)
+        {
+            m.cntX = cntX;
+            m.cntY = cntY;
+        }
+
+        public bool Equals(Matrix m)
+        {
+            return (m.cntX == this.cntX) &&
+                (m.cntY == this.cntY);
+        }
     }
 
 }

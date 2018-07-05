@@ -18,6 +18,7 @@ namespace Presenter.Presenters
             View.ApplyMatrixSizeClick += ModifyMatrixSize;
             View.ModifyNameViewClick += ModifyNameView;
             View.AlertSetupClick += AlertSetup;
+            View.MatrixSetupClick += MatrixSetup;
         }
 
         public void SetSettings(AppSettings appSettings)
@@ -61,5 +62,16 @@ namespace Presenter.Presenters
             }
         }
 
+        private void MatrixSetup()
+        {
+            Matrix matrix = new Matrix();
+            _appSettings.matrix.SaveTo(matrix);
+            Controller.Run<MatrixSetupPresenter, Matrix>(matrix);
+            if (!_appSettings.matrix.Equals(matrix))
+            {
+                _appSettings.matrix = matrix;
+                MatrixSizeChanged?.Invoke();
+            }
+        }
     }
 }

@@ -50,6 +50,7 @@
     <Compile Include="Common\IViewControl.cs" />
     <Compile Include="Presenters\AlertSetupPresenter.cs" />
     <Compile Include="Presenters\MainPresenter.cs" />
+    <Compile Include="Presenters\MatrixSetupPresenter.cs" />
     <Compile Include="Presenters\ModifySourcePresenter.cs" />
     <Compile Include="Presenters\NameViewSetupPresener.cs" />
     <Compile Include="Presenters\ModifySettingsPresenter.cs" />
@@ -65,6 +66,7 @@
     </Compile>
     <Compile Include="Views\IAlertSetupView.cs" />
     <Compile Include="Views\IMainView.cs" />
+    <Compile Include="Views\IMatrixSetupView.cs" />
     <Compile Include="Views\IModifySourceView.cs" />
     <Compile Include="Views\INameViewSetupView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

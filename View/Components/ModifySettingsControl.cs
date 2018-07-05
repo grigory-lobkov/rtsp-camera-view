@@ -12,6 +12,10 @@ namespace View.Components
         int _lastX;
         int _lastY;
 
+        public event Action ModifyNameViewClick;
+        public event Action AlertSetupClick;
+        public event Action MatrixSetupClick;
+
         public ModifySettingsControl()
         {
             InitializeComponent();
@@ -19,6 +23,7 @@ namespace View.Components
             githubLinkLabel.Click += (sender, args) => Invoke(GitHubSiteClick);
             camNameViewGlbButton.Click += (sender, args) => Invoke(ModifyNameViewClick);
             alertSetupButton.Click += (sender, args) => Invoke(AlertSetupClick);
+            matrixSetupButton.Click += (sender, args) => Invoke(MatrixSetupClick);
         }
 
         private void Invoke(Action action)
@@ -26,20 +31,24 @@ namespace View.Components
             action?.Invoke();
         }
 
-        public int MatrixMaxX {
+        public int MatrixMaxX
+        {
             set { _matrixMaxX = value; }
         }
 
-        public int MatrixMaxY {
+        public int MatrixMaxY
+        {
             set { _matrixMaxY = value; }
         }
 
-        public int MatrixX {
+        public int MatrixX
+        {
             get { return Convert.ToInt32(matrixXinput.Text); }
             set { matrixXinput.Text = value.ToString(); _lastX = value; }
         }
 
-        public int MatrixY {
+        public int MatrixY
+        {
             get { return Convert.ToInt32(matrixYinput.Text); }
             set { matrixYinput.Text = value.ToString(); _lastY = value; }
         }
@@ -60,9 +69,6 @@ namespace View.Components
             System.Diagnostics.Process.Start("https://github.com/grigory-lobkov/rtsp-camera-view");
             githubLinkLabel.LinkVisited = true;
         }
-
-        public event Action ModifyNameViewClick;
-        public event Action AlertSetupClick;
 
         private void applyMatrixSize_MouseEnter(object sender, EventArgs e)
         {
@@ -136,6 +142,5 @@ namespace View.Components
             _lastX = Convert.ToInt32(matrixXinput.Text);
             _lastY = Convert.ToInt32(matrixYinput.Text);
         }
-
     }
 }
