@@ -37,24 +37,32 @@ namespace Presenter.Presenters
             SourcePresenter s;
             int cx = _settings.matrix.cntX;
             int cy = _settings.matrix.cntY;
+            int w, h;
             int pos = 0;
             for (int y = 0; y < cy; y++)
             {
                 for (int x = 0; x < cx; x++)
                 {
-                    s = Controller.Get<SourcePresenter>();
-                    s.SetSettings(_settings);
-                    s.Position = pos;
-                    _srcs.Add(s);
-                    View.AddItem(s.Control, (float)x / cx, (float)y / cy, (float)1 / cx, (float)1 / cy);
-                    s.Maximized += OneSourceMaximized;
-                    s.Minimized += OneSourceMinimized;
-                    s.DragDropInit += () => SourceDoDragDrop();
-                    s.DragDropInitFinish += SourceDoneDragDrop;
-                    s.SignalLost += SignalLost;
-                    s.SignalRestored += SignalRestored;
-                    if (pos == 0) s.CreateBadSource(); // try to create player for catch error
-                    pos++;
+                    w = 1; h = 1;
+                    foreach (MatrixJoin j in _settings.matrix.joins)
+                        if (j.x == x && j.y == y) { w = j.w; h = j.h; }
+                        else if (x >= j.x && y >= j.y && x < j.x + j.w && y < j.y + j.h) { w = 0; h = 0; }
+                    if (w > 0 && h > 0)
+                    {
+                        s = Controller.Get<SourcePresenter>();
+                        s.SetSettings(_settings);
+                        s.Position = pos;
+                        _srcs.Add(s);
+                        View.AddItem(s.Control, (float)x / cx, (float)y / cy, (float)w / cx, (float)h / cy);
+                        s.Maximized += OneSourceMaximized;
+                        s.Minimized += OneSourceMinimized;
+                        s.DragDropInit += () => SourceDoDragDrop();
+                        s.DragDropInitFinish += SourceDoneDragDrop;
+                        s.SignalLost += SignalLost;
+                        s.SignalRestored += SignalRestored;
+                        if (pos == 0) s.CreateBadSource(); // try to create player for catch error
+                        pos++;
+                    }
                 }
             }
             View.Repaint();

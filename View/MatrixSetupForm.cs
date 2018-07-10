@@ -16,10 +16,8 @@ namespace View
         public event Action SaveClick;
         public event Action CancelClick;
         public event Action SizeChange;
-        public event Action CombineClick;
-        public event Action DivideClick;
-        public event Action ShowClick;
-        public event Action HideClick;
+        public event Action JoinClick;
+        public event Action SplitClick;
 
         public MatrixSetupForm()
         {
@@ -32,10 +30,8 @@ namespace View
             topPanel.BringToFront();
             topPanel.RepaintBackground += gridPanel.Refresh;
             topPanel.FinishSelect += FinishSelect;
-            combineButton.Click += (sender, args) => Invoke(CombineClick);
-            divideButton.Click += (sender, args) => Invoke(DivideClick);
-            showButton.Click += (sender, args) => Invoke(ShowClick);
-            hideButton.Click += (sender, args) => Invoke(HideClick);
+            joinButton.Click += (sender, args) => Invoke(JoinClick);
+            splitButton.Click += (sender, args) => Invoke(SplitClick);
         }
 
         public new void Show()
@@ -147,35 +143,6 @@ namespace View
             catch { }
         }*/
 
-        private void SaveButton_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
-
-        private void CancelButton_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
-
-        private void CombineButton_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void DivideButton_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ShowButton_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void HideButton_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void MatrixSetupForm_Shown(object sender, EventArgs e)
         {
@@ -183,18 +150,7 @@ namespace View
         }
 
         List<GridItem> _items = new List<GridItem>();
-
-        public object NewItem(int x, int y)
-        {
-            Button b = new Button
-            {
-                Text = "(" + x.ToString() + "," + y.ToString() + ")",
-                //BackColor = Color.Red,
-                //ForeColor = Color.Green,
-            };
-            return b;
-        }
-
+        
         public void Clear()
         {
             foreach (GridItem i in _items)
@@ -205,46 +161,28 @@ namespace View
             _items.Clear();
         }
 
-        public void AddItem(object obj, int gx, int gy, float x, float y, float w, float h)
+        public void AddItem(int gx, int gy, int gw, int gh, float x, float y, float w, float h)
         {
             gridPanel.SuspendLayout();
-            Control control = (Control)obj;
+            Control control = new Button
+            {
+                Text = "(" + gx.ToString() + "," + gy.ToString() + ")",
+                ForeColor = Color.Brown,
+            };
             gridPanel.Controls.Add(control);
-            _items.Add(new GridItem(control, gx, gy, x, y, w, h));
+            _items.Add(new GridItem(control, gx, gy, gw, gh, x, y, w, h));
             control.SendToBack();
-            control.MouseDown += Control_MouseDown;
-            control.MouseMove += Control_MouseMove;
-            control.MouseUp += Control_MouseUp;
             gridPanel.ResumeLayout(false);
         }
-
-        private void Control_MouseDown(object sender, MouseEventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
-        private void Control_MouseMove(object sender, MouseEventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
-        private void Control_MouseUp(object sender, MouseEventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void ModifyItem(object obj, float x, float y, float w, float h)
+        
+        public void ModifyItem(int gx, int gy, int gw, int gh, float x, float y, float w, float h)
         {
             foreach (GridItem i in _items)
-            {
-                if (i.control == obj)
+                if (i.gx == gx && i.gy == gy)
                 {
-                    i.x = x;
-                    i.y = y;
-                    i.w = w;
-                    i.h = h;
+                    i.gw = gw; i.gh = gh; i.x = x; i.y = y; i.w = w; i.h = h;
+                    i.control.BringToFront();
                 }
-            }
         }
 
         public void Repaint()
@@ -293,9 +231,9 @@ namespace View
                                 selY2 = i.gy;
                             } else {
                                 if (selX1 > i.gx) selX1 = i.gx;
-                                else if(selX2 < i.gx) selX2 = i.gx;
+                                else if (selX2 < i.gx + i.gw - 1) selX2 = i.gx + i.gw - 1;
                                 if (selY1 > i.gy) selY1 = i.gy;
-                                else if (selY2 < i.gy) selY2 = i.gy;
+                                else if (selY2 < i.gy + i.gh - 1) selY2 = i.gy + i.gh - 1;
                             }
                         }
                     }
@@ -311,15 +249,19 @@ namespace View
         public Control control;
         public int gx;
         public int gy;
+        public int gw;
+        public int gh;
         public float x;
         public float y;
         public float w;
         public float h;
-        public GridItem(Control Obj, int GX, int GY, float X, float Y, float W, float H)
+        public GridItem(Control Obj, int GX, int GY, int GW, int GH, float X, float Y, float W, float H)
         {
             control = Obj;
             gx = GX;
             gy = GY;
+            gw = GW;
+            gh = GH;
             x = X;
             y = Y;
             w = W;

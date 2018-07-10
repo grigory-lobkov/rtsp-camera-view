@@ -8,10 +8,8 @@ namespace Presenter.Views
         event Action SaveClick;
         event Action CancelClick;
         event Action SizeChange;
-        event Action CombineClick;
-        event Action DivideClick;
-        event Action ShowClick;
-        event Action HideClick;
+        event Action JoinClick;
+        event Action SplitClick;
 
         int SizeMaxX { set; }
         int SizeMaxY { set; }
@@ -20,10 +18,8 @@ namespace Presenter.Views
         //void ResizeGrid();
 
         void Clear();
-        object NewItem(int x, int y);
-        void AddItem(object obj, int gx, int gy, float x, float y, float w, float h);
-        void ModifyItem(object obj, float x, float y, float w, float h);
-        //void SwapItems(object obj1, object obj2);
+        void AddItem(int gx, int gy, int gw, int gh, float x, float y, float w, float h);
+        void ModifyItem(int gx, int gy, int gw, int gh, float x, float y, float w, float h);
         void Repaint();
 
         int SelX1 { get; }

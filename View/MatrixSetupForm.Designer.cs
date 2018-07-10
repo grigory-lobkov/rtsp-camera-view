@@ -32,13 +32,11 @@ namespace View
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MatrixSetupForm));
             this.controlPanel = new System.Windows.Forms.Panel();
-            this.hideButton = new System.Windows.Forms.Button();
-            this.showButton = new System.Windows.Forms.Button();
             this.sizeYinput = new System.Windows.Forms.TextBox();
-            this.divideButton = new System.Windows.Forms.Button();
+            this.splitButton = new System.Windows.Forms.Button();
             this.sizeXinput = new System.Windows.Forms.TextBox();
             this.xLabel = new System.Windows.Forms.Label();
-            this.combineButton = new System.Windows.Forms.Button();
+            this.joinButton = new System.Windows.Forms.Button();
             this.gridPanel = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.cancelButton = new System.Windows.Forms.Button();
@@ -50,29 +48,13 @@ namespace View
             // 
             // controlPanel
             // 
-            this.controlPanel.Controls.Add(this.hideButton);
-            this.controlPanel.Controls.Add(this.showButton);
             this.controlPanel.Controls.Add(this.sizeYinput);
-            this.controlPanel.Controls.Add(this.divideButton);
+            this.controlPanel.Controls.Add(this.splitButton);
             this.controlPanel.Controls.Add(this.sizeXinput);
             this.controlPanel.Controls.Add(this.xLabel);
-            this.controlPanel.Controls.Add(this.combineButton);
+            this.controlPanel.Controls.Add(this.joinButton);
             resources.ApplyResources(this.controlPanel, "controlPanel");
             this.controlPanel.Name = "controlPanel";
-            // 
-            // hideButton
-            // 
-            resources.ApplyResources(this.hideButton, "hideButton");
-            this.hideButton.Name = "hideButton";
-            this.hideButton.UseVisualStyleBackColor = true;
-            this.hideButton.Click += new System.EventHandler(this.HideButton_Click);
-            // 
-            // showButton
-            // 
-            resources.ApplyResources(this.showButton, "showButton");
-            this.showButton.Name = "showButton";
-            this.showButton.UseVisualStyleBackColor = true;
-            this.showButton.Click += new System.EventHandler(this.ShowButton_Click);
             // 
             // sizeYinput
             // 
@@ -82,12 +64,11 @@ namespace View
             this.sizeYinput.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.IntInput_KeyPress);
             this.sizeYinput.KeyUp += new System.Windows.Forms.KeyEventHandler(this.IntInput_KeyUp);
             // 
-            // divideButton
+            // splitButton
             // 
-            resources.ApplyResources(this.divideButton, "divideButton");
-            this.divideButton.Name = "divideButton";
-            this.divideButton.UseVisualStyleBackColor = true;
-            this.divideButton.Click += new System.EventHandler(this.DivideButton_Click);
+            resources.ApplyResources(this.splitButton, "splitButton");
+            this.splitButton.Name = "splitButton";
+            this.splitButton.UseVisualStyleBackColor = true;
             // 
             // sizeXinput
             // 
@@ -102,12 +83,11 @@ namespace View
             resources.ApplyResources(this.xLabel, "xLabel");
             this.xLabel.Name = "xLabel";
             // 
-            // combineButton
+            // joinButton
             // 
-            resources.ApplyResources(this.combineButton, "combineButton");
-            this.combineButton.Name = "combineButton";
-            this.combineButton.UseVisualStyleBackColor = true;
-            this.combineButton.Click += new System.EventHandler(this.CombineButton_Click);
+            resources.ApplyResources(this.joinButton, "joinButton");
+            this.joinButton.Name = "joinButton";
+            this.joinButton.UseVisualStyleBackColor = true;
             // 
             // gridPanel
             // 
@@ -162,12 +142,10 @@ namespace View
 
         private Panel controlPanel;
         private TextBox sizeYinput;
-        private Button divideButton;
+        private Button splitButton;
         private TextBox sizeXinput;
         private Label xLabel;
-        private Button combineButton;
-        private Button hideButton;
-        private Button showButton;
+        private Button joinButton;
         private Panel gridPanel;
         private Panel panel1;
         private Button cancelButton;

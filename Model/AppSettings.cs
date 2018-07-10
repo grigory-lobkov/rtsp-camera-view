@@ -1,4 +1,5 @@
-﻿using System.Xml.Serialization;
+﻿using System;
+using System.Xml.Serialization;
 
 namespace Model
 {
@@ -34,18 +35,53 @@ namespace Model
     {
         public int cntX = 2;
         public int cntY = 2;
-
         public void SaveTo(Matrix m)
         {
             m.cntX = cntX;
             m.cntY = cntY;
+            m.joins = new MatrixJoin[joins.Length];
+            Array.Copy(joins, m.joins, joins.Length);
         }
-
         public bool Equals(Matrix m)
         {
-            return (m.cntX == this.cntX) &&
-                (m.cntY == this.cntY);
+            if ((m.cntX == cntX) && (m.cntY == cntY) && (
+                m.joins == joins || joins != null && m.joins != null && joins.Length == m.joins.Length
+                ))
+            {
+                int i = joins.Length - 1;
+                for (; i >= 0; i--)
+                    if (!joins[i].Equals(m.joins[i])) break;
+                if (i < 0) return true;
+            }
+            return false;
+        }
+        [XmlArrayItem(ElementName = "join", Type = typeof(MatrixJoin))]
+        public MatrixJoin[] joins = { };
+    }
+    public class MatrixJoin
+    {
+        public int x;
+        public int y;
+        public int w;
+        public int h;
+        public MatrixJoin() { }
+        public MatrixJoin(int X, int Y, int W, int H)
+        {
+            x = X;
+            y = Y;
+            w = W;
+            h = H;
+        }
+        public void SaveTo(MatrixJoin j)
+        {
+            j.x = x;
+            j.y = y;
+            j.w = w;
+            j.h = h;
+        }
+        public bool Equals(MatrixJoin j)
+        {
+            return (j.x == x) && (j.y == y) && (j.w == w) && (j.h == h);
         }
     }
-
 }

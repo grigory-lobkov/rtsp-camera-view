@@ -117,66 +117,11 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="hideButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="hideButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>523, 17</value>
-  </data>
-  <data name="hideButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>97, 27</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="hideButton.TabIndex" type="System.Int32, mscorlib">
-    <value>17</value>
-  </data>
-  <data name="hideButton.Text" xml:space="preserve">
-    <value>Hide</value>
-  </data>
-  <data name="&gt;&gt;hideButton.Name" xml:space="preserve">
-    <value>hideButton</value>
-  </data>
-  <data name="&gt;&gt;hideButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;hideButton.Parent" xml:space="preserve">
-    <value>controlPanel</value>
-  </data>
-  <data name="&gt;&gt;hideButton.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="showButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="showButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>420, 17</value>
-  </data>
-  <data name="showButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>97, 27</value>
-  </data>
-  <data name="showButton.TabIndex" type="System.Int32, mscorlib">
-    <value>16</value>
-  </data>
-  <data name="showButton.Text" xml:space="preserve">
-    <value>Show</value>
-  </data>
-  <data name="&gt;&gt;showButton.Name" xml:space="preserve">
-    <value>showButton</value>
-  </data>
-  <data name="&gt;&gt;showButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;showButton.Parent" xml:space="preserve">
-    <value>controlPanel</value>
-  </data>
-  <data name="&gt;&gt;showButton.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
   <data name="sizeYinput.Location" type="System.Drawing.Point, System.Drawing">
     <value>94, 21</value>
   </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="sizeYinput.MaxLength" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
@@ -196,31 +141,31 @@
     <value>controlPanel</value>
   </data>
   <data name="&gt;&gt;sizeYinput.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>0</value>
   </data>
-  <data name="divideButton.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="splitButton.Location" type="System.Drawing.Point, System.Drawing">
     <value>275, 17</value>
   </data>
-  <data name="divideButton.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="splitButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>97, 27</value>
   </data>
-  <data name="divideButton.TabIndex" type="System.Int32, mscorlib">
+  <data name="splitButton.TabIndex" type="System.Int32, mscorlib">
     <value>14</value>
   </data>
-  <data name="divideButton.Text" xml:space="preserve">
-    <value>Divide</value>
+  <data name="splitButton.Text" xml:space="preserve">
+    <value>Split</value>
   </data>
-  <data name="&gt;&gt;divideButton.Name" xml:space="preserve">
-    <value>divideButton</value>
+  <data name="&gt;&gt;splitButton.Name" xml:space="preserve">
+    <value>splitButton</value>
   </data>
-  <data name="&gt;&gt;divideButton.Type" xml:space="preserve">
+  <data name="&gt;&gt;splitButton.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;divideButton.Parent" xml:space="preserve">
+  <data name="&gt;&gt;splitButton.Parent" xml:space="preserve">
     <value>controlPanel</value>
   </data>
-  <data name="&gt;&gt;divideButton.ZOrder" xml:space="preserve">
-    <value>3</value>
+  <data name="&gt;&gt;splitButton.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="sizeXinput.Location" type="System.Drawing.Point, System.Drawing">
     <value>38, 21</value>
@@ -244,11 +189,12 @@
     <value>controlPanel</value>
   </data>
   <data name="&gt;&gt;sizeXinput.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>2</value>
   </data>
   <data name="xLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="xLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
@@ -274,31 +220,31 @@
     <value>controlPanel</value>
   </data>
   <data name="&gt;&gt;xLabel.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>3</value>
   </data>
-  <data name="combineButton.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="joinButton.Location" type="System.Drawing.Point, System.Drawing">
     <value>172, 17</value>
   </data>
-  <data name="combineButton.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="joinButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>97, 27</value>
   </data>
-  <data name="combineButton.TabIndex" type="System.Int32, mscorlib">
+  <data name="joinButton.TabIndex" type="System.Int32, mscorlib">
     <value>13</value>
   </data>
-  <data name="combineButton.Text" xml:space="preserve">
-    <value>Combine</value>
+  <data name="joinButton.Text" xml:space="preserve">
+    <value>Join</value>
   </data>
-  <data name="&gt;&gt;combineButton.Name" xml:space="preserve">
-    <value>combineButton</value>
+  <data name="&gt;&gt;joinButton.Name" xml:space="preserve">
+    <value>joinButton</value>
   </data>
-  <data name="&gt;&gt;combineButton.Type" xml:space="preserve">
+  <data name="&gt;&gt;joinButton.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;combineButton.Parent" xml:space="preserve">
+  <data name="&gt;&gt;joinButton.Parent" xml:space="preserve">
     <value>controlPanel</value>
   </data>
-  <data name="&gt;&gt;combineButton.ZOrder" xml:space="preserve">
-    <value>6</value>
+  <data name="&gt;&gt;joinButton.ZOrder" xml:space="preserve">
+    <value>4</value>
   </data>
   <data name="controlPanel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Top</value>
