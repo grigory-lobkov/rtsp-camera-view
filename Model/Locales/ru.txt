@@ -1,0 +1,2 @@
+﻿MainPresenter/Sources=Источники
+MainPresenter/Settings=Настройки

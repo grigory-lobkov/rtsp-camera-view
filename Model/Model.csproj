@@ -38,6 +38,7 @@
     <Compile Include="Alert\TextEmailAlertService.cs" />
     <Compile Include="Hint.cs" />
     <Compile Include="Alert\IEmailAlertService.cs" />
+    <Compile Include="Locale.cs" />
     <Compile Include="Settings\ISettingsService.cs" />
     <Compile Include="AppSettings.cs" />
     <Compile Include="CameraNameView.cs" />
@@ -49,6 +50,11 @@
     <Reference Include="System" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.XML" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Locales\ru.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
