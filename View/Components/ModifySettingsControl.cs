@@ -70,17 +70,17 @@ namespace View.Components
             githubLinkLabel.LinkVisited = true;
         }
 
-        private void applyMatrixSize_MouseEnter(object sender, EventArgs e)
+        private void ApplyMatrixSize_MouseEnter(object sender, EventArgs e)
         {
             ((Label)sender).ForeColor = Color.Blue;
         }
 
-        private void applyMatrixSize_MouseLeave(object sender, EventArgs e)
+        private void ApplyMatrixSize_MouseLeave(object sender, EventArgs e)
         {
             ((Label)sender).ForeColor = SystemColors.ControlText;
         }
 
-        private void matrixInput_KeyDown(object sender, KeyEventArgs e)
+        private void MatrixInput_KeyDown(object sender, KeyEventArgs e)
         {
             switch (e.KeyCode)
             {
@@ -115,7 +115,7 @@ namespace View.Components
             }
         }
 
-        private void matrixInput_KeyUp(object sender, KeyEventArgs e)
+        private void MatrixInput_KeyUp(object sender, KeyEventArgs e)
         {
             try
             {
@@ -130,17 +130,25 @@ namespace View.Components
             }
         }
 
-        private void matrixInput_KeyPress(object sender, KeyPressEventArgs e)
+        private void MatrixInput_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar)) { e.Handled = true; }
         }
 
-        private void applyMatrixSize_Click(object sender, EventArgs e)
+        private void ApplyMatrixSize_Click(object sender, EventArgs e)
         {
             applyMatrixSize.Visible = false;
             Invoke(ApplyMatrixSizeClick);
             _lastX = Convert.ToInt32(matrixXinput.Text);
             _lastY = Convert.ToInt32(matrixYinput.Text);
         }
+
+        public string CamNameViewGlbButtonText { set { if (value != "") camNameViewGlbButton.Text = value; } }
+        public string AlertSetupButtonText { set { if (value != "") alertSetupButton.Text = value; } }
+        public string MatrixSetupButtonText { set { if (value != "") matrixSetupButton.Text = value; } }
+        public string CommandLineHelpButtonText { set { if (value != "") commandLineHelpButton.Text = value; } }
+        public string CommandLineHelpText { set { if (value != "") commandLineHelp.Text = value; } }
+        public string GithubLinkLabelText { set { if (value != "") githubLinkLabel.Text = value; } }
+
     }
 }

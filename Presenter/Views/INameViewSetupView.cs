@@ -29,5 +29,17 @@ namespace Presenter.Views
 
         event Action OkClick;
         event Action CancelClick;
+
+        // Localization
+        string ThisText { set; }
+        string PositioningLabelText { set; }
+        string CamNameLabelText { set; }
+        string TextColorLabelText { set; }
+        string BackgroundCheckBoxText { set; }
+        string TextSizeLabelText { set; }
+        string AutoHideCheckBoxText { set; }
+        string OkButtonText { set; }
+        string CancelButtonText { set; }
+
     }
 }

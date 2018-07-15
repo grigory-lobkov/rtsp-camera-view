@@ -48,5 +48,23 @@ namespace Presenter.Views
         bool HintNewRtspGoodShow { get; set; }
 
         bool AskIfAddSamples();
+
+        string SourcesPageText { set; }
+        string SettingsPageText { set; }
+        string AskAddSamplesText { set; }
+        string CreateGridCommonErrorText { set; }
+        string CreateGridNoLibErrorText { set; }
+        string CreateGridBadVerErrorText { set; }
+        string CreateGridEndErrorText { set; }
+        string SettingsSaveErrorText { set; }
+        string SettingsLoadErrorText { set; }
+        string SettingsAccesErrorText { set; }
+        string HintOpenCtrlText { set; }
+        string HintAddCameraText { set; }
+        string HintDropCameraText { set; }
+        string HintRTSP1Text { set; }
+        string HintRTSP2Text { set; }
+        string FullScreenMenuItemText { set; }
+        string ExitFullScreenMenuItemText { set; }
     }
 }

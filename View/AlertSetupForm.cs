@@ -74,5 +74,20 @@ namespace View
         public string EmUsername { get => emUsernameTextBox.Text; set => emUsernameTextBox.Text = value; }
         public string EmPassword { get => emPasswordTextBox.Text; set => emPasswordTextBox.Text = value; }
 
+        // Localization
+        public string ThisText { set { if (value != "") this.Text = value; } }
+        public string EmailPageText { set { if (value != "") emailPage.Text = value; } }
+        public string EmLostCheckBoxText { set { if (value != "") emLostCheckBox.Text = value; } }
+        public string EmRecoverCheckBoxText { set { if (value != "") emRecoverCheckBox.Text = value; } }
+        public string EmToLabelText { set { if (value != "") emToLabel.Text = value; } }
+        public string EmFromLabelText { set { if (value != "") emFromLabel.Text = value; } }
+        public string EmServerGroupBoxText { set { if (value != "") emServerGroupBox.Text = value; } }
+        public string EmNameLabelText { set { if (value != "") emNameLabel.Text = value; } }
+        public string EmPortLabelText { set { if (value != "") emPortLabel.Text = value; } }
+        public string EmTestLinkLabelText { set { if (value != "") emTestLinkLabel.Text = value; } }
+        public string EmUsernameLabelText { set { if (value != "") emUsernameLabel.Text = value; } }
+        public string EmPasswordLabelText { set { if (value != "") emPasswordLabel.Text = value; } }
+        public string OkButtonText { set { if (value != "") okButton.Text = value; } }
+        public string CancelButtonText { set { if (value != "") cancelButton.Text = value; } }
     }
 }

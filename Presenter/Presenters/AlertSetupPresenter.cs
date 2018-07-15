@@ -12,6 +12,23 @@ namespace Presenter.Presenters
 
         public AlertSetupPresenter(IApplicationController controller, IAlertSetupView view, IEmailAlertService eMalertService) : base(controller, view)
         {
+            // View localization
+            View.ThisText = Locale.Instance.Get("AlertSetup/this");
+            View.EmailPageText = Locale.Instance.Get("AlertSetup/emailPageText");
+            View.EmLostCheckBoxText = Locale.Instance.Get("AlertSetup/emLostCheckBoxText");
+            View.EmRecoverCheckBoxText = Locale.Instance.Get("AlertSetup/emRecoverCheckBoxText");
+            View.EmToLabelText = Locale.Instance.Get("AlertSetup/emToLabelText");
+            View.EmFromLabelText = Locale.Instance.Get("AlertSetup/emFromLabelText");
+            View.EmServerGroupBoxText = Locale.Instance.Get("AlertSetup/emServerGroupBoxText");
+            View.EmNameLabelText = Locale.Instance.Get("AlertSetup/emNameLabelText");
+            View.EmPortLabelText = Locale.Instance.Get("AlertSetup/emPortLabelText");
+            View.EmTestLinkLabelText = Locale.Instance.Get("AlertSetup/emTestLinkLabelText");
+            View.EmUsernameLabelText = Locale.Instance.Get("AlertSetup/emUsernameLabelText");
+            View.EmPasswordLabelText = Locale.Instance.Get("AlertSetup/emPasswordLabelText");
+            View.OkButtonText = Locale.Instance.Get("AlertSetup/okButtonText");
+            View.CancelButtonText = Locale.Instance.Get("AlertSetup/cancelButtonText");
+
+            // View actions
             View.OkClick += OkClick;
             View.CancelClick += CancelClick;
             View.EmTestClick += TestClick;

@@ -16,6 +16,20 @@ namespace Presenter.Presenters
         public SourceListPresenter(IApplicationController controller, ISourceListView view)
             : base(controller, view)
         {
+            // View localization
+            View.TypeViewToolStripMenuItemText = Locale.Instance.Get("SourceList/typeViewToolStripMenuItem");
+            View.LargeIconsToolStripMenuItemText = Locale.Instance.Get("SourceList/largeIconsToolStripMenuItem");
+            View.SmallIconsToolStripMenuItemText = Locale.Instance.Get("SourceList/smallIconsToolStripMenuItem");
+            View.LargeListToolStripMenuItemText = Locale.Instance.Get("SourceList/largeListToolStripMenuItem");
+            View.SmallListToolStripMenuItemText = Locale.Instance.Get("SourceList/smallListToolStripMenuItem");
+            View.SortTypeToolStripMenuItemText = Locale.Instance.Get("SourceList/sortTypeToolStripMenuItem");
+            View.AscendingToolStripMenuItemText = Locale.Instance.Get("SourceList/ascendingToolStripMenuItem");
+            View.DescendingToolStripMenuItemText = Locale.Instance.Get("SourceList/descendingToolStripMenuItem");
+            View.DisabledToolStripMenuItemText = Locale.Instance.Get("SourceList/disabledToolStripMenuItem");
+            View.NewCameraToolStripMenuItemText = Locale.Instance.Get("SourceList/newCameraToolStripMenuItem");
+            View.ModifyCameraToolStripMenuItemText = Locale.Instance.Get("SourceList/modifyCameraToolStripMenuItem");
+
+            // View actions
             View.SortChanged += SortChanged;
             View.ViewChanged += ViewChanged;
             View.NameChanged += NameChanged;

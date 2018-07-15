@@ -107,6 +107,13 @@ namespace View.Components
         public string EmLostSignalSubject { get => EmailOnLostSignalSubject.Text; }
         public string EmRestoreSignalTitle { get => EmailOnRestoreSignalTitle.Text; }
         public string EmRestoreSignalSubject { get => EmailOnRestoreSignalSubject.Text; }
+
+        // Localization
+        public string EmailOnLostSignalTitleText { set { if (value != "") EmailOnLostSignalTitle.Text = value; } }
+        public string EmailOnLostSignalSubjectText { set { if (value != "") EmailOnLostSignalSubject.Text = value; } }
+        public string EmailOnRestoreSignalTitleText { set { if (value != "") EmailOnRestoreSignalTitle.Text = value; } }
+        public string EmailOnRestoreSignalSubjectText { set { if (value != "") EmailOnRestoreSignalSubject.Text = value; } }
+
     }
 
     public class GridItem

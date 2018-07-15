@@ -157,9 +157,7 @@ namespace View.Components
             set => listView.FocusedItem.Text = value;
         }
 
-        /*****
-         *      Drag & Drop functions
-         */
+        // Drag & Drop functions
         public event Action DoDragDropping;
         public event Action DoneDragDropping;
         private object dragObject = null;
@@ -176,5 +174,19 @@ namespace View.Components
             DoDragDrop(listView.FocusedItem.Tag, DragDropEffects.Copy | DragDropEffects.Move);
             Invoke(DoneDragDropping);
         }
+
+        // Localization
+        public string TypeViewToolStripMenuItemText { set { if (value != "") typeViewToolStripMenuItem.Text = value; } }
+        public string LargeIconsToolStripMenuItemText { set { if (value != "") largeIconsToolStripMenuItem.Text = value; } }
+        public string SmallIconsToolStripMenuItemText { set { if (value != "") smallIconsToolStripMenuItem.Text = value; } }
+        public string LargeListToolStripMenuItemText { set { if (value != "") largeListToolStripMenuItem.Text = value; } }
+        public string SmallListToolStripMenuItemText { set { if (value != "") smallListToolStripMenuItem.Text = value; } }
+        public string SortTypeToolStripMenuItemText { set { if (value != "") sortTypeToolStripMenuItem.Text = value; } }
+        public string AscendingToolStripMenuItemText { set { if (value != "") ascendingToolStripMenuItem.Text = value; } }
+        public string DescendingToolStripMenuItemText { set { if (value != "") descendingToolStripMenuItem.Text = value; } }
+        public string DisabledToolStripMenuItemText { set { if (value != "") disabledToolStripMenuItem.Text = value; } }
+        public string NewCameraToolStripMenuItemText { set { if (value != "") newCameraToolStripMenuItem.Text = value; } }
+        public string ModifyCameraToolStripMenuItemText { set { if (value != "") modifyCameraToolStripMenuItem.Text = value; } }
+
     }
 }

@@ -12,23 +12,23 @@ namespace View
         private int _position;
         public int Position {
             get { return _position; }
-            set { _position = value; refreshPositionBottons(); }
+            set { _position = value; RefreshPositionBottons(); }
         }
 
         public Color TextColor {
             get { return textColorPanel.BackColor; }
-            set { textColorPanel.BackColor = value; refreshPositionBottons(); }
+            set { textColorPanel.BackColor = value; RefreshPositionBottons(); }
         }
 
         public bool BgEnabled
         {
             get { return backgroundCheckBox.Checked; }
-            set { backgroundCheckBox.Checked = value; refreshPositionBottons(); }
+            set { backgroundCheckBox.Checked = value; RefreshPositionBottons(); }
         }
 
         public Color BgColor {
             get { return backgroundPanel.BackColor; }
-            set { backgroundPanel.BackColor = value; refreshPositionBottons(); }
+            set { backgroundPanel.BackColor = value; RefreshPositionBottons(); }
         }
 
         public int TextSize
@@ -62,15 +62,15 @@ namespace View
             InitializeComponent();
             okButton.Click += (sender, args) => Invoke(OkClick);
             cancelButton.Click += (sender, args) => Invoke(CancelClick);
-            backgroundCheckBox.CheckedChanged += (sender, args) => refreshPositionBottons();
-            topLeftButton.Click += (sender, args) => refreshPositionBottons(1);
-            topCenterButton.Click += (sender, args) => refreshPositionBottons(2);
-            topRightButton.Click += (sender, args) => refreshPositionBottons(3);
-            bottomLeftButton.Click += (sender, args) => refreshPositionBottons(7);
-            bottomCenterButton.Click += (sender, args) => refreshPositionBottons(8);
-            bottomRightButton.Click += (sender, args) => refreshPositionBottons(9);
-            textColorPanel.MouseDoubleClick += (sender, args) => textColorButton_Click(sender, null);
-            backgroundPanel.MouseDoubleClick += (sender, args) => backgroundButton_Click(sender, null);
+            backgroundCheckBox.CheckedChanged += (sender, args) => RefreshPositionBottons();
+            topLeftButton.Click += (sender, args) => RefreshPositionBottons(1);
+            topCenterButton.Click += (sender, args) => RefreshPositionBottons(2);
+            topRightButton.Click += (sender, args) => RefreshPositionBottons(3);
+            bottomLeftButton.Click += (sender, args) => RefreshPositionBottons(7);
+            bottomCenterButton.Click += (sender, args) => RefreshPositionBottons(8);
+            bottomRightButton.Click += (sender, args) => RefreshPositionBottons(9);
+            textColorPanel.MouseDoubleClick += (sender, args) => TextColorButton_Click(sender, null);
+            backgroundPanel.MouseDoubleClick += (sender, args) => BackgroundButton_Click(sender, null);
         }
 
         public new void Show()
@@ -88,21 +88,21 @@ namespace View
         /*****
          *      Positioning area actions
          */
-        private void refreshPositionBottons(int position = 0)
+        private void RefreshPositionBottons(int position = 0)
         {
             if (position > 0) _position = position;
             if (_position > 0)
             {
-                refreshPositionBotton(topLeftButton, _position == 1);
-                refreshPositionBotton(topCenterButton, _position == 2);
-                refreshPositionBotton(topRightButton, _position == 3);
-                refreshPositionBotton(bottomLeftButton, _position == 7);
-                refreshPositionBotton(bottomCenterButton, _position == 8);
-                refreshPositionBotton(bottomRightButton, _position == 9);
+                RefreshPositionBotton(topLeftButton, _position == 1);
+                RefreshPositionBotton(topCenterButton, _position == 2);
+                RefreshPositionBotton(topRightButton, _position == 3);
+                RefreshPositionBotton(bottomLeftButton, _position == 7);
+                RefreshPositionBotton(bottomCenterButton, _position == 8);
+                RefreshPositionBotton(bottomRightButton, _position == 9);
             }
         }
 
-        private void refreshPositionBotton(Button b, bool selected)
+        private void RefreshPositionBotton(Button b, bool selected)
         {
             b.Text = selected ? camNameLabel.Text : null;
             if (backgroundCheckBox.Checked)
@@ -114,30 +114,41 @@ namespace View
         /*****
          *      Color area actions
          */
-        private void textColorButton_Click(object sender, EventArgs e)
+        private void TextColorButton_Click(object sender, EventArgs e)
         {
             colorDialog.Color = textColorPanel.BackColor;
             if (colorDialog.ShowDialog() == DialogResult.OK)
             {
                 textColorPanel.BackColor = colorDialog.Color;
-                refreshPositionBottons();
+                RefreshPositionBottons();
             }
         }
 
-        private void backgroundButton_Click(object sender, EventArgs e)
+        private void BackgroundButton_Click(object sender, EventArgs e)
         {
             colorDialog.Color = backgroundPanel.BackColor;
             if (colorDialog.ShowDialog() == DialogResult.OK)
             {
                 backgroundPanel.BackColor = colorDialog.Color;
-                refreshPositionBottons();
+                RefreshPositionBottons();
             }
         }
 
-        private void autoHideCheckBox_Click(object sender, EventArgs e)
+        private void AutoHideCheckBox_Click(object sender, EventArgs e)
         {
             autoHideTrackBar.Enabled = autoHideCheckBox.Checked;
         }
+
+        // Localization
+        public string ThisText { set { if (value != "") this.Text = value; } }
+        public string PositioningLabelText { set { if (value != "") positioningLabel.Text = value; } }
+        public string CamNameLabelText { set { if (value != "") camNameLabel.Text = value; } }
+        public string TextColorLabelText { set { if (value != "") textColorLabel.Text = value; } }
+        public string BackgroundCheckBoxText { set { if (value != "") backgroundCheckBox.Text = value; } }
+        public string TextSizeLabelText { set { if (value != "") textSizeLabel.Text = value; } }
+        public string AutoHideCheckBoxText { set { if (value != "") autoHideCheckBox.Text = value; } }
+        public string OkButtonText { set { if (value != "") okButton.Text = value; } }
+        public string CancelButtonText { set { if (value != "") cancelButton.Text = value; } }
 
     }
 }

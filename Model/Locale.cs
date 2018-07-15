@@ -50,7 +50,7 @@ namespace Model
 
             string[] k2 = null, v2 = null;
             int c2 = 0;
-            string[] lang = culture.Split('-');
+            string[] lang = culture.Split(new Char[] { '-' }, 2);
             if (lang.Count() > 1)
             {
                 k2 = new string[maxKeys];
@@ -100,7 +100,7 @@ namespace Model
             for (int i = 0; i < c; i++)
             {
                 keys[i] = k[i];
-                values[i] = v[i];
+                values[i] = v[i].Replace("\\n","\n");
             }
         }
 
@@ -117,9 +117,9 @@ namespace Model
                     string s = "";
                     while ((s = sr.ReadLine()) != null)
                     {
-                        if (s[0] > 'A' && s[0] < 'z')
+                        if (s!="" && s[0] > 'A' && s[0] < 'z')
                         {
-                            string[] t = s.Split('=');
+                            string[] t = s.Split(new Char[] { '=' }, 2);
                             if (t.Count() == 2)
                             {
                                 if (count >= maxKeys) throw new Exception("Count of params in Locale file "

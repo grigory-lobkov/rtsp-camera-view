@@ -11,6 +11,18 @@ namespace Presenter.Presenters
 
         public NameViewSetupPresenter(IApplicationController controller, INameViewSetupView view) : base(controller, view)
         {
+            // View localization
+            View.ThisText = Locale.Instance.Get("NameViewSetup/this");
+            View.PositioningLabelText = Locale.Instance.Get("NameViewSetup/positioningLabel");
+            View.CamNameLabelText = Locale.Instance.Get("NameViewSetup/camNameLabel");
+            View.TextColorLabelText = Locale.Instance.Get("NameViewSetup/textColorLabel");
+            View.BackgroundCheckBoxText = Locale.Instance.Get("NameViewSetup/backgroundCheckBox");
+            View.TextSizeLabelText = Locale.Instance.Get("NameViewSetup/textSizeLabel");
+            View.AutoHideCheckBoxText = Locale.Instance.Get("NameViewSetup/autoHideCheckBox");
+            View.OkButtonText = Locale.Instance.Get("NameViewSetup/okButton");
+            View.CancelButtonText = Locale.Instance.Get("NameViewSetup/cancelButton");
+
+            // View actions
             View.OkClick += OkClick;
             View.CancelClick += CancelClick;
         }

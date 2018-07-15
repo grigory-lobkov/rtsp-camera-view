@@ -391,7 +391,7 @@
     <value>topPanel</value>
   </data>
   <data name="&gt;&gt;topPanel.Type" xml:space="preserve">
-    <value>View.SelectRectPanel, RtspCameraView, Version=1.0.0.5, Culture=neutral, PublicKeyToken=null</value>
+    <value>View.SelectRectPanel, RtspCameraView, Version=1.0.0.6, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;topPanel.Parent" xml:space="preserve">
     <value>$this</value>

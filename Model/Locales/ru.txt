@@ -1,2 +1,2 @@
-﻿MainPresenter/Sources=Источники
-MainPresenter/Settings=Настройки
+﻿Main/sourcesPage=Источники
+Main/settingsPage=Настройки

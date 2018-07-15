@@ -87,7 +87,7 @@ namespace View
             }
             set
             {
-                if(value) // on show panel
+                if (value) // on show panel
                 {
                     controlPanel.SelectedTab = sourcesPage; // to show EditForm of Source, when on camera "settings" pressed
                 }
@@ -227,7 +227,7 @@ namespace View
                 catch { System.Threading.Thread.Sleep(111); hopes--; }
             }
 
-            if (screen > -1 && sc!=null && sc.Length > screen)
+            if (screen > -1 && sc != null && sc.Length > screen)
             {
                 hopes = 28;
                 while (hopes > 0)
@@ -279,8 +279,9 @@ namespace View
         public void SetAppCaption()
         {
             this.Text = Application.ProductName + " " + Application.ProductVersion
-                + "  /  gg81@yandex.ru  /  "
-                + (Application.CurrentCulture.TwoLetterISOLanguageName == "ru" ? "Григорий Лобков" : "Gregory Lobkov");
+                + "  /  gg81@yandex.ru  /  Gr"
+                + (Application.CurrentCulture.TwoLetterISOLanguageName == "ru" ? "i" : "e")
+                + "gory Lobkov";
         }
 
         public void ErrorAccessSettings(string msg)
@@ -334,7 +335,7 @@ namespace View
         public bool HintShowTimer
         {
             get => showHintTimer.Enabled;
-            set { if(value) showHintTimer.Enabled = false; showHintTimer.Enabled = value; }
+            set { if (value) showHintTimer.Enabled = false; showHintTimer.Enabled = value; }
         }
         public bool HintOpenCtrlShow
         {
@@ -415,5 +416,25 @@ namespace View
             hideHintTimer.Enabled = false;
             Invoke(HideHintTimer);
         }
+
+        // Localization
+        public string SourcesPageText { set { if (value != "") sourcesPage.Text = value; } }
+        public string SettingsPageText { set { if (value != "") settingsPage.Text = value; } }
+        public string AskAddSamplesText { set { if (value != "") AskAddSamples.Text = value; } }
+        public string CreateGridCommonErrorText { set { if (value != "") CreateGridCommonError.Text = value; } }
+        public string CreateGridNoLibErrorText { set { if (value != "") CreateGridNoLibError.Text = value; } }
+        public string CreateGridBadVerErrorText { set { if (value != "") CreateGridBadVerError.Text = value; } }
+        public string CreateGridEndErrorText { set { if (value != "") CreateGridEndError.Text = value; } }
+        public string SettingsSaveErrorText { set { if (value != "") SettingsSaveError.Text = value; } }
+        public string SettingsLoadErrorText { set { if (value != "") SettingsLoadError.Text = value; } }
+        public string SettingsAccesErrorText { set { if (value != "") SettingsAccesError.Text = value; } }
+        public string HintOpenCtrlText { set { if (value != "") hintOpenCtrl.Text = value; } }
+        public string HintAddCameraText { set { if (value != "") hintAddCamera.Text = value; } }
+        public string HintDropCameraText { set { if (value != "") hintDropCamera.Text = value; } }
+        public string HintRTSP1Text { set { if (value != "") hintRTSP1.Text = value; } }
+        public string HintRTSP2Text { set { if (value != "") hintRTSP2.Text = value; } }
+        public string FullScreenMenuItemText { set { if (value != "") fullScreenMenuItem.Text = value; } }
+        public string ExitFullScreenMenuItemText { set { if (value != "") exitFullScreenMenuItem.Text = value; } }
+
     }
 }

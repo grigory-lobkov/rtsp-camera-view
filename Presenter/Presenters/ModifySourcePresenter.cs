@@ -15,6 +15,27 @@ namespace Presenter.Presenters
         public ModifySourcePresenter(IApplicationController controller, IModifySourceView view)
             : base(controller, view)
         {
+            // View localization
+            View.CamNameLabelText = Locale.Instance.Get("ModifySource/camNameLabel");
+            View.CamNameText = Locale.Instance.Get("ModifySource/camName");
+            View.CamNameShowText = Locale.Instance.Get("ModifySource/camNameShow");
+            View.CamNameInheritText = Locale.Instance.Get("ModifySource/camNameInherit");
+            View.CamNameModifyText = Locale.Instance.Get("ModifySource/camNameModify");
+            View.CamEditRtsp1LabelText = Locale.Instance.Get("ModifySource/camEditRtsp1Label");
+            View.RtspBadText = Locale.Instance.Get("ModifySource/rtspBad");
+            View.CamEditRtsp2LabelText = Locale.Instance.Get("ModifySource/camEditRtsp2Label");
+            View.RtspGoodText = Locale.Instance.Get("ModifySource/rtspGood");
+            View.CamEditIconLabelText = Locale.Instance.Get("ModifySource/camEditIconLabel");
+            View.AspectRatioLabelText = Locale.Instance.Get("ModifySource/aspectRatioLabel");
+            View.AspectRatioText = Locale.Instance.Get("ModifySource/aspectRatio");
+            View.CreateCamButtonText = Locale.Instance.Get("ModifySource/createCamButton");
+            View.SaveCamButtonText = Locale.Instance.Get("ModifySource/saveCamButton");
+            View.CancelCamButtonText = Locale.Instance.Get("ModifySource/cancelCamButton");
+            View.DelCamLabelText = Locale.Instance.Get("ModifySource/delCamLabel");
+            View.CameraDeleteConfirm1Text = Locale.Instance.Get("ModifySource/cameraDeleteConfirm1");
+            View.CameraDeleteConfirm2Text = Locale.Instance.Get("ModifySource/cameraDeleteConfirm2");
+
+            // View actions
             View.CreateClick += SaveClick;
             View.SaveClick += SaveClick;
             View.CancelClick += CancelClick;

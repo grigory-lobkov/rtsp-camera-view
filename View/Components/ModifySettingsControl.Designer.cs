@@ -80,25 +80,25 @@ namespace View.Components
             // 
             resources.ApplyResources(this.applyMatrixSize, "applyMatrixSize");
             this.applyMatrixSize.Name = "applyMatrixSize";
-            this.applyMatrixSize.Click += new System.EventHandler(this.applyMatrixSize_Click);
-            this.applyMatrixSize.MouseEnter += new System.EventHandler(this.applyMatrixSize_MouseEnter);
-            this.applyMatrixSize.MouseLeave += new System.EventHandler(this.applyMatrixSize_MouseLeave);
+            this.applyMatrixSize.Click += new System.EventHandler(this.ApplyMatrixSize_Click);
+            this.applyMatrixSize.MouseEnter += new System.EventHandler(this.ApplyMatrixSize_MouseEnter);
+            this.applyMatrixSize.MouseLeave += new System.EventHandler(this.ApplyMatrixSize_MouseLeave);
             // 
             // matrixYinput
             // 
             resources.ApplyResources(this.matrixYinput, "matrixYinput");
             this.matrixYinput.Name = "matrixYinput";
-            this.matrixYinput.KeyDown += new System.Windows.Forms.KeyEventHandler(this.matrixInput_KeyDown);
-            this.matrixYinput.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.matrixInput_KeyPress);
-            this.matrixYinput.KeyUp += new System.Windows.Forms.KeyEventHandler(this.matrixInput_KeyUp);
+            this.matrixYinput.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MatrixInput_KeyDown);
+            this.matrixYinput.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.MatrixInput_KeyPress);
+            this.matrixYinput.KeyUp += new System.Windows.Forms.KeyEventHandler(this.MatrixInput_KeyUp);
             // 
             // matrixXinput
             // 
             resources.ApplyResources(this.matrixXinput, "matrixXinput");
             this.matrixXinput.Name = "matrixXinput";
-            this.matrixXinput.KeyDown += new System.Windows.Forms.KeyEventHandler(this.matrixInput_KeyDown);
-            this.matrixXinput.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.matrixInput_KeyPress);
-            this.matrixXinput.KeyUp += new System.Windows.Forms.KeyEventHandler(this.matrixInput_KeyUp);
+            this.matrixXinput.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MatrixInput_KeyDown);
+            this.matrixXinput.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.MatrixInput_KeyPress);
+            this.matrixXinput.KeyUp += new System.Windows.Forms.KeyEventHandler(this.MatrixInput_KeyUp);
             // 
             // xLabel
             // 

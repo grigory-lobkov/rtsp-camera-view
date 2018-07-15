@@ -27,5 +27,18 @@ namespace Presenter.Views
         event Action DoDragDropping;
         event Action DoneDragDropping;
         object DragObject { get; }
+
+        string TypeViewToolStripMenuItemText { set; }
+        string LargeIconsToolStripMenuItemText { set; }
+        string SmallIconsToolStripMenuItemText { set; }
+        string LargeListToolStripMenuItemText { set; }
+        string SmallListToolStripMenuItemText { set; }
+        string SortTypeToolStripMenuItemText { set; }
+        string AscendingToolStripMenuItemText { set; }
+        string DescendingToolStripMenuItemText { set; }
+        string DisabledToolStripMenuItemText { set; }
+        string NewCameraToolStripMenuItemText { set; }
+        string ModifyCameraToolStripMenuItemText { set; }
+
     }
 }

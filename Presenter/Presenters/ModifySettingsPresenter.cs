@@ -13,6 +13,15 @@ namespace Presenter.Presenters
         public ModifySettingsPresenter(IApplicationController controller, IModifySettingsView view)
             : base(controller, view)
         {
+            // View localization
+            View.CamNameViewGlbButtonText = Locale.Instance.Get("ModifySettings/camNameViewGlbButton");
+            View.AlertSetupButtonText = Locale.Instance.Get("ModifySettings/alertSetupButton");
+            View.MatrixSetupButtonText = Locale.Instance.Get("ModifySettings/matrixSetupButton");
+            View.CommandLineHelpButtonText = Locale.Instance.Get("ModifySettings/commandLineHelpButton");
+            View.CommandLineHelpText = Locale.Instance.Get("ModifySettings/commandLineHelp");
+            View.GithubLinkLabelText = Locale.Instance.Get("ModifySettings/githubLinkLabel");
+
+            // View actions
             View.CommandLineHelpClick += View.ShowCommandLineHelp;
             View.GitHubSiteClick += View.OpenGitHubSite;
             View.ApplyMatrixSizeClick += ModifyMatrixSize;

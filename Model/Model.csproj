@@ -52,6 +52,9 @@
     <Reference Include="System.XML" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Locales\en.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Locales\ru.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

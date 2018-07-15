@@ -26,5 +26,13 @@ namespace Presenter.Views
         int SelX2 { get; }
         int SelY1 { get; }
         int SelY2 { get; }
+
+        // Localization
+        string ThisText { set; }
+        string JoinButtonText { set; }
+        string SplitButtonText { set; }
+        string SaveButtonText { set; }
+        string CancelButtonText { set; }
+
     }
 }

@@ -240,6 +240,14 @@ namespace View
                 }
             }
         }
+
+        // Localization
+        public string ThisText { set { if (value != "") this.Text = value; } }
+        public string JoinButtonText { set { if (value != "") joinButton.Text = value; } }
+        public string SplitButtonText { set { if (value != "") splitButton.Text = value; } }
+        public string SaveButtonText { set { if (value != "") saveButton.Text = value; } }
+        public string CancelButtonText { set { if (value != "") cancelButton.Text = value; } }
+
     }
 
 

@@ -35,12 +35,12 @@
             System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem(new string[] {
             "Cam2"}, 1, System.Drawing.SystemColors.WindowText, System.Drawing.SystemColors.Window, new System.Drawing.Font("Microsoft Sans Serif", 8.25F));
             this.cameraContextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.typeViewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.largeIconsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.smallIconsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.largeListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.smallListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.sortTypeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ascendingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.descendingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.disabledToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -57,92 +57,92 @@
             // cameraContextMenuStrip
             // 
             this.cameraContextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem1,
-            this.toolStripMenuItem2,
+            this.typeViewToolStripMenuItem,
+            this.sortTypeToolStripMenuItem,
             this.toolStripSeparator1,
             this.newCameraToolStripMenuItem,
             this.modifyCameraToolStripMenuItem});
             this.cameraContextMenuStrip.Name = "contextMenuStrip1";
-            this.cameraContextMenuStrip.Size = new System.Drawing.Size(157, 98);
+            this.cameraContextMenuStrip.Size = new System.Drawing.Size(181, 120);
             // 
-            // toolStripMenuItem1
+            // typeViewToolStripMenuItem
             // 
-            this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.typeViewToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.largeIconsToolStripMenuItem,
             this.smallIconsToolStripMenuItem,
             this.largeListToolStripMenuItem,
             this.smallListToolStripMenuItem});
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(156, 22);
-            this.toolStripMenuItem1.Text = "Type View";
+            this.typeViewToolStripMenuItem.Name = "typeViewToolStripMenuItem";
+            this.typeViewToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.typeViewToolStripMenuItem.Text = "Type View";
             // 
             // largeIconsToolStripMenuItem
             // 
             this.largeIconsToolStripMenuItem.Name = "largeIconsToolStripMenuItem";
-            this.largeIconsToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
+            this.largeIconsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.largeIconsToolStripMenuItem.Text = "Large Icons";
             // 
             // smallIconsToolStripMenuItem
             // 
             this.smallIconsToolStripMenuItem.Name = "smallIconsToolStripMenuItem";
-            this.smallIconsToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
+            this.smallIconsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.smallIconsToolStripMenuItem.Text = "Small Icons";
             // 
             // largeListToolStripMenuItem
             // 
             this.largeListToolStripMenuItem.Name = "largeListToolStripMenuItem";
-            this.largeListToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
+            this.largeListToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.largeListToolStripMenuItem.Text = "Large List";
             // 
             // smallListToolStripMenuItem
             // 
             this.smallListToolStripMenuItem.Name = "smallListToolStripMenuItem";
-            this.smallListToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
+            this.smallListToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.smallListToolStripMenuItem.Text = "Small List";
             // 
-            // toolStripMenuItem2
+            // sortTypeToolStripMenuItem
             // 
-            this.toolStripMenuItem2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.sortTypeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ascendingToolStripMenuItem,
             this.descendingToolStripMenuItem,
             this.disabledToolStripMenuItem});
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(156, 22);
-            this.toolStripMenuItem2.Text = "Sorting";
+            this.sortTypeToolStripMenuItem.Name = "sortTypeToolStripMenuItem";
+            this.sortTypeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sortTypeToolStripMenuItem.Text = "Sorting";
             // 
             // ascendingToolStripMenuItem
             // 
             this.ascendingToolStripMenuItem.Name = "ascendingToolStripMenuItem";
-            this.ascendingToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.ascendingToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.ascendingToolStripMenuItem.Text = "Ascending";
             // 
             // descendingToolStripMenuItem
             // 
             this.descendingToolStripMenuItem.Name = "descendingToolStripMenuItem";
-            this.descendingToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.descendingToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.descendingToolStripMenuItem.Text = "Descending";
             // 
             // disabledToolStripMenuItem
             // 
             this.disabledToolStripMenuItem.Name = "disabledToolStripMenuItem";
-            this.disabledToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.disabledToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.disabledToolStripMenuItem.Text = "Disabled";
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(153, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
             // 
             // newCameraToolStripMenuItem
             // 
             this.newCameraToolStripMenuItem.Name = "newCameraToolStripMenuItem";
-            this.newCameraToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.newCameraToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.newCameraToolStripMenuItem.Text = "New Camera";
             // 
             // modifyCameraToolStripMenuItem
             // 
             this.modifyCameraToolStripMenuItem.Name = "modifyCameraToolStripMenuItem";
-            this.modifyCameraToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.modifyCameraToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.modifyCameraToolStripMenuItem.Text = "Modify Camera";
             // 
             // cameraIconsImageList
@@ -203,12 +203,12 @@
         #endregion
         private System.Windows.Forms.ImageList cameraIconsImageList;
         private System.Windows.Forms.ContextMenuStrip cameraContextMenuStrip;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem typeViewToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem largeIconsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem smallIconsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem largeListToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem smallListToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem sortTypeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ascendingToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem descendingToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem disabledToolStripMenuItem;

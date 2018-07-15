@@ -12,6 +12,14 @@ namespace Presenter.Presenters
 
         public MatrixSetupPresenter(IApplicationController controller, IMatrixSetupView view) : base(controller, view)
         {
+            // View localization
+            View.ThisText = Locale.Instance.Get("MatrixSetup/this");
+            View.JoinButtonText = Locale.Instance.Get("MatrixSetup/joinButton");
+            View.SplitButtonText = Locale.Instance.Get("MatrixSetup/splitButton");
+            View.SaveButtonText = Locale.Instance.Get("MatrixSetup/saveButton");
+            View.CancelButtonText = Locale.Instance.Get("MatrixSetup/cancelButton");
+
+            // View actions
             View.SaveClick += OkClick;
             View.CancelClick += CancelClick;
             View.SizeChange += SizeChange;

@@ -28,5 +28,26 @@ namespace Presenter.Views
 
         void Show();
         void Hide();
+
+        // Localization
+        string CamNameLabelText { set; }
+        string CamNameText { set; }
+        string CamNameShowText { set; }
+        string CamNameInheritText { set; }
+        string CamNameModifyText { set; }
+        string CamEditRtsp1LabelText { set; }
+        string RtspBadText { set; }
+        string CamEditRtsp2LabelText { set; }
+        string RtspGoodText { set; }
+        string CamEditIconLabelText { set; }
+        string AspectRatioLabelText { set; }
+        string AspectRatioText { set; }
+        string CreateCamButtonText { set; }
+        string SaveCamButtonText { set; }
+        string CancelCamButtonText { set; }
+        string DelCamLabelText { set; }
+        string CameraDeleteConfirm1Text { set; }
+        string CameraDeleteConfirm2Text { set; }
+
     }
 }

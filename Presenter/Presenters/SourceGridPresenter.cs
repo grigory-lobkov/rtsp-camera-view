@@ -19,6 +19,13 @@ namespace Presenter.Presenters
         public SourceGridPresenter(IApplicationController controller, ISourceGridView view)
             : base(controller, view)
         {
+            // View localization
+            View.EmailOnLostSignalTitleText = Locale.Instance.Get("SourceGrid/EmailOnLostSignalTitle");
+            View.EmailOnLostSignalSubjectText = Locale.Instance.Get("SourceGrid/EmailOnLostSignalSubject");
+            View.EmailOnRestoreSignalTitleText = Locale.Instance.Get("SourceGrid/EmailOnRestoreSignalTitle");
+            View.EmailOnRestoreSignalSubjectText = Locale.Instance.Get("SourceGrid/EmailOnRestoreSignalSubject");
+
+            // View actions
             View.WatchDog += WatchDog;
         }
 

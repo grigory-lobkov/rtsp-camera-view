@@ -19,5 +19,11 @@ namespace Presenter.Views
         string EmLostSignalSubject { get; }
         string EmRestoreSignalTitle { get; }
         string EmRestoreSignalSubject { get; }
+
+        // Localization
+        string EmailOnLostSignalTitleText { set; }
+        string EmailOnLostSignalSubjectText { set; }
+        string EmailOnRestoreSignalTitleText { set; }
+        string EmailOnRestoreSignalSubjectText { set; }
     }
 }

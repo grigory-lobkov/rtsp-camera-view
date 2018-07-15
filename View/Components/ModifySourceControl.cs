@@ -22,10 +22,10 @@ namespace View.Components
         public ModifySourceControl()
         {
             InitializeComponent();
-            createCam.Location = saveCam.Location;
+            createCamButton.Location = saveCamButton.Location;
             camNameModify.Click += (sender, args) => Invoke(NameViewClick);
-            createCam.Click += (sender, args) => Invoke(CreateClick);
-            saveCam.Click += (sender, args) => Invoke(SaveClick);
+            createCamButton.Click += (sender, args) => Invoke(CreateClick);
+            saveCamButton.Click += (sender, args) => Invoke(SaveClick);
             cancelCamButton.Click += (sender, args) => Invoke(CancelClick);
             emptySrcName = SrcName;
             emptyRtspBad = RtspBad;
@@ -97,12 +97,12 @@ namespace View.Components
         private int _position;
         public int Position { get { return _position; } set { _position = value; } }
         public bool IsNewSource {
-            get { return createCam.Visible; }
+            get { return createCamButton.Visible; }
             set
             {
-                createCam.Visible = value;
-                saveCam.Visible = !value;
-                delCam.Visible = !value;
+                createCamButton.Visible = value;
+                saveCamButton.Visible = !value;
+                delCamLabel.Visible = !value;
             }
         }
         public bool IsNameShow
@@ -174,7 +174,7 @@ namespace View.Components
         }
         private void ButtonLabel_MouseLeave(object sender, EventArgs e)
         {
-            if (sender == delCam) ((Label)sender).ForeColor = Color.Red;
+            if (sender == delCamLabel) ((Label)sender).ForeColor = Color.Red;
             else ((Label)sender).ForeColor = SystemColors.ControlText;
         }
         private void CamNameShow_CheckedChanged(object sender, EventArgs e)
@@ -186,5 +186,26 @@ namespace View.Components
         {
             camNameModify.Enabled = !camNameInherit.Checked;
         }
+
+        // Localization
+        public string CamNameLabelText { set { if (value != "") camNameLabel.Text = value; } }
+        public string CamNameText { set { if (value != "") { camName.Text = value; emptySrcName = value; } } }
+        public string CamNameShowText { set { if (value != "") camNameShow.Text = value; } }
+        public string CamNameInheritText { set { if (value != "") camNameInherit.Text = value; } }
+        public string CamNameModifyText { set { if (value != "") camNameModify.Text = value; } }
+        public string CamEditRtsp1LabelText { set { if (value != "") camEditRtsp1Label.Text = value; } }
+        public string RtspBadText { set { if (value != "") { rtspBad.Text = value; emptyRtspBad = value; } } }
+        public string CamEditRtsp2LabelText { set { if (value != "") camEditRtsp2Label.Text = value; } }
+        public string RtspGoodText { set { if (value != "") { rtspGood.Text = value; emptyRtspGood = value; } } }
+        public string CamEditIconLabelText { set { if (value != "") camEditIconLabel.Text = value; } }
+        public string AspectRatioLabelText { set { if (value != "") aspectRatioLabel.Text = value; } }
+        public string AspectRatioText { set { if (value != "") { aspectRatio.Text = value; emptyAspectRatio = value; } } }
+        public string CreateCamButtonText { set { if (value != "") createCamButton.Text = value; } }
+        public string SaveCamButtonText { set { if (value != "") saveCamButton.Text = value; } }
+        public string CancelCamButtonText { set { if (value != "") cancelCamButton.Text = value; } }
+        public string DelCamLabelText { set { if (value != "") delCamLabel.Text = value; } }
+        public string CameraDeleteConfirm1Text { set { if (value != "") cameraDeleteConfirm1.Text = value; } }
+        public string CameraDeleteConfirm2Text { set { if (value != "") cameraDeleteConfirm2.Text = value; } }
+
     }
 }

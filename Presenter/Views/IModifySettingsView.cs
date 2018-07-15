@@ -17,5 +17,12 @@ namespace Presenter.Views
         event Action ModifyNameViewClick;
         event Action AlertSetupClick;
         event Action MatrixSetupClick;
+
+        string CamNameViewGlbButtonText { set; }
+        string AlertSetupButtonText { set; }
+        string MatrixSetupButtonText { set; }
+        string CommandLineHelpButtonText { set; }
+        string CommandLineHelpText { set; }
+        string GithubLinkLabelText { set; }
     }
 }

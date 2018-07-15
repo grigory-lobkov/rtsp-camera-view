@@ -98,7 +98,7 @@
             this.autoHideCheckBox.TabIndex = 26;
             this.autoHideCheckBox.Text = "Hide automatically";
             this.autoHideCheckBox.UseVisualStyleBackColor = true;
-            this.autoHideCheckBox.Click += new System.EventHandler(this.autoHideCheckBox_Click);
+            this.autoHideCheckBox.Click += new System.EventHandler(this.AutoHideCheckBox_Click);
             // 
             // textSizeTrackBar
             // 
@@ -141,7 +141,7 @@
             this.backgroundButton.TabIndex = 21;
             this.backgroundButton.Text = "...";
             this.backgroundButton.UseVisualStyleBackColor = true;
-            this.backgroundButton.Click += new System.EventHandler(this.backgroundButton_Click);
+            this.backgroundButton.Click += new System.EventHandler(this.BackgroundButton_Click);
             // 
             // backgroundPanel
             // 
@@ -252,7 +252,7 @@
             this.textColorButton.TabIndex = 17;
             this.textColorButton.Text = "...";
             this.textColorButton.UseVisualStyleBackColor = true;
-            this.textColorButton.Click += new System.EventHandler(this.textColorButton_Click);
+            this.textColorButton.Click += new System.EventHandler(this.TextColorButton_Click);
             // 
             // textColorLabel
             // 
@@ -272,7 +272,7 @@
             this.textColorPanel.Size = new System.Drawing.Size(82, 23);
             this.textColorPanel.TabIndex = 20;
             // 
-            // NameViewEditForm
+            // NameViewSetupForm
             // 
             this.AcceptButton = this.okButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -294,9 +294,9 @@
             this.Controls.Add(this.textColorLabel);
             this.Controls.Add(this.textColorPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Name = "NameViewEditForm";
+            this.Name = "NameViewSetupForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Главное окно";
+            this.Text = "Source name view setup";
             ((System.ComponentModel.ISupportInitialize)(this.autoHideTrackBar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textSizeTrackBar)).EndInit();
             this.positioningPanel.ResumeLayout(false);

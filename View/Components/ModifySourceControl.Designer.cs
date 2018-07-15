@@ -32,11 +32,11 @@
             this.camNameShow = new System.Windows.Forms.CheckBox();
             this.camNameLabel = new System.Windows.Forms.Label();
             this.camName = new System.Windows.Forms.TextBox();
-            this.delCam = new System.Windows.Forms.Label();
+            this.delCamLabel = new System.Windows.Forms.Label();
             this.cancelCamButton = new System.Windows.Forms.Button();
-            this.saveCam = new System.Windows.Forms.Button();
+            this.saveCamButton = new System.Windows.Forms.Button();
             this.camEditBtnsPanel = new System.Windows.Forms.Panel();
-            this.createCam = new System.Windows.Forms.Button();
+            this.createCamButton = new System.Windows.Forms.Button();
             this.cameraIcon = new System.Windows.Forms.ListView();
             this.aspectRatioLabel = new System.Windows.Forms.Label();
             this.aspectRatio = new System.Windows.Forms.TextBox();
@@ -104,21 +104,21 @@
             this.camName.TabIndex = 14;
             this.camName.Text = "Place of mount, view area, e.t.c.";
             // 
-            // delCam
+            // delCamLabel
             // 
-            this.delCam.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.delCamLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.delCam.ForeColor = System.Drawing.Color.Red;
-            this.delCam.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.delCam.Location = new System.Drawing.Point(3, 60);
-            this.delCam.Name = "delCam";
-            this.delCam.Size = new System.Drawing.Size(239, 19);
-            this.delCam.TabIndex = 22;
-            this.delCam.Text = "Delete camera";
-            this.delCam.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.delCam.Click += new System.EventHandler(this.DelCam_Click);
-            this.delCam.MouseEnter += new System.EventHandler(this.ButtonLabel_MouseEnter);
-            this.delCam.MouseLeave += new System.EventHandler(this.ButtonLabel_MouseLeave);
+            this.delCamLabel.ForeColor = System.Drawing.Color.Red;
+            this.delCamLabel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.delCamLabel.Location = new System.Drawing.Point(3, 60);
+            this.delCamLabel.Name = "delCamLabel";
+            this.delCamLabel.Size = new System.Drawing.Size(239, 19);
+            this.delCamLabel.TabIndex = 22;
+            this.delCamLabel.Text = "Delete camera";
+            this.delCamLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.delCamLabel.Click += new System.EventHandler(this.DelCam_Click);
+            this.delCamLabel.MouseEnter += new System.EventHandler(this.ButtonLabel_MouseEnter);
+            this.delCamLabel.MouseLeave += new System.EventHandler(this.ButtonLabel_MouseLeave);
             // 
             // cancelCamButton
             // 
@@ -131,37 +131,37 @@
             this.cancelCamButton.Text = "Cancel";
             this.cancelCamButton.UseVisualStyleBackColor = true;
             // 
-            // saveCam
+            // saveCamButton
             // 
-            this.saveCam.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.saveCam.Location = new System.Drawing.Point(11, 3);
-            this.saveCam.Name = "saveCam";
-            this.saveCam.Size = new System.Drawing.Size(100, 30);
-            this.saveCam.TabIndex = 20;
-            this.saveCam.Text = "Save";
-            this.saveCam.UseVisualStyleBackColor = true;
+            this.saveCamButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.saveCamButton.Location = new System.Drawing.Point(11, 3);
+            this.saveCamButton.Name = "saveCamButton";
+            this.saveCamButton.Size = new System.Drawing.Size(100, 30);
+            this.saveCamButton.TabIndex = 20;
+            this.saveCamButton.Text = "Save";
+            this.saveCamButton.UseVisualStyleBackColor = true;
             // 
             // camEditBtnsPanel
             // 
-            this.camEditBtnsPanel.Controls.Add(this.createCam);
-            this.camEditBtnsPanel.Controls.Add(this.delCam);
+            this.camEditBtnsPanel.Controls.Add(this.createCamButton);
+            this.camEditBtnsPanel.Controls.Add(this.delCamLabel);
             this.camEditBtnsPanel.Controls.Add(this.cancelCamButton);
-            this.camEditBtnsPanel.Controls.Add(this.saveCam);
+            this.camEditBtnsPanel.Controls.Add(this.saveCamButton);
             this.camEditBtnsPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.camEditBtnsPanel.Location = new System.Drawing.Point(0, 478);
             this.camEditBtnsPanel.Name = "camEditBtnsPanel";
             this.camEditBtnsPanel.Size = new System.Drawing.Size(245, 83);
             this.camEditBtnsPanel.TabIndex = 16;
             // 
-            // createCam
+            // createCamButton
             // 
-            this.createCam.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.createCam.Location = new System.Drawing.Point(69, 27);
-            this.createCam.Name = "createCam";
-            this.createCam.Size = new System.Drawing.Size(100, 30);
-            this.createCam.TabIndex = 23;
-            this.createCam.Text = "Create";
-            this.createCam.UseVisualStyleBackColor = true;
+            this.createCamButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.createCamButton.Location = new System.Drawing.Point(69, 27);
+            this.createCamButton.Name = "createCamButton";
+            this.createCamButton.Size = new System.Drawing.Size(100, 30);
+            this.createCamButton.TabIndex = 23;
+            this.createCamButton.Text = "Create";
+            this.createCamButton.UseVisualStyleBackColor = true;
             // 
             // cameraIcon
             // 
@@ -217,8 +217,8 @@
             this.rtspGood.Name = "rtspGood";
             this.rtspGood.Size = new System.Drawing.Size(244, 60);
             this.rtspGood.TabIndex = 20;
-            this.rtspGood.Text = "Ask camera vendor. Examples:\nrtsp://admin:1111@192.168.1.3/live/main\nrtsp://192.1" +
-    "68.1.4:554/av0_0&user=admin&password=1111";
+            this.rtspGood.Text = "Ask camera vendor. Examples:\r\nrtsp://admin:1111@192.168.1.3/live/main\r\nrtsp://192" +
+    ".168.1.4:554/av0_0&user=admin&password=1111";
             // 
             // rtspBad
             // 
@@ -230,8 +230,8 @@
             this.rtspBad.Name = "rtspBad";
             this.rtspBad.Size = new System.Drawing.Size(244, 60);
             this.rtspBad.TabIndex = 19;
-            this.rtspBad.Text = "Ask camera vendor. Examples:\nrtsp://admin:1111@192.168.1.3/live/sub\nrtsp://192.16" +
-    "8.1.4:554/av0_1&user=admin&password=1111";
+            this.rtspBad.Text = "Ask camera vendor. Examples:\r\nrtsp://admin:1111@192.168.1.3/live/sub\r\nrtsp://192." +
+    "168.1.4:554/av0_1&user=admin&password=1111";
             // 
             // camEditRtsp2Label
             // 
@@ -253,13 +253,13 @@
             this.camEditRtsp1Label.TabIndex = 13;
             this.camEditRtsp1Label.Text = "Bad quality RTSP connect string";
             // 
-            // camNameShowModifyLabel
+            // camNameModify
             // 
             this.camNameModify.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.camNameModify.ForeColor = System.Drawing.SystemColors.ControlText;
             this.camNameModify.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.camNameModify.Location = new System.Drawing.Point(130, 53);
-            this.camNameModify.Name = "camNameShowModifyLabel";
+            this.camNameModify.Name = "camNameModify";
             this.camNameModify.Size = new System.Drawing.Size(112, 17);
             this.camNameModify.TabIndex = 18;
             this.camNameModify.Text = "modify...";
@@ -321,9 +321,9 @@
         private System.Windows.Forms.CheckBox camNameShow;
         private System.Windows.Forms.Label camNameLabel;
         private System.Windows.Forms.TextBox camName;
-        private System.Windows.Forms.Label delCam;
+        private System.Windows.Forms.Label delCamLabel;
         private System.Windows.Forms.Button cancelCamButton;
-        private System.Windows.Forms.Button saveCam;
+        private System.Windows.Forms.Button saveCamButton;
         private System.Windows.Forms.Panel camEditBtnsPanel;
         private System.Windows.Forms.ListView cameraIcon;
         private System.Windows.Forms.Label aspectRatioLabel;
@@ -334,7 +334,7 @@
         private System.Windows.Forms.Label camEditRtsp2Label;
         private System.Windows.Forms.Label camEditRtsp1Label;
         private System.Windows.Forms.Label camNameModify;
-        private System.Windows.Forms.Button createCam;
+        private System.Windows.Forms.Button createCamButton;
         private System.Windows.Forms.Label cameraDeleteConfirm1;
         private System.Windows.Forms.Label cameraDeleteConfirm2;
     }

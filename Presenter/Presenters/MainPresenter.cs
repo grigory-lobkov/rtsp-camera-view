@@ -7,7 +7,6 @@ using Microsoft.Win32;
 
 /* TODO:
     Проверить, как ведет себя кнопка открытия панели в двухэкранном режиме - #6
-    Локализация на русский
 */
 
 namespace Presenter.Presenters
@@ -24,10 +23,29 @@ namespace Presenter.Presenters
         public MainPresenter(IApplicationController controller, IMainView view, ISettingsService settingsService, IEmailAlertService eMalertService)
             : base(controller, view)
         {
+            // View localization
+            View.SourcesPageText = Locale.Instance.Get("Main/sourcesPage");
+            View.SettingsPageText = Locale.Instance.Get("Main/settingsPage");
+            View.AskAddSamplesText = Locale.Instance.Get("Main/AskAddSamples");
+            View.CreateGridCommonErrorText = Locale.Instance.Get("Main/CreateGridCommonError");
+            View.CreateGridNoLibErrorText = Locale.Instance.Get("Main/CreateGridNoLibError");
+            View.CreateGridBadVerErrorText = Locale.Instance.Get("Main/CreateGridBadVerError");
+            View.CreateGridEndErrorText = Locale.Instance.Get("Main/CreateGridEndError");
+            View.SettingsSaveErrorText = Locale.Instance.Get("Main/SettingsSaveError");
+            View.SettingsLoadErrorText = Locale.Instance.Get("Main/SettingsLoadError");
+            View.SettingsAccesErrorText = Locale.Instance.Get("Main/SettingsAccesError");
+            View.HintOpenCtrlText = Locale.Instance.Get("Main/hintOpenCtrl");
+            View.HintAddCameraText = Locale.Instance.Get("Main/hintAddCamera");
+            View.HintDropCameraText = Locale.Instance.Get("Main/hintDropCamera");
+            View.HintRTSP1Text = Locale.Instance.Get("Main/hintRTSP1");
+            View.HintRTSP2Text = Locale.Instance.Get("Main/hintRTSP2");
+            View.FullScreenMenuItemText = Locale.Instance.Get("Main/fullScreenMenuItem");
+            View.ExitFullScreenMenuItemText = Locale.Instance.Get("Main/exitFullScreenMenuItem");
+
             // View actions
             View.OpenClosePanelClick += OpenClosePanelClick;
             View.SourcesPageSelected += SourcesPageSelected;
-            View.SettingsPageSelected += SettingsPageSelected; 
+            View.SettingsPageSelected += SettingsPageSelected;
             View.SplitterMoved += SplitterMoved;
 
             // Settings
