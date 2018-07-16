@@ -126,6 +126,7 @@ namespace Presenter.Presenters
 
         private void OpenClosePanelClick()
         {
+            if (View.PanelState) _appSettings.hint.Hide();
             View.PanelState = !View.PanelState;
         }
         private void SplitterMoved()

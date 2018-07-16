@@ -59,7 +59,7 @@ ModifySettings/camNameViewGlbButton = Camera name display
 ModifySettings/alertSetupButton = Alert control
 ModifySettings/matrixSetupButton = Matrix dimensions
 ModifySettings/commandLineHelpButton = Command Line parameters help
-ModifySettings/commandLineHelp =         Program actions, while start\n\nRTSP mosaic VLC player.exe [fullscreen] [screen=N] [autoplay] [unmute] [priority=N]\n\n        fullscreen - hide taskbar and app name\n        screen=N - move window to screen number N (0,1,2,...)\n        maximize - maximize window\n        autoplay - automatically play positioned cameras\n        unmute - unmute sound, if it exist on start playing\n        priority=N - change program priority, N:\n                0 - Idle\n                1 - Below Normal\n                2 - Normal\n                3 - Above Normal\n                4 - High
+ModifySettings/commandLineHelp =         Program actions, while start\n\nRtspCameraView.exe [fullscreen] [screen=N] [autoplay] [unmute] [priority=N]\n\n        fullscreen - hide taskbar and app name\n        screen=N - move window to screen number N (0,1,2,...)\n        maximize - maximize window\n        autoplay - automatically play positioned cameras\n        unmute - unmute sound, if it exist on start playing\n        priority=N - change program priority, N:\n                0 - Idle\n                1 - Below Normal\n                2 - Normal\n                3 - Above Normal\n                4 - High
 ModifySettings/githubLinkLabel = Visit project page
 
 

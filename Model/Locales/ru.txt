@@ -1,2 +1,143 @@
-﻿Main/sourcesPage=Источники
-Main/settingsPage=Настройки
+﻿
+##### Main
+
+# Вкладки панели управления
+Main/sourcesPage = Источники
+Main/settingsPage = Настройки
+
+# Вопрос на добавление нескольких примеров источников
+Main/AskAddSamples = Добавить несколько примеров в список источников?
+
+# Сообщения об ошибках
+Main/CreateGridCommonError = Ошибка создания сетки проигрывателей
+Main/CreateGridNoLibError = Не могу найти установленных VLC и/или ActiveX Web-plugin
+Main/CreateGridBadVerError = Пожалуйста, проверьте, что Ваш VLC версии 2.1.x
+Main/CreateGridEndError = Пожалуйста, установите VLC 2.1.x с выбранным ActiveX Web-module в папку\nпо умолчанию ''Program Files (x86)'' или ''Program Files''\n\nВы можете загрузить VLC здесь:\n{url}\n\nВы хотите загрузить VLC сейчас?
+
+# Ошибки файла настройки
+Main/SettingsSaveError = Ошибка сохранения файла настроек
+Main/SettingsLoadError = Ошибка загрузки файла настроек
+Main/SettingsAccesError = Не хватает прав на доступ к файлу настроек, работа сохранена не будет
+
+# Подсказки
+Main/hintOpenCtrl = Откройте панель управления, чтобы\nдобавить/посмотреть список камер
+Main/hintAddCamera = Правый клик в этой области,\nчтобы добавить камеру
+Main/hintDropCamera = Перетащите камеру левой кнопкой мыши\nи отпустите на сетке справа
+Main/hintRTSP1 = Строка подключения RTSP плохого качества, которое\nпроизводит минимальную нагрузку на сеть.\nДля показа в маленьких окнах.
+Main/hintRTSP2 = Строка подключения RTSP хорошего качества, которое\nсоздает высокую нагрузку на сеть.\nДля показа в больших окнах.\nПереключение между потоками RTSP автоматизировано.
+
+# Контекстное меню
+Main/fullScreenMenuItem = Полный экран
+Main/exitFullScreenMenuItem = Выход из полного экрана
+
+
+
+##### SourceList
+
+# Подменю "Вид"
+SourceList/typeViewToolStripMenuItem = Вид
+SourceList/largeIconsToolStripMenuItem = Большие иконки
+SourceList/smallIconsToolStripMenuItem = Маленькие иконки
+SourceList/largeListToolStripMenuItem = Большой список
+SourceList/smallListToolStripMenuItem = Маленький список
+
+# Подменю "Сортировка"
+SourceList/sortTypeToolStripMenuItem = Сортировка
+SourceList/ascendingToolStripMenuItem = По возрастанию
+SourceList/descendingToolStripMenuItem = По убыванию
+SourceList/disabledToolStripMenuItem = Отключена
+
+# Действия
+SourceList/newCameraToolStripMenuItem = Новая камера
+SourceList/modifyCameraToolStripMenuItem = Изменить камеру
+
+
+
+##### ModifySettings
+
+ModifySettings/camNameViewGlbButton = Отображение имени
+ModifySettings/alertSetupButton = Тревожные события
+ModifySettings/matrixSetupButton = Параметры сетки
+ModifySettings/commandLineHelpButton = Параметры командной строки
+ModifySettings/commandLineHelp =         Действия программы во время запуска\n\nRtspCameraView.exe [fullscreen] [screen=N] [autoplay] [unmute] [priority=N]\n\n        fullscreen - скрыть заголовок и панель задач\n        screen=N - переместить программу в экран N (0,1,2,...)\n        maximize - развернуть на весь экран\n        autoplay - автозапуск камер\n        unmute - включить звук, если есть\n        priority=N - сменить приоритет программы, N:\n                0 - Низкий\n                1 - Ниже среднего\n                2 - Средний\n                3 - Выше среднего\n                4 - Высокий
+ModifySettings/githubLinkLabel = Посетить страницу проекта
+
+
+
+##### ModifySource
+
+ModifySource/camNameLabel = Имя камеры
+ModifySource/camName = Место установки, просмотра, и т.п.
+ModifySource/camNameShow = показать
+ModifySource/camNameInherit = глобальные
+ModifySource/camNameModify = изменить...
+ModifySource/camEditRtsp1Label = Строка подключения RTSP плохого качества
+ModifySource/rtspBad = Выясните у поставщика. Примеры:\nrtsp://admin:1111@192.168.1.3/live/sub\nrtsp://192.168.1.4:554/av0_1&user=admin&password=1111
+ModifySource/camEditRtsp2Label = Строка подключения RTSP хорошего качества
+ModifySource/rtspGood = Выясните у поставщика. Примеры:\nrtsp://admin:1111@192.168.1.3/live/main\nrtsp://192.168.1.4:554/av0_0&user=admin&password=1111
+ModifySource/camEditIconLabel = Иконка камеры
+ModifySource/aspectRatioLabel = Соотношение сторон
+ModifySource/aspectRatio = 
+ModifySource/createCamButton = Добавить
+ModifySource/saveCamButton = Сохранить
+ModifySource/cancelCamButton = Отмена
+ModifySource/delCamLabel = Удалить камеру
+ModifySource/cameraDeleteConfirm1 = Вы действительно хотите удалить камеру?
+ModifySource/cameraDeleteConfirm2 = Вы сейчас просматриваете эту камеру. Удалять?
+
+
+
+##### NameViewSetup
+
+NameViewSetup/this = Параметры отображения названия
+NameViewSetup/positioningLabel = Расположение
+NameViewSetup/camNameLabel = Имя
+NameViewSetup/textColorLabel = Цвет текста
+NameViewSetup/backgroundCheckBox = Фон
+NameViewSetup/textSizeLabel = Размер текста
+NameViewSetup/autoHideCheckBox = Скрывать автоматически
+NameViewSetup/okButton = Ок
+NameViewSetup/cancelButton = Отмена
+
+
+
+##### SourceGrid
+
+SourceGrid/EmailOnLostSignalTitle = {name} связь прервана
+SourceGrid/EmailOnLostSignalSubject = Связь с источником {name} утеряна\n\nСтрока плохого потока:\n{bad}\n\nСтрока хорошего потока:\n{good}\n\n
+SourceGrid/EmailOnRestoreSignalTitle = {name} связь восстановлена
+SourceGrid/EmailOnRestoreSignalSubject = Связь с источником {name} восстановлена\n\nСтрока плохого потока:\n{bad}\n\nСтрока хорошего потока:\n{good}\n\n
+
+
+
+##### MatrixSetup
+
+MatrixSetup/this = Параметры сетки просмотра
+MatrixSetup/joinButton = Склеить
+MatrixSetup/splitButton = Разделить
+MatrixSetup/saveButton = Сохранить
+MatrixSetup/cancelButton = Отмена
+
+
+
+##### AlertSetup
+
+# Тревоги по Email
+AlertSetup/emailPage = Email
+AlertSetup/emLostCheckBox = Когда соединение утеряно на (min)
+AlertSetup/emRecoverCheckBox = Когда соединение восстановлено
+AlertSetup/emToLabel = Кому
+AlertSetup/emFromLabel = От кого
+
+# Mail server setup
+AlertSetup/emServerGroupBox = Почтовый сервер
+AlertSetup/emNameLabel = Имя
+AlertSetup/emPortLabel = Порт
+AlertSetup/emTestLinkLabel = Тестовое сообщение
+AlertSetup/emUsernameLabel = Имя пользователя
+AlertSetup/emPasswordLabel = Пароль
+
+# Common
+AlertSetup/this = Настройка тревожных событий
+AlertSetup/okButton = Ок
+AlertSetup/cancelButton = Отмена
