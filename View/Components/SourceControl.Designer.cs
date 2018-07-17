@@ -76,10 +76,11 @@ namespace View.Components
             // 
             this.srcName.AutoSize = true;
             this.srcName.BackColor = System.Drawing.Color.Black;
+            this.srcName.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.srcName.ForeColor = System.Drawing.Color.White;
             this.srcName.Location = new System.Drawing.Point(46, 18);
             this.srcName.Name = "srcName";
-            this.srcName.Size = new System.Drawing.Size(59, 13);
+            this.srcName.Size = new System.Drawing.Size(59, 14);
             this.srcName.TabIndex = 0;
             this.srcName.Text = "nameLabel";
             // 

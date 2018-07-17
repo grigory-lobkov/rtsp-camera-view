@@ -27,14 +27,14 @@ namespace View.Components
             get => nameHideTimer.Interval / 1000;
             set => nameHideTimer.Interval = value * 1000;
         }
-        public bool srcNameAutoHide = true;
+        public bool srcNameAutoHide = false;
         public bool SrcNameAutoHide
         {
             get => srcNameAutoHide;
             set { srcNameAutoHide = value; if (srcNameShow && value && srcName.Visible) ShowSrcName(); }
         }
 
-        private bool srcNameShow = true;
+        private bool srcNameShow = false;
         public bool SrcNameShow
         {
             get => srcNameShow;
@@ -149,8 +149,15 @@ namespace View.Components
             if (!srcNameShow) { srcName.Visible = false; return; }
             int clientw = ClientSize.Width,
                 clienth = ClientSize.Height,
-                clientm = Math.Min(clientw, clienth),
-                fs = Math.Max(clientm / 100 * SrcNameSize, 4);
+                jointw = MinimumSize.Width,
+                jointh = MinimumSize.Height;
+            if (Dock == DockStyle.Fill)
+            {
+                jointw = Math.Max(jointw, 2);
+                jointh = Math.Max(jointh, 2);
+            }
+            int clientm = Math.Min(clientw / jointw, clienth / jointh);
+            float fs = Math.Max((float)clientm / 100 * SrcNameSize, 5);
             srcName.Font = new Font(srcName.Font.Name, fs, srcName.Font.Style, srcName.Font.Unit);
             //if (srcNameShow) srcName.Visible = true; else nameHideTimer.Enabled = srcName.Visible;
             srcName.Refresh();
@@ -163,7 +170,7 @@ namespace View.Components
                     top = clienth / 40;
                     break;
                 default: // bottom
-                    top = clienth * 11 / 12;
+                    top = clienth * 29 / 30 - (int)fs;
                     if (controlPlayer != null)
                         if (srcNameAutoHide || controlPlayer.Visible)
                             top = top - controlPlayer.Height;
@@ -189,7 +196,7 @@ namespace View.Components
 
         private void SourceControl_Resize(object sender, EventArgs e)
         {
-            int clienth = ClientSize.Height;
+            int clienth = ClientSize.Height / (Dock == DockStyle.Fill ? Math.Max(MinimumSize.Height, 2) : MinimumSize.Height);
             controlPlayer.Height = clienth > 200 ? clienth / 10 : (clienth < 100 ? clienth / 5 : 20);
             SrcNameRefresh();
         }

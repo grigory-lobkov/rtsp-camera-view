@@ -1,5 +1,4 @@
-﻿using System;
-using Model;
+﻿using Model;
 using Presenter.Common;
 using Presenter.Views;
 

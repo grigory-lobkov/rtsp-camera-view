@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Drawing;
 using Presenter.Common;
 
 namespace Presenter.Views

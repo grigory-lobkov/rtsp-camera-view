@@ -42,8 +42,9 @@
             // 
             // EmailOnLostSignalTitle
             // 
+            this.EmailOnLostSignalTitle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.EmailOnLostSignalTitle.AutoSize = true;
-            this.EmailOnLostSignalTitle.Location = new System.Drawing.Point(3, 368);
+            this.EmailOnLostSignalTitle.Location = new System.Drawing.Point(3, 251);
             this.EmailOnLostSignalTitle.Name = "EmailOnLostSignalTitle";
             this.EmailOnLostSignalTitle.Size = new System.Drawing.Size(91, 13);
             this.EmailOnLostSignalTitle.TabIndex = 0;
@@ -52,8 +53,9 @@
             // 
             // EmailOnLostSignalSubject
             // 
+            this.EmailOnLostSignalSubject.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.EmailOnLostSignalSubject.AutoSize = true;
-            this.EmailOnLostSignalSubject.Location = new System.Drawing.Point(3, 390);
+            this.EmailOnLostSignalSubject.Location = new System.Drawing.Point(3, 273);
             this.EmailOnLostSignalSubject.Name = "EmailOnLostSignalSubject";
             this.EmailOnLostSignalSubject.Size = new System.Drawing.Size(114, 104);
             this.EmailOnLostSignalSubject.TabIndex = 1;
@@ -63,8 +65,9 @@
             // 
             // EmailOnRestoreSignalSubject
             // 
+            this.EmailOnRestoreSignalSubject.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.EmailOnRestoreSignalSubject.AutoSize = true;
-            this.EmailOnRestoreSignalSubject.Location = new System.Drawing.Point(157, 390);
+            this.EmailOnRestoreSignalSubject.Location = new System.Drawing.Point(157, 273);
             this.EmailOnRestoreSignalSubject.Name = "EmailOnRestoreSignalSubject";
             this.EmailOnRestoreSignalSubject.Size = new System.Drawing.Size(146, 104);
             this.EmailOnRestoreSignalSubject.TabIndex = 3;
@@ -74,8 +77,9 @@
             // 
             // EmailOnRestoreSignalTitle
             // 
+            this.EmailOnRestoreSignalTitle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.EmailOnRestoreSignalTitle.AutoSize = true;
-            this.EmailOnRestoreSignalTitle.Location = new System.Drawing.Point(157, 368);
+            this.EmailOnRestoreSignalTitle.Location = new System.Drawing.Point(157, 251);
             this.EmailOnRestoreSignalTitle.Name = "EmailOnRestoreSignalTitle";
             this.EmailOnRestoreSignalTitle.Size = new System.Drawing.Size(111, 13);
             this.EmailOnRestoreSignalTitle.TabIndex = 2;
@@ -92,7 +96,7 @@
             this.Controls.Add(this.EmailOnLostSignalSubject);
             this.Controls.Add(this.EmailOnLostSignalTitle);
             this.Name = "SourceGridControl";
-            this.Size = new System.Drawing.Size(532, 494);
+            this.Size = new System.Drawing.Size(470, 377);
             this.Resize += new System.EventHandler(this.SourceGridControl_Resize);
             this.ResumeLayout(false);
             this.PerformLayout();

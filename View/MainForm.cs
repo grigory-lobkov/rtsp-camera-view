@@ -127,7 +127,8 @@ namespace View
 
         private void RepaintSplitLabel(bool hover = false)
         {
-            splitLabel.Left = (controlPanel.Visible ? controlPanel.Width : -splitter.Width)
+            splitLabel.Left = (controlPanel.Visible ? controlPanel.Width :
+                FormBorderStyle == FormBorderStyle.None ? splitter.Width : -splitter.Width)
                 + (hover ? splitter.Width : 0);
         }
 
@@ -185,6 +186,7 @@ namespace View
                 {
                     this.FormBorderStyle = FormBorderStyle.None;
                     this.WindowState = FormWindowState.Maximized;
+                    RepaintSplitLabel();
                     fullScreenMenuItem.Visible = false;
                     exitFullScreenMenuItem.Visible = true;
                     hopes = 0;
@@ -201,6 +203,7 @@ namespace View
                 {
                     this.FormBorderStyle = saveBorderStyle;
                     this.WindowState = saveWindowState;
+                    RepaintSplitLabel();
                     fullScreenMenuItem.Visible = true;
                     exitFullScreenMenuItem.Visible = false;
                     hopes = 0;

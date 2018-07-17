@@ -2,12 +2,6 @@
 using Model;
 using Presenter.Common;
 using Presenter.Views;
-using Presenter.Presenters;
-using Microsoft.Win32;
-
-/* TODO:
-    Проверить, как ведет себя кнопка открытия панели в двухэкранном режиме - #6
-*/
 
 namespace Presenter.Presenters
 {

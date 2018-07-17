@@ -1,6 +1,4 @@
-﻿using System;
-using System.Windows.Forms;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Model;
 using Presenter.Common;
 using Presenter.Views;
@@ -60,7 +58,7 @@ namespace Presenter.Presenters
                         s.SetSettings(_settings);
                         s.Position = pos;
                         _srcs.Add(s);
-                        View.AddItem(s.Control, (float)x / cx, (float)y / cy, (float)w / cx, (float)h / cy);
+                        View.AddItem(s.Control, (float)x / cx, (float)y / cy, (float)w / cx, (float)h / cy, w, h);
                         s.Maximized += OneSourceMaximized;
                         s.Minimized += OneSourceMinimized;
                         s.DragDropInit += () => SourceDoDragDrop();

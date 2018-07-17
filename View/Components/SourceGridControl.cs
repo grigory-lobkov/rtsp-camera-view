@@ -1,13 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using Presenter.Views;
-using Presenter.Common;
 
 namespace View.Components
 {
@@ -31,16 +26,16 @@ namespace View.Components
             _items.Clear();
         }
 
-        public void AddItem(object obj, float x, float y, float w, float h)
+        public void AddItem(object obj, float x, float y, float w, float h, int jw, int jh)
         {
             this.SuspendLayout();
             Control control = (Control)obj;
             Controls.Add(control);
-            _items.Add(new GridItem(control, x, y, w, h));
+            _items.Add(new GridItem(control, x, y, w, h, jw, jh));
             this.ResumeLayout(false);
         }
 
-        public void ModifyItem(object obj, float x, float y, float w, float h)
+        public void ModifyItem(object obj, float x, float y, float w, float h, int jw, int jh)
         {
             foreach (GridItem i in _items)
             {
@@ -50,6 +45,8 @@ namespace View.Components
                     i.y = y;
                     i.w = w;
                     i.h = h;
+                    i.jw = jw;
+                    i.jh = jh;
                 }
             }
         }
@@ -78,6 +75,7 @@ namespace View.Components
                 int h = ClientRectangle.Height, w = ClientRectangle.Width;
                 foreach (GridItem i in _items)
                 {
+                    i.control.MinimumSize = new Size(i.jw, i.jh);
                     i.control.Location = new Point((int)(i.x * w), (int)(i.y * h));
                     i.control.Size = new Size((int)(i.w * w), (int)(i.h * h));
                 }
@@ -123,13 +121,17 @@ namespace View.Components
         public float y;
         public float w;
         public float h;
-        public GridItem(Control Obj, float X, float Y, float W, float H)
+        public int jw;
+        public int jh;
+        public GridItem(Control Obj, float X, float Y, float W, float H, int JW, int JH)
         {
             control = Obj;
             x = X;
             y = Y;
             w = W;
             h = H;
+            jw = JW;
+            jh = JH;
         }
     }
 }

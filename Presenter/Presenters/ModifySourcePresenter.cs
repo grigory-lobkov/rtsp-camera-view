@@ -2,7 +2,6 @@
 using Model;
 using Presenter.Common;
 using Presenter.Views;
-using Presenter.Presenters;
 
 namespace Presenter.Presenters
 {

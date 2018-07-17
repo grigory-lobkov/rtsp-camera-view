@@ -1,14 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Globalization;
 using System.IO;
 
 namespace Model
 {
-    // Pattern:
+    // Singleton pattern:
     /*public sealed class Singleton
         {
             private static readonly Object s_lock = new Object();
@@ -117,7 +115,7 @@ namespace Model
                     string s = "";
                     while ((s = sr.ReadLine()) != null)
                     {
-                        if (s!="" && s[0] > 'A' && s[0] < 'z')
+                        if (s != "" && s[0] > 'A' && s[0] < 'z')
                         {
                             string[] t = s.Split(new Char[] { '=' }, 2);
                             if (t.Count() == 2)

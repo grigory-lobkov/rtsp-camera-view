@@ -2,7 +2,6 @@
 using System.Drawing;
 using System.Windows.Forms;
 using Presenter.Views;
-using Presenter.Common;
 
 namespace View.Components
 {

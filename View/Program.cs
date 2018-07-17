@@ -1,8 +1,5 @@
 ﻿using System.Windows.Forms;
 using Model;
-//using Model.Alert;
-//using Presenter.Common;
-//using Presenter.Presenters;
 using Presenter.Views;
 using View;
 using View.Components;

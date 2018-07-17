@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using Model;
 using Presenter.Common;
 using Presenter.Views;
@@ -158,12 +155,12 @@ namespace Presenter.Presenters
             View.SrcName = source.name;
             View.SrcNameShow = source.nameView.enabled;
             NameView nv = source.nameView.inheritGlobal ? _settings.nameView : source.nameView;
+            View.SrcNameAutoHide = nv.autoHide;
             View.SrcNameColor = nv.color;
             View.SrcNameBg = nv.paintBg;
             View.SrcNameBgColor = nv.bgColor;
             View.SrcNameSize = nv.size;
             View.SrcNameAlign = (int)nv.position;
-            View.SrcNameAutoHide = nv.autoHide;
             View.SrcNameShowSec = nv.autoHideSec;
             View.SrcNameRefresh();
             _source = source;
