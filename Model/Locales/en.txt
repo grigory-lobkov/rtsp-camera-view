@@ -1,0 +1,143 @@
+﻿
+##### Main
+
+# Control panel tab names
+Main/sourcesPage = Sources
+Main/settingsPage = Settings
+
+# Question to add some examples
+Main/AskAddSamples = Would you like to add sample cameras to your sources?
+
+# Error messages
+Main/CreateGridCommonError = Error creating players grid
+Main/CreateGridNoLibError = Can't find VLC and/or ActiveX Web-plugin installed
+Main/CreateGridBadVerError = Please, check your VLC version is 2.1.x
+Main/CreateGridEndError = Please, install VLC 2.1.x with ActiveX Web-module to the default\ninstallation folder ''Program Files (x86)'' or ''Program Files''\n\nYou can download VLC here:\n{url}\n\nWould you like to download VLC now?
+
+# Settings file errors
+Main/SettingsSaveError = Error saving settings file
+Main/SettingsLoadError = Error loading settings file
+Main/SettingsAccesError = Error accessing settings file, your work won't be saved
+
+# Hint messages
+Main/hintOpenCtrl = Open control panel to Add/View\navailable cameras
+Main/hintAddCamera = Right-click on this area to Add\nnew camera
+Main/hintDropCamera = Drag camera by mouse left-button\nand drop somewhere on grid here
+Main/hintRTSP1 = Bad RTSP connect string, which\nproduces minimal network load.\nTo show in small windows.
+Main/hintRTSP2 = Good RTSP connect string, which\nproduces high network load.\nTo show in big windows.\nSwiching between RTSPs is automated.
+
+# Context menu
+Main/fullScreenMenuItem = Full screen
+Main/exitFullScreenMenuItem = Exit Full screen
+
+
+
+##### SourceList
+
+# Typeview submenu
+SourceList/typeViewToolStripMenuItem = Type View
+SourceList/largeIconsToolStripMenuItem = Large Icons
+SourceList/smallIconsToolStripMenuItem = Small Icons
+SourceList/largeListToolStripMenuItem = Large List
+SourceList/smallListToolStripMenuItem = Small List
+
+# Sort submenu
+SourceList/sortTypeToolStripMenuItem = Sorting
+SourceList/ascendingToolStripMenuItem = Ascending
+SourceList/descendingToolStripMenuItem = Descending
+SourceList/disabledToolStripMenuItem = Disabled
+
+# Actions
+SourceList/newCameraToolStripMenuItem = New Camera
+SourceList/modifyCameraToolStripMenuItem = Modify Camera
+
+
+
+##### ModifySettings
+
+ModifySettings/camNameViewGlbButton = Camera name display
+ModifySettings/alertSetupButton = Alert control
+ModifySettings/matrixSetupButton = Matrix dimensions
+ModifySettings/commandLineHelpButton = Command Line parameters help
+ModifySettings/commandLineHelp =         Program actions, while start\n\nRtspCameraView.exe [fullscreen] [screen=N] [autoplay] [unmute] [priority=N]\n\n        fullscreen - hide taskbar and app name\n        screen=N - move window to screen number N (0,1,2,...)\n        maximize - maximize window\n        autoplay - automatically play positioned cameras\n        unmute - unmute sound, if it exist on start playing\n        priority=N - change program priority, N:\n                0 - Idle\n                1 - Below Normal\n                2 - Normal\n                3 - Above Normal\n                4 - High
+ModifySettings/githubLinkLabel = Visit project page
+
+
+
+##### ModifySource
+
+ModifySource/camNameLabel = Camera name
+ModifySource/camName = Place of mount, view area, e.t.c.
+ModifySource/camNameShow = show
+ModifySource/camNameInherit = inherit global
+ModifySource/camNameModify = modify...
+ModifySource/camEditRtsp1Label = Bad quality RTSP connect string
+ModifySource/rtspBad = Ask camera vendor. Examples:\nrtsp://admin:1111@192.168.1.3/live/sub\nrtsp://192.168.1.4:554/av0_1&user=admin&password=1111
+ModifySource/camEditRtsp2Label = Good quality RTSP connect string
+ModifySource/rtspGood = Ask camera vendor. Examples:\nrtsp://admin:1111@192.168.1.3/live/main\nrtsp://192.168.1.4:554/av0_0&user=admin&password=1111
+ModifySource/camEditIconLabel = Camera icon
+ModifySource/aspectRatioLabel = Aspect ratio
+ModifySource/aspectRatio = 
+ModifySource/createCamButton = Create
+ModifySource/saveCamButton = Save
+ModifySource/cancelCamButton = Cancel
+ModifySource/delCamLabel = Delete camera
+ModifySource/cameraDeleteConfirm1 = Do you really want to delete camera
+ModifySource/cameraDeleteConfirm2 = You are watching this camera now. Are you sure?
+
+
+
+##### NameViewSetup
+
+NameViewSetup/this = Source name view setup
+NameViewSetup/positioningLabel = Positioning
+NameViewSetup/camNameLabel = Name
+NameViewSetup/textColorLabel = Text color
+NameViewSetup/backgroundCheckBox = Background
+NameViewSetup/textSizeLabel = Text size
+NameViewSetup/autoHideCheckBox = Hide automatically
+NameViewSetup/okButton = Ok
+NameViewSetup/cancelButton = Cancel
+
+
+
+##### SourceGrid
+
+SourceGrid/EmailOnLostSignalTitle = {name} LOST link
+SourceGrid/EmailOnLostSignalSubject = Signal of {name} is lost\n\nBad stream url:\n{bad}\n\nGood stream url:\n{good}\n\n
+SourceGrid/EmailOnRestoreSignalTitle = {name} recovered link
+SourceGrid/EmailOnRestoreSignalSubject = Signal of {name} is recovered\n\nBad stream url:\n{bad}\n\nGood stream url:\n{good}\n\n
+
+
+
+##### MatrixSetup
+
+MatrixSetup/this = Customize view matrix
+MatrixSetup/joinButton = Join
+MatrixSetup/splitButton = Split
+MatrixSetup/saveButton = Save
+MatrixSetup/cancelButton = Cancel
+
+
+
+##### AlertSetup
+
+# Email page
+AlertSetup/emailPage = Email
+AlertSetup/emLostCheckBox = When connection is lost for (min)
+AlertSetup/emRecoverCheckBox = When connection is recovered
+AlertSetup/emToLabel = To
+AlertSetup/emFromLabel = From
+
+# Mail server setup
+AlertSetup/emServerGroupBox = Mail server
+AlertSetup/emNameLabel = Name
+AlertSetup/emPortLabel = Port
+AlertSetup/emTestLinkLabel = Send test letter
+AlertSetup/emUsernameLabel = Username
+AlertSetup/emPasswordLabel = Password
+
+# Common
+AlertSetup/this = Lost stream alert setup
+AlertSetup/okButton = Ok
+AlertSetup/cancelButton = Cancel

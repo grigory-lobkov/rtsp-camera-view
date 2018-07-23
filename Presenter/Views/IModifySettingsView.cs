@@ -1,0 +1,28 @@
+﻿using System;
+using Presenter.Common;
+
+namespace Presenter.Views
+{
+    public interface IModifySettingsView : IViewControl
+    {
+        event Action CommandLineHelpClick;
+        void ShowCommandLineHelp();
+        event Action GitHubSiteClick;
+        void OpenGitHubSite();
+        int MatrixMaxX { set; }
+        int MatrixMaxY { set; }
+        int MatrixX { get; set; }
+        int MatrixY { get; set; }
+        event Action ApplyMatrixSizeClick;
+        event Action ModifyNameViewClick;
+        event Action AlertSetupClick;
+        event Action MatrixSetupClick;
+
+        string CamNameViewGlbButtonText { set; }
+        string AlertSetupButtonText { set; }
+        string MatrixSetupButtonText { set; }
+        string CommandLineHelpButtonText { set; }
+        string CommandLineHelpText { set; }
+        string GithubLinkLabelText { set; }
+    }
+}

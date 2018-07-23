@@ -65,8 +65,7 @@ All contributions are more than welcomed. Contributions may close an issue, fix 
 - support for command line parameters
 - launching on the screen with the specified number, full-screen'ed
 - customizable source name
-- alert on video lost (beta)
-
+- alert on video lost
 
 
 ## Overview
