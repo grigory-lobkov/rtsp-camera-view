@@ -1,0 +1,143 @@
+﻿# Translated to french by aztazt
+##### Main
+
+# Control panel tab names
+Main/sourcesPage = Sources
+Main/settingsPage = Paramètres
+
+# Question to add some examples
+Main/AskAddSamples = Voulez-vous ajouter des exemples de flux à vos sources ?
+
+# Error messages
+Main/CreateGridCommonError = Erreur pendant la création de la grille
+Main/CreateGridNoLibError = Impossible de trouver l'installation de VLC et/ou du plugin ActiveX
+Main/CreateGridBadVerError = Veuillez vérifier que votre version de VLC est bien 2.1.X
+Main/CreateGridEndError = Veuillez installer VLC 2.1.x avec le plugin ActiveX dans le dossier d'installation par défaut\n\n''Program Files (x86)'' ou ''Program Files''\n\nVLC peut être téléchargé ici :\n{url}\n\nVoulez-vous télécharger VLC maintenant ?
+
+# Settings file errors
+Main/SettingsSaveError = Erreur lors de la sauvegarde des paramètres
+Main/SettingsLoadError = Erreur lors du chargement des paramètres
+Main/SettingsAccesError = Erreur lors de l'accès aux paramètres, votre travail ne sera pas sauvegardé
+
+# Hint messages
+Main/hintOpenCtrl = Ouvrez le panneau de contrôle pour Ajouter/Voir\nles caméras disponibles
+Main/hintAddCamera = Clic-doit dans cette zone pour Ajouter\nune nouvelle caméra.
+Main/hintDropCamera = Glissez-déplacez une caméra\ndans l'une des cases de la grille
+Main/hintRTSP1 = Flux RTSP bas débit\nEconomise la bande passante.\nDestiné à être affiché dans de petites fenêtres de la grille.
+Main/hintRTSP2 = Flux RTSP haut-débit\nUtilise davantage de bande passante.\nDestiné à être affiché dans des grandes fenêtres de la grille.\nLe switch entre les flux haut et bas débit est automatique.
+
+# Context menu
+Main/fullScreenMenuItem = Plein écran
+Main/exitFullScreenMenuItem = Quitter le plein écran
+
+
+
+##### SourceList
+
+# Typeview submenu
+SourceList/typeViewToolStripMenuItem = Affichage
+SourceList/largeIconsToolStripMenuItem = Grandes icônes
+SourceList/smallIconsToolStripMenuItem = Petites icônes
+SourceList/largeListToolStripMenuItem = Grande liste
+SourceList/smallListToolStripMenuItem = Petite liste
+
+# Sort submenu
+SourceList/sortTypeToolStripMenuItem = Tri
+SourceList/ascendingToolStripMenuItem = Ascendant
+SourceList/descendingToolStripMenuItem = Descendant
+SourceList/disabledToolStripMenuItem = Désactivé
+
+# Actions
+SourceList/newCameraToolStripMenuItem = Nouvelle caméra
+SourceList/modifyCameraToolStripMenuItem = Modifier caméra
+
+
+
+##### ModifySettings
+
+ModifySettings/camNameViewGlbButton = Etiquettes caméra
+ModifySettings/alertSetupButton = Alertes
+ModifySettings/matrixSetupButton = Grille
+ModifySettings/commandLineHelpButton = Aide ligne de commande
+ModifySettings/commandLineHelp =         Programme des actions, au démarrage du programme\n\nRtspCameraView.exe [fullscreen] [screen=N] [maximize] [autoplay] [unmute] [priority=N]\n\n        fullscreen - Cache la barre des tâches et le titre\n        screen=N - Déplace la fenêtre sur l'écran n°N (0,1,2,...)\n        maximize - Agrandit la fenêtre\n        autoplay - Lance automatiquement la lecture sur les caméras positionnées\n        unmute - active le son s'il est disponible au lancement de la vidéo\n        priority=N - change la priorité du programme avec N tel que:\n                0 - Basse\n                1 - Inférieure à la normale\n                2 - Normale\n                3 - Supérieure à la normale\n                4 - Haute
+ModifySettings/githubLinkLabel = Site web du projet
+
+
+
+##### ModifySource
+
+ModifySource/camNameLabel = Nom de la caméra
+ModifySource/camName = Emplacement, description de la vue, etc.
+ModifySource/camNameShow = Visible
+ModifySource/camNameInherit = Héritage global
+ModifySource/camNameModify = Modifier...
+ModifySource/camEditRtsp1Label = URL du flux RTSP bas débit
+ModifySource/rtspBad = Demander au constructeur de la caméra. Exemple :\nrtsp://admin:1111@192.168.1.3/live/sub\nrtsp://192.168.1.4:554/av0_1&user=admin&password=1111
+ModifySource/camEditRtsp2Label = URL du flux RTSP haut débit
+ModifySource/rtspGood = Demander au constructeur de la caméra. Exemple :\nrtsp://admin:1111@192.168.1.3/live/main\nrtsp://192.168.1.4:554/av0_0&user=admin&password=1111
+ModifySource/camEditIconLabel = Icône de la caméra
+ModifySource/aspectRatioLabel = Rapport hauteur/largeur
+ModifySource/aspectRatio = 
+ModifySource/createCamButton = Créer
+ModifySource/saveCamButton = Sauvegarder
+ModifySource/cancelCamButton = Annuler
+ModifySource/delCamLabel = Supprimer caméra
+ModifySource/cameraDeleteConfirm1 = Voulez-vous vraiment supprimer la caméra ?
+ModifySource/cameraDeleteConfirm2 = Vous regardez cette caméra actuellement, êtes-vous certain de vouloir la supprimer ?
+
+
+
+##### NameViewSetup
+
+NameViewSetup/this = Paramètres étiquette caméra
+NameViewSetup/positioningLabel = Positionnement
+NameViewSetup/camNameLabel = Nom
+NameViewSetup/textColorLabel = Couleur du texte
+NameViewSetup/backgroundCheckBox = Couleur du fond
+NameViewSetup/textSizeLabel = Taille du texte
+NameViewSetup/autoHideCheckBox = Cacher automatiquement
+NameViewSetup/okButton = Ok
+NameViewSetup/cancelButton = Annuler
+
+
+
+##### SourceGrid
+
+SourceGrid/EmailOnLostSignalTitle = {name} : connexion INTERROMPUE
+SourceGrid/EmailOnLostSignalSubject = Le signal de la caméra {name} est perdu\n\nURL du flux RTSP bas débit :\n{bad}\n\nURL du flux RTSP haut débit :\n{good}\n\n
+SourceGrid/EmailOnRestoreSignalTitle = {name} : connexion RETABLIE
+SourceGrid/EmailOnRestoreSignalSubject = Le signal de la caméra {name} est rétabli\n\nURL du flux RTSP bas débit :\n{bad}\n\nURL du flux RTSP haut débit :\n{good}\n\n
+
+
+
+##### MatrixSetup
+
+MatrixSetup/this = Personnalisation de la grille
+MatrixSetup/joinButton = Fusionner
+MatrixSetup/splitButton = Séparer
+MatrixSetup/saveButton = Sauvegarder
+MatrixSetup/cancelButton = Annuler
+
+
+
+##### AlertSetup
+
+# Email page
+AlertSetup/emailPage = Email
+AlertSetup/emLostCheckBox = Lorsque la connexion est perdue depuis (en mn)
+AlertSetup/emRecoverCheckBox = Lorsque la connexion est rétablie
+AlertSetup/emToLabel = De
+AlertSetup/emFromLabel = À
+
+# Mail server setup
+AlertSetup/emServerGroupBox = Serveur SMTP
+AlertSetup/emNameLabel = Nom d'hôte
+AlertSetup/emPortLabel = Port
+AlertSetup/emTestLinkLabel = Test des paramètres
+AlertSetup/emUsernameLabel = Nom d'utilisateur
+AlertSetup/emPasswordLabel = Mot de passe
+
+# Common
+AlertSetup/this = Paramètres de la perte de connexion
+AlertSetup/okButton = Ok
+AlertSetup/cancelButton = Annuler
