@@ -184,6 +184,15 @@ namespace ViewVlc215
                 vlc1.playlist.play();
                 vlc1.audio.Volume = this.volume; // important for user movies
                 Invoke(Buffering);
+				// to disable ghosts:
+				//To switch VLC from HTTP streaming to RTP/RTSP streaming:
+				//
+				//On the VLC media player Tools menu, click Preferences.  
+				//In the Simple Preferences dialog box, click Input / Codecs in the contents panel.  
+				//In Input & Codecs Settings, in the Network area, change the Live555 stream transport option from HTTP (default) to RTP over RTSP (TCP).  
+				//Click Save.
+				//
+				// --rtsp-tcp
                 return true;
             }
             return false;
