@@ -48,9 +48,25 @@ namespace Presenter.Presenters
                 for (int x = 0; x < cx; x++)
                     View.AddItem(x, y, 1, 1,
                         (x + mx) / cx, (y + my) / cy, (1 - mx - mx) / cx, (1 - my - my) / cy);
-            foreach (MatrixJoin j in _matrix.joins)
-                View.ModifyItem(j.x, j.y, j.w - 1, j.h - 1,
-                (j.x + mx) / cx, (j.y + my) / cy, (j.w - mx - mx) / cx, (j.h - my - my) / cy);
+            // Do joins
+            MatrixJoin j;
+            int i = _matrix.joins.Length;
+            while (i > 0)
+            {
+                i--;
+                j = _matrix.joins[i];
+                if (j.w + j.x > cx) j.w = cx - j.x; // shrink if too big width
+                if (j.h + j.y > cy) j.h = cy - j.y; // shrink if too big height
+                if (j.h <= 1 && j.w <= 1)
+                { // remove join if size = 1x1
+                    _matrix.joins = (MatrixJoin[])RemoveArrayItem(_matrix.joins, i);
+                }
+                else
+                { // stretch block
+                    View.ModifyItem(j.x, j.y, j.w - 1, j.h - 1,
+                    (j.x + mx) / cx, (j.y + my) / cy, (j.w - mx - mx) / cx, (j.h - my - my) / cy);
+                }
+            }
             View.Repaint();
         }
 
