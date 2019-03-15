@@ -16,7 +16,11 @@ namespace Presenter.Presenters
         private int _badH, _badW;
         private string _badString, _goodString;
         private bool stoppedOnInvisible = false;
-        private bool log = false; // for debug
+#if DEBUG
+        private bool log = true;
+#else
+        private bool log = false;
+#endif
 
         public Action Maximized;
         public Action Minimized;
@@ -60,7 +64,7 @@ namespace Presenter.Presenters
         public int Position
         {
             get => _position;
-            set { _position = value; if (_source != null) _source.position = -1; }
+            set { _position = value; if (_source != null) _source.position = value; }
         }
         public bool IsPlaying
         {
