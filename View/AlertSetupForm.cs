@@ -27,6 +27,12 @@ namespace View
             action?.Invoke();
         }
 
+        public void ShowError(string errorMessage)
+        {
+            MessageBox.Show(errorMessage, Application.ProductName,
+                MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
         private void NumberInput_KeyDown(object sender, KeyEventArgs e)
         {
             switch (e.KeyCode)

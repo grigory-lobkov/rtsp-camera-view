@@ -1,4 +1,5 @@
 ﻿using Model;
+using System;
 using Presenter.Common;
 using Presenter.Views;
 
@@ -13,19 +14,19 @@ namespace Presenter.Presenters
         {
             // View localization
             View.ThisText = Locale.Instance.Get("AlertSetup/this");
-            View.EmailPageText = Locale.Instance.Get("AlertSetup/emailPageText");
-            View.EmLostCheckBoxText = Locale.Instance.Get("AlertSetup/emLostCheckBoxText");
-            View.EmRecoverCheckBoxText = Locale.Instance.Get("AlertSetup/emRecoverCheckBoxText");
-            View.EmToLabelText = Locale.Instance.Get("AlertSetup/emToLabelText");
-            View.EmFromLabelText = Locale.Instance.Get("AlertSetup/emFromLabelText");
-            View.EmServerGroupBoxText = Locale.Instance.Get("AlertSetup/emServerGroupBoxText");
-            View.EmNameLabelText = Locale.Instance.Get("AlertSetup/emNameLabelText");
-            View.EmPortLabelText = Locale.Instance.Get("AlertSetup/emPortLabelText");
-            View.EmTestLinkLabelText = Locale.Instance.Get("AlertSetup/emTestLinkLabelText");
-            View.EmUsernameLabelText = Locale.Instance.Get("AlertSetup/emUsernameLabelText");
-            View.EmPasswordLabelText = Locale.Instance.Get("AlertSetup/emPasswordLabelText");
-            View.OkButtonText = Locale.Instance.Get("AlertSetup/okButtonText");
-            View.CancelButtonText = Locale.Instance.Get("AlertSetup/cancelButtonText");
+            View.EmailPageText = Locale.Instance.Get("AlertSetup/emailPage");
+            View.EmLostCheckBoxText = Locale.Instance.Get("AlertSetup/emLostCheckBox");
+            View.EmRecoverCheckBoxText = Locale.Instance.Get("AlertSetup/emRecoverCheckBox");
+            View.EmToLabelText = Locale.Instance.Get("AlertSetup/emToLabel");
+            View.EmFromLabelText = Locale.Instance.Get("AlertSetup/emFromLabel");
+            View.EmServerGroupBoxText = Locale.Instance.Get("AlertSetup/emServerGroupBox");
+            View.EmNameLabelText = Locale.Instance.Get("AlertSetup/emNameLabel");
+            View.EmPortLabelText = Locale.Instance.Get("AlertSetup/emPortLabel");
+            View.EmTestLinkLabelText = Locale.Instance.Get("AlertSetup/emTestLinkLabel");
+            View.EmUsernameLabelText = Locale.Instance.Get("AlertSetup/emUsernameLabel");
+            View.EmPasswordLabelText = Locale.Instance.Get("AlertSetup/emPasswordLabel");
+            View.OkButtonText = Locale.Instance.Get("AlertSetup/okButton");
+            View.CancelButtonText = Locale.Instance.Get("AlertSetup/cancelButton");
 
             // View actions
             View.OkClick += OkClick;
@@ -55,7 +56,7 @@ namespace Presenter.Presenters
             View.EmUsername = _alert.email.authUser;
         }
 
-        private void OkClick()
+        private void ViewRead()
         {
             _alert.email.emailFrom = View.EmFrom;
             _alert.email.onSignalLost = View.EmLost;
@@ -66,6 +67,11 @@ namespace Presenter.Presenters
             _alert.email.serverPort = View.EmSerPort;
             _alert.email.emailTo = View.EmTo;
             _alert.email.authUser = View.EmUsername;
+        }
+
+        private void OkClick()
+        {
+            ViewRead();
             View.Close();
         }
 
@@ -77,7 +83,17 @@ namespace Presenter.Presenters
         private void TestClick()
         {
             //ToDo: check emailFrom, emailTo
-            _eMalertService.SendAlert("Alert test", "Congratulations!\nYour settings are working!");
+            ViewRead();
+            try
+            {
+                _eMalertService.SendAlert(
+                    Locale.Instance.Get("AlertSetup/testTitle"),
+                    Locale.Instance.Get("AlertSetup/testText")
+                    );
+            } catch (Exception e)
+            {
+                View.ShowError(e.Message);
+            }
         }
     }
 }

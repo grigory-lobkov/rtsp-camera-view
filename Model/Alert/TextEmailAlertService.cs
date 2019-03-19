@@ -56,7 +56,7 @@ namespace Model
             }
             catch (Exception e)
             {
-                throw new Exception("EmailAlertService.SendEmail:\n" + e.GetType() + "\n" + e.Message +
+                throw new Exception("TextEmailAlertService.SendEmail:\n" + e.GetType() + "\n" + e.Message +
                     "\n\nSubject:\n" + subject + "\n\nBody:\n" + body);
             }
         }

@@ -8,6 +8,8 @@ namespace Presenter.Views
         event Action OkClick;
         event Action CancelClick;
 
+        void ShowError(string errorMessage);
+
         // Email
         event Action EmTestClick;
         bool EmLost { get; set; }

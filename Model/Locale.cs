@@ -115,7 +115,7 @@ namespace Model
                     string s = "";
                     while ((s = sr.ReadLine()) != null)
                     {
-                        if (s != "" && s[0] > 'A' && s[0] < 'z')
+                        if (s != "" && s[0] >= 'A' && s[0] <= 'z')
                         {
                             string[] t = s.Split(new Char[] { '=' }, 2);
                             if (t.Count() == 2)

@@ -141,3 +141,5 @@ AlertSetup/emPasswordLabel = Пароль
 AlertSetup/this = Настройка тревожных событий
 AlertSetup/okButton = Ок
 AlertSetup/cancelButton = Отмена
+AlertSetup/testTitle = Тест тревожного сообщения
+AlertSetup/testText = Поздравляем!\nВаши настройки работают!

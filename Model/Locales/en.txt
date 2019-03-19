@@ -141,3 +141,5 @@ AlertSetup/emPasswordLabel = Password
 AlertSetup/this = Lost stream alert setup
 AlertSetup/okButton = Ok
 AlertSetup/cancelButton = Cancel
+AlertSetup/testTitle = Alert test
+AlertSetup/testText = Congratulations!\nYour settings are working!

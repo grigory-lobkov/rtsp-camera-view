@@ -1,4 +1,5 @@
-﻿# Translated to french by aztazt
+﻿# Translated to French by aztazt
+# https://github.com/aztazt
 ##### Main
 
 # Control panel tab names
@@ -141,3 +142,5 @@ AlertSetup/emPasswordLabel = Mot de passe
 AlertSetup/this = Paramètres de la perte de connexion
 AlertSetup/okButton = Ok
 AlertSetup/cancelButton = Annuler
+AlertSetup/testTitle = Test d'alerte
+AlertSetup/testText = Félicitations,\nvos paramètres fonctionnent!
