@@ -1,0 +1,145 @@
+# Translated to Spanish by Fernando-Kiernan
+# https://github.com/Fernando-Kiernan
+##### Main
+
+# Control panel tab names
+Main/sourcesPage = Orígenes
+Main/settingsPage = Configuraciòn
+
+# Question to add some examples
+Main/AskAddSamples = ¿Quiere agregar las cámaras de ejemplo a sus orígenes?
+
+# Error messages
+Main/CreateGridCommonError = Error creando la grilla de reproductores
+Main/CreateGridNoLibError = No se encuentra que el VLC y/o el Plugin-Web Activex estén instalados
+Main/CreateGridBadVerError = Por favor, chequee que su versión de VLC sea 2.1.x
+Main/CreateGridEndError = Por favor, instale el VLC 2.1.x con el módulo Activex Web en la carpeta\npor defecto''Archivos de Programa (x86)'' or ''Archivos de Programa''\n\nPuede descargar el VLC aquí:\n{url}\n\n¿Quiere descargar el VLC ahora?
+
+# Settings file errors
+Main/SettingsSaveError = Error grabando el archivo de configuración
+Main/SettingsLoadError = Error cargando el archivo de configuración
+Main/SettingsAccesError = Error accediendo al archivo de configuración, sus cambios no se grabarán
+
+# Hint messages
+Main/hintOpenCtrl = Abrir el panel de control para Agregar/Ver\nlas cámaras disponibles
+Main/hintAddCamera = Haga Click-derecho en este área para Agregar\nuna nueva cámara
+Main/hintDropCamera = Arrastre la cámara con el botón izquierdo del mouse\ny suéltela en algún lugar de la grilla aquí
+Main/hintRTSP1 = Cadena de conexión RTSP de calidad baja, que\nproduce carga mínima en la red.\nPara mostrar en ventanas pequeñas.
+Main/hintRTSP2 = Cadena de conexión RTSP de calidad alta, que\nproduce alta carga de red.\Para mostrar en ventanas grandes.\nEl cambio entre calidades es automático.
+# Context menu
+Main/fullScreenMenuItem = Pantalla completa
+Main/exitFullScreenMenuItem = Salir de Pantalla completa
+
+
+
+##### SourceList
+
+# Typeview submenu
+SourceList/typeViewToolStripMenuItem = Tipo de Vista
+SourceList/largeIconsToolStripMenuItem = Iconos Grandes
+SourceList/smallIconsToolStripMenuItem = Iconos Pequeños
+SourceList/largeListToolStripMenuItem = Lista Grande
+SourceList/smallListToolStripMenuItem = Lista Pequeña
+
+# Sort submenu
+SourceList/sortTypeToolStripMenuItem = Orden
+SourceList/ascendingToolStripMenuItem = Ascendente
+SourceList/descendingToolStripMenuItem = Descendente
+SourceList/disabledToolStripMenuItem = Desactivado
+
+# Actions
+SourceList/newCameraToolStripMenuItem = Nueva Cámara
+SourceList/modifyCameraToolStripMenuItem = Modificar Cámara
+
+
+
+##### ModifySettings
+
+ModifySettings/camNameViewGlbButton = Mostrar nombre de la cámara
+ModifySettings/alertSetupButton = Control de alertas
+ModifySettings/matrixSetupButton = Dimensiones de la matriz
+ModifySettings/commandLineHelpButton = Ayuda de Parámetros de la Línea de Comando
+ModifySettings/commandLineHelp =         Acciones del programa, al iniciar\n\nRtspCameraView.exe [fullscreen] [screen=N] [autoplay] [unmute] [priority=N]\n\n        fullscreen - pantalla completa\n        screen=N - mover la ventana a la pantalla número N (0,1,2,...)\n        maximize - maximizar la ventana\n        autoplay - iniciar automáticamente las cámaras ya ubicadas\n        unmute - no silenciar sonido, si existe repoducirlo\n        priority=N - cambiar la prioridad del programa, N:\n                0 - Mínima\n                1 - Menor que Normal\n                2 - Normal\n                3 - Sobre la Normal\n                4 - Alta
+ModifySettings/githubLinkLabel = Visitar la página del proyecto
+
+
+
+##### ModifySource
+
+ModifySource/camNameLabel = Nombre de la cámara
+ModifySource/camName = Ubicación, área de vista, etc.
+ModifySource/camNameShow = mostrar
+ModifySource/camNameInherit = heredar el global
+ModifySource/camNameModify = modificar...
+ModifySource/camEditRtsp1Label = Cadena de conexión RTSP de baja calidad
+ModifySource/rtspBad = Consulte al fabricante de su cámara. Ejemplos:\nrtsp://admin:1111@192.168.1.3/live/sub\nrtsp://192.168.1.4:554/av0_1&user=admin&password=1111
+ModifySource/camEditRtsp2Label = Cadena de conexión RTSP de alta calidad
+ModifySource/rtspGood = Consulte al fabricante de su cámara. Ejemplos:\nrtsp://admin:1111@192.168.1.3/live/main\nrtsp://192.168.1.4:554/av0_0&user=admin&password=1111
+ModifySource/camEditIconLabel = Icono de la cámara
+ModifySource/aspectRatioLabel = Relación de aspecto
+ModifySource/aspectRatio = 
+ModifySource/createCamButton = Crear
+ModifySource/saveCamButton = Guardar
+ModifySource/cancelCamButton = Cancelar
+ModifySource/delCamLabel = Eliminar cámara
+ModifySource/cameraDeleteConfirm1 = ¿Seguro que quiere eliminar la cámara?
+ModifySource/cameraDeleteConfirm2 = ¿La cámara se está reproduciendo ahora. Está seguro?
+
+
+
+##### NameViewSetup
+
+NameViewSetup/this = Configuración de nombre de origen
+NameViewSetup/positioningLabel = Posición
+NameViewSetup/camNameLabel = Nombre
+NameViewSetup/textColorLabel = Color de texto
+NameViewSetup/backgroundCheckBox = Fondo
+NameViewSetup/textSizeLabel = Tamaño de texto
+NameViewSetup/autoHideCheckBox = Ocultar automáticamente
+NameViewSetup/okButton = Ok
+NameViewSetup/cancelButton = Cancelar
+
+
+
+##### SourceGrid
+
+SourceGrid/EmailOnLostSignalTitle = {name} Link PERDIDO
+SourceGrid/EmailOnLostSignalSubject = La señal de {name} se perdió\n\nURL baja calidad:\n{bad}\n\nURL alta calidad:\n{good}\n\n
+SourceGrid/EmailOnRestoreSignalTitle = {name} recuperó el link
+SourceGrid/EmailOnRestoreSignalSubject = La señal de {name} se recuperó\n\nURL baja calidad:\n{bad}\n\nURL alta calidad:\n{good}\n\n
+
+
+
+##### MatrixSetup
+
+MatrixSetup/this = Personalizar la matriz de visualización
+MatrixSetup/joinButton = Unir
+MatrixSetup/splitButton = Separar
+MatrixSetup/saveButton = Guardar
+MatrixSetup/cancelButton = Cancelar
+
+
+
+##### AlertSetup
+
+# Email page
+AlertSetup/emailPage = Email
+AlertSetup/emLostCheckBox = Cuando la conexión se pierde por (min)
+AlertSetup/emRecoverCheckBox = Cuando la conexión se recupera
+AlertSetup/emToLabel = Para
+AlertSetup/emFromLabel = De
+
+# Mail server setup
+AlertSetup/emServerGroupBox = Servidor de correo
+AlertSetup/emNameLabel = Nombre
+AlertSetup/emPortLabel = Puerto
+AlertSetup/emTestLinkLabel = Mandar email de prueba
+AlertSetup/emUsernameLabel = Nombre de usuario
+AlertSetup/emPasswordLabel = Contraseña
+
+# Common
+AlertSetup/this = Configuración de alerta de pérdida de señal
+AlertSetup/okButton = Ok
+AlertSetup/cancelButton = Cancelar
+AlertSetup/testTitle = Prueba de alerta
+AlertSetup/testText = ¡Felicidades!\n¡Tu configuración está funcionando!
