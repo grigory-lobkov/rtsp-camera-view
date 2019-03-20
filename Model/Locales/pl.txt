@@ -1,0 +1,143 @@
+﻿# Translated to Polish by Michal, ATMEL
+##### Main
+
+# Control panel tab names
+Main/sourcesPage = Strumienie
+Main/settingsPage = Ustawienia
+
+# Question to add some examples
+Main/AskAddSamples = Czy chcesz dodać przykładowe strumienie kamer?
+
+# Error messages
+Main/CreateGridCommonError = Błąd tworzenia widoku
+Main/CreateGridNoLibError = Nie można odnaleźć VLC i/lub wtyczki ActiveX
+Main/CreateGridBadVerError = Upewnij się, że wersja VLC to 2.1.x
+Main/CreateGridEndError = Zainstaluj VLC wraz z wtyczką ActiveX do domyślnej lokalizacji\n''Program Files (x86)'' lub ''Program Files''\n\nVLC możesz pobrać stąd:\n{url}\n\nCzy pobrać teraz?
+
+# Settings file errors
+Main/SettingsSaveError = Błąd zapisu pliku ustawień
+Main/SettingsLoadError = Błąd odczytu pliku ustawień
+Main/SettingsAccesError = Błąd dostępu do pliku ustawień. Twoje zmiany nie będą zapisane.
+
+# Hint messages
+Main/hintOpenCtrl = Otwiera panel ustawień, gdzie\nmożesz dodać/podejrzeć kamery
+Main/hintAddCamera = Kliknij prawy przycisk myszki w tym\nobszarze, aby dodać nową kamerę
+Main/hintDropCamera = Przeciągnij kamerę lewym przyciskiem\nmyszki i upuść w wybranym polu siatki
+Main/hintRTSP1 = Strumień RSTP niskiej jakości.\nDo podglądu w małych oknach.\nWykorzystuje niewielkie pasmo sieci.
+Main/hintRTSP2 = Strumień RSTP wysokiej jakości.\nDo podglądu w dużym oknie.\nPrzełączanie rodzajów strumieni następuje automatycznie.
+
+# Context menu
+Main/fullScreenMenuItem = Pełny ekran
+Main/exitFullScreenMenuItem = Wyłącz pełny ekran
+
+
+
+##### SourceList
+
+# Typeview submenu
+SourceList/typeViewToolStripMenuItem = Widok
+SourceList/largeIconsToolStripMenuItem = Duże ikony
+SourceList/smallIconsToolStripMenuItem = Małe ikony
+SourceList/largeListToolStripMenuItem = Duża lista
+SourceList/smallListToolStripMenuItem = Mała lista
+
+# Sort submenu
+SourceList/sortTypeToolStripMenuItem = Sortowanie
+SourceList/ascendingToolStripMenuItem = Rosnąco
+SourceList/descendingToolStripMenuItem = Malejąco
+SourceList/disabledToolStripMenuItem = Nieaktywne
+
+# Actions
+SourceList/newCameraToolStripMenuItem = Nowa kamera
+SourceList/modifyCameraToolStripMenuItem = Modyfikacja kamery
+
+
+
+##### ModifySettings
+
+ModifySettings/camNameViewGlbButton = Opis kamery
+ModifySettings/alertSetupButton = Ustawienia alarmów
+ModifySettings/matrixSetupButton = Wymiary siatki
+ModifySettings/commandLineHelpButton = Pomoc uruchamiania z wiersza poleceń
+ModifySettings/commandLineHelp =         Zachowanie programu podczas startu\n\nRtspCameraView.exe [fullscreen] [screen=N] [autoplay] [unmute] [priority=N]\n\n        fullscreen - pełny ekran bez paska statusu i menu\n        screen=N - przenieś na ekran o numerze N (0,1,2,...)\n        maximize - okno zmaksymalizowane\n        autoplay - autoodtwarzanie skonfigurowanych kamer\n        unmute - nie wyciszaj dźwięku\n        priority=N - zmień priorytet dla programu, N:\n                0 - wstrzymany\n                1 - średnio-niski\n                2 - średni\n                3 - średnio-wysoki\n                4 - wysoki
+ModifySettings/githubLinkLabel = Odwiedź stronę projektu
+
+
+
+##### ModifySource
+
+ModifySource/camNameLabel = Nazwa kamery
+ModifySource/camName = Dodatkowe informacje (np. lokalizacja, kierunek)
+ModifySource/camNameShow = Wyświetlaj
+ModifySource/camNameInherit = Dziedzicz
+ModifySource/camNameModify = zmień...
+ModifySource/camEditRtsp1Label = Adres url strumienia niskiej jakości
+ModifySource/rtspBad = Sprawdź ustawienia producenta kamery. Np.:\nrtsp://admin:1111@192.168.1.3/live/sub\nrtsp://192.168.1.4:554/av0_1&user=admin&password=1111
+ModifySource/camEditRtsp2Label = Adres url strumienia wysokiej jakości
+ModifySource/rtspGood = Sprawdź ustawienia producenta kamery. Np.:\nrtsp://admin:1111@192.168.1.3/live/main\nrtsp://192.168.1.4:554/av0_0&user=admin&password=1111
+ModifySource/camEditIconLabel = Ikona kamery
+ModifySource/aspectRatioLabel = Proporcje
+ModifySource/aspectRatio = 
+ModifySource/createCamButton = Utwórz
+ModifySource/saveCamButton = Zapisz
+ModifySource/cancelCamButton = Anuluj
+ModifySource/delCamLabel = Usuń kamerę
+ModifySource/cameraDeleteConfirm1 = Czy na pewno usunąć kamerę?
+ModifySource/cameraDeleteConfirm2 = Właśnie oglądasz widok z tej kamery. Na pewno?
+
+
+
+##### NameViewSetup
+
+NameViewSetup/this = Ustawienia nazw strumieni
+NameViewSetup/positioningLabel = Ustawienie
+NameViewSetup/camNameLabel = Nazwa
+NameViewSetup/textColorLabel = Kolor tekstu
+NameViewSetup/backgroundCheckBox = Kolor tła
+NameViewSetup/textSizeLabel = Rozmiar tekstu
+NameViewSetup/autoHideCheckBox = Ukrywaj automatycznie
+NameViewSetup/okButton = Ok
+NameViewSetup/cancelButton = Anuluj
+
+
+
+##### SourceGrid
+
+SourceGrid/EmailOnLostSignalTitle = {name} brak sygnału
+SourceGrid/EmailOnLostSignalSubject = Sygnał z {name} utracony\n\nAdres url niskiej jakości:\n{bad}\n\nAdres url wysokiej jakości:\n{good}\n\n
+SourceGrid/EmailOnRestoreSignalTitle = {name} sygnał przywrócony
+SourceGrid/EmailOnRestoreSignalSubject = Sygnał z {name} został przywrócony\n\nAdres url niskiej jakości:\n{bad}\n\nAdres url wysokiej jakości:\n{good}\n\n
+
+
+
+##### MatrixSetup
+
+MatrixSetup/this = Dostosuj ustawienia siatki
+MatrixSetup/joinButton = Połącz
+MatrixSetup/splitButton = Podziel
+MatrixSetup/saveButton = Zapisz
+MatrixSetup/cancelButton = Anuluj
+
+
+
+##### AlertSetup
+
+# Email page
+AlertSetup/emailPage = Alarm Email
+AlertSetup/emLostCheckBox = W przypadku braku sygnału przez czas (min)
+AlertSetup/emRecoverCheckBox = W przypadku przywrócenia sygnału
+AlertSetup/emToLabel = Wyślij do
+AlertSetup/emFromLabel = Wyślij z
+
+# Mail server setup
+AlertSetup/emServerGroupBox = Adres serwera poczty
+AlertSetup/emNameLabel = Nazwa
+AlertSetup/emPortLabel = Port
+AlertSetup/emTestLinkLabel = Wyślij wiadomość testową
+AlertSetup/emUsernameLabel = Nazwa użytkownika
+AlertSetup/emPasswordLabel = Hasło
+
+# Common
+AlertSetup/this = Ustawienia alarmu utraty sygnału
+AlertSetup/okButton = Ok
+AlertSetup/cancelButton = Anuluj
