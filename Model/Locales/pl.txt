@@ -141,3 +141,5 @@ AlertSetup/emPasswordLabel = Hasło
 AlertSetup/this = Ustawienia alarmu utraty sygnału
 AlertSetup/okButton = Ok
 AlertSetup/cancelButton = Anuluj
+AlertSetup/testTitle = Alert test
+AlertSetup/testText = Gratulacje! Twoje ustawienia działają!
