@@ -1,0 +1,145 @@
+﻿
+##### Main
+
+# Control panel tab names
+Main/sourcesPage = 摄像头列表
+Main/settingsPage = 设置
+
+# Question to add some examples
+Main/AskAddSamples = 你需要添加一个摄像头到挺像头列表当中不?
+
+# Error messages
+Main/CreateGridCommonError = 设置播放器表格出错
+Main/CreateGridNoLibError = 无法找到VLC或者ActiveX Web-plugin程序
+Main/CreateGridBadVerError = 请检查一下，你的VLc版本是否为2.1.x
+Main/CreateGridEndError = 请安装VLC 2.1.x版本，并安装ActiveX Web-module模块到默认目录\n''Program Files (x86)'' or ''Program Files''\n\n你可以从这里:\n{url}下载\n\n你现在需要下载?
+
+# Settings file errors
+Main/SettingsSaveError = 保存配置文件出错
+Main/SettingsLoadError = 加载配置文件出错
+Main/SettingsAccesError = 加载配置文件出错，你的修改将无法保存
+
+# Hint messages
+Main/hintOpenCtrl = 打开操作面板去添加/预览\n可操作的摄像头
+Main/hintAddCamera = 在此处右击去添加\n新摄像头
+Main/hintDropCamera = 使用鼠标左键拖放摄像头\n到你想要的方格中
+Main/hintRTSP1 = RTSP连接状态不佳, \n这需要提供最小的网络连接.\n让它能在小窗口中显示出来.
+Main/hintRTSP2 = RTSP连接状态非常好, \n这能提供更高效的网络连接.\n让它能在大窗口中显示出来.\n连接状态是自动切换的.
+
+# Context menu
+Main/fullScreenMenuItem = 全屏
+Main/exitFullScreenMenuItem = 退出全屏
+
+
+
+##### SourceList
+
+# Typeview submenu
+SourceList/typeViewToolStripMenuItem = 查看状态
+SourceList/largeIconsToolStripMenuItem = 大图标
+SourceList/smallIconsToolStripMenuItem = 小图标
+SourceList/largeListToolStripMenuItem = 大列表
+SourceList/smallListToolStripMenuItem = 小列表
+
+# Sort submenu
+SourceList/sortTypeToolStripMenuItem = 排序
+SourceList/ascendingToolStripMenuItem = 升序
+SourceList/descendingToolStripMenuItem = 降序
+SourceList/disabledToolStripMenuItem = 禁止
+
+# Actions
+SourceList/newCameraToolStripMenuItem = 添加摄像头
+SourceList/modifyCameraToolStripMenuItem = 修改摄像头
+
+
+
+##### ModifySettings
+
+ModifySettings/camNameViewGlbButton = 显示摄像头名称
+ModifySettings/alertSetupButton = 警报设置Alert control
+ModifySettings/matrixSetupButton = 摄像头阵列
+ModifySettings/commandLineHelpButton = 命令行帮忙
+ModifySettings/commandLineHelp =         程序运行, 当输入\n\nRtspCameraView.exe [fullscreen] [screen=N] [autoplay] [unmute] [priority=N]\n\n        fullscreen - 隐藏任务栏和程序名字\n        screen=N - 移动屏幕到第N个屏幕中 N = (0,1,2,...)\n        maximize - 最大窗口尺寸\n        autoplay - 自动播放已经定义好的摄像头\n        unmute - 关闭静音, 如果打开的时间存在\n        priority=N - 更换程序优先级, N:\n                0 - 闲置状态\n                1 - 低于常规\n                2 - 常规\n                3 - 高于常规\n                4 - 最高状态
+ModifySettings/githubLinkLabel = 打开项目页面
+
+
+
+##### ModifySource
+
+ModifySource/camNameLabel = 摄像头名称
+ModifySource/camName = 安装位置，视野区域, 等。。。
+ModifySource/camNameShow = 显示摄像头
+ModifySource/camNameInherit =继承全局
+ModifySource/camNameModify = 设置...
+ModifySource/camEditRtsp1Label = RTSP连接字符串状态差
+ModifySource/rtspBad = 设置RTSP连接参数. 示例:\nrtsp://admin:1111@192.168.1.3/live/sub\nrtsp://192.168.1.4:554/av0_1&user=admin&password=1111
+ModifySource/camEditRtsp2Label = RTSP连接字符串状态良好
+ModifySource/rtspGood = 设置RTSP连接参数. 示例:\nrtsp://admin:1111@192.168.1.3/live/main\nrtsp://192.168.1.4:554/av0_0&user=admin&password=1111
+ModifySource/camEditIconLabel = 摄像头图标
+ModifySource/aspectRatioLabel = 纵横比
+ModifySource/aspectRatio = 
+ModifySource/createCamButton = 创建
+ModifySource/saveCamButton = 保存
+ModifySource/cancelCamButton = 取消
+ModifySource/delCamLabel = 删除摄像头
+ModifySource/cameraDeleteConfirm1 = 你真是要删除这个摄像头
+ModifySource/cameraDeleteConfirm2 = 你正在浏览当前摄像. 你确认要删除?
+
+
+
+##### NameViewSetup
+
+NameViewSetup/this = 预览名称设置
+NameViewSetup/positioningLabel = 位置
+NameViewSetup/camNameLabel = 名称
+NameViewSetup/textColorLabel = 文本颜色
+NameViewSetup/backgroundCheckBox = 背景
+NameViewSetup/textSizeLabel = 文本大小
+NameViewSetup/autoHideCheckBox = 隐藏自动播放
+NameViewSetup/okButton = 确认
+NameViewSetup/cancelButton = 取消
+
+
+
+##### SourceGrid
+
+SourceGrid/EmailOnLostSignalTitle = {name} 连接丢失
+SourceGrid/EmailOnLostSignalSubject =  {name} 信号已经丢失 \n\n坏连接地址 url:\n{bad}\n\n好的连接地址:\n{good}\n\n
+SourceGrid/EmailOnRestoreSignalTitle = {name} 已经恢复
+SourceGrid/EmailOnRestoreSignalSubject =  {name} 已经恢复\n\n坏连接地址:\n{bad}\n\n好的连接地址:\n{good}\n\n
+
+
+
+##### MatrixSetup
+
+MatrixSetup/this = 个性化浏览窗口
+MatrixSetup/joinButton = 加入
+MatrixSetup/splitButton = 分割
+MatrixSetup/saveButton = 保存
+MatrixSetup/cancelButton = 取消
+
+
+
+##### AlertSetup
+
+# Email page
+AlertSetup/emailPage = 邮件
+AlertSetup/emLostCheckBox = 当连接丢失时
+AlertSetup/emRecoverCheckBox = 当连接恢复时
+AlertSetup/emToLabel = 发送给
+AlertSetup/emFromLabel = 来自
+
+# Mail server setup
+AlertSetup/emServerGroupBox = 邮件服务器
+AlertSetup/emNameLabel = 名称
+AlertSetup/emPortLabel = 端口
+AlertSetup/emTestLinkLabel = 发送测试邮件
+AlertSetup/emUsernameLabel = 用户
+AlertSetup/emPasswordLabel = 密码
+
+# Common
+AlertSetup/this = 丢信号时警报
+AlertSetup/okButton = 确认
+AlertSetup/cancelButton = 取消
+AlertSetup/testTitle = 警报测试
+AlertSetup/testText = 恭喜!\n你的设置已经完成!
