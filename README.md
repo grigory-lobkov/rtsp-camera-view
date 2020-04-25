@@ -12,7 +12,7 @@ Release &nbsp; &nbsp; &nbsp; [![GitHub release](https://img.shields.io/github/re
 Beta &nbsp; &nbsp; &nbsp; &nbsp; [![GitHub (pre-)release](https://img.shields.io/github/release/grigory-lobkov/rtsp-camera-view/all.svg?style=flat-square)](https://github.com/grigory-lobkov/rtsp-camera-view/releases) 
 [![Github Releases](https://img.shields.io/github/downloads/grigory-lobkov/rtsp-camera-view/latest/total.svg?style=flat-square)](https://github.com/grigory-lobkov/rtsp-camera-view/releases)
 
-If you using it, please, put your [Issue here](https://github.com/grigory-lobkov/rtsp-camera-view/issues)
+
 
 ![](https://user-images.githubusercontent.com/36440722/39676355-b801a8b2-5182-11e8-9d37-1002c36ac873.jpg)
 
