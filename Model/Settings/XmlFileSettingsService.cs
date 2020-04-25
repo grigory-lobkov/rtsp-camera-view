@@ -31,34 +31,40 @@ namespace Model
             foreach (Camera c in _settings.cams) c.position = -1;
             int l = _settings.cams.Length;
             Array.Resize(ref _settings.cams, l + 4);
+            // A lot of public cameras: https://www.insecam.org/en/byrating/?page=24
             _settings.cams[l] = new Camera
             {
-                name = "Hessdalen",
-                rtspBad = "http://freja.hiof.no:1935/rtplive/_definst_/hessdalen03.stream/playlist.m3u8",
+                name = "Tokyo",
+                rtspBad = "http://210.148.114.53/-wvhttp-01-/GetOneShot?image_size=640x480&frame_count=1000000000",
                 position = 0,
-                camIcon = 0,
+                camIcon = 1,
                 aspectRatio = "4:3"
             };
             _settings.cams[l + 1] = new Camera
             {
-                name = "USA golf",
-                rtspBad = "http://wmccpinetop.axiscam.net/mjpg/video.mjpg",
+                name = "Krasnodar, Sochi",
+                rtspBad = "http://158.58.130.148:80/mjpg/video.mjpg",
                 position = 1,
-                camIcon = 1
+                camIcon = 0,
+                aspectRatio = "4:3"
             };
             _settings.cams[l + 2] = new Camera
             {
-                name = "Highway",
-                rtspBad = "rtsp://170.93.143.139/rtplive/470011e600ef003a004ee33696235daa",
+                name = "Antwerpen, Antwerpen",
+                rtspBad = "http://81.83.10.9:8001/mjpg/video.mjpg",
                 position = 2,
-                camIcon = 1
+                camIcon = 0,
+                aspectRatio = "4:3"
             };
             _settings.cams[l + 3] = new Camera
             {
-                name = "Semerkand TV",
-                rtspBad = "rtmp://semerkandglb.mediatriple.net:1935/semerkandliveedge/semerkand2",
+                name = "Colorado, Glenwood Springs",
+                rtspBad = "http://208.72.70.172/mjpg/video.mjpg",
+                rtspGood = "http://208.72.70.171:80/mjpg/video.mjpg",
                 position = 3,
-                camIcon = 1
+                camIcon = 1,
+                aspectRatio = "4:3",
+                goodOnlyInFullview = 1
             };
         }
 
