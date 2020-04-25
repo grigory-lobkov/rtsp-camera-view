@@ -83,4 +83,4 @@ Special thanks to everyone who contributed to getting the RTSP Camera View to th
 
 ## Copyright and license
 
-Code and documentation copyright 2018 [Gregory Lobkov](https://github.com/grigory-lobkov). Code released under the [Apache License 2.0](https://github.com/grigory-lobkov/rtsp-camera-view/blob/master/LICENSE).
+Code and documentation copyright 2018-2020 [Gregory Lobkov](https://github.com/grigory-lobkov). Code released under the [Apache License 2.0](https://github.com/grigory-lobkov/rtsp-camera-view/blob/master/LICENSE).
