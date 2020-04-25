@@ -1,4 +1,5 @@
-﻿
+﻿# Translated to Chinese Simplified by Samuel Freeman
+# https://github.com/sndnvaps
 ##### Main
 
 # Control panel tab names
@@ -84,6 +85,7 @@ ModifySource/cancelCamButton = 取消
 ModifySource/delCamLabel = 删除摄像头
 ModifySource/cameraDeleteConfirm1 = 你真是要删除这个摄像头
 ModifySource/cameraDeleteConfirm2 = 你正在浏览当前摄像. 你确认要删除?
+ModifySource/rtspGoodOnlyInFullview = 僅在全屏模式下顯示
 
 
 

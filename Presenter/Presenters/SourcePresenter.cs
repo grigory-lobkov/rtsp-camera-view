@@ -382,21 +382,43 @@ namespace Presenter.Presenters
         private void CheckNeedSwitch()
         {
             if (log) View.Log("CheckNeedSwitch");
-            if (_badH <= 0) return;
-            if (View.Height > _badH && View.Width > _badW)
+            if (_badH <= 0 || _source == null) return;
+            if (_source.goodOnlyInFullview == 1)
             {
-                if (_shownPlayer != _goodPlayer && _goodString != "" && _goodPlayer != null)
+                if (View.Maximized)
                 {
-                    if (_goodPlayer.IsPlaying) GoodPlaying();
-                    else View.SwitchToGoodTimerEnabled = true;
+                    if (_shownPlayer != _goodPlayer && _goodString != "" && _goodPlayer != null)
+                    {
+                        if (_goodPlayer.IsPlaying) GoodPlaying();
+                        else View.SwitchToGoodTimerEnabled = true;
+                    }
+                }
+                else
+                {
+                    if (_shownPlayer != _badPlayer)
+                    {
+                        if (_badPlayer.IsPlaying) BadPlaying();
+                        else View.SwitchToBadTimerEnabled = true;
+                    }
                 }
             }
             else
             {
-                if (_shownPlayer != _badPlayer)
+                if (View.Height > _badH && View.Width > _badW)
                 {
-                    if (_badPlayer.IsPlaying) BadPlaying();
-                    else View.SwitchToBadTimerEnabled = true;
+                    if (_shownPlayer != _goodPlayer && _goodString != "" && _goodPlayer != null)
+                    {
+                        if (_goodPlayer.IsPlaying) GoodPlaying();
+                        else View.SwitchToGoodTimerEnabled = true;
+                    }
+                }
+                else
+                {
+                    if (_shownPlayer != _badPlayer)
+                    {
+                        if (_badPlayer.IsPlaying) BadPlaying();
+                        else View.SwitchToBadTimerEnabled = true;
+                    }
                 }
             }
         }

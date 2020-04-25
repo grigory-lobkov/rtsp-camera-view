@@ -48,6 +48,7 @@
             this.camNameModify = new System.Windows.Forms.Label();
             this.cameraDeleteConfirm1 = new System.Windows.Forms.Label();
             this.cameraDeleteConfirm2 = new System.Windows.Forms.Label();
+            this.rtspGoodOnlyInFullview = new System.Windows.Forms.CheckBox();
             this.camEditBtnsPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -59,7 +60,7 @@
             this.camNameInherit.Checked = true;
             this.camNameInherit.CheckState = System.Windows.Forms.CheckState.Checked;
             this.camNameInherit.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.camNameInherit.Location = new System.Drawing.Point(84, 54);
+            this.camNameInherit.Location = new System.Drawing.Point(84, 52);
             this.camNameInherit.Name = "camNameInherit";
             this.camNameInherit.Size = new System.Drawing.Size(85, 17);
             this.camNameInherit.TabIndex = 17;
@@ -74,7 +75,7 @@
             this.camNameShow.Checked = true;
             this.camNameShow.CheckState = System.Windows.Forms.CheckState.Checked;
             this.camNameShow.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.camNameShow.Location = new System.Drawing.Point(4, 54);
+            this.camNameShow.Location = new System.Drawing.Point(4, 52);
             this.camNameShow.Name = "camNameShow";
             this.camNameShow.Size = new System.Drawing.Size(51, 17);
             this.camNameShow.TabIndex = 15;
@@ -168,7 +169,7 @@
             this.cameraIcon.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.cameraIcon.HideSelection = false;
-            this.cameraIcon.Location = new System.Drawing.Point(0, 304);
+            this.cameraIcon.Location = new System.Drawing.Point(0, 317);
             this.cameraIcon.Margin = new System.Windows.Forms.Padding(0);
             this.cameraIcon.MultiSelect = false;
             this.cameraIcon.Name = "cameraIcon";
@@ -182,7 +183,7 @@
             // 
             this.aspectRatioLabel.AutoSize = true;
             this.aspectRatioLabel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.aspectRatioLabel.Location = new System.Drawing.Point(8, 402);
+            this.aspectRatioLabel.Location = new System.Drawing.Point(8, 407);
             this.aspectRatioLabel.Name = "aspectRatioLabel";
             this.aspectRatioLabel.Size = new System.Drawing.Size(63, 13);
             this.aspectRatioLabel.TabIndex = 10;
@@ -192,7 +193,7 @@
             // 
             this.aspectRatio.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.aspectRatio.Location = new System.Drawing.Point(0, 425);
+            this.aspectRatio.Location = new System.Drawing.Point(0, 427);
             this.aspectRatio.Name = "aspectRatio";
             this.aspectRatio.Size = new System.Drawing.Size(244, 20);
             this.aspectRatio.TabIndex = 22;
@@ -201,7 +202,7 @@
             // 
             this.camEditIconLabel.AutoSize = true;
             this.camEditIconLabel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.camEditIconLabel.Location = new System.Drawing.Point(8, 279);
+            this.camEditIconLabel.Location = new System.Drawing.Point(8, 296);
             this.camEditIconLabel.Name = "camEditIconLabel";
             this.camEditIconLabel.Size = new System.Drawing.Size(66, 13);
             this.camEditIconLabel.TabIndex = 11;
@@ -212,7 +213,7 @@
             this.rtspGood.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.rtspGood.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.rtspGood.Location = new System.Drawing.Point(0, 207);
+            this.rtspGood.Location = new System.Drawing.Point(0, 199);
             this.rtspGood.Multiline = true;
             this.rtspGood.Name = "rtspGood";
             this.rtspGood.Size = new System.Drawing.Size(244, 60);
@@ -225,7 +226,7 @@
             this.rtspBad.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.rtspBad.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.rtspBad.Location = new System.Drawing.Point(0, 113);
+            this.rtspBad.Location = new System.Drawing.Point(0, 105);
             this.rtspBad.Multiline = true;
             this.rtspBad.Name = "rtspBad";
             this.rtspBad.Size = new System.Drawing.Size(244, 60);
@@ -237,7 +238,7 @@
             // 
             this.camEditRtsp2Label.AutoSize = true;
             this.camEditRtsp2Label.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.camEditRtsp2Label.Location = new System.Drawing.Point(8, 184);
+            this.camEditRtsp2Label.Location = new System.Drawing.Point(8, 179);
             this.camEditRtsp2Label.Name = "camEditRtsp2Label";
             this.camEditRtsp2Label.Size = new System.Drawing.Size(168, 13);
             this.camEditRtsp2Label.TabIndex = 12;
@@ -247,7 +248,7 @@
             // 
             this.camEditRtsp1Label.AutoSize = true;
             this.camEditRtsp1Label.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.camEditRtsp1Label.Location = new System.Drawing.Point(8, 89);
+            this.camEditRtsp1Label.Location = new System.Drawing.Point(8, 84);
             this.camEditRtsp1Label.Name = "camEditRtsp1Label";
             this.camEditRtsp1Label.Size = new System.Drawing.Size(161, 13);
             this.camEditRtsp1Label.TabIndex = 13;
@@ -258,7 +259,7 @@
             this.camNameModify.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.camNameModify.ForeColor = System.Drawing.SystemColors.ControlText;
             this.camNameModify.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.camNameModify.Location = new System.Drawing.Point(130, 53);
+            this.camNameModify.Location = new System.Drawing.Point(130, 51);
             this.camNameModify.Name = "camNameModify";
             this.camNameModify.Size = new System.Drawing.Size(112, 17);
             this.camNameModify.TabIndex = 18;
@@ -287,10 +288,25 @@
             this.cameraDeleteConfirm2.Text = "You are watching this camera now. Are you sure?";
             this.cameraDeleteConfirm2.Visible = false;
             // 
+            // rtspGoodOnlyInFullview
+            // 
+            this.rtspGoodOnlyInFullview.AutoSize = true;
+            this.rtspGoodOnlyInFullview.Checked = true;
+            this.rtspGoodOnlyInFullview.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.rtspGoodOnlyInFullview.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.rtspGoodOnlyInFullview.Location = new System.Drawing.Point(4, 262);
+            this.rtspGoodOnlyInFullview.Name = "rtspGoodOnlyInFullview";
+            this.rtspGoodOnlyInFullview.Size = new System.Drawing.Size(180, 17);
+            this.rtspGoodOnlyInFullview.TabIndex = 25;
+            this.rtspGoodOnlyInFullview.TabStop = false;
+            this.rtspGoodOnlyInFullview.Text = "show only when in fullview mode";
+            this.rtspGoodOnlyInFullview.UseVisualStyleBackColor = true;
+            // 
             // ModifySourceControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.rtspGoodOnlyInFullview);
             this.Controls.Add(this.cameraDeleteConfirm1);
             this.Controls.Add(this.cameraDeleteConfirm2);
             this.Controls.Add(this.camNameInherit);
@@ -337,5 +353,6 @@
         private System.Windows.Forms.Button createCamButton;
         private System.Windows.Forms.Label cameraDeleteConfirm1;
         private System.Windows.Forms.Label cameraDeleteConfirm2;
+        private System.Windows.Forms.CheckBox rtspGoodOnlyInFullview;
     }
 }

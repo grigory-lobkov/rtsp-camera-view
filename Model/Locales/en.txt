@@ -1,4 +1,5 @@
-﻿
+﻿# Translated to English by Gregory Lobkov
+# https://github.com/grigory-lobkov
 ##### Main
 
 # Control panel tab names
@@ -84,7 +85,7 @@ ModifySource/cancelCamButton = Cancel
 ModifySource/delCamLabel = Delete camera
 ModifySource/cameraDeleteConfirm1 = Do you really want to delete camera
 ModifySource/cameraDeleteConfirm2 = You are watching this camera now. Are you sure?
-
+ModifySource/rtspGoodOnlyInFullview = show only when in fullview mode
 
 
 ##### NameViewSetup

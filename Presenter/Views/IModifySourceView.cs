@@ -17,6 +17,7 @@ namespace Presenter.Views
         bool IsNewSource { get; set; }
         bool IsNameShow { get; set; }
         bool IsNameInherit { get; set; }
+        int IsGoodOnlyInFullview { get; set; }
 
         event Action CreateClick;
         event Action SaveClick;
@@ -47,6 +48,7 @@ namespace Presenter.Views
         string DelCamLabelText { set; }
         string CameraDeleteConfirm1Text { set; }
         string CameraDeleteConfirm2Text { set; }
+        string RtspGoodOnlyInFullviewText { set; }
 
     }
 }

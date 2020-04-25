@@ -85,6 +85,7 @@ ModifySource/cancelCamButton = Annuler
 ModifySource/delCamLabel = Supprimer caméra
 ModifySource/cameraDeleteConfirm1 = Voulez-vous vraiment supprimer la caméra ?
 ModifySource/cameraDeleteConfirm2 = Vous regardez cette caméra actuellement, êtes-vous certain de vouloir la supprimer ?
+ModifySource/rtspGoodOnlyInFullview = afficher uniquement en mode plein écran
 
 
 

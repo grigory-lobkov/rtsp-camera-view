@@ -84,6 +84,7 @@ ModifySource/cancelCamButton = Anuluj
 ModifySource/delCamLabel = Usuń kamerę
 ModifySource/cameraDeleteConfirm1 = Czy na pewno usunąć kamerę?
 ModifySource/cameraDeleteConfirm2 = Właśnie oglądasz widok z tej kamery. Na pewno?
+ModifySource/rtspGoodOnlyInFullview = pokaż tylko w trybie pełnego widoku
 
 
 

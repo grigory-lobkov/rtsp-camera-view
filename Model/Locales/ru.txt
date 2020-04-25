@@ -1,4 +1,5 @@
-﻿
+﻿# Translated to Russian by Gregory Lobkov
+# https://github.com/grigory-lobkov
 ##### Main
 
 # Вкладки панели управления
@@ -84,6 +85,7 @@ ModifySource/cancelCamButton = Отмена
 ModifySource/delCamLabel = Удалить камеру
 ModifySource/cameraDeleteConfirm1 = Вы действительно хотите удалить камеру?
 ModifySource/cameraDeleteConfirm2 = Вы сейчас просматриваете эту камеру. Удалять?
+ModifySource/rtspGoodOnlyInFullview = Только при открытии во все окно
 
 
 

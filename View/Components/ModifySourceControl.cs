@@ -122,6 +122,11 @@ namespace View.Components
             if (sender == rtspBad) Invoke(RtspBadEnter);
             if (sender == rtspGood) Invoke(RtspGoodEnter);
         }
+        public int IsGoodOnlyInFullview
+        {
+            get { return rtspGoodOnlyInFullview.Checked ? 1 : 0; }
+            set { rtspGoodOnlyInFullview.Checked = value == 1; }
+        }
 
         public event Action CreateClick;
         public event Action SaveClick;
@@ -201,6 +206,7 @@ namespace View.Components
         public string DelCamLabelText { set { if (value != "") delCamLabel.Text = value; } }
         public string CameraDeleteConfirm1Text { set { if (value != "") cameraDeleteConfirm1.Text = value; } }
         public string CameraDeleteConfirm2Text { set { if (value != "") cameraDeleteConfirm2.Text = value; } }
+        public string RtspGoodOnlyInFullviewText { set { if (value != "") rtspGoodOnlyInFullview.Text = value; } }
 
     }
 }

@@ -33,6 +33,7 @@ namespace Presenter.Presenters
             View.DelCamLabelText = Locale.Instance.Get("ModifySource/delCamLabel");
             View.CameraDeleteConfirm1Text = Locale.Instance.Get("ModifySource/cameraDeleteConfirm1");
             View.CameraDeleteConfirm2Text = Locale.Instance.Get("ModifySource/cameraDeleteConfirm2");
+            View.RtspGoodOnlyInFullviewText = Locale.Instance.Get("ModifySource/rtspGoodOnlyInFullview");
 
             // View actions
             View.CreateClick += SaveClick;
@@ -66,6 +67,7 @@ namespace Presenter.Presenters
             View.AspectRatio = _camera.aspectRatio;
             View.CamIcon = _camera.camIcon;
             View.Position = _camera.position;
+            View.IsGoodOnlyInFullview = _camera.goodOnlyInFullview;
             View.IsNameShow = _nameView.enabled;
             View.IsNameInherit = _nameView.inheritGlobal;
         }
@@ -85,6 +87,7 @@ namespace Presenter.Presenters
                 _camera.rtspBad == View.RtspBad &&
                 _camera.rtspGood == View.RtspGood &&
                 _camera.aspectRatio == View.AspectRatio &&
+                _camera.goodOnlyInFullview == View.IsGoodOnlyInFullview &&
                 _camera.camIcon == View.CamIcon;
             if (notModified)
             {
@@ -99,6 +102,7 @@ namespace Presenter.Presenters
                 _camera.rtspGood = View.RtspGood;
                 _camera.aspectRatio = View.AspectRatio;
                 _camera.camIcon = View.CamIcon;
+                _camera.goodOnlyInFullview = View.IsGoodOnlyInFullview;
                 if (View.IsNewSource) Create?.Invoke(); else Save?.Invoke();
                 View.Hide();
             }
